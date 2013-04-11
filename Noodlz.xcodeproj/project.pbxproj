@@ -1,0 +1,754 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E37ABCF16AD9EFE00C333A4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E37ABC016AD884700C333A4 /* WebKit.framework */; };
+		E59CD16A11EA0C4000955611 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59CD16911EA0C4000955611 /* Cocoa.framework */; };
+		E5CA922116F6243A00B3A81D /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5CA922016F6243A00B3A81D /* LLDB.framework */; };
+		E5CA922216F6244600B3A81D /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CA922016F6243A00B3A81D /* LLDB.framework */; };
+		E5D64525120A0B92009C26A9 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFEF0B83433800BC506C /* Application.cpp */; };
+		E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFF10B83433800BC506C /* MainWindow.cpp */; };
+		E5D64528120A0B92009C26A9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD30B833F1500BC506C /* CoreFoundation.framework */; };
+		E5D64529120A0B92009C26A9 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD40B833F1500BC506C /* CoreServices.framework */; };
+		E5D6452A120A0B92009C26A9 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD60B833F1500BC506C /* OpenGL.framework */; };
+		E5D6452C120A0B92009C26A9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59CD16911EA0C4000955611 /* Cocoa.framework */; };
+		E5D6453D120AA7D8009C26A9 /* libnui3Cocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D644FB120A01E0009C26A9 /* libnui3Cocoa.a */; };
+		E5EF6FBC11E77DE8000FB337 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFEF0B83433800BC506C /* Application.cpp */; };
+		E5EF6FBD11E77DE8000FB337 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFF10B83433800BC506C /* MainWindow.cpp */; };
+		E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD30B833F1500BC506C /* CoreFoundation.framework */; };
+		E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD40B833F1500BC506C /* CoreServices.framework */; };
+		E5EF6FC311E77DE8000FB337 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD60B833F1500BC506C /* OpenGL.framework */; };
+		E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */; };
+		E5F8FA3A16F4EAD000563A78 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F8FA1116F4C04D00563A78 /* LLDB.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCBCB15B0DFD45B6002E8BC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E58172D80C3D103300902DFE;
+			remoteInfo = nui3D;
+		};
+		BCBCB15D0DFD45B6002E8BC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E542A1AE0C3F0A5900225219;
+			remoteInfo = nui3;
+		};
+		E50C19DB14B7C40D00C6C5B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E5FB9CF3147D5CEE001A1829;
+			remoteInfo = minui3D;
+		};
+		E52420ED11CBCEBC0025CA71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E52420E511CBCE9E0025CA71;
+			remoteInfo = nuiPhone;
+		};
+		E56C84F912FD9D2B00231540 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 73F086E612E9BA0700656E84;
+			remoteInfo = nuiPhone_arm7;
+		};
+		E56C84FB12FD9D2B00231540 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 73F09AC312E9D09E00656E84;
+			remoteInfo = thirdparty_ios_arm7;
+		};
+		E5A630D411CA7CCD00446489 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E5A626F311CA240100446489;
+			remoteInfo = nuiPhoneD;
+		};
+		E5D4E8E512E4A9000001A86F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E5DD3FF412E0B08300F1EF4E;
+			remoteInfo = thirdparty_ios;
+		};
+		E5D644FA120A01E0009C26A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E5D643E51209AB9C009C26A9;
+			remoteInfo = nui3Cocoa;
+		};
+		E5D64534120A0BA3009C26A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E5D63EBB1209AB9C009C26A9;
+			remoteInfo = nui3Cocoa;
+		};
+		E5DD348312E0A30100F1EF4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E5DD341012E09CA800F1EF4E;
+			remoteInfo = thirdparty;
+		};
+		E5EF6FB011E77DE0000FB337 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E5A8D1D311E33A54004E14CE;
+			remoteInfo = nui3CocoaD;
+		};
+		E5EF6FCB11E77E22000FB337 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E5A8CCAE11E33A54004E14CE;
+			remoteInfo = nui3CocoaD;
+		};
+		E5F8FA0E16F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 26F5C26A10F3D9A4009D5894;
+			remoteInfo = "lldb-tool";
+		};
+		E5F8FA1016F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 26680207115FD0ED008E1FE4;
+			remoteInfo = LLDB;
+		};
+		E5F8FA1216F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 26579F68126A25920007C5CB;
+			remoteInfo = "darwin-debug";
+		};
+		E5F8FA1416F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2689FFCA13353D7A00698AC0;
+			remoteInfo = "lldb-core";
+		};
+		E5F8FA1616F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 26DC6A101337FE6900FF7998;
+			remoteInfo = "lldb-platform";
+		};
+		E5F8FA1816F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDC6D49914E5C19B001B75F8;
+			remoteInfo = launcherXPCService;
+		};
+		E5F8FA1A16F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDE274EC14EDCE1F005B0F75;
+			remoteInfo = launcherRootXPCService;
+		};
+		E5F8FA1C16F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 940DB89A16EA5F4200D3C2F1;
+			remoteInfo = lldbperf;
+		};
+		E5F8FA1E16F4C04D00563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 940DB8AD16EA60C900D3C2F1;
+			remoteInfo = "lldb-perf-sketch";
+		};
+		E5F8FA2C16F4C06600563A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 26680206115FD0ED008E1FE4;
+			remoteInfo = LLDB;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5CA921B16F6011800B3A81D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E5CA922116F6243A00B3A81D /* LLDB.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		61A9DFD20B833F1500BC506C /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		61A9DFD30B833F1500BC506C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		61A9DFD40B833F1500BC506C /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		61A9DFD50B833F1500BC506C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		61A9DFD60B833F1500BC506C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		61A9DFEF0B83433800BC506C /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Application.cpp; path = src/Application.cpp; sourceTree = "<group>"; };
+		61A9DFF00B83433800BC506C /* Application.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Application.h; path = src/Application.h; sourceTree = "<group>"; };
+		61A9DFF10B83433800BC506C /* MainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = MainWindow.cpp; path = src/MainWindow.cpp; sourceTree = "<group>"; };
+		61A9DFF20B83433800BC506C /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MainWindow.h; path = src/MainWindow.h; sourceTree = "<group>"; };
+		6E37ABC016AD884700C333A4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nui3.xcodeproj; path = ../nui3/nui3.xcodeproj; sourceTree = SOURCE_ROOT; };
+		E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lldb.xcodeproj; path = ../llvm/tools/lldb/lldb.xcodeproj; sourceTree = "<group>"; };
+		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
+		E5CA922016F6243A00B3A81D /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = "../build/lldb-dmzgfcxvrgkxxsfheghwwrsuhqkn/Build/Products/Debug/LLDB.framework"; sourceTree = "<group>"; };
+		E5CA922316F62CB200B3A81D /* NoodlzD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NoodlzD.entitlements; sourceTree = "<group>"; };
+		E5D64530120A0B92009C26A9 /* Noodlz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodlz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EF6FC811E77DE8000FB337 /* NoodlzD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoodlzD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5D64527120A0B92009C26A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5F8FA3A16F4EAD000563A78 /* LLDB.framework in Frameworks */,
+				6E37ABCF16AD9EFE00C333A4 /* WebKit.framework in Frameworks */,
+				E5D64528120A0B92009C26A9 /* CoreFoundation.framework in Frameworks */,
+				E5D64529120A0B92009C26A9 /* CoreServices.framework in Frameworks */,
+				E5D6452A120A0B92009C26A9 /* OpenGL.framework in Frameworks */,
+				E5D6453D120AA7D8009C26A9 /* libnui3Cocoa.a in Frameworks */,
+				E5D6452C120A0B92009C26A9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EF6FBE11E77DE8000FB337 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */,
+				E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */,
+				E5EF6FC311E77DE8000FB337 /* OpenGL.framework in Frameworks */,
+				E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */,
+				E5CA922216F6244600B3A81D /* LLDB.framework in Frameworks */,
+				E59CD16A11EA0C4000955611 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61A9DE3D0B833C9200BC506C = {
+			isa = PBXGroup;
+			children = (
+				E5CA922316F62CB200B3A81D /* NoodlzD.entitlements */,
+				E5C5912216722BA500BAEDE4 /* resources */,
+				61A9DE4A0B833CD000BC506C /* sources */,
+				61A9DE490B833CB000BC506C /* dependencies */,
+				61A9DFB50B833DE500BC506C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61A9DE490B833CB000BC506C /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				E5F8FA2F16F4C5B300563A78 /* Frameworks */,
+				BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */,
+				E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */,
+				E59CD30011EA94A000955611 /* Info.plist */,
+			);
+			name = dependencies;
+			sourceTree = "<group>";
+		};
+		61A9DE4A0B833CD000BC506C /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				61A9DFEF0B83433800BC506C /* Application.cpp */,
+				61A9DFF00B83433800BC506C /* Application.h */,
+				61A9DFF10B83433800BC506C /* MainWindow.cpp */,
+				61A9DFF20B83433800BC506C /* MainWindow.h */,
+			);
+			name = sources;
+			sourceTree = "<group>";
+		};
+		61A9DFB50B833DE500BC506C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF6FC811E77DE8000FB337 /* NoodlzD.app */,
+				E5D64530120A0B92009C26A9 /* Noodlz.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCBCB1530DFD45B5002E8BC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCBCB15C0DFD45B6002E8BC3 /* libnui3D.a */,
+				BCBCB15E0DFD45B6002E8BC3 /* libnui3.a */,
+				E5A630D511CA7CCD00446489 /* libnuiPhoneD.a */,
+				E52420EE11CBCEBC0025CA71 /* libnuiPhone.a */,
+				E56C84FA12FD9D2B00231540 /* libnuiPhone_arm7.a */,
+				E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */,
+				E5D644FB120A01E0009C26A9 /* libnui3Cocoa.a */,
+				E5DD348412E0A30100F1EF4E /* libthirdparty.a */,
+				E5D4E8E612E4A9000001A86F /* libthirdparty_ios.a */,
+				E56C84FC12FD9D2B00231540 /* libthirdparty_ios_arm7.a */,
+				E50C19DC14B7C40D00C6C5B2 /* libminui3D.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5F8F9FF16F4C04D00563A78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5F8FA0F16F4C04D00563A78 /* lldb */,
+				E5F8FA1116F4C04D00563A78 /* LLDB.framework */,
+				E5F8FA1316F4C04D00563A78 /* darwin-debug */,
+				E5F8FA1516F4C04D00563A78 /* liblldb-core.a */,
+				E5F8FA1716F4C04D00563A78 /* lldb-platform */,
+				E5F8FA1916F4C04D00563A78 /* com.apple.lldb.launcherXPCService.xpc */,
+				E5F8FA1B16F4C04D00563A78 /* com.apple.lldb.launcherRootXPCService.xpc */,
+				E5F8FA1D16F4C04D00563A78 /* lldbperf.a */,
+				E5F8FA1F16F4C04D00563A78 /* lldb-perf-sketch */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5F8FA2F16F4C5B300563A78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5CA922016F6243A00B3A81D /* LLDB.framework */,
+				6E37ABC016AD884700C333A4 /* WebKit.framework */,
+				61A9DFD20B833F1500BC506C /* AGL.framework */,
+				61A9DFD30B833F1500BC506C /* CoreFoundation.framework */,
+				61A9DFD40B833F1500BC506C /* CoreServices.framework */,
+				61A9DFD50B833F1500BC506C /* Carbon.framework */,
+				61A9DFD60B833F1500BC506C /* OpenGL.framework */,
+				E59CD16911EA0C4000955611 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5D64521120A0B92009C26A9 /* Noodlz OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Noodlz OSX" */;
+			buildPhases = (
+				E5D64524120A0B92009C26A9 /* Sources */,
+				E5D64527120A0B92009C26A9 /* Frameworks */,
+				E5D6452D120A0B92009C26A9 /* Copy Resources Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5F8FA2D16F4C06600563A78 /* PBXTargetDependency */,
+				E5D64535120A0BA3009C26A9 /* PBXTargetDependency */,
+			);
+			name = "Noodlz OSX";
+			productName = Tempd;
+			productReference = E5D64530120A0B92009C26A9 /* Noodlz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5EF6FB811E77DE8000FB337 /* NoodlzD OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5EF6FC611E77DE8000FB337 /* Build configuration list for PBXNativeTarget "NoodlzD OSX" */;
+			buildPhases = (
+				E5EF6FBB11E77DE8000FB337 /* Sources */,
+				E5EF6FBE11E77DE8000FB337 /* Frameworks */,
+				E5EF6FC511E77DE8000FB337 /* Copy Resources Script */,
+				E5CA921B16F6011800B3A81D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5EF6FCC11E77E22000FB337 /* PBXTargetDependency */,
+			);
+			name = "NoodlzD OSX";
+			productName = Tempd;
+			productReference = E5EF6FC811E77DE8000FB337 /* NoodlzD.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61A9DE3F0B833C9200BC506C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Noodlz" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 61A9DE3D0B833C9200BC506C;
+			productRefGroup = 61A9DFB50B833DE500BC506C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E5F8F9FF16F4C04D00563A78 /* Products */;
+					ProjectRef = E55F733F16F4C010002AE7D8 /* lldb.xcodeproj */;
+				},
+				{
+					ProductGroup = BCBCB1530DFD45B5002E8BC3 /* Products */;
+					ProjectRef = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E5EF6FB811E77DE8000FB337 /* NoodlzD OSX */,
+				E5D64521120A0B92009C26A9 /* Noodlz OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BCBCB15C0DFD45B6002E8BC3 /* libnui3D.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnui3D.a;
+			remoteRef = BCBCB15B0DFD45B6002E8BC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BCBCB15E0DFD45B6002E8BC3 /* libnui3.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnui3.a;
+			remoteRef = BCBCB15D0DFD45B6002E8BC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E50C19DC14B7C40D00C6C5B2 /* libminui3D.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libminui3D.a;
+			remoteRef = E50C19DB14B7C40D00C6C5B2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E52420EE11CBCEBC0025CA71 /* libnuiPhone.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnuiPhone.a;
+			remoteRef = E52420ED11CBCEBC0025CA71 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E56C84FA12FD9D2B00231540 /* libnuiPhone_arm7.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnuiPhone_arm7.a;
+			remoteRef = E56C84F912FD9D2B00231540 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E56C84FC12FD9D2B00231540 /* libthirdparty_ios_arm7.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libthirdparty_ios_arm7.a;
+			remoteRef = E56C84FB12FD9D2B00231540 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5A630D511CA7CCD00446489 /* libnuiPhoneD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnuiPhoneD.a;
+			remoteRef = E5A630D411CA7CCD00446489 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5D4E8E612E4A9000001A86F /* libthirdparty_ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libthirdparty_ios.a;
+			remoteRef = E5D4E8E512E4A9000001A86F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5D644FB120A01E0009C26A9 /* libnui3Cocoa.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnui3Cocoa.a;
+			remoteRef = E5D644FA120A01E0009C26A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5DD348412E0A30100F1EF4E /* libthirdparty.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libthirdparty.a;
+			remoteRef = E5DD348312E0A30100F1EF4E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnui3CocoaD.a;
+			remoteRef = E5EF6FB011E77DE0000FB337 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA0F16F4C04D00563A78 /* lldb */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = lldb;
+			remoteRef = E5F8FA0E16F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1116F4C04D00563A78 /* LLDB.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LLDB.framework;
+			remoteRef = E5F8FA1016F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1316F4C04D00563A78 /* darwin-debug */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "darwin-debug";
+			remoteRef = E5F8FA1216F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1516F4C04D00563A78 /* liblldb-core.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = "liblldb-core.a";
+			remoteRef = E5F8FA1416F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1716F4C04D00563A78 /* lldb-platform */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "lldb-platform";
+			remoteRef = E5F8FA1616F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1916F4C04D00563A78 /* com.apple.lldb.launcherXPCService.xpc */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = com.apple.lldb.launcherXPCService.xpc;
+			remoteRef = E5F8FA1816F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1B16F4C04D00563A78 /* com.apple.lldb.launcherRootXPCService.xpc */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = com.apple.lldb.launcherRootXPCService.xpc;
+			remoteRef = E5F8FA1A16F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1D16F4C04D00563A78 /* lldbperf.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = lldbperf.a;
+			remoteRef = E5F8FA1C16F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E5F8FA1F16F4C04D00563A78 /* lldb-perf-sketch */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "lldb-perf-sketch";
+			remoteRef = E5F8FA1E16F4C04D00563A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E5D6452D120A0B92009C26A9 /* Copy Resources Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Resources Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -rC ./resources/ --exclude \".*\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\n../nui3/tools/make_rc.py resources resource.rc\necho 0 ICON \\\"resources/icon.ico\\\" >> resource.rc\n";
+		};
+		E5EF6FC511E77DE8000FB337 /* Copy Resources Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Resources Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -rC ./resources/ --exclude \".*\" \"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\n../nui3/tools/make_rc.py resources resource.rc\necho 0 ICON \\\"resources/icon.ico\\\" >> resource.rc\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5D64524120A0B92009C26A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D64525120A0B92009C26A9 /* Application.cpp in Sources */,
+				E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EF6FBB11E77DE8000FB337 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EF6FBC11E77DE8000FB337 /* Application.cpp in Sources */,
+				E5EF6FBD11E77DE8000FB337 /* MainWindow.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5D64535120A0BA3009C26A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nui3Cocoa;
+			targetProxy = E5D64534120A0BA3009C26A9 /* PBXContainerItemProxy */;
+		};
+		E5EF6FCC11E77E22000FB337 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nui3CocoaD;
+			targetProxy = E5EF6FCB11E77E22000FB337 /* PBXContainerItemProxy */;
+		};
+		E5F8FA2D16F4C06600563A78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LLDB;
+			targetProxy = E5F8FA2C16F4C06600563A78 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		61A9DE410B833C9200BC506C /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				HEADER_SEARCH_PATHS = ../nui3/include;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-liconv",
+				);
+				SDKROOT = macosx;
+			};
+			name = Default;
+		};
+		E5D6452F120A0B92009C26A9 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = NoodlzCocoa.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../llvm/tools/lldb/build/BuildAndIntegration\"",
+					"\"$(SRCROOT)/../build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/BuildAndIntegration\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = _COCOA_;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRODUCT_NAME = Noodlz;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		E5EF6FC711E77DE8000FB337 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = NoodlzD.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/BuildAndIntegration\"",
+					"\"$(SRCROOT)/../build/lldb-dmzgfcxvrgkxxsfheghwwrsuhqkn/Build/Products/Debug\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_COCOA_,
+					_DEBUG,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = NoodlzD;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Noodlz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61A9DE410B833C9200BC506C /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Noodlz OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D6452F120A0B92009C26A9 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		E5EF6FC611E77DE8000FB337 /* Build configuration list for PBXNativeTarget "NoodlzD OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5EF6FC711E77DE8000FB337 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61A9DE3F0B833C9200BC506C /* Project object */;
+}

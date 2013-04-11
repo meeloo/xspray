@@ -1,0 +1,51 @@
+//
+// main nui3 stylesheet
+//
+
+// you can include your stylesheets this way:
+// #include "myStylesheet.css"
+
+// remember each stylesheet file must have at least a blank ending line, 
+// or the stylehsheet parsing may not work properly
+
+@font Helvetica
+{
+  Name: "Helvetica";
+  Size: 12;
+}
+
+
++nuiHBox Transport
+{
+  +nuiButton StartStop
+  {
+    +nuiLabel{ Text: "Start/Stop"; }
+  }
+
+  +nuiButton PauseContinue
+  {
+    +nuiLabel{ Text: "Pause/Continue"; }
+  }
+}
+
++nuiHBox MainArea
+{
+  
+}
+
++nuiLayout Debugger
+{
+  VAnchors_header = 22;
+  VAnchorsType_header = Absolute;
+
+  +Transport
+  {
+    Layout = [left, right] / [top, header];
+  }
+
+  +nuiSimpleContainer MainArea
+  {
+  }
+
+}
+
