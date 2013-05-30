@@ -11,6 +11,7 @@
 #include "nuiApplication.h"
 
 #include <LLDB/LLDB.h>
+#include <LLDB/SBStream.h>
 
 
 class MainWindow;

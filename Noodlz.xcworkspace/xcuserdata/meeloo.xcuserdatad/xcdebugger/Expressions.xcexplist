@@ -3,15 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "nuiShaderProgram::Link():nuiShader.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "nuiUniformDesc::Apply() const:nuiUniformDesc.cpp">
+      </ContextState>
+      <ContextState
          contextName = "nuiShaderProgram::SetVertexPointers(nuiRenderArray const&amp;):nuiShader.cpp">
          <PersistentStrings>
             <PersistentString
                value = "GL_FLOAT">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "nuiShaderProgram::Link():nuiShader.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
