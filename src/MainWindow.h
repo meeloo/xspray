@@ -26,5 +26,7 @@ protected:
   void OnStart(const nuiEvent& rEvent);
   void OnPause(const nuiEvent& rEvent);
   void Loop();
+
+  nglThreadDelegate* mpDebuggerEventLoop;
 };
 

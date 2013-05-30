@@ -259,9 +259,9 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
 //     "watch", // - log watchpoint related activities\n");
     NULL
   };
-  rContext.mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
+  //rContext.mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
 //  rContext.mDebugger.EnableLog(channel, categories);
-  rContext.mDebugger.SetAsync(false);
+  //rContext.mDebugger.SetAsync(false);
 
   if (rContext.mDebugger.IsValid())
   {
@@ -296,7 +296,11 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
                      stop_at_entry,
                      error);
 #endif
-      
+
+      mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &MainWindow::Loop));
+      mpDebuggerEventLoop->Start();
+
+
 //      if (rContext.mProcess.IsValid())
 //      {
 //        NGL_OUT("Launch (res = %s)\n", error.GetCString());

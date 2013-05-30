@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/MainWindow.cpp"
-         timestampString = "391643045.440307"
+         timestampString = "391645130.387869"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "344"
-         endingLineNumber = "344"
+         startingLineNumber = "348"
+         endingLineNumber = "348"
          landmarkName = "MainWindow::OnPause(const nuiEvent&amp; rEvent)"
          landmarkType = "5">
       </FileBreakpoint>
