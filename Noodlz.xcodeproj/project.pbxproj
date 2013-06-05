@@ -10,6 +10,8 @@
 		6E37ABCF16AD9EFE00C333A4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E37ABC016AD884700C333A4 /* WebKit.framework */; };
 		E50FD30A1752C0D100C4AA66 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
+		E50FD31B175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */; };
+		E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */; };
 		E59CD16A11EA0C4000955611 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59CD16911EA0C4000955611 /* Cocoa.framework */; };
 		E5D64525120A0B92009C26A9 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFEF0B83433800BC506C /* Application.cpp */; };
 		E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFF10B83433800BC506C /* MainWindow.cpp */; };
@@ -147,6 +149,8 @@
 		BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nui3.xcodeproj; path = ../nui3/nui3.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = "../build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/Release/LLDB.framework"; sourceTree = "<group>"; };
 		E50FD30D17534D9900C4AA66 /* LLDB Python API */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LLDB Python API"; sourceTree = "<group>"; };
+		E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProcessTree.cpp; path = src/ProcessTree.cpp; sourceTree = "<group>"; };
+		E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessTree.h; path = src/ProcessTree.h; sourceTree = "<group>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 				61A9DFF00B83433800BC506C /* Application.h */,
 				61A9DFF10B83433800BC506C /* MainWindow.cpp */,
 				61A9DFF20B83433800BC506C /* MainWindow.h */,
+				E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */,
+				E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */,
 			);
 			name = sources;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 			files = (
 				E5D64525120A0B92009C26A9 /* Application.cpp in Sources */,
 				E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */,
+				E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +466,7 @@
 			files = (
 				E5EF6FBC11E77DE8000FB337 /* Application.cpp in Sources */,
 				E5EF6FBD11E77DE8000FB337 /* MainWindow.cpp in Sources */,
+				E50FD31B175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

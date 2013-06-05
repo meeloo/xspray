@@ -22,9 +22,14 @@
     +nuiLabel{ Text: "Start/Stop"; }
   }
 
-  +nuiButton PauseContinue
+  +nuiButton Pause
   {
-    +nuiLabel{ Text: "Pause/Continue"; }
+    +nuiLabel{ Text: "Pause"; }
+  }
+
+  +nuiButton Continue
+  {
+    +nuiLabel{ Text: "Continue"; }
   }
 }
 
@@ -38,14 +43,33 @@
   VAnchors_header = 22;
   VAnchorsType_header = Absolute;
 
+  VAnchors_watches = -100;
+  VAnchorsType_watches = Absolute;
+
+  HAnchors_threads = 300;
+  VAnchorsType_threads = Absolute;
+
   +Transport
   {
     Layout = [left, right] / [top, header];
   }
 
-  +nuiSimpleContainer MainArea
+  +nuiScrollView ThreadsScroller
   {
+    Layout = [left, threads] / [header, bottom];
+    +nuiTreeView Threads
+    {
+    }
   }
 
+  +nuiText SourceView
+  {
+    Layout = [threads, right] / [header, watches];
+  }
+
+  +nuiGrid Watches
+  {
+    Layout = [threads, right] / [watches, bottom];
+  }
 }
 

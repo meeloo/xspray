@@ -8,6 +8,7 @@
 #pragma once
 
 #include "nuiMainWindow.h"
+#include "ProcessTree.h"
 
 class MainWindow : public nuiMainWindow
 {
@@ -18,6 +19,7 @@ public:
   void OnCreation();
   void OnClose();
 
+  void UpdateProcess();
 protected:
   bool LoadCSS(const nglPath& rPath);
 
@@ -25,8 +27,11 @@ protected:
 
   void OnStart(const nuiEvent& rEvent);
   void OnPause(const nuiEvent& rEvent);
+  void OnContinue(const nuiEvent& rEvent);
   void Loop();
 
   nglThreadDelegate* mpDebuggerEventLoop;
+
+  nuiTreeView* mpThreads;
 };
 

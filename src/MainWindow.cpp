@@ -26,7 +26,6 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   SetDebugMode(true);
   EnableAutoRotation(true);
 
-
 #ifdef _DEBUG_
   nglString t = "DEBUG";
 #else
@@ -38,17 +37,26 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
 
   LoadCSS(_T("rsrc:/css/main.css"));
 
-  nuiWidget* pTransport = nuiBuilder::Get().CreateWidget("Debugger");
-  NGL_ASSERT(pTransport);
-  AddChild(pTransport);
+  nuiWidget* pDebugger = nuiBuilder::Get().CreateWidget("Debugger");
+  NGL_ASSERT(pDebugger);
+  //pDebugger->SetDebug(true);
+  //pDebugger->SetTrace(1);
+  AddChild(pDebugger);
 
-  nuiButton* pStart = (nuiButton*)pTransport->SearchForChild("StartStop", true);
-  nuiButton* pPause = (nuiButton*)pTransport->SearchForChild("PauseContinue", true);
-  //nuiButton* pStop = (nuiButton*)pTransport->SearchForChild("Stop", true);
+  mpThreads = (nuiTreeView*)pDebugger->SearchForChild("Threads", true);
+  //mpThreads->SetDebug(true);
+  //mpThreads->SetTrace(1);
+  NGL_ASSERT(mpThreads);
+
+  nuiButton* pStart = (nuiButton*)pDebugger->SearchForChild("StartStop", true);
+  nuiButton* pPause = (nuiButton*)pDebugger->SearchForChild("Pause", true);
+  nuiButton* pContinue = (nuiButton*)pDebugger->SearchForChild("Continue", true);
+  //nuiButton* pStop = (nuiButton*)pDebugger->SearchForChild("Stop", true);
 
   mEventSink.Connect(pStart->Activated, &MainWindow::OnStart);
   mEventSink.Connect(pPause->Activated, &MainWindow::OnPause);
-  //mEventSink.Connect(pStop->Activated, &MainWindow::OnStop);
+  mEventSink.Connect(pContinue->Activated, &MainWindow::OnContinue);
+
 }
 
 MainWindow::~MainWindow()
@@ -196,10 +204,8 @@ void PrintDebugState(SBProcess& rProcess)
       SBFrame frame(thread.GetFrameAtIndex(j));
       NGL_OUT("\t%d - %s\n", j, frame.GetFunctionName());
     }
-    printf("State:\n%s\n", st.GetData());
+//    printf("State:\n%s\n", st.GetData());
   }
-  rProcess.Continue();
-
 }
 
 
@@ -263,6 +269,10 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
 //  rContext.mDebugger.EnableLog(channel, categories);
   //rContext.mDebugger.SetAsync(false);
 
+  mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &MainWindow::Loop));
+  mpDebuggerEventLoop->Start();
+
+
   if (rContext.mDebugger.IsValid())
   {
     // Create a target using the executable.
@@ -270,7 +280,7 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
     if (rContext.mTarget.IsValid())
     {
       static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
-      breakpoint.SetCallback(BPCallback, 0);
+      //breakpoint.SetCallback(BPCallback, 0);
 
       SBError error;
 #if 1
@@ -297,32 +307,10 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
                      error);
 #endif
 
-      mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &MainWindow::Loop));
-      mpDebuggerEventLoop->Start();
-
-
-//      if (rContext.mProcess.IsValid())
-//      {
-//        NGL_OUT("Launch (res = %s)\n", error.GetCString());
-////        while (rContext.mProcess.GetState() == eStateLaunching)
-////          nglThread::MsSleep(10);
-//        state = rContext.mProcess.GetState();
-//        NGL_OUT("State after load: %s\n", GetStateName(state));
-////        error = rContext.mProcess.Stop();
-////        NGL_OUT("Stop after launch (res = %s)\n", error.GetCString());
-//        state = rContext.mProcess.GetState();
-//
-//        PrintDebugState(rContext.mProcess);
-//
-//        SBThread thread = rContext.mProcess.GetThreadAtIndex(0);
-//        thread.Resume();
-//
-//        NGL_OUT("Launched!!!\n");
-//        PrintDebugState(rContext.mProcess);
-//      }
     }
   }
 
+  //UpdateProcess();
   NGL_OUT("Start\n");
   
 }
@@ -330,22 +318,19 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
 void MainWindow::OnPause(const nuiEvent& rEvent)
 {
   DebuggerContext& rContext(GetDebuggerContext());
-  PrintDebugState(rContext.mProcess);
-
   SBError error;
   StateType state = rContext.mProcess.GetState();
   NGL_OUT("State on pause: %s\n", GetStateName(state));
-  if (state == eStateRunning)
-    error = rContext.mProcess.Stop();
-  else
-    error = rContext.mProcess.Continue();
+  error = rContext.mProcess.Stop();
+}
 
-  state = rContext.mProcess.GetState();
-  NGL_OUT("State after pause: %s\n", GetStateName(state));
-
-  NGL_OUT("Pause/Continuer (res = %s)\n", error.GetCString());
-
-  PrintDebugState(rContext.mProcess);
+void MainWindow::OnContinue(const nuiEvent& rEvent)
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+  SBError error;
+  StateType state = rContext.mProcess.GetState();
+  NGL_OUT("State on continue: %s\n", GetStateName(state));
+  error = rContext.mProcess.Continue();
 }
 
 void MainWindow::Loop()
@@ -359,90 +344,83 @@ void MainWindow::Loop()
       rContext.mDebugger.GetListener().WaitForEvent(UINT32_MAX, evt);
       StateType state = SBProcess::GetStateFromEvent(evt);
 
+      if (SBProcess::GetRestartedFromEvent (evt))
+      {
+        size_t num_reasons = SBProcess::GetNumRestartedReasonsFromEvent(evt);
+        if (num_reasons > 0)
+        {
+          // FIXME: Do we want to report this, or would that just be annoyingly chatty?
+          if (num_reasons == 1)
+          {
+            char message[1024];
+            const char *reason = SBProcess::GetRestartedReasonAtIndexFromEvent (evt, 0);
+            ::snprintf (message, sizeof(message), "Process %lld stopped and restarted: %s\n",
+                                          rContext.mProcess.GetProcessID(), reason ? reason : "<UNKNOWN REASON>");
+            printf("%s", message);
+          }
+          else
+          {
+            char message[1024];
+            ::snprintf (message, sizeof(message), "Process %lld stopped and restarted, reasons:\n",
+                                          rContext.mProcess.GetProcessID());
+            printf("%s", message);
+            for (size_t i = 0; i < num_reasons; i++)
+            {
+              const char *reason = SBProcess::GetRestartedReasonAtIndexFromEvent (evt, i);
+              ::snprintf(message, sizeof(message), "\t%s\n", reason ? reason : "<UNKNOWN REASON>");
+              printf("%s", message);
+            }
+          }
+        }
+      }
+
       if (SBProcess::GetRestartedFromEvent(evt))
         continue;
       switch (state)
       {
         case eStateInvalid:
+          printf("StateInvalid\n"); break;
         case eStateDetached:
+          printf("StateDetached\n"); break;
         case eStateCrashed:
+          printf("StateCrashed\n"); break;
         case eStateUnloaded:
-          break;
+          printf("StateUnloaded\n"); break;
         case eStateExited:
+          printf("StateExited\n"); break;
           return;
         case eStateConnected:
+          printf("StateConnected\n"); break;
         case eStateAttaching:
+          printf("StateAttaching\n"); break;
         case eStateLaunching:
+          printf("StateLaunching\n"); break;
         case eStateRunning:
+          //printf("StateRunning\n"); break;
         case eStateStepping:
+          printf("StateStepping\n"); break;
           continue;
         case eStateStopped:
         case eStateSuspended:
         {
-          bool fatal = false;
-          bool selected_thread = false;
-          for (auto thread_index = 0; thread_index < rContext.mProcess.GetNumThreads(); thread_index++)
-          {
-            SBThread thread(rContext.mProcess.GetThreadAtIndex(thread_index));
-            SBFrame frame(thread.GetFrameAtIndex(0));
-            bool select_thread = false;
-            StopReason stop_reason = thread.GetStopReason();
-            switch (stop_reason)
-            {
-              case eStopReasonNone:
-                printf("none\n");
-                break;
-
-              case eStopReasonTrace:
-                select_thread = true;
-                printf("trace\n");
-                break;
-
-              case eStopReasonPlanComplete:
-                select_thread = true;
-                printf("plan complete\n");
-                break;
-              case eStopReasonThreadExiting:
-                printf("thread exiting\n");
-                break;
-              case eStopReasonExec:
-                printf("exec\n");
-                break;
-              case eStopReasonInvalid:
-                printf("invalid\n");
-                break;
-              case eStopReasonException:
-                select_thread = true;
-                printf("exception\n");
-                fatal = true;
-                break;
-              case eStopReasonBreakpoint:
-                select_thread = true;
-                printf("breakpoint id = %lld.%lld\n",thread.GetStopReasonDataAtIndex(0),thread.GetStopReasonDataAtIndex(1));
-                break;
-              case eStopReasonWatchpoint:
-                select_thread = true;
-                printf("watchpoint id = %lld\n",thread.GetStopReasonDataAtIndex(0));
-                break;
-              case eStopReasonSignal:
-                select_thread = true;
-                printf("signal %d\n",(int)thread.GetStopReasonDataAtIndex(0));
-                break;
-            }
-
-            if (select_thread && !selected_thread)
-            {
-              selected_thread = rContext.mProcess.SetSelectedThread(thread);
-            }
-          }
-          if (fatal)
-          {
-            NGL_OUT("FATAL ERROR");
-            exit(1);
-          }
+          printf("StateStopped or StateSuspended\n");
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::UpdateProcess));
         }
           break;
 			}
 		}
   }
 }
+
+void MainWindow::UpdateProcess()
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+  //PrintDebugState(rContext.mProcess);
+
+  ProcessTree* pTree = new ProcessTree(rContext.mProcess);
+  pTree->Acquire();
+  pTree->Open(true);
+  mpThreads->SetTree(pTree);
+
+}
+
