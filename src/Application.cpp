@@ -120,8 +120,8 @@ void Application::OnInit()
       Width = 320;
       Height = 480;
 #else
-      Width = 800;
-      Height = 600;
+      Width = 1600;
+      Height = 1200;
 #endif
     }
   }

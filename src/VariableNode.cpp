@@ -14,8 +14,11 @@ VariableNode::VariableNode(lldb::SBValue value)
 {
   mpType = new nuiLabel(value.GetTypeName());
   mpType->Acquire();
-  mpValue = new nuiLabel("bleh");
+
+  mpValue = new nuiLabel(value.GetValue());
   mpValue->Acquire();
+
+  //NGL_OUT("%s (%s) = %s\n", value.GetName(), value.GetTypeName(), value.GetValue());
 }
 
 VariableNode::~VariableNode()

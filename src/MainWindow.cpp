@@ -47,6 +47,8 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mpVariables = (nuiTreeView*)pDebugger->SearchForChild("Variables", true);
   NGL_ASSERT(mpVariables);
   mpVariables->EnableSubElements(2);
+  mpVariables->SetSubElementWidth(0, 200);
+  mpVariables->SetSubElementWidth(1, 200);
 
   nuiButton* pStart = (nuiButton*)pDebugger->SearchForChild("StartStop", true);
   nuiButton* pPause = (nuiButton*)pDebugger->SearchForChild("Pause", true);
