@@ -43,8 +43,8 @@
   VAnchors_header = 22;
   VAnchorsType_header = Absolute;
 
-  VAnchors_watches = -100;
-  VAnchorsType_watches = Absolute;
+  VAnchors_variables = -100;
+  VAnchorsType_variables = Absolute;
 
   HAnchors_threads = 300;
   VAnchorsType_threads = Absolute;
@@ -64,12 +64,16 @@
 
   +nuiText SourceView
   {
-    Layout = [threads, right] / [header, watches];
+    Layout = [threads, right] / [header, variables];
   }
 
-  +nuiGrid Watches
+  +nuiScrollView VarScroller
   {
-    Layout = [threads, right] / [watches, bottom];
+    Layout = [threads, right] / [variables, bottom];
+    +nuiTreeView Variables
+    {
+      DisplayRoot: false;
+    }
   }
 }
 

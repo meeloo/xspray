@@ -39,14 +39,14 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
 
   nuiWidget* pDebugger = nuiBuilder::Get().CreateWidget("Debugger");
   NGL_ASSERT(pDebugger);
-  //pDebugger->SetDebug(true);
-  //pDebugger->SetTrace(1);
   AddChild(pDebugger);
 
   mpThreads = (nuiTreeView*)pDebugger->SearchForChild("Threads", true);
-  //mpThreads->SetDebug(true);
-  //mpThreads->SetTrace(1);
   NGL_ASSERT(mpThreads);
+
+  mpVariables = (nuiTreeView*)pDebugger->SearchForChild("Variables", true);
+  NGL_ASSERT(mpVariables);
+  mpVariables->EnableSubElements(2);
 
   nuiButton* pStart = (nuiButton*)pDebugger->SearchForChild("StartStop", true);
   nuiButton* pPause = (nuiButton*)pDebugger->SearchForChild("Pause", true);
@@ -57,6 +57,7 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mEventSink.Connect(pPause->Activated, &MainWindow::OnPause);
   mEventSink.Connect(pContinue->Activated, &MainWindow::OnContinue);
 
+  mEventSink.Connect(mpThreads->SelectionChanged, &MainWindow::OnThreadSelectionChanged);
 }
 
 MainWindow::~MainWindow()
@@ -424,3 +425,92 @@ void MainWindow::UpdateProcess()
 
 }
 
+void MainWindow::SelectProcess(lldb::SBProcess process)
+{
+  NGL_OUT("Selected Process\n");
+}
+
+void MainWindow::SelectThread(lldb::SBThread thread)
+{
+  NGL_OUT("Selected Thread\n");
+}
+
+void MainWindow::UpdateVariables(lldb::SBFrame frame)
+{
+  nuiTreeNode* pTree = new nuiTreeNode("Variables");
+
+  lldb::SBValueList args;
+  lldb::SBValueList locals;
+  args = frame.GetVariables(
+                            true, //bool arguments,
+                            false, //bool locals,
+                            false, //bool statics,
+                            false); //bool in_scope_only);
+
+  locals = frame.GetVariables(
+                              false, //bool arguments,
+                              true, //bool locals,
+                              false, //bool statics,
+                              false); //bool in_scope_only);
+
+  uint32_t count = 0;
+  count = args.GetSize();
+  nuiTreeNode* pArgNode = new nuiTreeNode("Arguments");
+  pTree->AddChild(pArgNode);
+  for (uint32 i = 0; i < count; i++)
+  {
+    lldb::SBValue val = args.GetValueAtIndex(i);
+    nuiTreeNode* pNode = new VariableNode(val);
+    pArgNode->AddChild(pNode);
+    NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
+  }
+  pArgNode->Open(true);
+
+  count = locals.GetSize();
+  nuiTreeNode* pLocalNode = new nuiTreeNode("Locals");
+  pTree->AddChild(pLocalNode);
+  for (uint32 i = 0; i < count; i++)
+  {
+    lldb::SBValue val = locals.GetValueAtIndex(i);
+    nuiTreeNode* pNode = new VariableNode(val);
+    pLocalNode->AddChild(pNode);
+    NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
+  }
+  pLocalNode->Open(true);
+
+  pTree->Open(true);
+  mpVariables->SetTree(pTree);
+}
+
+void MainWindow::SelectFrame(lldb::SBFrame frame)
+{
+  NGL_OUT("Selected Frame\n");
+
+  UpdateVariables(frame);
+}
+
+void MainWindow::OnThreadSelectionChanged(const nuiEvent& rEvent)
+{
+  ProcessTree* pNode = (ProcessTree*)mpThreads->GetSelectedNode();
+  if (!pNode)
+  {
+    return;
+  }
+
+  ProcessTree::Type type = pNode->GetType();
+  switch (type)
+  {
+    case ProcessTree::eProcess:
+      // Nothing to do for now
+      SelectProcess(pNode->GetProcess());
+      break;
+    case ProcessTree::eThread:
+      // Select the thread
+      SelectThread(pNode->GetThread());
+      break;
+    case ProcessTree::eFrame:
+      // Select the frame
+      SelectFrame(pNode->GetFrame());
+      break;
+  }
+}

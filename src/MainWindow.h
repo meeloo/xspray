@@ -9,6 +9,7 @@
 
 #include "nuiMainWindow.h"
 #include "ProcessTree.h"
+#include "VariableNode.h"
 
 class MainWindow : public nuiMainWindow
 {
@@ -28,10 +29,17 @@ protected:
   void OnStart(const nuiEvent& rEvent);
   void OnPause(const nuiEvent& rEvent);
   void OnContinue(const nuiEvent& rEvent);
+  void OnThreadSelectionChanged(const nuiEvent& rEvent);
   void Loop();
 
   nglThreadDelegate* mpDebuggerEventLoop;
 
   nuiTreeView* mpThreads;
+  nuiTreeView* mpVariables;
+
+  void SelectProcess(lldb::SBProcess process);
+  void SelectThread(lldb::SBThread thread);
+  void SelectFrame(lldb::SBFrame frame);
+  void UpdateVariables(lldb::SBFrame frame);
 };
 
