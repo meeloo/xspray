@@ -18,6 +18,9 @@ public:
   VariableNode(lldb::SBValue value);
   virtual ~VariableNode();
 
+  void Open(bool Opened);
+  bool IsEmpty() const;
+
   virtual nuiWidgetPtr GetSubElement(uint32 index);
 
 private:

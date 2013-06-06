@@ -32,3 +32,30 @@ nuiWidgetPtr VariableNode::GetSubElement(uint32 index)
     return mpValue;
   return NULL;
 }
+
+void VariableNode::Open(bool Opened)
+{
+  nuiTreeNode::Open(Opened);
+
+  if (Opened)
+  {
+    uint32_t count = mValue.GetNumChildren();
+
+    for (auto i = 0; i < count; i++)
+    {
+      lldb::SBValue child(mValue.GetChildAtIndex(i, lldb::eDynamicCanRunTarget, true));
+
+      AddChild(new VariableNode(child));
+    }
+  }
+  else
+  {
+    Clear();
+  }
+}
+
+bool VariableNode::IsEmpty() const
+{
+  return !const_cast<lldb::SBValue&>(mValue).MightHaveChildren();
+}
+

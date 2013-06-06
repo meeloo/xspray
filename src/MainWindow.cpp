@@ -462,7 +462,7 @@ void MainWindow::UpdateVariables(lldb::SBFrame frame)
     lldb::SBValue val = args.GetValueAtIndex(i);
     nuiTreeNode* pNode = new VariableNode(val);
     pArgNode->AddChild(pNode);
-    NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
+    //NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
   }
   pArgNode->Open(true);
 
@@ -474,7 +474,7 @@ void MainWindow::UpdateVariables(lldb::SBFrame frame)
     lldb::SBValue val = locals.GetValueAtIndex(i);
     nuiTreeNode* pNode = new VariableNode(val);
     pLocalNode->AddChild(pNode);
-    NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
+    //NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
   }
   pLocalNode->Open(true);
 
