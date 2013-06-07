@@ -71,6 +71,8 @@
 
   +nuiScrollView ThreadsScroller
   {
+    Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
+    DecorationMode: Border;
     Layout = [left, threads] / [header, bottom];
     +nuiTreeView Threads
     {
@@ -84,6 +86,8 @@
 
   +nuiScrollView VariablesScroller
   {
+    Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
+    DecorationMode: Border;
     Layout = [threads, right] / [variables, bottom];
     +nuiTreeView Variables
     {
