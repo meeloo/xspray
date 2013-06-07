@@ -429,12 +429,12 @@ void MainWindow::UpdateProcess()
 
 void MainWindow::SelectProcess(lldb::SBProcess process)
 {
-  NGL_OUT("Selected Process\n");
+//  NGL_OUT("Selected Process\n");
 }
 
 void MainWindow::SelectThread(lldb::SBThread thread)
 {
-  NGL_OUT("Selected Thread\n");
+//  NGL_OUT("Selected Thread\n");
 }
 
 void MainWindow::UpdateVariables(lldb::SBFrame frame)
@@ -442,23 +442,42 @@ void MainWindow::UpdateVariables(lldb::SBFrame frame)
   nuiTreeNode* pTree = new nuiTreeNode("Variables");
 
   lldb::SBValueList args;
-  lldb::SBValueList locals;
   args = frame.GetVariables(
                             true, //bool arguments,
                             false, //bool locals,
                             false, //bool statics,
-                            false); //bool in_scope_only);
-
+                            false, //bool in_scope_only);
+//                            lldb::eNoDynamicValues
+                            lldb::eDynamicCanRunTarget
+//                            lldb::eDynamicDontRunTarget
+                            );
+  
+  lldb::SBValueList locals;
   locals = frame.GetVariables(
                               false, //bool arguments,
                               true, //bool locals,
                               false, //bool statics,
-                              false); //bool in_scope_only);
+                              false, //bool in_scope_only);
+//                              lldb::eNoDynamicValues
+                              lldb::eDynamicCanRunTarget
+//                              lldb::eDynamicDontRunTarget
+                              );
+
+  lldb::SBValueList globals;
+  globals = frame.GetVariables(
+                              false, //bool arguments,
+                              false, //bool locals,
+                              true, //bool statics,
+                               false, //bool in_scope_only);
+                               //lldb::eNoDynamicValues
+                               lldb::eDynamicCanRunTarget
+//                               lldb::eDynamicDontRunTarget
+                               );
 
   uint32_t count = 0;
-  count = args.GetSize();
   nuiTreeNode* pArgNode = new nuiTreeNode("Arguments");
   pTree->AddChild(pArgNode);
+  count = args.GetSize();
   for (uint32 i = 0; i < count; i++)
   {
     lldb::SBValue val = args.GetValueAtIndex(i);
@@ -480,13 +499,25 @@ void MainWindow::UpdateVariables(lldb::SBFrame frame)
   }
   pLocalNode->Open(true);
 
+  count = globals.GetSize();
+  nuiTreeNode* pGlobalNode = new nuiTreeNode("Globals");
+  pTree->AddChild(pGlobalNode);
+  for (uint32 i = 0; i < count; i++)
+  {
+    lldb::SBValue val = globals.GetValueAtIndex(i);
+    nuiTreeNode* pNode = new VariableNode(val);
+    pGlobalNode->AddChild(pNode);
+    //NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
+  }
+  pGlobalNode->Open(true);
+
   pTree->Open(true);
   mpVariables->SetTree(pTree);
 }
 
 void MainWindow::SelectFrame(lldb::SBFrame frame)
 {
-  NGL_OUT("Selected Frame\n");
+//  NGL_OUT("Selected Frame\n");
 
   UpdateVariables(frame);
 }
