@@ -20,6 +20,8 @@ public:
   void OnCreation();
   void OnClose();
 
+  void OnProcessPaused();
+  void OnProcessRunning();
   void UpdateProcess();
 protected:
   bool LoadCSS(const nglPath& rPath);
@@ -29,6 +31,9 @@ protected:
   void OnStart(const nuiEvent& rEvent);
   void OnPause(const nuiEvent& rEvent);
   void OnContinue(const nuiEvent& rEvent);
+  void OnStepIn(const nuiEvent& rEvent);
+  void OnStepOver(const nuiEvent& rEvent);
+  void OnStepOut(const nuiEvent& rEvent);
   void OnThreadSelectionChanged(const nuiEvent& rEvent);
   void Loop();
 
@@ -36,10 +41,19 @@ protected:
 
   nuiTreeView* mpThreads;
   nuiTreeView* mpVariables;
+  nuiWidget* mpTransport;
+  nuiButton* mpStart;
+  nuiButton* mpPause;
+  nuiButton* mpContinue;
+  nuiButton* mpStepIn;
+  nuiButton* mpStepOver;
+  nuiButton* mpStepOut;
 
   void SelectProcess(lldb::SBProcess process);
   void SelectThread(lldb::SBThread thread);
   void SelectFrame(lldb::SBFrame frame);
   void UpdateVariables(lldb::SBFrame frame);
+
+
 };
 

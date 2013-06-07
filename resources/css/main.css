@@ -31,6 +31,21 @@
   {
     +nuiLabel{ Text: "Continue"; }
   }
+
+  +nuiButton StepIn
+  {
+    +nuiLabel{ Text: "Step in"; }
+  }
+
+  +nuiButton StepOver
+  {
+    +nuiLabel{ Text: "Step over"; }
+  }
+
+  +nuiButton StepOut
+  {
+    +nuiLabel{ Text: "Step out"; }
+  }
 }
 
 +nuiHBox MainArea
@@ -67,7 +82,7 @@
     Layout = [threads, right] / [header, variables];
   }
 
-  +nuiScrollView VarScroller
+  +nuiScrollView VariablesScroller
   {
     Layout = [threads, right] / [variables, bottom];
     +nuiTreeView Variables

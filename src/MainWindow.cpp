@@ -43,21 +43,32 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
 
   mpThreads = (nuiTreeView*)pDebugger->SearchForChild("Threads", true);
   NGL_ASSERT(mpThreads);
-
   mpVariables = (nuiTreeView*)pDebugger->SearchForChild("Variables", true);
   NGL_ASSERT(mpVariables);
   mpVariables->EnableSubElements(2);
   mpVariables->SetSubElementWidth(0, 200);
   mpVariables->SetSubElementWidth(1, 200);
 
-  nuiButton* pStart = (nuiButton*)pDebugger->SearchForChild("StartStop", true);
-  nuiButton* pPause = (nuiButton*)pDebugger->SearchForChild("Pause", true);
-  nuiButton* pContinue = (nuiButton*)pDebugger->SearchForChild("Continue", true);
-  //nuiButton* pStop = (nuiButton*)pDebugger->SearchForChild("Stop", true);
+  nuiScrollView* pScroller = (nuiScrollView*)pDebugger->SearchForChild("ThreadsScroller", true);
+  pScroller->ActivateHotRect(false, true);
+  pScroller = (nuiScrollView*)pDebugger->SearchForChild("VariablesScroller", true);
+  pScroller->ActivateHotRect(false, true);
 
-  mEventSink.Connect(pStart->Activated, &MainWindow::OnStart);
-  mEventSink.Connect(pPause->Activated, &MainWindow::OnPause);
-  mEventSink.Connect(pContinue->Activated, &MainWindow::OnContinue);
+
+  mpTransport = (nuiWidget*)pDebugger->SearchForChild("Transport", true);
+  mpStart = (nuiButton*)pDebugger->SearchForChild("StartStop", true);
+  mpPause = (nuiButton*)pDebugger->SearchForChild("Pause", true);
+  mpContinue = (nuiButton*)pDebugger->SearchForChild("Continue", true);
+  mpStepIn = (nuiButton*)pDebugger->SearchForChild("StepIn", true);
+  mpStepOver = (nuiButton*)pDebugger->SearchForChild("StepOver", true);
+  mpStepOut = (nuiButton*)pDebugger->SearchForChild("StepOut", true);
+
+  mEventSink.Connect(mpStart->Activated, &MainWindow::OnStart);
+  mEventSink.Connect(mpPause->Activated, &MainWindow::OnPause);
+  mEventSink.Connect(mpContinue->Activated, &MainWindow::OnContinue);
+  mEventSink.Connect(mpStepIn->Activated, &MainWindow::OnStepIn);
+  mEventSink.Connect(mpStepOver->Activated, &MainWindow::OnStepOver);
+  mEventSink.Connect(mpStepOut->Activated, &MainWindow::OnStepOut);
 
   mEventSink.Connect(mpThreads->SelectionChanged, &MainWindow::OnThreadSelectionChanged);
 }
@@ -336,6 +347,27 @@ void MainWindow::OnContinue(const nuiEvent& rEvent)
   error = rContext.mProcess.Continue();
 }
 
+void MainWindow::OnStepIn(const nuiEvent& rEvent)
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+  lldb::SBThread thread = rContext.mProcess.GetSelectedThread();
+  thread.StepInto();
+}
+
+void MainWindow::OnStepOver(const nuiEvent& rEvent)
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+  lldb::SBThread thread = rContext.mProcess.GetSelectedThread();
+  thread.StepOver();
+}
+
+void MainWindow::OnStepOut(const nuiEvent& rEvent)
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+  lldb::SBThread thread = rContext.mProcess.GetSelectedThread();
+  thread.StepOut();
+}
+
 void MainWindow::Loop()
 {
   DebuggerContext& rContext(GetDebuggerContext());
@@ -382,12 +414,15 @@ void MainWindow::Loop()
       switch (state)
       {
         case eStateInvalid:
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
           printf("StateInvalid\n"); break;
         case eStateDetached:
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
           printf("StateDetached\n"); break;
         case eStateCrashed:
           printf("StateCrashed\n"); break;
         case eStateUnloaded:
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
           printf("StateUnloaded\n"); break;
         case eStateExited:
           printf("StateExited\n"); break;
@@ -395,24 +430,52 @@ void MainWindow::Loop()
         case eStateConnected:
           printf("StateConnected\n"); break;
         case eStateAttaching:
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
           printf("StateAttaching\n"); break;
         case eStateLaunching:
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
           printf("StateLaunching\n"); break;
         case eStateRunning:
           //printf("StateRunning\n"); break;
         case eStateStepping:
-          printf("StateStepping\n"); break;
-          continue;
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
+          printf("StateStepping\n");
+          break;
         case eStateStopped:
         case eStateSuspended:
         {
           printf("StateStopped or StateSuspended\n");
-          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::UpdateProcess));
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessPaused));
         }
           break;
 			}
 		}
   }
+}
+
+void MainWindow::OnProcessPaused()
+{
+  mpStart->SetEnabled(false);
+  mpPause->SetEnabled(false);
+  mpContinue->SetEnabled(true);
+  mpStepIn->SetEnabled(true);
+  mpStepOver->SetEnabled(true);
+  mpStepOut->SetEnabled(true);
+  mpThreads->SetEnabled(true);
+  mpVariables->SetEnabled(true);
+  UpdateProcess();
+}
+
+void MainWindow::OnProcessRunning()
+{
+  mpStart->SetEnabled(false);
+  mpPause->SetEnabled(true);
+  mpContinue->SetEnabled(false);
+  mpStepIn->SetEnabled(false);
+  mpStepOver->SetEnabled(false);
+  mpStepOut->SetEnabled(false);
+  mpThreads->SetEnabled(false);
+  mpVariables->SetEnabled(false);
 }
 
 void MainWindow::UpdateProcess()
@@ -441,26 +504,23 @@ void MainWindow::UpdateVariables(lldb::SBFrame frame)
 {
   nuiTreeNode* pTree = new nuiTreeNode("Variables");
 
+  lldb::DynamicValueType dynamic = lldb::eDynamicCanRunTarget; // lldb::eNoDynamicValues, lldb::eDynamicCanRunTarget, lldb::eDynamicDontRunTarget
   lldb::SBValueList args;
   args = frame.GetVariables(
                             true, //bool arguments,
                             false, //bool locals,
                             false, //bool statics,
                             false, //bool in_scope_only);
-//                            lldb::eNoDynamicValues
-                            lldb::eDynamicCanRunTarget
-//                            lldb::eDynamicDontRunTarget
+                            dynamic
                             );
-  
+
   lldb::SBValueList locals;
   locals = frame.GetVariables(
                               false, //bool arguments,
                               true, //bool locals,
                               false, //bool statics,
                               false, //bool in_scope_only);
-//                              lldb::eNoDynamicValues
-                              lldb::eDynamicCanRunTarget
-//                              lldb::eDynamicDontRunTarget
+                              dynamic
                               );
 
   lldb::SBValueList globals;
@@ -468,10 +528,8 @@ void MainWindow::UpdateVariables(lldb::SBFrame frame)
                               false, //bool arguments,
                               false, //bool locals,
                               true, //bool statics,
-                               false, //bool in_scope_only);
-                               //lldb::eNoDynamicValues
-                               lldb::eDynamicCanRunTarget
-//                               lldb::eDynamicDontRunTarget
+                              false, //bool in_scope_only);
+                              dynamic
                                );
 
   uint32_t count = 0;
