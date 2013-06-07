@@ -487,7 +487,7 @@ void MainWindow::UpdateProcess()
   pTree->Acquire();
   pTree->Open(true);
   mpThreads->SetTree(pTree);
-
+  UpdateVariablesForCurrentFrame();
 }
 
 void MainWindow::SelectProcess(lldb::SBProcess process)
@@ -580,7 +580,7 @@ void MainWindow::SelectFrame(lldb::SBFrame frame)
   UpdateVariables(frame);
 }
 
-void MainWindow::OnThreadSelectionChanged(const nuiEvent& rEvent)
+void MainWindow::UpdateVariablesForCurrentFrame()
 {
   ProcessTree* pNode = (ProcessTree*)mpThreads->GetSelectedNode();
   if (!pNode)
@@ -604,4 +604,9 @@ void MainWindow::OnThreadSelectionChanged(const nuiEvent& rEvent)
       SelectFrame(pNode->GetFrame());
       break;
   }
+}
+
+void MainWindow::OnThreadSelectionChanged(const nuiEvent& rEvent)
+{
+  UpdateVariablesForCurrentFrame();
 }

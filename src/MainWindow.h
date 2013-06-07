@@ -36,6 +36,7 @@ protected:
   void OnStepOut(const nuiEvent& rEvent);
   void OnThreadSelectionChanged(const nuiEvent& rEvent);
   void Loop();
+  void UpdateVariablesForCurrentFrame();
 
   nglThreadDelegate* mpDebuggerEventLoop;
 

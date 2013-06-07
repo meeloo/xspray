@@ -118,13 +118,26 @@ void ProcessTree::UpdateThread()
   nuiLabel* pLabel = new nuiLabel(str);
   SetElement(pLabel);
 
+  bool select = false;
+  if (mThread.GetStopReason() != lldb::eStopReasonNone)
+  {
+    select = true;
+  }
+
   int frames = mThread.GetNumFrames();
   for (int i = 0; i < frames; i++)
   {
     ProcessTree* pPT = new ProcessTree(mThread.GetFrameAtIndex(i));
     AddChild(pPT);
     pPT->Open(true);
+
+    if (select)
+    {
+      pPT->Select(true);
+      select = false;
+    }
   }
+
 }
 
 void ProcessTree::UpdateFrame()

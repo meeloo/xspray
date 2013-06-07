@@ -229,12 +229,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../nui3/src/TreeViews/nuiTreeView.cpp"
-         timestampString = "392247900.750335"
+         timestampString = "392319984.875332"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "968"
-         endingLineNumber = "968"
+         startingLineNumber = "970"
+         endingLineNumber = "970"
          landmarkName = "nuiTreeView::SetTree(nuiTreeNodePtr pTree, bool DeleteOldTree)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/MainWindow.cpp"
+         timestampString = "392320031.911983"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "489"
+         endingLineNumber = "489"
+         landmarkName = "MainWindow::UpdateProcess()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../nui3/src/TreeViews/nuiTreeView.cpp"
+         timestampString = "392320058.802999"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "647"
+         endingLineNumber = "647"
+         landmarkName = "nuiTreeView::ReparentTree(nuiTreeNode* pTree)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
