@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/MainWindow.cpp"
-         timestampString = "392315186.132234"
+         timestampString = "392339059.164166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "214"
-         endingLineNumber = "214"
+         startingLineNumber = "215"
+         endingLineNumber = "215"
          landmarkName = "PrintDebugState(SBProcess&amp; rProcess)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/MainWindow.cpp"
-         timestampString = "392315186.132234"
+         timestampString = "392339059.164166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "231"
-         endingLineNumber = "231"
+         startingLineNumber = "232"
+         endingLineNumber = "232"
          landmarkName = "BPCallback (void *baton, SBProcess &amp;process, SBThread &amp;thread, SBBreakpointLocation &amp;location)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/MainWindow.cpp"
-         timestampString = "392315186.132234"
+         timestampString = "392339059.164166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "282"
-         endingLineNumber = "282"
+         startingLineNumber = "283"
+         endingLineNumber = "283"
          landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,11 +242,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/MainWindow.cpp"
-         timestampString = "392320031.911983"
+         timestampString = "392339059.164166"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "489"
-         endingLineNumber = "489"
+         startingLineNumber = "490"
+         endingLineNumber = "490"
          landmarkName = "MainWindow::UpdateProcess()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -261,6 +261,19 @@
          startingLineNumber = "647"
          endingLineNumber = "647"
          landmarkName = "nuiTreeView::ReparentTree(nuiTreeNode* pTree)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/MainWindow.cpp"
+         timestampString = "392369837.926479"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "600"
+         endingLineNumber = "600"
+         landmarkName = "MainWindow::ShowSource(const nglPath&amp; rPath, int32 line, int32 col)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

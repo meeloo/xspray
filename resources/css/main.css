@@ -79,9 +79,13 @@
     }
   }
 
-  +nuiText SourceView
+  +nuiScrollView SourceScroller
   {
     Layout = [threads, right] / [header, variables];
+    
+    +nuiText SourceView
+    {
+    }
   }
 
   +nuiScrollView VariablesScroller

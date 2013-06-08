@@ -62,6 +62,7 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mpStepIn = (nuiButton*)pDebugger->SearchForChild("StepIn", true);
   mpStepOver = (nuiButton*)pDebugger->SearchForChild("StepOver", true);
   mpStepOut = (nuiButton*)pDebugger->SearchForChild("StepOut", true);
+  mpSourceView = (nuiText*)pDebugger->SearchForChild("SourceView", true);;
 
   mEventSink.Connect(mpStart->Activated, &MainWindow::OnStart);
   mEventSink.Connect(mpPause->Activated, &MainWindow::OnPause);
@@ -578,7 +579,41 @@ void MainWindow::SelectFrame(lldb::SBFrame frame)
 //  NGL_OUT("Selected Frame\n");
 
   UpdateVariables(frame);
+  lldb::SBSymbolContext context = frame.GetSymbolContext(0);
+  lldb::SBLineEntry lineentry = frame.GetLineEntry();
+  lldb::SBFileSpec file =  lineentry.GetFileSpec();
+  uint32_t line = lineentry.GetLine();
+  uint32_t col = lineentry.GetColumn();
+
+  const char * dir = file.GetDirectory();
+  const char * fname = file.GetFilename();
+  nglPath p(dir);
+  p += fname;
+
+  printf("%s (%d : %d)\n", p.GetChars(), line, col);
+
+  ShowSource(p, line, col);
 }
+
+void MainWindow::ShowSource(const nglPath& rPath, int32 line, int32 col)
+{
+  mpSourceView->Clear();
+
+  nglIStream* pStream = rPath.OpenRead();
+  if (!pStream)
+  {
+    mpSourceView->AddText("No Source");
+    return;
+  }
+
+  nglString source;
+  pStream->ReadText(source);
+
+  mpSourceView->SetText(source);
+
+  mpSourceView->SetCursorPos(line, col);
+}
+
 
 void MainWindow::UpdateVariablesForCurrentFrame()
 {

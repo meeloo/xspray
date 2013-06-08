@@ -38,6 +38,8 @@ protected:
   void Loop();
   void UpdateVariablesForCurrentFrame();
 
+  void ShowSource(const nglPath& rPath, int32 line, int32 col);
+
   nglThreadDelegate* mpDebuggerEventLoop;
 
   nuiTreeView* mpThreads;
@@ -49,7 +51,8 @@ protected:
   nuiButton* mpStepIn;
   nuiButton* mpStepOver;
   nuiButton* mpStepOut;
-
+  nuiText* mpSourceView;
+  
   void SelectProcess(lldb::SBProcess process);
   void SelectThread(lldb::SBThread thread);
   void SelectFrame(lldb::SBFrame frame);
