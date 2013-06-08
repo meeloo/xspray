@@ -149,7 +149,7 @@
 		61A9DFF20B83433800BC506C /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MainWindow.h; path = src/MainWindow.h; sourceTree = "<group>"; };
 		6E37ABC016AD884700C333A4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nui3.xcodeproj; path = ../nui3/nui3.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = "../build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/Release/LLDB.framework"; sourceTree = "<group>"; };
+		E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = ../Release/LLDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50FD30D17534D9900C4AA66 /* LLDB Python API */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LLDB Python API"; sourceTree = "<group>"; };
 		E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProcessTree.cpp; path = src/ProcessTree.cpp; sourceTree = "<group>"; };
 		E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessTree.h; path = src/ProcessTree.h; sourceTree = "<group>"; };
