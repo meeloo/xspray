@@ -90,7 +90,8 @@ nuiRect SourceView::CalcIdealSize()
     }
     else
     {
-      pLabel += 20;
+      y += 20;
+      global.SetHeight(y);
     }
   }
 
@@ -128,6 +129,7 @@ nuiRect SourceView::GetSelectionRect()
 
   nuiLabel* pLabel = mLines[mLine];
   nuiRect rect;
+
   if (pLabel)
   {
     rect = pLabel->GetRect();

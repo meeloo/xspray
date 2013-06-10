@@ -580,7 +580,7 @@ void MainWindow::SelectFrame(lldb::SBFrame frame)
 //  NGL_OUT("Selected Frame\n");
 
   UpdateVariables(frame);
-  lldb::SBSymbolContext context = frame.GetSymbolContext(0);
+  lldb::SBSymbolContext context = frame.GetSymbolContext(1);
   lldb::SBLineEntry lineentry = frame.GetLineEntry();
   lldb::SBFileSpec file =  lineentry.GetFileSpec();
   uint32_t line = lineentry.GetLine();
@@ -600,6 +600,7 @@ void MainWindow::ShowSource(const nglPath& rPath, int32 line, int32 col)
 {
   mpSourceView->Clear();
   mpSourceView->Load(rPath);
+  mpSourceView->GetParent()->UpdateLayout();
   mpSourceView->ShowText(line, col);
 }
 
