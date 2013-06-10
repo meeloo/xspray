@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E04DC26176618750098D9D5 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		6E37ABCF16AD9EFE00C333A4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E37ABC016AD884700C333A4 /* WebKit.framework */; };
 		E50FD30A1752C0D100C4AA66 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
@@ -147,6 +148,7 @@
 		61A9DFF00B83433800BC506C /* Application.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Application.h; path = src/Application.h; sourceTree = "<group>"; };
 		61A9DFF10B83433800BC506C /* MainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = MainWindow.cpp; path = src/MainWindow.cpp; sourceTree = "<group>"; };
 		61A9DFF20B83433800BC506C /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MainWindow.h; path = src/MainWindow.h; sourceTree = "<group>"; };
+		6E04DC25176618750098D9D5 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = "../llvm/tools/lldb/llvm-build/Release/x86_64/Release/lib/libclang.dylib"; sourceTree = "<group>"; };
 		6E37ABC016AD884700C333A4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nui3.xcodeproj; path = ../nui3/nui3.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = ../Release/LLDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E04DC26176618750098D9D5 /* libclang.dylib in Frameworks */,
 				E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */,
 				E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */,
 				E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */,
@@ -196,6 +199,7 @@
 		61A9DE3D0B833C9200BC506C = {
 			isa = PBXGroup;
 			children = (
+				6E04DC25176618750098D9D5 /* libclang.dylib */,
 				E5CA922316F62CB200B3A81D /* NoodlzD.entitlements */,
 				E50FD30D17534D9900C4AA66 /* LLDB Python API */,
 				E5C5912216722BA500BAEDE4 /* resources */,
@@ -561,7 +565,15 @@
 					_DEBUG,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					../nui3/include,
+					../llvm/tools/clang/include,
+				);
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../llvm/tools/lldb/llvm-build/Release/x86_64/Release/lib\"",
+				);
 				PRODUCT_NAME = NoodlzD;
 				WARNING_CFLAGS = (
 					"-Wmost",
