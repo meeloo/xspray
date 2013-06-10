@@ -10,6 +10,7 @@
 #include "nuiMainWindow.h"
 #include "ProcessTree.h"
 #include "VariableNode.h"
+#include "SourceView.h"
 
 class MainWindow : public nuiMainWindow
 {
@@ -51,7 +52,7 @@ protected:
   nuiButton* mpStepIn;
   nuiButton* mpStepOver;
   nuiButton* mpStepOut;
-  nuiText* mpSourceView;
+  SourceView* mpSourceView;
   
   void SelectProcess(lldb::SBProcess process);
   void SelectThread(lldb::SBThread thread);

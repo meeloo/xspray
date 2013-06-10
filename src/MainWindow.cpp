@@ -26,6 +26,8 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   SetDebugMode(true);
   EnableAutoRotation(true);
 
+  NUI_ADD_WIDGET_CREATOR(SourceView, "Container");
+
 #ifdef _DEBUG_
   nglString t = "DEBUG";
 #else
@@ -62,7 +64,7 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mpStepIn = (nuiButton*)pDebugger->SearchForChild("StepIn", true);
   mpStepOver = (nuiButton*)pDebugger->SearchForChild("StepOver", true);
   mpStepOut = (nuiButton*)pDebugger->SearchForChild("StepOut", true);
-  mpSourceView = (nuiText*)pDebugger->SearchForChild("SourceView", true);;
+  mpSourceView = (SourceView*)pDebugger->SearchForChild("source", true);;
 
   mEventSink.Connect(mpStart->Activated, &MainWindow::OnStart);
   mEventSink.Connect(mpPause->Activated, &MainWindow::OnPause);
@@ -258,7 +260,7 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
   {
     //strm->Printf("Logging categories for 'lldb':\n"
 //     "all", // - turn on all available logging categories\n"
-     "api", // - enable logging of API calls and return values\n"
+     //"api", // - enable logging of API calls and return values\n"
      "break", // - log breakpoints\n"
 //     "commands", // - log command argument parsing\n"
 //     "default", // - enable the default set of logging categories for liblldb\n"
@@ -280,9 +282,8 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
 //     "watch", // - log watchpoint related activities\n");
     NULL
   };
-  //rContext.mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
-//  rContext.mDebugger.EnableLog(channel, categories);
-  //rContext.mDebugger.SetAsync(false);
+  rContext.mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
+  rContext.mDebugger.EnableLog(channel, categories);
 
   mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &MainWindow::Loop));
   mpDebuggerEventLoop->Start();
@@ -579,7 +580,7 @@ void MainWindow::SelectFrame(lldb::SBFrame frame)
 //  NGL_OUT("Selected Frame\n");
 
   UpdateVariables(frame);
-  lldb::SBSymbolContext context = frame.GetSymbolContext(0);
+  lldb::SBSymbolContext context = frame.GetSymbolContext(1);
   lldb::SBLineEntry lineentry = frame.GetLineEntry();
   lldb::SBFileSpec file =  lineentry.GetFileSpec();
   uint32_t line = lineentry.GetLine();
@@ -598,20 +599,9 @@ void MainWindow::SelectFrame(lldb::SBFrame frame)
 void MainWindow::ShowSource(const nglPath& rPath, int32 line, int32 col)
 {
   mpSourceView->Clear();
-
-  nglIStream* pStream = rPath.OpenRead();
-  if (!pStream)
-  {
-    mpSourceView->AddText("No Source");
-    return;
-  }
-
-  nglString source;
-  pStream->ReadText(source);
-
-  mpSourceView->SetText(source);
-
-  mpSourceView->SetCursorPos(line, col);
+  mpSourceView->Load(rPath);
+  mpSourceView->GetParent()->UpdateLayout();
+  mpSourceView->ShowText(line, col);
 }
 
 

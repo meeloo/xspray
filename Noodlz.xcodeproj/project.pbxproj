@@ -29,6 +29,8 @@
 		E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */; };
 		E5F509CF1761312600F651D9 /* VariableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509CD1761312600F651D9 /* VariableNode.cpp */; };
 		E5F509D01761312600F651D9 /* VariableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509CD1761312600F651D9 /* VariableNode.cpp */; };
+		E5F509ED1765BCB000F651D9 /* SourceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509EB1765BCB000F651D9 /* SourceView.cpp */; };
+		E5F509EE1765BCB000F651D9 /* SourceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509EB1765BCB000F651D9 /* SourceView.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +165,8 @@
 		E5EF6FC811E77DE8000FB337 /* NoodlzD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoodlzD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F509CD1761312600F651D9 /* VariableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VariableNode.cpp; path = src/VariableNode.cpp; sourceTree = "<group>"; };
 		E5F509CE1761312600F651D9 /* VariableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableNode.h; path = src/VariableNode.h; sourceTree = "<group>"; };
+		E5F509EB1765BCB000F651D9 /* SourceView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SourceView.cpp; path = src/SourceView.cpp; sourceTree = "<group>"; };
+		E5F509EC1765BCB000F651D9 /* SourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceView.h; path = src/SourceView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,8 @@
 				E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */,
 				E5F509CD1761312600F651D9 /* VariableNode.cpp */,
 				E5F509CE1761312600F651D9 /* VariableNode.h */,
+				E5F509EB1765BCB000F651D9 /* SourceView.cpp */,
+				E5F509EC1765BCB000F651D9 /* SourceView.h */,
 			);
 			name = sources;
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */,
 				E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
 				E5F509D01761312600F651D9 /* VariableNode.cpp in Sources */,
+				E5F509EE1765BCB000F651D9 /* SourceView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +486,7 @@
 				E5EF6FBD11E77DE8000FB337 /* MainWindow.cpp in Sources */,
 				E50FD31B175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
 				E5F509CF1761312600F651D9 /* VariableNode.cpp in Sources */,
+				E5F509ED1765BCB000F651D9 /* SourceView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
