@@ -83,7 +83,7 @@
   {
     Layout = [threads, right] / [header, variables];
     
-    +nuiText SourceView
+    +SourceView source
     {
     }
   }
