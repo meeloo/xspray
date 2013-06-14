@@ -36,6 +36,15 @@ nuiRect SourceLine::GetDisplayRect() const
   return r;
 }
 
+const nglString& SourceLine::GetText() const
+{
+  return mText;
+}
+
+void SourceLine::Layout()
+{
+  nuiTextLayout::Layout(mText);
+}
 
 //////// SourceView
 SourceView::SourceView()
@@ -44,6 +53,18 @@ SourceView::SourceView()
   {
     // Attributes
   }
+
+  nuiTextStyle s(mStyle);
+
+  mStyles[CXToken_Punctuation] = s;
+  s.SetColor("marine");
+  mStyles[CXToken_Keyword] = s;
+  s.SetColor("blue");
+  mStyles[CXToken_Identifier] = s;
+  s.SetColor("red");
+  mStyles[CXToken_Literal] = s;
+  s.SetColor("green");
+  mStyles[CXToken_Comment] = s;
 
   mLine = -1;
   mCol = -1;
@@ -104,27 +125,76 @@ bool SourceView::Load(const nglPath& rPath)
     unsigned eline, ecolumn, eoffset;
     clang_getFileLocation(end, NULL, &eline, &ecolumn, &eoffset);
 
-    printf("%d:%d -> %d:%d --> '%s'\n", sline, scolumn, eline, ecolumn, clang_getCString(str));
+    //printf("%d:%d -> %d:%d --> '%s'\n", sline, scolumn, eline, ecolumn, clang_getCString(str));
 
     clang_disposeString(str);
   }
 
   nglString line;
   int32 offset = 0;
+  int currentline = 0;
+
+  nuiTextStyle style = mStyle;
+
   while (pStream->ReadLine(line))
   {
+    SourceLine* pLine = NULL;
+    
     if (!line.IsEmpty())
     {
-      SourceLine* pLine = new SourceLine(line, offset, mStyle);
-      pLine->Layout(line);
+      pLine = new SourceLine(line, offset, mStyle);
       mLines.push_back(pLine);
     }
     else
     {
       mLines.push_back(NULL);
+      pLine = NULL;
     }
 
     offset = pStream->GetPos();
+  }
+
+  // Look for the first token valid for the current line:
+  for (int tokenindex = 0; tokenindex < NumTokens; tokenindex++)
+  {
+    CXToken Token = Tokens[tokenindex];
+    CXString str = clang_getTokenSpelling(mTranslationUnit, Token);
+    CXSourceLocation location = clang_getTokenLocation(mTranslationUnit, Token);
+    CXSourceRange range = clang_getTokenExtent(mTranslationUnit, Token);
+    CXSourceLocation start = clang_getRangeStart(range);
+    CXSourceLocation end = clang_getRangeEnd(range);
+    unsigned sline = 0, scolumn = 0, soffset = 0;
+    unsigned eline, ecolumn, eoffset;
+
+    clang_getFileLocation(start, NULL, &sline, &scolumn, &soffset);
+    clang_getFileLocation(end, NULL, &eline, &ecolumn, &eoffset);
+
+    style = mStyles[clang_getTokenKind(Token)];
+
+    printf("%d:%d -> %d:%d --> '%s'\n", sline, scolumn, eline, ecolumn, clang_getCString(str));
+    
+    clang_disposeString(str);
+
+    for (int l = sline - 1; l <= eline - 1; l++)
+    {
+      NGL_ASSERT(l < mLines.size());
+      SourceLine* pLine = mLines[l];
+      if (pLine)
+      {
+        int s = 0;
+        int e = pLine->GetText().GetLength();
+
+        if (sline == l)
+          s = scolumn;
+
+        pLine->AddStyleChange(s, style);
+
+//        if (eline == l)
+//        {
+//          pLine->AddStyleChange(e, mStyle);
+//        }
+      }
+    }
   }
 
   delete pStream;
@@ -162,6 +232,7 @@ nuiRect SourceView::CalcIdealSize()
 
     if (pLine)
     {
+      pLine->Layout();
       nuiRect ideal = pLine->GetRect();
       ideal.MoveTo(0, y);
       ideal.RoundToAbove();

@@ -22,6 +22,8 @@ public:
 
   void SetPosition(float x, float y);
   nuiRect GetDisplayRect() const;
+  const nglString& GetText() const;
+  void Layout();
 protected:
   nglString mText;
   int mOffset;
@@ -53,4 +55,6 @@ private:
   CXTranslationUnit mTranslationUnit;
   nglString mText;
   nuiTextStyle mStyle;
+
+  std::map<CXTokenKind, nuiTextStyle> mStyles;
 };
