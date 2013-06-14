@@ -8,7 +8,36 @@
 
 #include "SourceView.h"
 
-////////
+//////// SourceLine
+SourceLine::SourceLine(const nglString& rText, int offset, const nuiTextStyle& rStyle)
+: nuiTextLayout(rStyle), mText(rText), mOffset(offset)
+{
+}
+
+SourceLine::~SourceLine()
+{
+}
+
+int SourceLine::GetOffset() const
+{
+  return mOffset;
+}
+
+void SourceLine::SetPosition(float x, float y)
+{
+  mX = x;
+  mY = y;
+}
+
+nuiRect SourceLine::GetDisplayRect() const
+{
+  nuiRect r(GetRect());
+  r.MoveTo(mX, mY);
+  return r;
+}
+
+
+//////// SourceView
 SourceView::SourceView()
 {
   if (SetObjectClass("SourceView"))
@@ -26,19 +55,12 @@ SourceView::~SourceView()
 
 bool SourceView::Load(const nglPath& rPath)
 {
+  mStyle.SetFont(nuiFont::GetFont(10));
   nglIStream* pStream = rPath.OpenRead();
   if (!pStream)
     return false;
 
   int32 size = pStream->Available();
-  nglString line;
-  while (pStream->ReadLine(line))
-  {
-    AddLine(line);
-    line.Nullify();
-  }
-
-  delete pStream;
 
   mIndex = clang_createIndex(0, 0);
   int argc = 0;
@@ -87,8 +109,31 @@ bool SourceView::Load(const nglPath& rPath)
     clang_disposeString(str);
   }
 
+  nglString line;
+  int32 offset = 0;
+  while (pStream->ReadLine(line))
+  {
+    if (!line.IsEmpty())
+    {
+      SourceLine* pLine = new SourceLine(line, offset, mStyle);
+      pLine->Layout(line);
+      mLines.push_back(pLine);
+    }
+    else
+    {
+      mLines.push_back(NULL);
+    }
+
+    offset = pStream->GetPos();
+  }
+
+  delete pStream;
+
+
   clang_disposeTranslationUnit(mTranslationUnit);
   clang_disposeIndex(mIndex);
+
+  InvalidateLayout();
   return true;
 }
 
@@ -107,33 +152,17 @@ void SourceView::ShowText(int line, int col)
   Invalidate();
 }
 
-void SourceView::AddLine(const nglString& rString)
-{
-  if (!rString.IsEmpty())
-  {
-    nuiLabel* pLabel = new nuiLabel(rString);
-    AddChild(pLabel);
-    mLines.push_back(pLabel);
-  }
-  else
-  {
-    mLines.push_back(NULL);
-  }
-
-  InvalidateLayout();
-}
-
 nuiRect SourceView::CalcIdealSize()
 {
   float y = 0;
   nuiRect global;
   for (int32 i = 0; i < mLines.size(); i++)
   {
-    nuiLabel* pLabel = mLines[i];
+    SourceLine* pLine = mLines[i];
 
-    if (pLabel)
+    if (pLine)
     {
-      nuiRect ideal = pLabel->GetIdealRect();
+      nuiRect ideal = pLine->GetRect();
       ideal.MoveTo(0, y);
       ideal.RoundToAbove();
       global.Union(global, ideal);
@@ -155,15 +184,13 @@ bool SourceView::SetRect(const nuiRect& rRect)
   float y = 0;
   for (int32 i = 0; i < mLines.size(); i++)
   {
-    nuiLabel* pLabel = mLines[i];
+    SourceLine* pLine = mLines[i];
 
-    if (pLabel)
+    if (pLine)
     {
-      nuiRect ideal = pLabel->GetIdealRect();
-      ideal.MoveTo(0, y);
-      ideal.RoundToAbove();
-      pLabel->SetLayout(ideal);
-      y = ideal.Bottom();
+      nuiRect ideal = pLine->GetRect();
+      pLine->SetPosition(0, y);
+      y += ideal.Bottom();
     }
     else
     {
@@ -178,19 +205,19 @@ nuiRect SourceView::GetSelectionRect()
   if (mLine < 0)
     return nuiRect();
 
-  nuiLabel* pLabel = mLines[mLine];
+  SourceLine* pLine = mLines[mLine];
   nuiRect rect;
 
-  if (pLabel)
+  if (pLine)
   {
-    rect = pLabel->GetRect();
+    rect = pLine->GetDisplayRect();
   }
   else
   {
     if (mLine > 0)
     {
-      nuiLabel* pLabel = mLines[mLine - 1];
-      rect = pLabel->GetRect();
+      SourceLine* pLine = mLines[mLine - 1];
+      rect = pLine->GetDisplayRect();
       rect.MoveTo(0, rect.Bottom());
     }
   }
@@ -209,13 +236,26 @@ bool SourceView::Draw(nuiDrawContext* pContext)
     pContext->DrawRect(rect, eFillShape);
   }
 
-  DrawChildren(pContext);
+  for (int i = 0; i < mLines.size(); i++)
+  {
+    SourceLine* pLine = mLines[i];
+
+    if (pLine)
+    {
+      nuiRect rect = pLine->GetDisplayRect();
+      rect.Move(0, rect.GetHeight());
+      pContext->DrawText(rect.Left(), rect.Top(), *pLine);
+    }
+  }
+
   return true;
 }
 
 
 bool SourceView::Clear()
 {
+  for (int i = 0; i < mLines.size(); i++)
+    delete mLines[i];
   mLines.clear();
   mLine = -1;
   mCol = -1;
