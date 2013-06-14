@@ -58,7 +58,5 @@ protected:
   void SelectThread(lldb::SBThread thread);
   void SelectFrame(lldb::SBFrame frame);
   void UpdateVariables(lldb::SBFrame frame);
-
-
 };
 

@@ -10,6 +10,9 @@
 
 #include "nui.h"
 
+#include <clang-c/Index.h>
+
+
 class SourceView : public nuiSimpleContainer
 {
 public:
@@ -32,4 +35,6 @@ private:
   std::vector<nuiLabel*> mLines;
   int32 mLine;
   int32 mCol;
+  CXIndex mIndex;
+  CXTranslationUnit mTranslationUnit;
 };

@@ -12,8 +12,6 @@
 #include "nuiCSS.h"
 #include "nuiVBox.h"
 
-#include <clang-c/Index.h>
-
 using namespace lldb;
 
 /*
@@ -241,8 +239,6 @@ bool BPCallback (void *baton,
 
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
-  CXIndex Index = clang_createIndex(0, 0);
-
   nglPath p("/Users/meeloo/work/build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/Default/YaLiveD.app");
 //  TestMain2(p.GetChars());
 //  return;

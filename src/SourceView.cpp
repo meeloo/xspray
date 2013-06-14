@@ -30,6 +30,7 @@ bool SourceView::Load(const nglPath& rPath)
   if (!pStream)
     return false;
 
+  int32 size = pStream->Available();
   nglString line;
   while (pStream->ReadLine(line))
   {
@@ -38,6 +39,56 @@ bool SourceView::Load(const nglPath& rPath)
   }
 
   delete pStream;
+
+  mIndex = clang_createIndex(0, 0);
+  int argc = 0;
+  char** argv = NULL;
+
+  mTranslationUnit = clang_parseTranslationUnit(mIndex, rPath.GetChars(), argv, argc, 0, 0, CXTranslationUnit_None);
+
+  for (unsigned I = 0, N = clang_getNumDiagnostics(mTranslationUnit); I != N; ++I)
+  {
+    CXDiagnostic Diag = clang_getDiagnostic(mTranslationUnit, I);
+    CXString String = clang_formatDiagnostic(Diag, clang_defaultDiagnosticDisplayOptions());
+    printf("%s\n", clang_getCString(String));
+    clang_disposeString(String);
+  }
+
+//  typedef struct {
+//    const void *ptr_data[2];
+//    unsigned begin_int_data;
+//    unsigned end_int_data;
+//  } CXSourceRange;
+
+  CXFile f = clang_getFile (mTranslationUnit, rPath.GetChars());
+  CXSourceLocation ls = clang_getLocationForOffset(mTranslationUnit, f, 0);
+  CXSourceLocation le = clang_getLocationForOffset(mTranslationUnit, f, size);
+  CXSourceRange range = clang_getRange (ls, le);
+  CXToken *Tokens = NULL;
+  unsigned NumTokens = 0;
+  clang_tokenize(mTranslationUnit, range, &Tokens, &NumTokens);
+
+  printf("Found %d tokens\n", NumTokens);
+  for (int i = 0; i < NumTokens; i++)
+  {
+    CXString str = clang_getTokenSpelling(mTranslationUnit, Tokens[i]);
+    CXSourceLocation location = clang_getTokenLocation(mTranslationUnit, Tokens[i]);
+    CXSourceRange range = clang_getTokenExtent(mTranslationUnit, Tokens[i]);
+    CXSourceLocation start = clang_getRangeStart(range);
+    CXSourceLocation end = clang_getRangeEnd(range);
+
+    unsigned sline = 0, scolumn = 0, soffset = 0;
+    clang_getFileLocation(start, NULL, &sline, &scolumn, &soffset);
+    unsigned eline, ecolumn, eoffset;
+    clang_getFileLocation(end, NULL, &eline, &ecolumn, &eoffset);
+
+    printf("%d:%d -> %d:%d --> '%s'\n", sline, scolumn, eline, ecolumn, clang_getCString(str));
+
+    clang_disposeString(str);
+  }
+
+  clang_disposeTranslationUnit(mTranslationUnit);
+  clang_disposeIndex(mIndex);
   return true;
 }
 
