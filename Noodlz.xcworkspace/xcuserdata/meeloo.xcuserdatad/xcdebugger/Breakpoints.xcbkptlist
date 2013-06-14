@@ -281,12 +281,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SourceView.cpp"
-         timestampString = "392921828.37485"
+         timestampString = "392937165.995731"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "212"
-         endingLineNumber = "212"
+         startingLineNumber = "234"
+         endingLineNumber = "234"
          landmarkName = "SourceView::ShowText(int line, int col)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/SourceView.cpp"
+         timestampString = "392934943.045737"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
+         landmarkName = "SourceView::Load(const nglPath&amp; rPath)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/SourceView.cpp"
+         timestampString = "392935296.737611"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
+         landmarkName = "SourceView::Load(const nglPath&amp; rPath)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/SourceView.cpp"
+         timestampString = "392937216.908429"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "210"
+         endingLineNumber = "210"
+         landmarkName = "SourceView::Load(const nglPath&amp; rPath)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

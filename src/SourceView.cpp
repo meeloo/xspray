@@ -57,13 +57,13 @@ SourceView::SourceView()
   nuiTextStyle s(mStyle);
 
   mStyles[CXToken_Punctuation] = s;
-  s.SetColor("marine");
+  s.SetColor(nuiColor(96, 0, 96));
   mStyles[CXToken_Keyword] = s;
-  s.SetColor("blue");
+  s.SetColor(nuiColor(0, 0, 192));
   mStyles[CXToken_Identifier] = s;
-  s.SetColor("red");
+  s.SetColor(nuiColor(192, 0, 0));
   mStyles[CXToken_Literal] = s;
-  s.SetColor("green");
+  s.SetColor(nuiColor(0, 128, 0));
   mStyles[CXToken_Comment] = s;
 
   mLine = -1;
@@ -72,6 +72,20 @@ SourceView::SourceView()
 
 SourceView::~SourceView()
 {
+}
+
+const char* GetTokenKindName(CXTokenKind kind)
+{
+  switch (kind)
+  {
+  case CXToken_Punctuation: return "Punctuation";
+  case CXToken_Keyword: return "Keyword";
+  case CXToken_Identifier: return "Identifier";
+  case CXToken_Literal: return "Literal";
+  case CXToken_Comment: return "Comment";
+  }
+
+  return "WTF Unknown Token Kind";
 }
 
 bool SourceView::Load(const nglPath& rPath)
@@ -110,6 +124,8 @@ bool SourceView::Load(const nglPath& rPath)
   CXToken *Tokens = NULL;
   unsigned NumTokens = 0;
   clang_tokenize(mTranslationUnit, range, &Tokens, &NumTokens);
+  CXCursor* cursors = new CXCursor[NumTokens];
+  clang_annotateTokens(mTranslationUnit, Tokens, NumTokens, cursors);
 
   printf("Found %d tokens\n", NumTokens);
   for (int i = 0; i < NumTokens; i++)
@@ -154,7 +170,6 @@ bool SourceView::Load(const nglPath& rPath)
     offset = pStream->GetPos();
   }
 
-  // Look for the first token valid for the current line:
   for (int tokenindex = 0; tokenindex < NumTokens; tokenindex++)
   {
     CXToken Token = Tokens[tokenindex];
@@ -168,14 +183,19 @@ bool SourceView::Load(const nglPath& rPath)
 
     clang_getFileLocation(start, NULL, &sline, &scolumn, &soffset);
     clang_getFileLocation(end, NULL, &eline, &ecolumn, &eoffset);
+    sline--;
+    scolumn--;
+    eline--;
+    ecolumn--;
 
-    style = mStyles[clang_getTokenKind(Token)];
+    CXTokenKind tokenkind = clang_getTokenKind(Token);
+    style = mStyles[tokenkind];
 
-    printf("%d:%d -> %d:%d --> '%s'\n", sline, scolumn, eline, ecolumn, clang_getCString(str));
-    
+    printf("%d:%d -> %d:%d --> '%s' (%s)\n", sline, scolumn, eline, ecolumn, clang_getCString(str), GetTokenKindName(tokenkind));
+
     clang_disposeString(str);
 
-    for (int l = sline - 1; l <= eline - 1; l++)
+    for (int l = sline; l <= eline; l++)
     {
       NGL_ASSERT(l < mLines.size());
       SourceLine* pLine = mLines[l];
@@ -189,16 +209,18 @@ bool SourceView::Load(const nglPath& rPath)
 
         pLine->AddStyleChange(s, style);
 
-//        if (eline == l)
-//        {
-//          pLine->AddStyleChange(e, mStyle);
-//        }
+        if (eline == l)
+        {
+          e = ecolumn;
+          pLine->AddStyleChange(e, mStyle);
+        }
       }
     }
   }
 
   delete pStream;
 
+  delete[] cursors;
 
   clang_disposeTranslationUnit(mTranslationUnit);
   clang_disposeIndex(mIndex);
