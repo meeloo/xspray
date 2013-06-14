@@ -127,7 +127,7 @@ bool SourceView::Load(const nglPath& rPath)
   CXCursor* cursors = new CXCursor[NumTokens];
   clang_annotateTokens(mTranslationUnit, Tokens, NumTokens, cursors);
 
-  printf("Found %d tokens\n", NumTokens);
+  //printf("Found %d tokens\n", NumTokens);
   for (int i = 0; i < NumTokens; i++)
   {
     CXString str = clang_getTokenSpelling(mTranslationUnit, Tokens[i]);
@@ -191,7 +191,7 @@ bool SourceView::Load(const nglPath& rPath)
     CXTokenKind tokenkind = clang_getTokenKind(Token);
     style = mStyles[tokenkind];
 
-    printf("%d:%d -> %d:%d --> '%s' (%s)\n", sline, scolumn, eline, ecolumn, clang_getCString(str), GetTokenKindName(tokenkind));
+    //printf("%d:%d -> %d:%d --> '%s' (%s)\n", sline, scolumn, eline, ecolumn, clang_getCString(str), GetTokenKindName(tokenkind));
 
     clang_disposeString(str);
 
