@@ -204,4 +204,14 @@ ModuleTree::Type ModuleTree::GetType() const
   return mType;
 }
 
+nglPath ModuleTree::GetSourcePath() const
+{
+  NGL_ASSERT(mType == eCompileUnit);
+  lldb::SBFileSpec f = mCompileUnit.GetFileSpec();
+  nglPath p(f.GetDirectory());
+  p += f.GetFilename();
+
+  return p;
+}
+
 

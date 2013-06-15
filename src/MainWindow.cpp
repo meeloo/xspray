@@ -77,6 +77,7 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mEventSink.Connect(mpStepOut->Activated, &MainWindow::OnStepOut);
 
   mEventSink.Connect(mpThreads->SelectionChanged, &MainWindow::OnThreadSelectionChanged);
+  mEventSink.Connect(mpModules->SelectionChanged, &MainWindow::OnModuleSelectionChanged);
 }
 
 MainWindow::~MainWindow()
@@ -644,3 +645,17 @@ void MainWindow::OnThreadSelectionChanged(const nuiEvent& rEvent)
 {
   UpdateVariablesForCurrentFrame();
 }
+
+void MainWindow::OnModuleSelectionChanged(const nuiEvent& rEvent)
+{
+  ModuleTree* pNode = (ModuleTree*)mpModules->GetSelectedNode();
+  if (!pNode)
+    return;
+
+  if (pNode->GetType() != ModuleTree::eCompileUnit)
+    return;
+
+  nglPath p = pNode->GetSourcePath();
+  ShowSource(p, 0, 0);
+}
+

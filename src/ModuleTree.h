@@ -43,6 +43,8 @@ public:
 
   Type GetType() const;
 
+  nglPath GetSourcePath() const;
+
   const lldb::SBTarget& GetTarget() const;
   const lldb::SBModule& GetModule() const;
 private:

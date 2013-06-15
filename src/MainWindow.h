@@ -39,6 +39,7 @@ protected:
   void OnThreadSelectionChanged(const nuiEvent& rEvent);
   void Loop();
   void UpdateVariablesForCurrentFrame();
+  void OnModuleSelectionChanged(const nuiEvent& rEvent);
 
   void ShowSource(const nglPath& rPath, int32 line, int32 col);
 
