@@ -14,6 +14,8 @@
 		E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */; };
 		E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E5143811176637A400DE52E4 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
+		E5523A43176C51F3006938F7 /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523A41176C51F3006938F7 /* ModuleTree.cpp */; };
+		E5523A44176C51F3006938F7 /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523A41176C51F3006938F7 /* ModuleTree.cpp */; };
 		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E562BF0A17685B000081AF35 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E562BF0B17685C600081AF35 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
@@ -191,6 +193,8 @@
 		E50FD30D17534D9900C4AA66 /* LLDB Python API */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LLDB Python API"; sourceTree = "<group>"; };
 		E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProcessTree.cpp; path = src/ProcessTree.cpp; sourceTree = "<group>"; };
 		E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessTree.h; path = src/ProcessTree.h; sourceTree = "<group>"; };
+		E5523A41176C51F3006938F7 /* ModuleTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleTree.cpp; path = src/ModuleTree.cpp; sourceTree = "<group>"; };
+		E5523A42176C51F3006938F7 /* ModuleTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleTree.h; path = src/ModuleTree.h; sourceTree = "<group>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				E5F509CE1761312600F651D9 /* VariableNode.h */,
 				E5F509EB1765BCB000F651D9 /* SourceView.cpp */,
 				E5F509EC1765BCB000F651D9 /* SourceView.h */,
+				E5523A41176C51F3006938F7 /* ModuleTree.cpp */,
+				E5523A42176C51F3006938F7 /* ModuleTree.h */,
 			);
 			name = sources;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
 				E5F509D01761312600F651D9 /* VariableNode.cpp in Sources */,
 				E5F509EE1765BCB000F651D9 /* SourceView.cpp in Sources */,
+				E5523A44176C51F3006938F7 /* ModuleTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +532,7 @@
 				E50FD31B175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
 				E5F509CF1761312600F651D9 /* VariableNode.cpp in Sources */,
 				E5F509ED1765BCB000F651D9 /* SourceView.cpp in Sources */,
+				E5523A43176C51F3006938F7 /* ModuleTree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

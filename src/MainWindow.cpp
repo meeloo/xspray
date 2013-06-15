@@ -51,6 +51,9 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mpVariables->SetSubElementWidth(0, 200);
   mpVariables->SetSubElementWidth(1, 200);
 
+  mpModules = (nuiTreeView*)pDebugger->SearchForChild("Modules", true);
+  NGL_ASSERT(mpModules);
+
   nuiScrollView* pScroller = (nuiScrollView*)pDebugger->SearchForChild("ThreadsScroller", true);
   pScroller->ActivateHotRect(false, true);
   pScroller = (nuiScrollView*)pDebugger->SearchForChild("VariablesScroller", true);
@@ -295,6 +298,12 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
     rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), "i386");
     if (rContext.mTarget.IsValid())
     {
+      ModuleTree* pTree = new ModuleTree(rContext.mTarget);
+      pTree->Acquire();
+      pTree->Open(true);
+      mpModules->SetTree(pTree);
+
+
       static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
       //breakpoint.SetCallback(BPCallback, 0);
 

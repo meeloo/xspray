@@ -9,6 +9,7 @@
 
 #include "nuiMainWindow.h"
 #include "ProcessTree.h"
+#include "ModuleTree.h"
 #include "VariableNode.h"
 #include "SourceView.h"
 
@@ -44,6 +45,7 @@ protected:
   nglThreadDelegate* mpDebuggerEventLoop;
 
   nuiTreeView* mpThreads;
+  nuiTreeView* mpModules;
   nuiTreeView* mpVariables;
   nuiWidget* mpTransport;
   nuiButton* mpStart;
