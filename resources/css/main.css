@@ -75,6 +75,8 @@
 
     +nuiScrollView ThreadsScroller
     {
+      TabName= "Threads";
+
       +nuiTreeView Threads
       {
       }
@@ -82,6 +84,8 @@
 
     +nuiScrollView ModulesScroller
     {
+      TabName= "Modules";
+
       +nuiTreeView Modules
       {
       }
