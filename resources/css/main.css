@@ -75,8 +75,6 @@
 
     +nuiScrollView ThreadsScroller
     {
-      Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
-      DecorationMode: Border;
       +nuiTreeView Threads
       {
       }
@@ -84,8 +82,6 @@
 
     +nuiScrollView ModulesScroller
     {
-      Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
-      DecorationMode: Border;
       +nuiTreeView Modules
       {
       }
