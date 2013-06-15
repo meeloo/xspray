@@ -69,13 +69,26 @@
     Layout = [left, right] / [top, header];
   }
 
-  +nuiScrollView ThreadsScroller
+  +nuiTabView Organiser
   {
-    Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
-    DecorationMode: Border;
     Layout = [left, threads] / [header, bottom];
-    +nuiTreeView Threads
+
+    +nuiScrollView ThreadsScroller
     {
+      Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
+      DecorationMode: Border;
+      +nuiTreeView Threads
+      {
+      }
+    }
+
+    +nuiScrollView ModulesScroller
+    {
+      Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
+      DecorationMode: Border;
+      +nuiTreeView Modules
+      {
+      }
     }
   }
 
