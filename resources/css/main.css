@@ -84,7 +84,7 @@
 
     +nuiScrollView ModulesScroller
     {
-      TabName= "Modules";
+      TabName = "Modules";
 
       +nuiTreeView Modules
       {
