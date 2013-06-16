@@ -172,11 +172,62 @@ void ModuleTree::UpdateCompileUnitFolder()
 void ModuleTree::UpdateSymbolFolder()
 {
   uint32_t symbols = mModule.GetNumSymbols();
+  int skipped = 0;
   for (uint32_t i = 0; i < symbols; i++)
   {
-    ModuleTree* pPT = new ModuleTree(mModule.GetSymbolAtIndex(i));
-    AddChild(pPT);
+    lldb::SBSymbol symbol = mModule.GetSymbolAtIndex(i);
+
+    bool skip = false;
+    switch (symbol.GetType())
+    {
+      case lldb::eSymbolTypeCode:
+      case lldb::eSymbolTypeAbsolute:
+      case lldb::eSymbolTypeException:
+      case lldb::eSymbolTypeVariable:
+      case lldb::eSymbolTypeObjCClass:
+      case lldb::eSymbolTypeObjCMetaClass:
+      case lldb::eSymbolTypeObjCIVar:
+        skip = false;
+        break;
+      case lldb::eSymbolTypeTrampoline:
+      case lldb::eSymbolTypeData:
+      case lldb::eSymbolTypeVariableType:
+      case lldb::eSymbolTypeLocal:
+      case lldb::eSymbolTypeAdditional: // When symbols take more than one entry: the extra entries get this type
+      case lldb::eSymbolTypeParam:
+      case lldb::eSymbolTypeRuntime:
+      case lldb::eSymbolTypeResolver:
+      case lldb::eSymbolTypeCompiler:
+      case lldb::eSymbolTypeInstrumentation:
+      case lldb::eSymbolTypeUndefined:
+      case lldb::eSymbolTypeInvalid:
+      case lldb::eSymbolTypeSourceFile:
+      case lldb::eSymbolTypeHeaderFile:
+      case lldb::eSymbolTypeObjectFile:
+      case lldb::eSymbolTypeCommonBlock:
+      case lldb::eSymbolTypeBlock:
+      case lldb::eSymbolTypeLineEntry:
+      case lldb::eSymbolTypeLineHeader:
+      case lldb::eSymbolTypeScopeBegin:
+      case lldb::eSymbolTypeScopeEnd:
+        skip = true;
+        skipped++;
+        break;
+    };
+
+    if (mSymbol.IsSynthetic())
+    {
+      skip = true;
+      skipped++;
+    }
+
+    if (!skip)
+    {
+      ModuleTree* pPT = new ModuleTree(symbol);
+      AddChild(pPT);
+    }
   }
+  NGL_OUT("Symbols %d (%d skipped)\n", symbols, skipped);
 }
 
 void ModuleTree::UpdateCompileUnit()
@@ -191,9 +242,75 @@ void ModuleTree::UpdateCompileUnit()
   SetElement(pLabel);
 }
 
+const char* GetSymbolTypeName(lldb::SymbolType t)
+{
+  switch (t)
+  {
+    case lldb::eSymbolTypeAbsolute:
+      return "absolute";
+    case lldb::eSymbolTypeTrampoline:
+      return "trampoline";
+    case lldb::eSymbolTypeException:
+      return "exception";
+    case lldb::eSymbolTypeVariable:
+      return "variable";
+    case lldb::eSymbolTypeObjCClass:
+      return "ObjC class";
+    case lldb::eSymbolTypeObjCMetaClass:
+      return "ObjC meta class";
+    case lldb::eSymbolTypeObjCIVar:
+      return "ObjC IVar";
+    case lldb::eSymbolTypeData:
+      return "data";
+    case lldb::eSymbolTypeVariableType:
+      return "variable type";
+    case lldb::eSymbolTypeLocal:
+      return "local";
+    case lldb::eSymbolTypeAdditional: // When symbols take more than one entry: the extra entries get this type
+      return "additionnal";
+    case lldb::eSymbolTypeParam:
+      return "param";
+    case lldb::eSymbolTypeRuntime:
+      return "runtime";
+    case lldb::eSymbolTypeCode:
+      return "code";
+    case lldb::eSymbolTypeResolver:
+      return "resolver";
+    case lldb::eSymbolTypeCompiler:
+      return "compiler";
+    case lldb::eSymbolTypeInstrumentation:
+      return "instrumentation";
+    case lldb::eSymbolTypeUndefined:
+      return "undefined";
+    case lldb::eSymbolTypeInvalid:
+      return "invalid";
+    case lldb::eSymbolTypeSourceFile:
+      return "source file";
+    case lldb::eSymbolTypeHeaderFile:
+      return "header file";
+    case lldb::eSymbolTypeObjectFile:
+      return "object file";
+    case lldb::eSymbolTypeCommonBlock:
+      return "common block";
+    case lldb::eSymbolTypeBlock:
+      return "block";
+    case lldb::eSymbolTypeLineEntry:
+      return "line entry";
+    case lldb::eSymbolTypeLineHeader:
+      return "line header";
+    case lldb::eSymbolTypeScopeBegin:
+      return "scope begin";
+    case lldb::eSymbolTypeScopeEnd:
+      return "scope end";
+  }
+
+  return "???";
+}
+
 void ModuleTree::UpdateSymbol()
 {
-  nglString str(mSymbol.GetName());
+  nglString str;
+  str.Add("(").Add(GetSymbolTypeName(mSymbol.GetType())).Add(") - ").Add(mSymbol.GetName());
   //NGL_OUT("  symbol: %s\n", str.GetChars());
   nuiLabel* pLabel = new nuiLabel(str);
   SetElement(pLabel);
