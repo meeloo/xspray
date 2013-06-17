@@ -23,19 +23,6 @@ int SourceLine::GetOffset() const
   return mOffset;
 }
 
-void SourceLine::SetPosition(float x, float y)
-{
-  mX = x;
-  mY = y;
-}
-
-nuiRect SourceLine::GetDisplayRect() const
-{
-  nuiRect r(GetRect());
-  r.MoveTo(mX, mY);
-  return r;
-}
-
 const nglString& SourceLine::GetText() const
 {
   return mText;
@@ -54,6 +41,7 @@ SourceView::SourceView()
     // Attributes
   }
 
+  mStyle.SetFont(nuiFont::GetFont(10));
   nuiTextStyle s(mStyle);
 
   mStyles[CXToken_Punctuation] = s;
@@ -68,6 +56,8 @@ SourceView::SourceView()
 
   mLine = -1;
   mCol = -1;
+  mGutterWidth = 0;
+  mGutterMargin = 8;
 }
 
 SourceView::~SourceView()
@@ -90,7 +80,6 @@ const char* GetTokenKindName(CXTokenKind kind)
 
 bool SourceView::Load(const nglPath& rPath)
 {
-  mStyle.SetFont(nuiFont::GetFont(10));
   nglIStream* pStream = rPath.OpenRead();
   if (!pStream)
     return false;
@@ -151,23 +140,21 @@ bool SourceView::Load(const nglPath& rPath)
   int currentline = 0;
 
   nuiTextStyle style = mStyle;
+  nuiTextStyle lnstyle = mStyle;
+  lnstyle.SetColor(nuiColor(128, 128, 128));
 
   while (pStream->ReadLine(line))
   {
     SourceLine* pLine = NULL;
-    
-    if (!line.IsEmpty())
-    {
-      pLine = new SourceLine(line, offset, mStyle);
-      mLines.push_back(pLine);
-    }
-    else
-    {
-      mLines.push_back(NULL);
-      pLine = NULL;
-    }
-
+    nglString linestr;
+    linestr.SetCInt(currentline + 1);
+    nuiTextLayout* pLineNumber = new nuiTextLayout(lnstyle);
+    pLineNumber->Layout(linestr);
+    pLine = new SourceLine(line, offset, mStyle);
+    mLines.push_back(std::make_pair(pLineNumber, pLine));
     offset = pStream->GetPos();
+
+    currentline++;
   }
 
   for (int tokenindex = 0; tokenindex < NumTokens; tokenindex++)
@@ -198,7 +185,8 @@ bool SourceView::Load(const nglPath& rPath)
     for (int l = sline; l <= eline; l++)
     {
       NGL_ASSERT(l < mLines.size());
-      SourceLine* pLine = mLines[l];
+      auto line = mLines[l];
+      SourceLine* pLine = line.second;
       if (pLine)
       {
         int s = 0;
@@ -246,12 +234,17 @@ void SourceView::ShowText(int line, int col)
 
 nuiRect SourceView::CalcIdealSize()
 {
-  float y = 0;
+  float h = mStyle.GetFont()->GetHeight();
+  float y = h;
   nuiRect global;
+  mGutterWidth = 20;
   for (int32 i = 0; i < mLines.size(); i++)
   {
-    SourceLine* pLine = mLines[i];
+    auto line = mLines[i];
+    nuiTextLayout* pLineNumber = line.first;
+    mGutterWidth = MAX(mGutterWidth, pLineNumber->GetRect().GetWidth());
 
+    SourceLine* pLine = line.second;
     if (pLine)
     {
       pLine->Layout();
@@ -259,38 +252,24 @@ nuiRect SourceView::CalcIdealSize()
       ideal.MoveTo(0, y);
       ideal.RoundToAbove();
       global.Union(global, ideal);
-      y = ideal.Bottom();
     }
     else
     {
-      y += 20;
       global.SetHeight(y);
     }
+
+    y = ToAbove(y + h);
   }
 
+  mGutterWidth += mGutterMargin * 2;
+  global.SetWidth(global.GetWidth() + mGutterWidth);
+  global.SetHeight(ToAbove(h) * mLines.size());
   return global;
 }
 
 bool SourceView::SetRect(const nuiRect& rRect)
 {
-  nuiWidget::SetRect(rRect);
-  float y = 0;
-  for (int32 i = 0; i < mLines.size(); i++)
-  {
-    SourceLine* pLine = mLines[i];
-
-    if (pLine)
-    {
-      nuiRect ideal = pLine->GetRect();
-      pLine->SetPosition(0, y);
-      y += ideal.Bottom();
-    }
-    else
-    {
-      y += 20;
-    }
-  }
-  return true;
+  return nuiWidget::SetRect(rRect);
 }
 
 nuiRect SourceView::GetSelectionRect()
@@ -298,24 +277,8 @@ nuiRect SourceView::GetSelectionRect()
   if (mLine < 0)
     return nuiRect();
 
-  SourceLine* pLine = mLines[mLine];
-  nuiRect rect;
-
-  if (pLine)
-  {
-    rect = pLine->GetDisplayRect();
-  }
-  else
-  {
-    if (mLine > 0)
-    {
-      SourceLine* pLine = mLines[mLine - 1];
-      rect = pLine->GetDisplayRect();
-      rect.MoveTo(0, rect.Bottom());
-    }
-  }
-  rect.SetWidth(mRect.GetWidth());
-
+  float h = mStyle.GetFont()->GetHeight();
+  nuiRect rect(mGutterWidth, (float)mLine * h, GetRect().GetWidth() - mGutterWidth, h);
   return rect;
 }
 
@@ -329,16 +292,22 @@ bool SourceView::Draw(nuiDrawContext* pContext)
     pContext->DrawRect(rect, eFillShape);
   }
 
+  float y = 0;
+  float h = mStyle.GetFont()->GetHeight();
   for (int i = 0; i < mLines.size(); i++)
   {
-    SourceLine* pLine = mLines[i];
+    auto line = mLines[i];
+
+    y = ToAbove((float)(i+1) * h);
+
+    nuiTextLayout* pLineNumber = line.first;
+    nuiRect rln = pLineNumber->GetRect();
+    pContext->DrawText(mGutterWidth - (rln.GetWidth() + mGutterMargin), y, *pLineNumber);
+
+    SourceLine* pLine = line.second;
 
     if (pLine)
-    {
-      nuiRect rect = pLine->GetDisplayRect();
-      rect.Move(0, rect.GetHeight());
-      pContext->DrawText(rect.Left(), rect.Top(), *pLine);
-    }
+      pContext->DrawText(mGutterWidth, y, *pLine);
   }
 
   return true;
@@ -348,7 +317,11 @@ bool SourceView::Draw(nuiDrawContext* pContext)
 bool SourceView::Clear()
 {
   for (int i = 0; i < mLines.size(); i++)
-    delete mLines[i];
+  {
+    auto line = mLines[i];
+    delete line.first;
+    delete line.second;
+  }
   mLines.clear();
   mLine = -1;
   mCol = -1;

@@ -242,11 +242,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/MainWindow.cpp"
-         timestampString = "393028777.257861"
+         timestampString = "393159402.109015"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "501"
-         endingLineNumber = "501"
+         startingLineNumber = "511"
+         endingLineNumber = "511"
          landmarkName = "MainWindow::UpdateProcess()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -268,11 +268,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/MainWindow.cpp"
-         timestampString = "393028777.257861"
+         timestampString = "393159402.109015"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "611"
-         endingLineNumber = "611"
+         startingLineNumber = "621"
+         endingLineNumber = "621"
          landmarkName = "MainWindow::ShowSource(const nglPath&amp; rPath, int32 line, int32 col)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -281,11 +281,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SourceView.cpp"
-         timestampString = "392937165.995731"
+         timestampString = "393199362.854025"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "234"
-         endingLineNumber = "234"
+         startingLineNumber = "222"
+         endingLineNumber = "222"
          landmarkName = "SourceView::ShowText(int line, int col)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -294,11 +294,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SourceView.cpp"
-         timestampString = "392934943.045737"
+         timestampString = "393199362.854025"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "173"
-         endingLineNumber = "173"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
          landmarkName = "SourceView::Load(const nglPath&amp; rPath)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -307,11 +307,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SourceView.cpp"
-         timestampString = "392935296.737611"
+         timestampString = "393199362.854025"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "192"
-         endingLineNumber = "192"
+         startingLineNumber = "179"
+         endingLineNumber = "179"
          landmarkName = "SourceView::Load(const nglPath&amp; rPath)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -320,11 +320,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SourceView.cpp"
-         timestampString = "392937216.908429"
+         timestampString = "393199362.854025"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
          landmarkName = "SourceView::Load(const nglPath&amp; rPath)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -346,12 +346,90 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/ModuleTree.cpp"
-         timestampString = "393060759.028812"
+         timestampString = "393167484.611316"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "326"
-         endingLineNumber = "326"
-         landmarkName = "ModuleTree::GetSourcePath()"
+         startingLineNumber = "346"
+         endingLineNumber = "346"
+         landmarkName = "GetTypeClassName(lldb::TypeClass cls)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/MainWindow.cpp"
+         timestampString = "393159402.109015"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "312"
+         endingLineNumber = "312"
+         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/ModuleTree.cpp"
+         timestampString = "393167484.611316"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "174"
+         endingLineNumber = "174"
+         landmarkName = "ModuleTree::UpdateSymbolFolder()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../llvm/tools/lldb/source/Plugins/SymbolFile/DWARF/SymbolFileDWARF.cpp"
+         timestampString = "393162618.051579"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "303"
+         endingLineNumber = "303"
+         landmarkName = "SymbolFileDWARF::SymbolFileDWARF(ObjectFile* objfile)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../llvm/tools/lldb/include/lldb/Symbol/SymbolVendor.h"
+         timestampString = "393166065.436619"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
+         landmarkName = "GetTypeList()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../llvm/tools/lldb/source/Symbol/TypeList.cpp"
+         timestampString = "393166575.327103"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
+         landmarkName = "TypeList::Insert (const TypeSP&amp; type_sp)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/SourceView.cpp"
+         timestampString = "393199362.854025"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "301"
+         endingLineNumber = "301"
+         landmarkName = "SourceView::Draw(nuiDrawContext* pContext)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

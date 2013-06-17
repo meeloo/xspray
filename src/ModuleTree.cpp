@@ -145,7 +145,6 @@ void ModuleTree::UpdateModule()
   pLabel->SetToolTip(p.GetChars());
   SetElement(pLabel);
 
-
   if (mModule.GetNumCompileUnits() != 0)
   {
     ModuleTree* pFiles = new ModuleTree(mModule, eCompileUnitFolder);
@@ -171,6 +170,27 @@ void ModuleTree::UpdateCompileUnitFolder()
 
 void ModuleTree::UpdateSymbolFolder()
 {
+  {
+    uint32_t symbols = mModule.GetNumSymbols();
+    int skipped = 0;
+    for (uint32_t i = 0; i < symbols; i++)
+    {
+      lldb::SBSymbol symbol = mModule.GetSymbolAtIndex(i);
+    }
+  }
+  lldb::SBTypeList types = mModule.FindTypes(NULL);
+//  types = mModule.FindTypes(NULL);
+//  types = mModule.FindTypes(NULL);
+//  types = mModule.FindTypes(NULL);
+//  types = mModule.FindTypes(NULL);
+  for (int i = 0; i < types.GetSize(); i++)
+  {
+    lldb::SBType t = types.GetTypeAtIndex(i);
+
+    printf("Type %d: %s\n", i, t.GetName());
+  }
+
+  return;
   uint32_t symbols = mModule.GetNumSymbols();
   int skipped = 0;
   for (uint32_t i = 0; i < symbols; i++)
@@ -307,13 +327,75 @@ const char* GetSymbolTypeName(lldb::SymbolType t)
   return "???";
 }
 
+const char* GetTypeClassName(lldb::TypeClass cls)
+{
+  switch (cls)
+  {
+    case lldb::eTypeClassInvalid:
+      return "invalid";
+    case lldb::eTypeClassArray:
+      return "array";
+    case lldb::eTypeClassBlockPointer:
+      return "pointer";
+    case lldb::eTypeClassBuiltin:
+      return "builtin";
+    case lldb::eTypeClassClass:
+      return "class";
+    case lldb::eTypeClassComplexFloat:
+      return "complex float";
+    case lldb::eTypeClassComplexInteger:
+      return "complex integer";
+    case lldb::eTypeClassEnumeration:
+      return "enumeration";
+    case lldb::eTypeClassFunction:
+      return "function";
+    case lldb::eTypeClassMemberPointer:
+      return "member pointer";
+    case lldb::eTypeClassObjCObject:
+      return "ObjC object";
+    case lldb::eTypeClassObjCInterface:
+      return "ObjC interface";
+    case lldb::eTypeClassObjCObjectPointer:
+      return "ObjC object pointer";
+    case lldb::eTypeClassPointer:
+      return "pointer";
+    case lldb::eTypeClassReference:
+      return "reference";
+    case lldb::eTypeClassStruct:
+      return "struct";
+    case lldb::eTypeClassTypedef:
+      return "typedef";
+    case lldb::eTypeClassUnion:
+      return "union";
+    case lldb::eTypeClassVector:
+      return "vector";
+      // Define the last type class as the MSBit of a 32 bit value
+    case lldb::eTypeClassOther:
+      return "other";
+      // Define a mask that can be used for any type when finding types
+    case lldb::eTypeClassAny:
+      return "anat";
+
+  }
+}
+
 void ModuleTree::UpdateSymbol()
 {
+#if 0
+  lldb::TypeClass cls = mSymbol.GetTypeClass();
+
+  nglString str;
+  str.Add("(").Add(GetSymbolTypeName(mSymbol.GetType())).Add("/").Add(GetTypeClassName(cls)).Add(") - ").Add(mSymbol.GetName());
+  //NGL_OUT("  symbol: %s\n", str.GetChars());
+  nuiLabel* pLabel = new nuiLabel(str);
+  SetElement(pLabel);
+#else
   nglString str;
   str.Add("(").Add(GetSymbolTypeName(mSymbol.GetType())).Add(") - ").Add(mSymbol.GetName());
   //NGL_OUT("  symbol: %s\n", str.GetChars());
   nuiLabel* pLabel = new nuiLabel(str);
   SetElement(pLabel);
+#endif
 }
 
 ModuleTree::Type ModuleTree::GetType() const

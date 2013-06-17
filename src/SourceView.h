@@ -20,14 +20,11 @@ public:
 
   int GetOffset() const;
 
-  void SetPosition(float x, float y);
-  nuiRect GetDisplayRect() const;
   const nglString& GetText() const;
   void Layout();
 protected:
   nglString mText;
   int mOffset;
-  float mX, mY;
 };
 
 class SourceView : public nuiSimpleContainer
@@ -48,13 +45,16 @@ public:
 private:
 
   nuiRect GetSelectionRect();
-  std::vector<SourceLine*> mLines;
+  std::vector<std::pair<nuiTextLayout*, SourceLine*> > mLines;
   int32 mLine;
   int32 mCol;
   CXIndex mIndex;
   CXTranslationUnit mTranslationUnit;
   nglString mText;
   nuiTextStyle mStyle;
+
+  float mGutterWidth;
+  float mGutterMargin;
 
   std::map<CXTokenKind, nuiTextStyle> mStyles;
 };

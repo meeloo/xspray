@@ -12,6 +12,7 @@
 
 #include <LLDB/LLDB.h>
 #include <LLDB/SBStream.h>
+#include <LLDB/SBTypeCategory.h>
 
 
 class MainWindow;

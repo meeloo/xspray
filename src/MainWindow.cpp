@@ -296,9 +296,19 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
   if (rContext.mDebugger.IsValid())
   {
     // Create a target using the executable.
-    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), "i386");
+    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), "x86_64");
     if (rContext.mTarget.IsValid())
     {
+      {
+        uint32_t c = rContext.mDebugger.GetNumCategories ();
+        for (int i = 0; i < c; i++)
+        {
+          lldb::SBTypeCategory cat = rContext.mDebugger.GetCategoryAtIndex(i);
+          printf("cat %d %s\n", i, cat.GetName());
+
+        }
+      }
+
       ModuleTree* pTree = new ModuleTree(rContext.mTarget);
       pTree->Acquire();
       pTree->Open(true);
