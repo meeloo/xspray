@@ -278,7 +278,9 @@ nuiRect SourceView::GetSelectionRect()
     return nuiRect();
 
   float h = mStyle.GetFont()->GetHeight();
-  nuiRect rect(mGutterWidth, (float)mLine * h, GetRect().GetWidth() - mGutterWidth, h);
+  nuiFontInfo Info;
+  mStyle.GetFont()->GetInfo(Info);
+  nuiRect rect(mGutterWidth, (float)mLine * h - Info.Descender, GetRect().GetWidth() - mGutterWidth, h);
   return rect;
 }
 
@@ -288,7 +290,7 @@ bool SourceView::Draw(nuiDrawContext* pContext)
   {
     nuiRect rect = GetSelectionRect();
     
-    pContext->SetFillColor(nuiColor(200, 200, 250));
+    pContext->SetFillColor(nuiColor(230, 230, 250));
     pContext->DrawRect(rect, eFillShape);
   }
 
