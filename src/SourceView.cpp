@@ -1,6 +1,6 @@
 //
 //  SourceView.cpp
-//  Noodlz
+//  Xspray
 //
 //  Created by Sébastien Métrot on 6/10/13.
 //
@@ -142,6 +142,7 @@ bool SourceView::Load(const nglPath& rPath)
   nuiTextStyle style = mStyle;
   nuiTextStyle lnstyle = mStyle;
   lnstyle.SetColor(nuiColor(128, 128, 128));
+  lnstyle.SetFont(nuiFont::GetFont(8));
 
   while (pStream->ReadLine(line))
   {

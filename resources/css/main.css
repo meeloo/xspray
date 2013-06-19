@@ -14,6 +14,12 @@
   Size: 12;
 }
 
+@font Icons
+{
+  Name: "rsrc:/css/font-awesome.ttf";
+  Size: 30;
+}
+
 
 +nuiHBox Transport
 {
@@ -24,7 +30,11 @@
 
   +nuiButton Pause
   {
-    +nuiLabel{ Text: "Pause"; }
+    +nuiLabel
+    {
+      Font: "Icons";
+      Text: "\uf04c";
+    }
   }
 
   +nuiButton Continue
@@ -55,7 +65,7 @@
 
 +nuiLayout Debugger
 {
-  VAnchors_header = 22;
+  VAnchors_header = 40;
   VAnchorsType_header = Absolute;
 
   VAnchors_variables = -300;

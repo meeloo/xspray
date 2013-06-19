@@ -1,6 +1,6 @@
 //
 //  ModuleTree.cpp
-//  Noodlz
+//  Xspray
 //
 //  Created by Sébastien Métrot on 6/15/13.
 //
@@ -178,11 +178,8 @@ void ModuleTree::UpdateSymbolFolder()
       lldb::SBSymbol symbol = mModule.GetSymbolAtIndex(i);
     }
   }
-  lldb::SBTypeList types = mModule.FindTypes(NULL);
-//  types = mModule.FindTypes(NULL);
-//  types = mModule.FindTypes(NULL);
-//  types = mModule.FindTypes(NULL);
-//  types = mModule.FindTypes(NULL);
+
+  lldb::SBTypeList types = mModule.GetTypes(lldb::eTypeClassClass);
   for (int i = 0; i < types.GetSize(); i++)
   {
     lldb::SBType t = types.GetTypeAtIndex(i);

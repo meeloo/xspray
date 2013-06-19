@@ -244,6 +244,7 @@ bool BPCallback (void *baton,
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
   nglPath p("/Users/meeloo/work/build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/Default/YaLiveD.app");
+  //nglPath p("/Applications/Calculator.app");
 //  TestMain2(p.GetChars());
 //  return;
 

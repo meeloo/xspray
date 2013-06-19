@@ -1,6 +1,6 @@
 //
 //  VariableNode.cpp
-//  Noodlz
+//  Xspray
 //
 //  Created by Sébastien Métrot on 6/6/13.
 //

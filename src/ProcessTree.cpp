@@ -1,6 +1,6 @@
 //
 //  ProcessTree.cpp
-//  Noodlz
+//  Xspray
 //
 //  Created by Sébastien Métrot on 6/3/13.
 //
@@ -142,9 +142,8 @@ void ProcessTree::UpdateThread()
 
 void ProcessTree::UpdateFrame()
 {
-  lldb::SBSymbolContext scontext = mFrame.GetSymbolContext(0);
   nglString str;
-  str.CFormat("%s", scontext.GetSymbol().GetName());
+  str.CFormat("%s", mFrame.GetFunctionName());
 //  NGL_OUT("\t\t%s\n", str.GetChars());
   nuiLabel* pLabel = new nuiLabel(str);
   SetElement(pLabel);

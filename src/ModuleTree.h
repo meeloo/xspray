@@ -1,6 +1,6 @@
 //
 //  ModuleTree.h
-//  Noodlz
+//  Xspray
 //
 //  Created by Sébastien Métrot on 6/15/13.
 //

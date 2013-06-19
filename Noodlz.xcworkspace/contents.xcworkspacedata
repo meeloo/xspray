@@ -5,7 +5,7 @@
       location = "group:../MeAgainstTheMusic/MeAgainstTheMusic.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:Noodlz.xcodeproj">
+      location = "container:Xspray.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../nui3/nui3.xcodeproj">

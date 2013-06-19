@@ -198,9 +198,9 @@
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
-		E5CA922316F62CB200B3A81D /* Noodlz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Noodlz.entitlements; sourceTree = "<group>"; };
-		E5D64530120A0B92009C26A9 /* Noodlz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodlz.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EF6FC811E77DE8000FB337 /* NoodlzD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoodlzD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5CA922316F62CB200B3A81D /* Xspray.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Xspray.entitlements; sourceTree = "<group>"; };
+		E5D64530120A0B92009C26A9 /* Xspray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xspray.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EF6FC811E77DE8000FB337 /* XsprayD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XsprayD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F509CD1761312600F651D9 /* VariableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VariableNode.cpp; path = src/VariableNode.cpp; sourceTree = "<group>"; };
 		E5F509CE1761312600F651D9 /* VariableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableNode.h; path = src/VariableNode.h; sourceTree = "<group>"; };
 		E5F509EB1765BCB000F651D9 /* SourceView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SourceView.cpp; path = src/SourceView.cpp; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 		61A9DE3D0B833C9200BC506C = {
 			isa = PBXGroup;
 			children = (
-				E5CA922316F62CB200B3A81D /* Noodlz.entitlements */,
+				E5CA922316F62CB200B3A81D /* Xspray.entitlements */,
 				E50FD30D17534D9900C4AA66 /* LLDB Python API */,
 				E5C5912216722BA500BAEDE4 /* resources */,
 				61A9DE4A0B833CD000BC506C /* sources */,
@@ -284,8 +284,8 @@
 		61A9DFB50B833DE500BC506C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5EF6FC811E77DE8000FB337 /* NoodlzD.app */,
-				E5D64530120A0B92009C26A9 /* Noodlz.app */,
+				E5EF6FC811E77DE8000FB337 /* XsprayD.app */,
+				E5D64530120A0B92009C26A9 /* Xspray.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,9 +326,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E5D64521120A0B92009C26A9 /* Noodlz OSX */ = {
+		E5D64521120A0B92009C26A9 /* Xspray OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Noodlz OSX" */;
+			buildConfigurationList = E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Xspray OSX" */;
 			buildPhases = (
 				E5D64524120A0B92009C26A9 /* Sources */,
 				E5D64527120A0B92009C26A9 /* Frameworks */,
@@ -341,14 +341,14 @@
 			dependencies = (
 				E5D64535120A0BA3009C26A9 /* PBXTargetDependency */,
 			);
-			name = "Noodlz OSX";
+			name = "Xspray OSX";
 			productName = Tempd;
-			productReference = E5D64530120A0B92009C26A9 /* Noodlz.app */;
+			productReference = E5D64530120A0B92009C26A9 /* Xspray.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E5EF6FB811E77DE8000FB337 /* NoodlzD OSX */ = {
+		E5EF6FB811E77DE8000FB337 /* XsprayD OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5EF6FC611E77DE8000FB337 /* Build configuration list for PBXNativeTarget "NoodlzD OSX" */;
+			buildConfigurationList = E5EF6FC611E77DE8000FB337 /* Build configuration list for PBXNativeTarget "XsprayD OSX" */;
 			buildPhases = (
 				E5EF6FBB11E77DE8000FB337 /* Sources */,
 				E5EF6FBE11E77DE8000FB337 /* Frameworks */,
@@ -361,9 +361,9 @@
 			dependencies = (
 				E5EF6FCC11E77E22000FB337 /* PBXTargetDependency */,
 			);
-			name = "NoodlzD OSX";
+			name = "XsprayD OSX";
 			productName = Tempd;
-			productReference = E5EF6FC811E77DE8000FB337 /* NoodlzD.app */;
+			productReference = E5EF6FC811E77DE8000FB337 /* XsprayD.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -374,7 +374,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = 61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Noodlz" */;
+			buildConfigurationList = 61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Xspray" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -392,8 +392,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				E5EF6FB811E77DE8000FB337 /* NoodlzD OSX */,
-				E5D64521120A0B92009C26A9 /* Noodlz OSX */,
+				E5EF6FB811E77DE8000FB337 /* XsprayD OSX */,
+				E5D64521120A0B92009C26A9 /* Xspray OSX */,
 			);
 		};
 /* End PBXProject section */
@@ -559,10 +559,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					$CONFIGURATION_BUILD_DIR/../Release,
-					"\"$(SRCROOT)/../build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/Release\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = $CONFIGURATION_BUILD_DIR/../Release;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = (
 					../nui3/include,
@@ -586,7 +583,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Noodlz.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Xspray.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -598,7 +595,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = _COCOA_;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Noodlz;
+				PRODUCT_NAME = Xspray;
 				PROVISIONING_PROFILE = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -613,7 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Noodlz.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Xspray.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -627,7 +624,7 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = NoodlzD;
+				PRODUCT_NAME = XsprayD;
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -640,7 +637,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Noodlz" */ = {
+		61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Xspray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61A9DE410B833C9200BC506C /* Default */,
@@ -648,7 +645,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
 		};
-		E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Noodlz OSX" */ = {
+		E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Xspray OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5D6452F120A0B92009C26A9 /* Default */,
@@ -656,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
 		};
-		E5EF6FC611E77DE8000FB337 /* Build configuration list for PBXNativeTarget "NoodlzD OSX" */ = {
+		E5EF6FC611E77DE8000FB337 /* Build configuration list for PBXNativeTarget "XsprayD OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5EF6FC711E77DE8000FB337 /* Default */,

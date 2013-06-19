@@ -13,7 +13,7 @@
 
 #include "nglConsole.h"
 
-#define APPLICATION_TITLE _T("Noodlz")
+#define APPLICATION_TITLE _T("Xspray")
 
 using namespace lldb;
 
