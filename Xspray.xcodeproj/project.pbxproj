@@ -138,7 +138,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 6;
+			dstSubfolderSpec = 10;
 			files = (
 				E5143811176637A400DE52E4 /* libclang.dylib in CopyFiles */,
 			);

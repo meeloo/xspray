@@ -42,6 +42,12 @@ public:
   virtual bool Draw(nuiDrawContext* pContext);
 
   virtual bool Clear();
+
+  virtual bool MouseClicked  (nuiSize X, nuiSize Y, nglMouseInfo::Flags Button);
+  virtual bool MouseUnclicked(nuiSize X, nuiSize Y, nglMouseInfo::Flags Button);
+  virtual bool MouseMoved    (nuiSize X, nuiSize Y);
+
+  nuiSignal4<float, float, int32, bool> LineSelected;
 private:
 
   nuiRect GetSelectionRect();
@@ -57,4 +63,6 @@ private:
   float mGutterMargin;
 
   std::map<CXTokenKind, nuiTextStyle> mStyles;
+
+  bool mClicked = false;
 };

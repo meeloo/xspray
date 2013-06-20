@@ -42,6 +42,7 @@ SourceView::SourceView()
   }
 
   mStyle.SetFont(nuiFont::GetFont(10));
+//  mStyle.SetColor(nuiColor(0, 0, 0));
   nuiTextStyle s(mStyle);
 
   mStyles[CXToken_Punctuation] = s;
@@ -329,5 +330,40 @@ bool SourceView::Clear()
   mLine = -1;
   mCol = -1;
   return nuiSimpleContainer::Clear();
+}
+
+bool SourceView::MouseClicked  (nuiSize X, nuiSize Y, nglMouseInfo::Flags Button)
+{
+  if (!(Button & nglMouseInfo::ButtonLeft || Button & nglMouseInfo::ButtonRight))
+    return false;
+
+  mClicked++;
+  Grab();
+
+  return true;
+}
+
+bool SourceView::MouseUnclicked(nuiSize X, nuiSize Y, nglMouseInfo::Flags Button)
+{
+  if (!(Button & nglMouseInfo::ButtonLeft || Button & nglMouseInfo::ButtonRight))
+    return false;
+  if (!mClicked)
+    return false;
+  Ungrab();
+
+  mClicked++;
+  if (IsInsideFromSelf(X, Y))
+  {
+    float h = mStyle.GetFont()->GetHeight();
+    LineSelected(X, Y, Y / h, X < mGutterWidth);
+  }
+  return true;
+}
+
+bool SourceView::MouseMoved(nuiSize X, nuiSize Y)
+{
+  if (mClicked)
+    return true;
+  return false;
 }
 

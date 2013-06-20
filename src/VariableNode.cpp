@@ -9,31 +9,22 @@
 #include "VariableNode.h"
 
 VariableNode::VariableNode(lldb::SBValue value)
-: nuiTreeNode(new nuiLabel(value.GetName())),
+: nuiTreeNode(NULL),
   mValue(value)
 {
-  mpType = new nuiLabel(value.GetTypeName());
-  mpType->Acquire();
+  std::map<nglString, nglString> dico;
 
-  mpValue = new nuiLabel(value.GetValue());
-  mpValue->Acquire();
+  dico["VariableName"] = value.GetName();
+  dico["VariableType"] = value.GetTypeName();
+  dico["VariableValue"] = value.GetValue();
+  nuiWidget* pElement = nuiBuilder::Get().CreateWidget("VariableView", dico);
+  SetElement(pElement);
 
   //NGL_OUT("%s (%s) = %s\n", value.GetName(), value.GetTypeName(), value.GetValue());
 }
 
 VariableNode::~VariableNode()
 {
-  mpType->Release();
-  mpValue->Release();
-}
-
-nuiWidgetPtr VariableNode::GetSubElement(uint32 index)
-{
-  if (index == 0)
-    return mpType;
-  else if (index == 1)
-    return mpValue;
-  return NULL;
 }
 
 void VariableNode::Open(bool Opened)

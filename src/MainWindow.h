@@ -29,6 +29,7 @@ protected:
   bool LoadCSS(const nglPath& rPath);
 
   nuiEventSink<MainWindow> mEventSink;
+  nuiSlotsSink mSlotSink;
 
   void OnStart(const nuiEvent& rEvent);
   void OnPause(const nuiEvent& rEvent);
@@ -40,6 +41,8 @@ protected:
   void Loop();
   void UpdateVariablesForCurrentFrame();
   void OnModuleSelectionChanged(const nuiEvent& rEvent);
+
+  void OnLineSelected(float X, float Y, int32 line, bool ingutter);
 
   void ShowSource(const nglPath& rPath, int32 line, int32 col);
 

@@ -14,47 +14,65 @@
   Size: 12;
 }
 
-@font Icons
+@Font Icons
 {
-  Name: "rsrc:/css/font-awesome.ttf";
-  Size: 30;
+  Name: "rsrc:/fonts/fontawesome-webfont.ttf";
+  Size: 18;
 }
 
++nuiLabel Icon { Font: Icons; }
+
++nuiHBox VariableView
+{
+  +nuiLabel Name
+  {
+    Text: VariableName;
+    TextColor: black;
+  }
+
+  +nuiLabel Type
+  {
+    Text: VariableType;
+    TextColor: rgb(128,128,128);
+  }
+
+  +nuiLabel Value
+  {
+    Text: VariableValue;
+    TextColor: red;
+  }
+}
 
 +nuiHBox Transport
 {
   +nuiButton StartStop
   {
-    +nuiLabel{ Text: "Start/Stop"; }
+    +Icon {Text: "\uf135"; }
   }
 
   +nuiButton Pause
   {
-    +nuiLabel
-    {
-      Font: "Icons";
-      Text: "\uf04c";
-    }
+    +Icon {Text: "\uf04c"; }
   }
 
   +nuiButton Continue
   {
-    +nuiLabel{ Text: "Continue"; }
+    +Icon{ Text: "\uf04b"; }
   }
 
   +nuiButton StepIn
   {
-    +nuiLabel{ Text: "Step in"; }
+    +Icon{ Text: "\uf149"; }
   }
 
   +nuiButton StepOver
   {
-    +nuiLabel{ Text: "Step over"; }
+    +Icon{ Text: "\uf051"; }
   }
 
   +nuiButton StepOut
   {
-    +nuiLabel{ Text: "Step out"; }
+    +Icon{ Text: "\uf148"; }
   }
 }
 

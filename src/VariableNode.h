@@ -21,11 +21,6 @@ public:
   void Open(bool Opened);
   bool IsEmpty() const;
 
-  virtual nuiWidgetPtr GetSubElement(uint32 index);
-
 private:
   lldb::SBValue mValue;
-
-  nuiWidget* mpType;
-  nuiWidget* mpValue;
 };

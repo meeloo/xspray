@@ -78,6 +78,8 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
 
   mEventSink.Connect(mpThreads->SelectionChanged, &MainWindow::OnThreadSelectionChanged);
   mEventSink.Connect(mpModules->SelectionChanged, &MainWindow::OnModuleSelectionChanged);
+
+  mSlotSink.Connect(mpSourceView->LineSelected, nuiMakeDelegate(this, &MainWindow::OnLineSelected));
 }
 
 MainWindow::~MainWindow()
@@ -243,7 +245,7 @@ bool BPCallback (void *baton,
 
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
-  nglPath p("/Users/meeloo/work/build/Noodlz-cwmoeooodusxmealpbjorzgwidxy/Build/Products/Default/YaLiveD.app");
+  nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
   //nglPath p("/Applications/Calculator.app");
 //  TestMain2(p.GetChars());
 //  return;
@@ -669,4 +671,11 @@ void MainWindow::OnModuleSelectionChanged(const nuiEvent& rEvent)
   nglPath p = pNode->GetSourcePath();
   ShowSource(p, 0, 0);
 }
+
+
+void MainWindow::OnLineSelected(float X, float Y, int32 line, bool ingutter)
+{
+  printf("OnLineSelected: %f,%f -- %d (in gutter: %s)\n", X, Y, line, YESNO(ingutter));
+}
+
 
