@@ -14,13 +14,20 @@
   Size: 12;
 }
 
-@Font Icons
+@Font Icons1
 {
   Name: "rsrc:/fonts/fontawesome-webfont.ttf";
   Size: 18;
 }
 
-+nuiLabel Icon { Font: Icons; }
+@Font Icons2
+{
+  Name: "rsrc:/fonts/Entypo.ttf";
+  Size: 36;
+}
+
++nuiLabel Icon1 { Font: Icons1; }
++nuiLabel Icon2 { Font: Icons2; }
 
 +nuiHBox VariableView
 {
@@ -45,34 +52,35 @@
 
 +nuiHBox Transport
 {
+  Expand: ShrinkAndGrow;
   +nuiButton StartStop
   {
-    +Icon {Text: "\uf135"; }
+    +Icon2 {Text: "\u1F680"; }
   }
 
   +nuiButton Pause
   {
-    +Icon {Text: "\uf04c"; }
+    +Icon2 {Text: "\u2016"; }
   }
 
   +nuiButton Continue
   {
-    +Icon{ Text: "\uf04b"; }
+    +Icon2{ Text: "\u25B6"; }
   }
 
   +nuiButton StepIn
   {
-    +Icon{ Text: "\uf149"; }
+    +Icon2{ Text: "\u21B3"; }
   }
 
   +nuiButton StepOver
   {
-    +Icon{ Text: "\uf051"; }
+    +Icon2{ Text: "\u27F3"; }
   }
 
   +nuiButton StepOut
   {
-    +Icon{ Text: "\uf148"; }
+    +Icon2{ Text: "\u1F519"; }
   }
 }
 
