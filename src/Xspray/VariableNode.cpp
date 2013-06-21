@@ -8,8 +8,7 @@
 
 #include "Xspray.h"
 
-namespace Xspray
-{
+using namespace Xspray;
 
 VariableNode::VariableNode(lldb::SBValue value)
 : nuiTreeNode(NULL),
@@ -56,4 +55,3 @@ bool VariableNode::IsEmpty() const
   return !const_cast<lldb::SBValue&>(mValue).MightHaveChildren();
 }
 
-}

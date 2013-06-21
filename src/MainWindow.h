@@ -7,8 +7,7 @@
 
 #pragma once
 
-#include "nuiMainWindow.h"
-#include "Xspray.h"
+#include "Xspray/Xspray.h"
 
 class MainWindow : public nuiMainWindow
 {

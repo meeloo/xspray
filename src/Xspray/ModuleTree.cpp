@@ -8,8 +8,7 @@
 
 #include "Xspray.h"
 
-namespace Xspray
-{
+using namespace Xspray;
 
 ModuleTree::ModuleTree(const lldb::SBTarget& rTarget)
 : nuiTreeNode(NULL, false, false, true, false), mTarget(rTarget), mType(eTarget)
@@ -424,4 +423,3 @@ nglPath ModuleTree::GetSourcePath() const
   return p;
 }
 
-}

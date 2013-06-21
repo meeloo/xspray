@@ -593,6 +593,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = $CONFIGURATION_BUILD_DIR/../Release;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = src/Xspray/Xspray.h;
 				HEADER_SEARCH_PATHS = (
 					../nui3/include,
 					../llvm/tools/clang/include,

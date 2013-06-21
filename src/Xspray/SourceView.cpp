@@ -8,8 +8,7 @@
 
 #include "Xspray.h"
 
-namespace Xspray
-{
+using namespace Xspray;
 
 //////// SourceLine
 SourceLine::SourceLine(const nglString& rText, int offset, const nuiTextStyle& rStyle)
@@ -391,4 +390,3 @@ bool SourceView::MouseMoved(nuiSize X, nuiSize Y)
 }
 
 
-}

@@ -8,8 +8,7 @@
 
 #include "Xspray.h"
 
-namespace Xspray
-{
+using namespace Xspray;
 
 #if 0
 Breakpoint::Breakpoint(lldb::SBBreakpoint, const nglPath& rPath, int32 line, int32 column);
@@ -23,4 +22,3 @@ int32 Breakpoint::GetLine() const;
 int32 Breakpoint::GetColumn() const;
 #endif
 
-}

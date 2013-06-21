@@ -8,7 +8,4 @@
 
 #include "Xspray.h"
 
-namespace Xspray
-{
-  
-}
+using namespace Xspray;

@@ -6,12 +6,10 @@
 */
 
 
-#include "nui.h"
-#include "nuiInit.h"
+#include "Xspray/Xspray.h"
+
 #include "Application.h"
 #include "MainWindow.h"
-
-#include "nglConsole.h"
 
 #define APPLICATION_TITLE _T("Xspray")
 

@@ -8,8 +8,7 @@
 
 #include "Xspray.h"
 
-namespace Xspray
-{
+using namespace Xspray;
 
 DebuggerContext::DebuggerContext()
 : mDebugger(lldb::SBDebugger::Create())
@@ -17,5 +16,3 @@ DebuggerContext::DebuggerContext()
 
 }
 
-
-}
