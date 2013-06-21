@@ -10,18 +10,22 @@
 		6E04DC26176618750098D9D5 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E50FD30A1752C0D100C4AA66 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
-		E50FD31B175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */; };
-		E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */; };
 		E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E5143811176637A400DE52E4 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
-		E53D0CD21774422F0082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CD01774422F0082B86F /* Breakpoint.cpp */; };
-		E53D0CD31774422F0082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CD01774422F0082B86F /* Breakpoint.cpp */; };
-		E53D0CDF1774429D0082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CDD1774429D0082B86F /* Xspray.cpp */; };
-		E53D0CE01774429D0082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CDD1774429D0082B86F /* Xspray.cpp */; };
-		E53D0CE3177443EF0082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */; };
-		E53D0CE4177443EF0082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */; };
-		E5523A43176C51F3006938F7 /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523A41176C51F3006938F7 /* ModuleTree.cpp */; };
-		E5523A44176C51F3006938F7 /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523A41176C51F3006938F7 /* ModuleTree.cpp */; };
+		E53D0CF4177445E90082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE6177445E90082B86F /* Breakpoint.cpp */; };
+		E53D0CF5177445E90082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE6177445E90082B86F /* Breakpoint.cpp */; };
+		E53D0CF6177445E90082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE8177445E90082B86F /* DebuggerContext.cpp */; };
+		E53D0CF7177445E90082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE8177445E90082B86F /* DebuggerContext.cpp */; };
+		E53D0CF8177445E90082B86F /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CEA177445E90082B86F /* ModuleTree.cpp */; };
+		E53D0CF9177445E90082B86F /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CEA177445E90082B86F /* ModuleTree.cpp */; };
+		E53D0CFA177445E90082B86F /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CEC177445E90082B86F /* ProcessTree.cpp */; };
+		E53D0CFB177445E90082B86F /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CEC177445E90082B86F /* ProcessTree.cpp */; };
+		E53D0CFC177445E90082B86F /* SourceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CEE177445E90082B86F /* SourceView.cpp */; };
+		E53D0CFD177445E90082B86F /* SourceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CEE177445E90082B86F /* SourceView.cpp */; };
+		E53D0CFE177445E90082B86F /* VariableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CF0177445E90082B86F /* VariableNode.cpp */; };
+		E53D0CFF177445E90082B86F /* VariableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CF0177445E90082B86F /* VariableNode.cpp */; };
+		E53D0D00177445E90082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CF2177445E90082B86F /* Xspray.cpp */; };
+		E53D0D01177445E90082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CF2177445E90082B86F /* Xspray.cpp */; };
 		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E562BF0A17685B000081AF35 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E562BF0B17685C600081AF35 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
@@ -39,10 +43,6 @@
 		E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD40B833F1500BC506C /* CoreServices.framework */; };
 		E5EF6FC311E77DE8000FB337 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD60B833F1500BC506C /* OpenGL.framework */; };
 		E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */; };
-		E5F509CF1761312600F651D9 /* VariableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509CD1761312600F651D9 /* VariableNode.cpp */; };
-		E5F509D01761312600F651D9 /* VariableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509CD1761312600F651D9 /* VariableNode.cpp */; };
-		E5F509ED1765BCB000F651D9 /* SourceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509EB1765BCB000F651D9 /* SourceView.cpp */; };
-		E5F509EE1765BCB000F651D9 /* SourceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5F509EB1765BCB000F651D9 /* SourceView.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,26 +197,26 @@
 		BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nui3.xcodeproj; path = ../nui3/nui3.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = ../Release/LLDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50FD30D17534D9900C4AA66 /* LLDB Python API */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LLDB Python API"; sourceTree = "<group>"; };
-		E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProcessTree.cpp; path = src/ProcessTree.cpp; sourceTree = "<group>"; };
-		E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessTree.h; path = src/ProcessTree.h; sourceTree = "<group>"; };
-		E53D0CD01774422F0082B86F /* Breakpoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Breakpoint.cpp; path = src/Breakpoint.cpp; sourceTree = "<group>"; };
-		E53D0CD11774422F0082B86F /* Breakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Breakpoint.h; path = src/Breakpoint.h; sourceTree = "<group>"; };
-		E53D0CDD1774429D0082B86F /* Xspray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Xspray.cpp; path = src/Xspray.cpp; sourceTree = "<group>"; };
-		E53D0CDE1774429D0082B86F /* Xspray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Xspray.h; path = src/Xspray.h; sourceTree = "<group>"; };
-		E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebuggerContext.cpp; path = src/DebuggerContext.cpp; sourceTree = "<group>"; };
-		E53D0CE2177443EF0082B86F /* DebuggerContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebuggerContext.h; path = src/DebuggerContext.h; sourceTree = "<group>"; };
-		E5523A41176C51F3006938F7 /* ModuleTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleTree.cpp; path = src/ModuleTree.cpp; sourceTree = "<group>"; };
-		E5523A42176C51F3006938F7 /* ModuleTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleTree.h; path = src/ModuleTree.h; sourceTree = "<group>"; };
+		E53D0CE6177445E90082B86F /* Breakpoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Breakpoint.cpp; path = src/Xspray/Breakpoint.cpp; sourceTree = "<group>"; };
+		E53D0CE7177445E90082B86F /* Breakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Breakpoint.h; path = src/Xspray/Breakpoint.h; sourceTree = "<group>"; };
+		E53D0CE8177445E90082B86F /* DebuggerContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebuggerContext.cpp; path = src/Xspray/DebuggerContext.cpp; sourceTree = "<group>"; };
+		E53D0CE9177445E90082B86F /* DebuggerContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebuggerContext.h; path = src/Xspray/DebuggerContext.h; sourceTree = "<group>"; };
+		E53D0CEA177445E90082B86F /* ModuleTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleTree.cpp; path = src/Xspray/ModuleTree.cpp; sourceTree = "<group>"; };
+		E53D0CEB177445E90082B86F /* ModuleTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleTree.h; path = src/Xspray/ModuleTree.h; sourceTree = "<group>"; };
+		E53D0CEC177445E90082B86F /* ProcessTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProcessTree.cpp; path = src/Xspray/ProcessTree.cpp; sourceTree = "<group>"; };
+		E53D0CED177445E90082B86F /* ProcessTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessTree.h; path = src/Xspray/ProcessTree.h; sourceTree = "<group>"; };
+		E53D0CEE177445E90082B86F /* SourceView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SourceView.cpp; path = src/Xspray/SourceView.cpp; sourceTree = "<group>"; };
+		E53D0CEF177445E90082B86F /* SourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceView.h; path = src/Xspray/SourceView.h; sourceTree = "<group>"; };
+		E53D0CF0177445E90082B86F /* VariableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VariableNode.cpp; path = src/Xspray/VariableNode.cpp; sourceTree = "<group>"; };
+		E53D0CF1177445E90082B86F /* VariableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableNode.h; path = src/Xspray/VariableNode.h; sourceTree = "<group>"; };
+		E53D0CF2177445E90082B86F /* Xspray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Xspray.cpp; path = src/Xspray/Xspray.cpp; sourceTree = "<group>"; };
+		E53D0CF3177445E90082B86F /* Xspray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Xspray.h; path = src/Xspray/Xspray.h; sourceTree = "<group>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
 		E5CA922316F62CB200B3A81D /* Xspray.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Xspray.entitlements; sourceTree = "<group>"; };
 		E5D64530120A0B92009C26A9 /* Xspray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xspray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EF6FC811E77DE8000FB337 /* XsprayD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XsprayD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5F509CD1761312600F651D9 /* VariableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VariableNode.cpp; path = src/VariableNode.cpp; sourceTree = "<group>"; };
-		E5F509CE1761312600F651D9 /* VariableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableNode.h; path = src/VariableNode.h; sourceTree = "<group>"; };
-		E5F509EB1765BCB000F651D9 /* SourceView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SourceView.cpp; path = src/SourceView.cpp; sourceTree = "<group>"; };
-		E5F509EC1765BCB000F651D9 /* SourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceView.h; path = src/SourceView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,24 +277,11 @@
 		61A9DE4A0B833CD000BC506C /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				E53D0CE5177445DA0082B86F /* Xspray */,
 				61A9DFEF0B83433800BC506C /* Application.cpp */,
 				61A9DFF00B83433800BC506C /* Application.h */,
 				61A9DFF10B83433800BC506C /* MainWindow.cpp */,
 				61A9DFF20B83433800BC506C /* MainWindow.h */,
-				E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */,
-				E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */,
-				E5F509CD1761312600F651D9 /* VariableNode.cpp */,
-				E5F509CE1761312600F651D9 /* VariableNode.h */,
-				E5F509EB1765BCB000F651D9 /* SourceView.cpp */,
-				E5F509EC1765BCB000F651D9 /* SourceView.h */,
-				E5523A41176C51F3006938F7 /* ModuleTree.cpp */,
-				E5523A42176C51F3006938F7 /* ModuleTree.h */,
-				E53D0CD01774422F0082B86F /* Breakpoint.cpp */,
-				E53D0CD11774422F0082B86F /* Breakpoint.h */,
-				E53D0CDD1774429D0082B86F /* Xspray.cpp */,
-				E53D0CDE1774429D0082B86F /* Xspray.h */,
-				E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */,
-				E53D0CE2177443EF0082B86F /* DebuggerContext.h */,
 			);
 			name = sources;
 			sourceTree = "<group>";
@@ -324,6 +311,27 @@
 				E50C19DC14B7C40D00C6C5B2 /* libminui3D.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E53D0CE5177445DA0082B86F /* Xspray */ = {
+			isa = PBXGroup;
+			children = (
+				E53D0CE6177445E90082B86F /* Breakpoint.cpp */,
+				E53D0CE7177445E90082B86F /* Breakpoint.h */,
+				E53D0CE8177445E90082B86F /* DebuggerContext.cpp */,
+				E53D0CE9177445E90082B86F /* DebuggerContext.h */,
+				E53D0CEA177445E90082B86F /* ModuleTree.cpp */,
+				E53D0CEB177445E90082B86F /* ModuleTree.h */,
+				E53D0CEC177445E90082B86F /* ProcessTree.cpp */,
+				E53D0CED177445E90082B86F /* ProcessTree.h */,
+				E53D0CEE177445E90082B86F /* SourceView.cpp */,
+				E53D0CEF177445E90082B86F /* SourceView.h */,
+				E53D0CF0177445E90082B86F /* VariableNode.cpp */,
+				E53D0CF1177445E90082B86F /* VariableNode.h */,
+				E53D0CF2177445E90082B86F /* Xspray.cpp */,
+				E53D0CF3177445E90082B86F /* Xspray.h */,
+			);
+			name = Xspray;
 			sourceTree = "<group>";
 		};
 		E5F8FA2F16F4C5B300563A78 /* Frameworks */ = {
@@ -534,13 +542,13 @@
 			files = (
 				E5D64525120A0B92009C26A9 /* Application.cpp in Sources */,
 				E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */,
-				E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
-				E5F509D01761312600F651D9 /* VariableNode.cpp in Sources */,
-				E5F509EE1765BCB000F651D9 /* SourceView.cpp in Sources */,
-				E5523A44176C51F3006938F7 /* ModuleTree.cpp in Sources */,
-				E53D0CD31774422F0082B86F /* Breakpoint.cpp in Sources */,
-				E53D0CE01774429D0082B86F /* Xspray.cpp in Sources */,
-				E53D0CE4177443EF0082B86F /* DebuggerContext.cpp in Sources */,
+				E53D0CF5177445E90082B86F /* Breakpoint.cpp in Sources */,
+				E53D0CF7177445E90082B86F /* DebuggerContext.cpp in Sources */,
+				E53D0CF9177445E90082B86F /* ModuleTree.cpp in Sources */,
+				E53D0CFB177445E90082B86F /* ProcessTree.cpp in Sources */,
+				E53D0CFD177445E90082B86F /* SourceView.cpp in Sources */,
+				E53D0CFF177445E90082B86F /* VariableNode.cpp in Sources */,
+				E53D0D01177445E90082B86F /* Xspray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,13 +558,13 @@
 			files = (
 				E5EF6FBC11E77DE8000FB337 /* Application.cpp in Sources */,
 				E5EF6FBD11E77DE8000FB337 /* MainWindow.cpp in Sources */,
-				E50FD31B175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */,
-				E5F509CF1761312600F651D9 /* VariableNode.cpp in Sources */,
-				E5F509ED1765BCB000F651D9 /* SourceView.cpp in Sources */,
-				E5523A43176C51F3006938F7 /* ModuleTree.cpp in Sources */,
-				E53D0CD21774422F0082B86F /* Breakpoint.cpp in Sources */,
-				E53D0CDF1774429D0082B86F /* Xspray.cpp in Sources */,
-				E53D0CE3177443EF0082B86F /* DebuggerContext.cpp in Sources */,
+				E53D0CF4177445E90082B86F /* Breakpoint.cpp in Sources */,
+				E53D0CF6177445E90082B86F /* DebuggerContext.cpp in Sources */,
+				E53D0CF8177445E90082B86F /* ModuleTree.cpp in Sources */,
+				E53D0CFA177445E90082B86F /* ProcessTree.cpp in Sources */,
+				E53D0CFC177445E90082B86F /* SourceView.cpp in Sources */,
+				E53D0CFE177445E90082B86F /* VariableNode.cpp in Sources */,
+				E53D0D00177445E90082B86F /* Xspray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
