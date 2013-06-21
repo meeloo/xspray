@@ -13,6 +13,7 @@
 #include "nuiVBox.h"
 
 using namespace lldb;
+using namespace Xspray;
 
 /*
  * MainWindow

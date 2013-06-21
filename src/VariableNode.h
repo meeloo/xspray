@@ -8,10 +8,6 @@
 
 #pragma once
 
-#include "nui.h"
-#include <LLDB/LLDB.h>
-
-
 class VariableNode : public nuiTreeNode
 {
 public:

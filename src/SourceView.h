@@ -47,9 +47,11 @@ public:
   virtual bool MouseUnclicked(nuiSize X, nuiSize Y, nglMouseInfo::Flags Button);
   virtual bool MouseMoved    (nuiSize X, nuiSize Y);
 
+  const nglPath& GetPath() const;
+
   nuiSignal4<float, float, int32, bool> LineSelected;
 private:
-
+  nglPath mPath;
   nuiRect GetSelectionRect();
   std::vector<std::pair<nuiTextLayout*, SourceLine*> > mLines;
   int32 mLine;
@@ -64,5 +66,5 @@ private:
 
   std::map<CXTokenKind, nuiTextStyle> mStyles;
 
-  bool mClicked = false;
+  int32 mClicked = 0;
 };

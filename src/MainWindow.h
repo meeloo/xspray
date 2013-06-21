@@ -8,10 +8,7 @@
 #pragma once
 
 #include "nuiMainWindow.h"
-#include "ProcessTree.h"
-#include "ModuleTree.h"
-#include "VariableNode.h"
-#include "SourceView.h"
+#include "Xspray.h"
 
 class MainWindow : public nuiMainWindow
 {
@@ -58,7 +55,7 @@ protected:
   nuiButton* mpStepIn;
   nuiButton* mpStepOver;
   nuiButton* mpStepOut;
-  SourceView* mpSourceView;
+  Xspray::SourceView* mpSourceView;
   
   void SelectProcess(lldb::SBProcess process);
   void SelectThread(lldb::SBThread thread);

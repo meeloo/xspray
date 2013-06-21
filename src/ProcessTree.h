@@ -7,8 +7,6 @@
 //
 
 #pragma once
-#include "nui.h"
-#include <LLDB/LLDB.h>
 
 class ProcessTree : public nuiTreeNode
 {

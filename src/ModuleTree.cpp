@@ -6,7 +6,10 @@
 //
 //
 
-#include "ModuleTree.h"
+#include "Xspray.h"
+
+namespace Xspray
+{
 
 ModuleTree::ModuleTree(const lldb::SBTarget& rTarget)
 : nuiTreeNode(NULL, false, false, true, false), mTarget(rTarget), mType(eTarget)
@@ -257,6 +260,17 @@ void ModuleTree::UpdateCompileUnit()
   nuiLabel* pLabel = new nuiLabel(str);
   pLabel->SetToolTip(p.GetChars());
   SetElement(pLabel);
+
+  uint32_t count = mCompileUnit.GetNumLineEntries();
+
+  for (uint32 i = 0; i < count; i++)
+  {
+    lldb::SBLineEntry entry = mCompileUnit.GetLineEntryAtIndex(i);
+    int32 line = entry.GetLine();
+    int32 column = entry.GetColumn();
+    NGL_OUT("    entry %d:%d\n", line, column);
+  }
+
 }
 
 const char* GetSymbolTypeName(lldb::SymbolType t)
@@ -410,4 +424,4 @@ nglPath ModuleTree::GetSourcePath() const
   return p;
 }
 
-
+}

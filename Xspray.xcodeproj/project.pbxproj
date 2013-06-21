@@ -14,6 +14,12 @@
 		E50FD31C175BFBEA00C4AA66 /* ProcessTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */; };
 		E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E5143811176637A400DE52E4 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
+		E53D0CD21774422F0082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CD01774422F0082B86F /* Breakpoint.cpp */; };
+		E53D0CD31774422F0082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CD01774422F0082B86F /* Breakpoint.cpp */; };
+		E53D0CDF1774429D0082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CDD1774429D0082B86F /* Xspray.cpp */; };
+		E53D0CE01774429D0082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CDD1774429D0082B86F /* Xspray.cpp */; };
+		E53D0CE3177443EF0082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */; };
+		E53D0CE4177443EF0082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */; };
 		E5523A43176C51F3006938F7 /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523A41176C51F3006938F7 /* ModuleTree.cpp */; };
 		E5523A44176C51F3006938F7 /* ModuleTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523A41176C51F3006938F7 /* ModuleTree.cpp */; };
 		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
@@ -193,6 +199,12 @@
 		E50FD30D17534D9900C4AA66 /* LLDB Python API */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LLDB Python API"; sourceTree = "<group>"; };
 		E50FD319175BFBEA00C4AA66 /* ProcessTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProcessTree.cpp; path = src/ProcessTree.cpp; sourceTree = "<group>"; };
 		E50FD31A175BFBEA00C4AA66 /* ProcessTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessTree.h; path = src/ProcessTree.h; sourceTree = "<group>"; };
+		E53D0CD01774422F0082B86F /* Breakpoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Breakpoint.cpp; path = src/Breakpoint.cpp; sourceTree = "<group>"; };
+		E53D0CD11774422F0082B86F /* Breakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Breakpoint.h; path = src/Breakpoint.h; sourceTree = "<group>"; };
+		E53D0CDD1774429D0082B86F /* Xspray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Xspray.cpp; path = src/Xspray.cpp; sourceTree = "<group>"; };
+		E53D0CDE1774429D0082B86F /* Xspray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Xspray.h; path = src/Xspray.h; sourceTree = "<group>"; };
+		E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebuggerContext.cpp; path = src/DebuggerContext.cpp; sourceTree = "<group>"; };
+		E53D0CE2177443EF0082B86F /* DebuggerContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebuggerContext.h; path = src/DebuggerContext.h; sourceTree = "<group>"; };
 		E5523A41176C51F3006938F7 /* ModuleTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ModuleTree.cpp; path = src/ModuleTree.cpp; sourceTree = "<group>"; };
 		E5523A42176C51F3006938F7 /* ModuleTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModuleTree.h; path = src/ModuleTree.h; sourceTree = "<group>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -277,6 +289,12 @@
 				E5F509EC1765BCB000F651D9 /* SourceView.h */,
 				E5523A41176C51F3006938F7 /* ModuleTree.cpp */,
 				E5523A42176C51F3006938F7 /* ModuleTree.h */,
+				E53D0CD01774422F0082B86F /* Breakpoint.cpp */,
+				E53D0CD11774422F0082B86F /* Breakpoint.h */,
+				E53D0CDD1774429D0082B86F /* Xspray.cpp */,
+				E53D0CDE1774429D0082B86F /* Xspray.h */,
+				E53D0CE1177443EF0082B86F /* DebuggerContext.cpp */,
+				E53D0CE2177443EF0082B86F /* DebuggerContext.h */,
 			);
 			name = sources;
 			sourceTree = "<group>";
@@ -520,6 +538,9 @@
 				E5F509D01761312600F651D9 /* VariableNode.cpp in Sources */,
 				E5F509EE1765BCB000F651D9 /* SourceView.cpp in Sources */,
 				E5523A44176C51F3006938F7 /* ModuleTree.cpp in Sources */,
+				E53D0CD31774422F0082B86F /* Breakpoint.cpp in Sources */,
+				E53D0CE01774429D0082B86F /* Xspray.cpp in Sources */,
+				E53D0CE4177443EF0082B86F /* DebuggerContext.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +554,9 @@
 				E5F509CF1761312600F651D9 /* VariableNode.cpp in Sources */,
 				E5F509ED1765BCB000F651D9 /* SourceView.cpp in Sources */,
 				E5523A43176C51F3006938F7 /* ModuleTree.cpp in Sources */,
+				E53D0CD21774422F0082B86F /* Breakpoint.cpp in Sources */,
+				E53D0CDF1774429D0082B86F /* Xspray.cpp in Sources */,
+				E53D0CE3177443EF0082B86F /* DebuggerContext.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

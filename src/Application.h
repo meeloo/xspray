@@ -10,43 +10,31 @@
 #include "nui.h"
 #include "nuiApplication.h"
 
-#include <LLDB/LLDB.h>
-#include <LLDB/SBStream.h>
-#include <LLDB/SBTypeCategory.h>
-
+#include "Xspray.h"
 
 class MainWindow;
-
-class DebuggerContext
-{
-public:
-  DebuggerContext();
-  lldb::SBDebugger mDebugger;
-  lldb::SBTarget mTarget;
-  lldb::SBProcess mProcess;
-};
 
 class Application : public nuiApplication
 {
 public:
   Application();
-  ~Application();
+  virtual ~Application();
 
   void OnInit();
   void OnExit (int Code);
   
   MainWindow* GetMainWindow();
 
-  DebuggerContext& GetDebuggerContext();
+  Xspray::DebuggerContext& GetDebuggerContext();
 private:
   
   MainWindow* mpMainWindow;
-  DebuggerContext* mpDebuggerContext;
+  Xspray::DebuggerContext* mpDebuggerContext;
 };
 
 
 // a global call to retrieve the application object
 Application* GetApp();
 MainWindow* GetMainWindow();
-DebuggerContext& GetDebuggerContext();
+Xspray::DebuggerContext& GetDebuggerContext();
 

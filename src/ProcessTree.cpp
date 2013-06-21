@@ -6,7 +6,10 @@
 //
 //
 
-#include "ProcessTree.h"
+#include "Xspray.h"
+
+namespace Xspray
+{
 
 ProcessTree::ProcessTree(const lldb::SBProcess& rProcess)
 : nuiTreeNode(NULL, false, false, true, false), mProcess(rProcess), mType(eProcess)
@@ -154,4 +157,5 @@ ProcessTree::Type ProcessTree::GetType() const
   return mType;
 }
 
+}
 

@@ -23,7 +23,7 @@ Application::Application()
 {
   mpMainWindow = NULL;
   lldb::SBDebugger::Initialize();
-  mpDebuggerContext = new DebuggerContext();
+  mpDebuggerContext = new Xspray::DebuggerContext();
 }
 
 Application::~Application()
@@ -166,7 +166,7 @@ MainWindow* Application::GetMainWindow()
   return mpMainWindow;
 }
 
-DebuggerContext& Application::GetDebuggerContext()
+Xspray::DebuggerContext& Application::GetDebuggerContext()
 {
   return *mpDebuggerContext;
 }
@@ -183,13 +183,8 @@ MainWindow* GetMainWindow()
   return ((Application*)App)->GetMainWindow();
 }
 
-DebuggerContext& GetDebuggerContext()
+Xspray::DebuggerContext& GetDebuggerContext()
 {
   return ((Application*)App)->GetDebuggerContext();
 }
 
-DebuggerContext::DebuggerContext()
-: mDebugger(SBDebugger::Create())
-{
-
-}

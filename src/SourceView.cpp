@@ -6,7 +6,10 @@
 //
 //
 
-#include "SourceView.h"
+#include "Xspray.h"
+
+namespace Xspray
+{
 
 //////// SourceLine
 SourceLine::SourceLine(const nglString& rText, int offset, const nuiTextStyle& rStyle)
@@ -216,6 +219,8 @@ bool SourceView::Load(const nglPath& rPath)
   clang_disposeIndex(mIndex);
 
   InvalidateLayout();
+
+  mPath = rPath;
   return true;
 }
 
@@ -314,6 +319,18 @@ bool SourceView::Draw(nuiDrawContext* pContext)
       pContext->DrawText(mGutterWidth, y, *pLine);
   }
 
+//  // Draw breakpoints:
+//  lldb::SBTarget target = GetDebuggerContext().mTarget;
+//  for (int i = 0; i < target.GetNumBreakpoints(); i++)
+//  {
+//    lldb::SBBreakpoint breakpoint = target.GetBreakpointAtIndex(i);
+//    for (int32 l = 0; l < breakpoint.GetNumResolvedLocations(); l++)
+//    {
+//      lldb::SBBreakpointLocation loc = breakpoint.GetLocationAtIndex (l);
+//      
+//    }
+//  }
+//
   return true;
 }
 
@@ -329,7 +346,13 @@ bool SourceView::Clear()
   mLines.clear();
   mLine = -1;
   mCol = -1;
+  mPath = nglPath();
   return nuiSimpleContainer::Clear();
+}
+
+const nglPath& SourceView::GetPath() const
+{
+  return mPath;
 }
 
 bool SourceView::MouseClicked  (nuiSize X, nuiSize Y, nglMouseInfo::Flags Button)
@@ -367,3 +390,5 @@ bool SourceView::MouseMoved(nuiSize X, nuiSize Y)
   return false;
 }
 
+
+}
