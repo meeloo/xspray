@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../MeAgainstTheMusic/MeAgainstTheMusic.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:Xspray.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../nui3/nui3.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../yalive/YaLive.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../llvm/tools/lldb/tools/debugserver/debugserver.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../llvm/tools/lldb/lldb.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../TestLLDB/TestLLDB.xcodeproj">
+   </FileRef>
+</Workspace>
