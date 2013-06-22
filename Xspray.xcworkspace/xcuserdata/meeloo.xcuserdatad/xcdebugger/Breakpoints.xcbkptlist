@@ -523,6 +523,19 @@
          landmarkName = "nuiWidgetCreator::Create(const std::map&lt;nglString, nglString&gt;&amp; rParamDictionary, const nuiBuilder* pBuilder)"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Xspray/iOSRemoteDebug.cpp"
+         timestampString = "393632835.70786"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "842"
+         endingLineNumber = "842"
+         landmarkName = "iOSDevice::GetDeveloperDiskImagePath(nglString&amp; rPath)"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>
       <ExceptionBreakpoint

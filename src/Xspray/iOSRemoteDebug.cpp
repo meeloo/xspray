@@ -11,6 +11,39 @@
 
 #include "iOSRemoteDebug.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+  /*
+   Remote debug connect url schemes:
+   listen://HOST:PORT
+   unix-accept://SOCKNAME
+   connect:// (same as tcp-connect://)
+   tcp-connect://
+   udp://
+   fd://     (Just passing a native file descriptor within this current process that is already opened (possibly from a service or other source).
+   file:///PATH
+
+   Find the code handling these schemes in lldb://source/Core/ConnectionFileDescriptor.cpp
+   */
+
+  typedef void (*AMinstall_callback)(CFDictionaryRef dict, int arg);
+  typedef void (*AMtransfer_callback)(CFDictionaryRef dict, int arg);
+  mach_error_t AMDeviceInstallApplication(service_conn_t sockInstallProxy, CFStringRef cfStrPath, CFDictionaryRef opts, AMinstall_callback callback, int* unknow);
+  mach_error_t AMDeviceTransferApplication(service_conn_t afcFd, CFStringRef path, CFDictionaryRef opts, AMtransfer_callback, int* unknown);
+
+
+  int AMDeviceSecureTransferPath(int zero, AMDeviceRef device, CFURLRef url, CFDictionaryRef options, void *callback, void* cbarg);
+  int AMDeviceSecureInstallApplication(int zero, AMDeviceRef device, CFURLRef url, CFDictionaryRef options, void *callback, void* cbarg);
+  int AMDeviceMountImage(AMDeviceRef device, CFStringRef image, CFDictionaryRef options, void *callback, void* cbarg);
+  int AMDeviceLookupApplications(AMDeviceRef device, int zero, CFDictionaryRef* result);
+  
+  
+#ifdef __cplusplus
+}
+#endif
+
 #define FDVENDOR_PATH  "/tmp/xspray-remote-debugserver"
 #define PREP_CMDS_PATH "/tmp/xspray-gdb-prep-cmds"
 //#define GDB_SHELL      "/Developer/Platforms/iPhoneOS.platform/Developer/usr/libexec/gdb/gdb-arm-apple-darwin --arch armv7 -q -x " PREP_CMDS_PATH
@@ -428,7 +461,8 @@ void gdb_ready_handler(int signum)
 
 
 
-void handle_device(AMDeviceRef device) {
+void handle_device(AMDeviceRef device)
+{
   if (found_device) return; // handle one device only
 
   CFStringRef found_device_id = AMDeviceCopyDeviceIdentifier(device);
@@ -626,3 +660,298 @@ int main(int argc, char *argv[])
   CFRunLoopRun();
 }
 #endif
+
+using namespace Xspray;
+
+iOSDevice::iOSDevice(am_device *device)
+: mpDevice(device), mType(Unknown), mRetina(false)
+{
+	CFStringEncoding encoding = CFStringGetSystemEncoding();
+	const char *udid          = CFStringGetCStringPtr(AMDeviceCopyDeviceIdentifier(mpDevice), encoding);
+
+  CFRetain(mpDevice);
+
+  AMDeviceConnect(mpDevice);
+  assert(AMDeviceIsPaired(mpDevice));
+  assert(AMDeviceValidatePairing(mpDevice) == 0);
+  assert(AMDeviceStartSession(mpDevice) == 0);
+
+  const char *device_name  = CFStringGetCStringPtr(AMDeviceCopyValue(mpDevice, 0, CFSTR("DeviceName")),     encoding);
+  const char *product_type = CFStringGetCStringPtr(AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductType")),    encoding);
+  const char *ios_version  = CFStringGetCStringPtr(AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductVersion")), encoding);
+
+  mName = device_name;
+  mUDID = udid;
+  mTypeName = product_type;
+  mVersionString = ios_version;
+
+  {
+    char _device_name[15];
+    char _device_gen[2];
+    char _ios_version[2];
+
+    nglString resolution;
+
+    memcpy(_device_name, product_type, strlen(product_type)-3);
+    strncpy(_device_gen, strtok((char *)product_type, _device_name), 1);
+    strncpy(_ios_version, ios_version, 1);
+
+    int rev = atoi(_device_gen);
+
+    if (strcmp(_device_name, "iPhone") == 0)
+    {
+      mType = iPhone;
+      if (rev > 2)
+        mRetina = true;
+    }
+    else if (strcmp(_device_name, "iPod") == 0)
+    {
+      mType = iPod;
+      if (atoi(_device_gen) > 3)
+        mRetina = true;
+    }
+    else if (strcmp(_device_name, "iPad") == 0)
+    {
+      mType = iPad;
+    }
+  }
+
+  printf("New iOS Device: '%s' (%s)  - UDID: %s - iOS: %s - screen: %s\n", mName.GetChars(), mTypeName.GetChars(), mUDID.GetChars(), mVersionString.GetChars(), mRetina?"retina":"");
+
+  MountDeveloperImage();
+}
+
+iOSDevice::~iOSDevice()
+{
+  CFRelease(mpDevice);
+  printf("Removed iOS Device: '%s' (%s)  - UDID: %s - iOS: %s - screen: %s\n", mName.GetChars(), mTypeName.GetChars(), mUDID.GetChars(), mVersionString.GetChars(), mRetina?"retina":"");
+}
+
+const nglString& iOSDevice::GetName() const
+{
+  return mName;
+}
+
+const nglString& iOSDevice::GetUDID() const
+{
+  return mUDID;
+}
+
+const nglString& iOSDevice::GetTypeName() const
+{
+  return mTypeName;
+}
+
+iOSDevice::Type iOSDevice::GetType() const
+{
+  return mType;
+}
+
+const nglString& iOSDevice::GetVersionString() const
+{
+  return mVersionString;
+}
+
+nuiSignal1<iOSDevice&> iOSDevice::DeviceConnected;
+nuiSignal1<iOSDevice&> iOSDevice::DeviceDisconnected;
+
+struct am_device_notification *iOSDevice::mpNotifications = NULL;
+
+void iOSDevice::Init()
+{
+	AMDeviceNotificationSubscribe(&iOSDevice::DeviceCallback, 0, 0, NULL, &mpNotifications);
+}
+
+void iOSDevice::Exit()
+{
+  
+}
+
+std::map<am_device*, iOSDevice*> iOSDevice::mDevices;
+
+void iOSDevice::DeviceCallback(struct am_device_notification_callback_info *info, void *arg)
+{
+	switch (info->msg)
+  {
+    case ADNCI_MSG_CONNECTED:
+      {
+        am_device* device = info->dev;
+        iOSDevice* pDevice = new iOSDevice(device);
+        mDevices[device] = pDevice;
+        DeviceConnected(*pDevice);
+      }
+      break;
+    case ADNCI_MSG_DISCONNECTED:
+      {
+        am_device* device = info->dev;
+        auto it = mDevices.find(device);
+        if (it != mDevices.end())
+        {
+          iOSDevice* pDevice = it->second;
+          mDevices.erase(it);
+          DeviceDisconnected(*pDevice);
+          delete pDevice;
+        }
+      }
+      break;
+    default:
+      break;
+	}
+}	 
+
+
+bool iOSDevice::GetDeviceSupportPath(nglString& rPath) const
+{
+  nglString version = AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductVersion"));
+  nglString build = AMDeviceCopyValue(mpDevice, 0, CFSTR("BuildVersion"));
+  const char* home = getenv("HOME");
+  nglString path;
+  bool found = false;
+
+  const char* sources[] =
+  {
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version} ({build})",
+    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})",
+    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version}",
+    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+    NULL
+  };
+
+  for (int i = 0; sources[i]; i++)
+  {
+    nglString t = sources[i];
+    t.Replace("{version}", version);
+    t.Replace("{build}", build);
+    t.Replace("{home}", home);
+
+    nglPath p = t;
+    if (p.Exists())
+    {
+      rPath = p;
+      return true;
+    }
+  }
+
+  rPath = nglPath();
+  return false;
+}
+
+bool iOSDevice::GetDeveloperDiskImagePath(nglString& rPath) const
+{
+  nglString version = AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductVersion"));
+  nglString build = AMDeviceCopyValue(mpDevice, 0, CFSTR("BuildVersion"));
+  nglString home = getenv("HOME");
+  nglString path;
+  bool found = false;
+
+  const char* sources[] =
+  {
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build}/DeveloperDiskImage.dmg)",
+    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version}/DeveloperDiskImage.dmg",
+    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}/DeveloperDiskImage.dmg",
+    "{home}/Library/Developer/Xcode/iOS DeviceSupport/Latest/DeveloperDiskImage.dmg",
+    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/Latest/DeveloperDiskImage.dmg",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/6.1 (10B141)/DeveloperDiskImage.dmg",
+    NULL
+  };
+
+  for (int i = 0; sources[i]; i++)
+  {
+    nglString t = sources[i];
+    t.Replace("{version}", version);
+    t.Replace("{build}", build);
+    t.Replace("{home}", home);
+
+    nglPath p = t;
+    if (p.Exists())
+    {
+      rPath = p;
+      return true;
+    }
+  }
+
+  rPath = nglPath();
+  return false;
+}
+
+
+void iOSDevice::MountCallback(CFDictionaryRef dict, void * arg)
+{
+  iOSDevice* pDevice = (iOSDevice*)arg;
+  CFStringRef status = (CFStringRef)CFDictionaryGetValue(dict, CFSTR("Status"));
+
+  printf ("MountCallback arg = %p\n", arg);
+  if (CFEqual(status, CFSTR("LookingUpImage")))
+  {
+    printf("[  0%%] Looking up developer disk image\n");
+    pDevice->InstallationProgress(0.0f, "Looking up developer disk image");
+  }
+  else if (CFEqual(status, CFSTR("CopyingImage")))
+  {
+    printf("[ 30%%] Copying DeveloperDiskImage.dmg to device\n");
+    pDevice->InstallationProgress(30.0f, "Copying developer disk image");
+  }
+  else if (CFEqual(status, CFSTR("MountingImage")))
+  {
+    printf("[ 90%%] Mounting developer disk image\n");
+    pDevice->InstallationProgress(90.0f, "Mounting developer disk image");
+  }
+}
+
+bool iOSDevice::MountDeveloperImage() const
+{
+  nglString ds_path;
+  bool res = GetDeviceSupportPath(ds_path);
+  nglString image_path;
+  res = GetDeveloperDiskImagePath(image_path);
+  nglString sig_path = image_path + ".signature";
+
+  NGL_OUT("Device support path: %s\n", ds_path.GetChars());
+  NGL_OUT("Developer disk image: %s\n", image_path.GetChars());
+
+  FILE* sig = fopen(sig_path.GetChars(), "rb");
+  void *sig_buf = malloc(128);
+  if (fread(sig_buf, 1, 128, sig) != 128)
+  {
+    NGL_OUT("Fread error...");
+  }
+  fclose(sig);
+  CFDataRef sig_data = CFDataCreateWithBytesNoCopy(NULL, (const UInt8*)sig_buf, 128, NULL);
+
+  CFTypeRef keys[] = { CFSTR("ImageSignature"), CFSTR("ImageType") };
+  CFTypeRef values[] = { sig_data, CFSTR("Developer") };
+  CFDictionaryRef options = CFDictionaryCreate(NULL, (const void **)&keys, (const void **)&values, 2, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+  CFRelease(sig_data);
+
+  CFStringRef cstr = image_path.ToCFString();
+  int result = AMDeviceMountImage(mpDevice, cstr, options, (void*)&iOSDevice::MountCallback, (void*)this);
+  CFRelease(cstr);
+  CFRelease(options);
+
+  if (result == 0)
+  {
+    NGL_OUT("[ 95%%] Developer disk image mounted successfully\n");
+    InstallationProgress(95, "Developer disk image mounted successfully");
+  }
+  else if (result == 0xe8000076 /* already mounted */)
+  {
+    NGL_OUT("[ 95%%] Developer disk image already mounted\n");
+    InstallationProgress(95, "Developer disk image already mounted");
+  }
+  else
+  {
+    NGL_OUT("[ !! ] Unable to mount developer disk image. (%x)\n", result);
+    nglString str;
+    str.CFormat("Unable to mount developer disk image. (%x)", result);
+    InstallationProgress(0, str);
+    return false;
+  }
+
+  return true;
+}
+
+
+

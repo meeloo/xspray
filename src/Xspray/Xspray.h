@@ -23,3 +23,5 @@ namespace Xspray
 #include "ProcessTree.h"
 #include "DebuggerContext.h"
 }
+
+#include "iOSRemoteDebug.h"

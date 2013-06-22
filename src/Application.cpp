@@ -156,6 +156,7 @@ void Application::OnInit()
   mpMainWindow->SetState(nglWindow::eShow);
 #endif
 
+  Xspray::iOSDevice::Init();
 }
 
 

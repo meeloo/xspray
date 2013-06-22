@@ -21,21 +21,67 @@
 extern "C" {
 #endif
 
-
-typedef void (*AMinstall_callback)(CFDictionaryRef dict, int arg);
-typedef void (*AMtransfer_callback)(CFDictionaryRef dict, int arg);
-mach_error_t AMDeviceInstallApplication(service_conn_t sockInstallProxy, CFStringRef cfStrPath, CFDictionaryRef opts, AMinstall_callback callback, int* unknow);
-mach_error_t AMDeviceTransferApplication(service_conn_t afcFd, CFStringRef path, CFDictionaryRef opts, AMtransfer_callback, int* unknown);
-
-typedef struct am_device * AMDeviceRef;
-
-
-int AMDeviceSecureTransferPath(int zero, AMDeviceRef device, CFURLRef url, CFDictionaryRef options, void *callback, int cbarg);
-int AMDeviceSecureInstallApplication(int zero, AMDeviceRef device, CFURLRef url, CFDictionaryRef options, void *callback, int cbarg);
-int AMDeviceMountImage(AMDeviceRef device, CFStringRef image, CFDictionaryRef options, void *callback, int cbarg);
-int AMDeviceLookupApplications(AMDeviceRef device, int zero, CFDictionaryRef* result);
-
+  typedef struct am_device * AMDeviceRef;
 
 #ifdef __cplusplus
 }
 #endif
+
+namespace Xspray
+{
+
+class iOSDevice
+{
+public:
+  enum Type
+  {
+    Unknown,
+    iPod,
+    iPhone,
+    iPad,
+    AppleTV
+  };
+
+  const nglString& GetName() const;
+  const nglString& GetUDID() const;
+  const nglString& GetTypeName() const;
+  Type GetType() const;
+  const nglString& GetVersionString() const;
+
+  bool InstallApplication(const nglPath& rBundlePath);
+
+  bool GetDeviceSupportPath(nglString& rPath) const;
+  bool GetDeveloperDiskImagePath(nglString& rPath) const;
+  bool MountDeveloperImage() const;
+
+  static nuiSignal1<iOSDevice&> DeviceConnected;
+  static nuiSignal1<iOSDevice&> DeviceDisconnected;
+
+  nuiSignal2<float, const nglString&> InstallationProgress; // arg 1 = percent complete, arg 2 = status message
+  nuiSignal1<bool> InstallationDone;
+
+  static void Init();
+  static void Exit();
+private:
+  iOSDevice(am_device *device);
+  virtual ~iOSDevice();
+
+  am_device* mpDevice;
+
+  nglString mName;
+  nglString mUDID;
+  nglString mTypeName;
+  nglString mVersionString;
+
+  Type mType;
+  bool mRetina;
+
+  static void DeviceCallback(struct am_device_notification_callback_info *info, void *arg);
+  static void MountCallback(CFDictionaryRef dict, void* arg);
+
+  static std::map<am_device*, iOSDevice*> mDevices;
+  static struct am_device_notification *mpNotifications;
+};
+
+}
+
