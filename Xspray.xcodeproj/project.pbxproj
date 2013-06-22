@@ -26,6 +26,10 @@
 		E53D0CFF177445E90082B86F /* VariableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CF0177445E90082B86F /* VariableNode.cpp */; };
 		E53D0D00177445E90082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CF2177445E90082B86F /* Xspray.cpp */; };
 		E53D0D01177445E90082B86F /* Xspray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CF2177445E90082B86F /* Xspray.cpp */; };
+		E53D0D0417750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */; };
+		E53D0D0517750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */; };
+		E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53D0D07177585F50082B86F /* MobileDevice.framework */; };
+		E53D0D0A1775869A0082B86F /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53D0D07177585F50082B86F /* MobileDevice.framework */; };
 		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E562BF0A17685B000081AF35 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E562BF0B17685C600081AF35 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
@@ -211,6 +215,10 @@
 		E53D0CF1177445E90082B86F /* VariableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableNode.h; path = src/Xspray/VariableNode.h; sourceTree = "<group>"; };
 		E53D0CF2177445E90082B86F /* Xspray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Xspray.cpp; path = src/Xspray/Xspray.cpp; sourceTree = "<group>"; };
 		E53D0CF3177445E90082B86F /* Xspray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Xspray.h; path = src/Xspray/Xspray.h; sourceTree = "<group>"; };
+		E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iOSRemoteDebug.cpp; path = src/Xspray/iOSRemoteDebug.cpp; sourceTree = "<group>"; };
+		E53D0D0317750CDC0082B86F /* iOSRemoteDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSRemoteDebug.h; path = src/Xspray/iOSRemoteDebug.h; sourceTree = "<group>"; };
+		E53D0D0617750E350082B86F /* MobileDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileDevice.h; path = src/Xspray/MobileDevice.h; sourceTree = "<group>"; };
+		E53D0D07177585F50082B86F /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = /System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<absolute>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 				E5D6452A120A0B92009C26A9 /* OpenGL.framework in Frameworks */,
 				E5D6453D120AA7D8009C26A9 /* libnui3Cocoa.a in Frameworks */,
 				E5D6452C120A0B92009C26A9 /* Cocoa.framework in Frameworks */,
+				E53D0D0A1775869A0082B86F /* MobileDevice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */,
 				6E04DC26176618750098D9D5 /* libclang.dylib in Frameworks */,
 				E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */,
 				E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */,
@@ -254,6 +264,7 @@
 		61A9DE3D0B833C9200BC506C = {
 			isa = PBXGroup;
 			children = (
+				E53D0D07177585F50082B86F /* MobileDevice.framework */,
 				E5CA922316F62CB200B3A81D /* Xspray.entitlements */,
 				E50FD30D17534D9900C4AA66 /* LLDB Python API */,
 				E5C5912216722BA500BAEDE4 /* resources */,
@@ -330,6 +341,9 @@
 				E53D0CF1177445E90082B86F /* VariableNode.h */,
 				E53D0CF2177445E90082B86F /* Xspray.cpp */,
 				E53D0CF3177445E90082B86F /* Xspray.h */,
+				E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */,
+				E53D0D0317750CDC0082B86F /* iOSRemoteDebug.h */,
+				E53D0D0617750E350082B86F /* MobileDevice.h */,
 			);
 			name = Xspray;
 			sourceTree = "<group>";
@@ -549,6 +563,7 @@
 				E53D0CFD177445E90082B86F /* SourceView.cpp in Sources */,
 				E53D0CFF177445E90082B86F /* VariableNode.cpp in Sources */,
 				E53D0D01177445E90082B86F /* Xspray.cpp in Sources */,
+				E53D0D0517750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +580,7 @@
 				E53D0CFC177445E90082B86F /* SourceView.cpp in Sources */,
 				E53D0CFE177445E90082B86F /* VariableNode.cpp in Sources */,
 				E53D0D00177445E90082B86F /* Xspray.cpp in Sources */,
+				E53D0D0417750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +637,10 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -647,6 +667,10 @@
 				CODE_SIGN_ENTITLEMENTS = Xspray.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
