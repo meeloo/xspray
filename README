@@ -1,4 +1,4 @@
-To build Noodlz on OSX you need llvm, clang and lldb.
+To build Xspray on OSX you need llvm, clang and lldb.
 
 Here is an adapted excerpt from the lldb build manual (can be found here http://lldb.llvm.org/build.html):
 
