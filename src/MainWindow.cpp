@@ -243,11 +243,12 @@ bool BPCallback (void *baton,
 }
 
 
-
+#if 0
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
   nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
   //nglPath p("/Applications/Calculator.app");
+  //nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
 //  TestMain2(p.GetChars());
 //  return;
 
@@ -354,6 +355,143 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
   NGL_OUT("Start\n");
   
 }
+#else
+// IOS Test:
+void MainWindow::OnStart(const nuiEvent& rEvent)
+{
+  //nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
+  //nglPath p("/Applications/Calculator.app");
+  nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
+  //  TestMain2(p.GetChars());
+  //  return;
+
+  NGL_ASSERT(iOSDevice::GetDeviceCount() > 0);
+  iOSDevice* pDevice = iOSDevice::GetDevice(0);
+  if (!pDevice->InstallApplication(p))
+  {
+    NGL_OUT("Unable to install application on device\n");
+  }
+
+  if (!pDevice->StartDebugServer())
+  {
+    NGL_OUT("Unable to start debug server on device\n");
+  }
+
+  DebuggerContext& rContext(GetDebuggerContext());
+
+  StateType state = rContext.mProcess.GetState();
+  if (state == eStateRunning)
+  {
+    rContext.mProcess.Kill();
+    rContext.mProcess.Clear();
+    rContext.mDebugger.Clear();
+    return;
+  }
+
+  // Create a debugger instance so we can create a target
+  const char *channel = "lldb";
+  const char *categories[] =
+  {
+    //strm->Printf("Logging categories for 'lldb':\n"
+    //     "all", // - turn on all available logging categories\n"
+    //"api", // - enable logging of API calls and return values\n"
+    "break", // - log breakpoints\n"
+    //     "commands", // - log command argument parsing\n"
+    //     "default", // - enable the default set of logging categories for liblldb\n"
+    //     "dyld", // - log shared library related activities\n"
+    //     "events", // - log broadcaster, listener and event queue activities\n"
+    //     "expr", // - log expressions\n"
+    //     "object", // - log object construction/destruction for important objects\n"
+    //     "module", // - log module activities such as when modules are created, detroyed, replaced, and more\n"
+    "process", // - log process events and activities\n"
+    //     "script", // - log events about the script interpreter\n"
+    "state",  //- log private and public process state changes\n"
+    "step", // - log step related activities\n"
+    "symbol", // - log symbol related issues and warnings\n"
+    "target", // - log target events and activities\n"
+    "thread", // - log thread events and activities\n"
+    //     "types", // - log type system related activities\n"
+    //     "unwind", // - log stack unwind activities\n"
+    //     "verbose", // - enable verbose logging\n"
+    //     "watch", // - log watchpoint related activities\n");
+    NULL
+  };
+  rContext.mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
+  rContext.mDebugger.EnableLog(channel, categories);
+
+  mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &MainWindow::Loop));
+  mpDebuggerEventLoop->Start();
+
+
+  if (rContext.mDebugger.IsValid())
+  {
+    // Create a target using the executable.
+    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), "armv7");
+    if (rContext.mTarget.IsValid())
+    {
+      {
+        uint32_t c = rContext.mDebugger.GetNumCategories ();
+        for (int i = 0; i < c; i++)
+        {
+          lldb::SBTypeCategory cat = rContext.mDebugger.GetCategoryAtIndex(i);
+          printf("cat %d %s\n", i, cat.GetName());
+
+        }
+      }
+
+      ModuleTree* pTree = new ModuleTree(rContext.mTarget);
+      pTree->Acquire();
+      pTree->Open(true);
+      mpModules->SetTree(pTree);
+
+
+      static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
+      //breakpoint.SetCallback(BPCallback, 0);
+
+      SBError error;
+#if 1
+//      nglString connectpath = pDevice->GetDebugSocketPath();
+//      nglString url;
+//      url.Add("unix-accept://").Add(connectpath);
+      nglString url;
+      url.CFormat("fd://%d", pDevice->GetDebugSocket());
+      NGL_OUT("Debug URL: %s\n", url.GetChars());
+      SBListener listener = rContext.mDebugger.GetListener();
+      rContext.mProcess = rContext.mTarget.ConnectRemote (listener,
+                                                          url.GetChars(),
+                                                          NULL,
+                                                          error);
+
+#else
+      const char **argv = NULL;
+      const char **envp = NULL;
+      const char *working_directory = "~/";
+      char *stdin_path = NULL;
+      char *stdout_path = NULL;
+      char *stderr_path = NULL;
+      uint32_t launch_flags = 0; //eLaunchFlagDebug;
+      bool stop_at_entry = false;
+      SBListener listener = rContext.mDebugger.GetListener();
+      rContext.mProcess = rContext.mTarget.Launch (listener,
+                                                   argv,
+                                                   envp,
+                                                   stdin_path,
+                                                   stdout_path,
+                                                   stderr_path,
+                                                   working_directory,
+                                                   launch_flags,
+                                                   stop_at_entry,
+                                                   error);
+#endif
+      
+    }
+  }
+  
+  //UpdateProcess();
+  NGL_OUT("Start\n");
+  
+}
+#endif
 
 void MainWindow::OnPause(const nuiEvent& rEvent)
 {
