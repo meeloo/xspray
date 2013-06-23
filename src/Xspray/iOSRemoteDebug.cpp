@@ -505,27 +505,39 @@ void iOSDevice::FDVendorCallback(CFSocketRef s, CFSocketCallBackType callbackTyp
   CFRelease(s);
 }
 
-CFURLRef iOSDevice::GetDeviceAppURL(CFStringRef identifier)
+nglString iOSDevice::GetDeviceAppURL(const nglString& AppId)
 {
+  CFStringRef identifier = AppId.ToCFString();
   CFDictionaryRef result;
   if (AMDeviceLookupApplications(mpDevice, 0, &result) != 0)
-    return NULL;
+    return nglString::Null;
 
   CFDictionaryRef app_dict = (CFDictionaryRef)CFDictionaryGetValue(result, identifier);
   if (app_dict == NULL)
-    return NULL;
+    return nglString::Null;
 
   CFStringRef app_path = (CFStringRef)CFDictionaryGetValue(app_dict, CFSTR("Path"));
   if (app_path == NULL)
-    return NULL;
+    return nglString::Null;
 
   CFURLRef url = CFURLCreateWithFileSystemPath(NULL, app_path, kCFURLPOSIXPathStyle, true);
   CFRelease(result);
-  return url;
+  CFRelease(identifier);
+
+  CFStringRef app_url = CFURLGetString(url);
+  CFRelease(url);
+
+  nglString resultUrl(app_url);
+  CFRelease(app_url);
+  return resultUrl;
 }
 
-CFStringRef iOSDevice::GetDiskAppIdentifier(CFURLRef disk_app_url)
+nglString iOSDevice::GetDiskAppIdentifier(const nglString& AppURL)
 {
+  nglString url = AppURL;
+  url.Prepend("file://");
+  CFStringRef disk_app_url_str = url.ToCFString();
+  CFURLRef disk_app_url = CFURLCreateWithString(NULL, disk_app_url_str, NULL);
   CFURLRef plist_url = CFURLCreateCopyAppendingPathComponent(NULL, disk_app_url, CFSTR("Info.plist"), false);
   CFReadStreamRef plist_stream = CFReadStreamCreateWithFile(NULL, plist_url);
   CFReadStreamOpen(plist_stream);
@@ -536,15 +548,19 @@ CFStringRef iOSDevice::GetDiskAppIdentifier(CFURLRef disk_app_url)
   CFRelease(plist_url);
   CFRelease(plist_stream);
   CFRelease(plist);
+  CFRelease(disk_app_url);
+  CFRelease(disk_app_url_str);
 
-  return bundle_identifier;
+  nglString id(bundle_identifier);
+  CFRelease(bundle_identifier);
+  return id;
 }
 
 
-void iOSDevice::StartRemoteDebugServer()
+bool iOSDevice::StartRemoteDebugServer()
 {
-  AMDeviceStartService(mpDevice, CFSTR("com.apple.debugserver"), &mDebuggerFD, NULL);
-  return;
+  mach_error_t result = AMDeviceStartService(mpDevice, CFSTR("com.apple.debugserver"), &mDebuggerFD, NULL);
+  return result == MDERR_OK;
 
   CFSocketContext CTX = { 0, (void*)this, NULL, NULL, NULL };
   CFSocketRef fdvendor = CFSocketCreate(NULL, AF_UNIX, 0, 0, kCFSocketAcceptCallBack, &iOSDevice::FDVendorCallback, &CTX);
@@ -641,8 +657,7 @@ bool iOSDevice::StartDebugServer()
   {
     if (!MountDeveloperImage())
       return false;      // put debugserver on the device
-    StartRemoteDebugServer();  // start debugserver
-    return true;
+    return StartRemoteDebugServer();  // start debugserver
   }
 
   return false;

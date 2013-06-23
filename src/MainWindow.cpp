@@ -357,20 +357,21 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
 }
 #else
 // IOS Test:
+//nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
+//nglPath p("/Applications/Calculator.app");
+nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
+
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
-  //nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
-  //nglPath p("/Applications/Calculator.app");
-  nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
   //  TestMain2(p.GetChars());
   //  return;
 
   NGL_ASSERT(iOSDevice::GetDeviceCount() > 0);
   iOSDevice* pDevice = iOSDevice::GetDevice(0);
-  if (!pDevice->InstallApplication(p))
-  {
-    NGL_OUT("Unable to install application on device\n");
-  }
+//  if (!pDevice->InstallApplication(p))
+//  {
+//    NGL_OUT("Unable to install application on device\n");
+//  }
 
   if (!pDevice->StartDebugServer())
   {
@@ -445,14 +446,9 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
       mpModules->SetTree(pTree);
 
 
-      static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
       //breakpoint.SetCallback(BPCallback, 0);
 
       SBError error;
-#if 1
-//      nglString connectpath = pDevice->GetDebugSocketPath();
-//      nglString url;
-//      url.Add("unix-accept://").Add(connectpath);
       nglString url;
       url.CFormat("fd://%d", pDevice->GetDebugSocket());
       NGL_OUT("Debug URL: %s\n", url.GetChars());
@@ -461,29 +457,6 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
                                                           url.GetChars(),
                                                           NULL,
                                                           error);
-
-#else
-      const char **argv = NULL;
-      const char **envp = NULL;
-      const char *working_directory = "~/";
-      char *stdin_path = NULL;
-      char *stdout_path = NULL;
-      char *stderr_path = NULL;
-      uint32_t launch_flags = 0; //eLaunchFlagDebug;
-      bool stop_at_entry = false;
-      SBListener listener = rContext.mDebugger.GetListener();
-      rContext.mProcess = rContext.mTarget.Launch (listener,
-                                                   argv,
-                                                   envp,
-                                                   stdin_path,
-                                                   stdout_path,
-                                                   stderr_path,
-                                                   working_directory,
-                                                   launch_flags,
-                                                   stop_at_entry,
-                                                   error);
-#endif
-      
     }
   }
   
@@ -578,43 +551,90 @@ void MainWindow::Loop()
       switch (state)
       {
         case eStateInvalid:
+          printf("StateInvalid\n");
           nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
-          printf("StateInvalid\n"); break;
+          break;
         case eStateDetached:
+          printf("StateDetached\n");
           nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
-          printf("StateDetached\n"); break;
+          break;
         case eStateCrashed:
-          printf("StateCrashed\n"); break;
+          printf("StateCrashed\n");
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessPaused));
+          break;
         case eStateUnloaded:
+          printf("StateUnloaded\n");
           nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
-          printf("StateUnloaded\n"); break;
+          break;
         case eStateExited:
-          printf("StateExited\n"); break;
-          return;
+          printf("StateExited\n");
+          break;
         case eStateConnected:
-          printf("StateConnected\n"); break;
+          printf("StateConnected\n");
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessConnected));
+           break;
         case eStateAttaching:
+          printf("StateAttaching\n");
           nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
-          printf("StateAttaching\n"); break;
+          break;
         case eStateLaunching:
+          printf("StateLaunching\n");
           nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
-          printf("StateLaunching\n"); break;
+          break;
         case eStateRunning:
           //printf("StateRunning\n"); break;
         case eStateStepping:
-          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
           printf("StateStepping\n");
+          nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessRunning));
           break;
         case eStateStopped:
         case eStateSuspended:
-        {
           printf("StateStopped or StateSuspended\n");
           nuiAnimation::RunOnAnimationTick(nuiMakeTask(this, &MainWindow::OnProcessPaused));
-        }
           break;
 			}
 		}
   }
+}
+
+void MainWindow::OnProcessConnected()
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+  StateType state = rContext.mProcess.GetState();
+
+  NGL_ASSERT(iOSDevice::GetDeviceCount() > 0);
+  iOSDevice* pDevice = iOSDevice::GetDevice(0);
+
+  nglString APPID = pDevice->GetDiskAppIdentifier(p.GetPathName());
+  nglString AppUrl = pDevice->GetDeviceAppURL(APPID);
+  printf("AppUrl: %s\n", AppUrl.GetChars());
+  AppUrl.DeleteLeft(strlen("file://localhost"));
+  AppUrl.DeleteRight(1);
+  printf("Trimmed AppUrl: %s\n", AppUrl.GetChars());
+  //AppUrl = "C385ADFD-3D09-4BC5-9B17-3F547E043156";
+  const char* appid = AppUrl.GetChars();
+  const char *argv[2] = { appid, NULL };
+  const char **envp = NULL;
+  const char *working_directory = NULL;
+  char *stdin_path = NULL;
+  char *stdout_path = NULL;
+  char *stderr_path = NULL;
+  uint32_t launch_flags = 0; //eLaunchFlagDebug;
+  bool stop_at_entry = false;
+  lldb::SBError error;
+  bool res = rContext.mProcess.RemoteLaunch (argv,
+                                             envp,
+                                             stdin_path,
+                                             stdout_path,
+                                             stderr_path,
+                                             working_directory,
+                                             launch_flags,
+                                             stop_at_entry,
+                                             error);
+
+  NGL_OUT("Remote Launch result: %s\n", error.GetCString());
+  static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
+  NGL_OUT("Breakpoint is valid: %s", YESNO(breakpoint.IsValid()));
 }
 
 void MainWindow::OnProcessPaused()

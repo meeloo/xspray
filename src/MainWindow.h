@@ -37,6 +37,7 @@ protected:
   void Loop();
   void UpdateVariablesForCurrentFrame();
   void OnModuleSelectionChanged(const nuiEvent& rEvent);
+  void OnProcessConnected();
 
   void OnLineSelected(float X, float Y, int32 line, bool ingutter);
 

@@ -71,6 +71,10 @@ public:
 
   static void Init();
   static void Exit();
+
+  static nglString GetDiskAppIdentifier(const nglString& AppUrl);
+  nglString GetDeviceAppURL(const nglString& AppId);
+
 private:
   iOSDevice(am_device *device);
   virtual ~iOSDevice();
@@ -97,13 +101,10 @@ private:
   bool GetDeviceSupportPath(nglString& rPath) const;
   bool GetDeveloperDiskImagePath(nglString& rPath) const;
   bool MountDeveloperImage() const;
-  void StartRemoteDebugServer();
+  bool StartRemoteDebugServer();
 
   service_conn_t mDebuggerFD;
   nglString mDebugSocketPath;
-
-  CFURLRef GetDeviceAppURL(CFStringRef identifier);
-  CFStringRef GetDiskAppIdentifier(CFURLRef disk_app_url);
 
 };
 
