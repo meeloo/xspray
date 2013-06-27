@@ -36,10 +36,10 @@ Follow the code signing instructions in lldb/docs/code-signing.txt
 (for now I haven't investigated in the way to create a general signature for when we will distribute the debugger).
 
 ------
-NOODLZ:
+Xspray:
 
 You can now launch the Noodlz workspace in Xcode:
-WORK/noodlz/Noodlz.xcworkspace
+WORK/Xspray/Xspray.xcworkspace
 
 Select the LLDB scheme and build it then go have a cup of coffe. Or watch the all the Lord of the rings movies a couple of times.
 Once it is built without error (hopefully) you can select the noodlz project and build it. It should produce a valid Mac application bundle that contains a valid lldb framework.
