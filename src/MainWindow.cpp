@@ -11,6 +11,7 @@
 #include "Application.h"
 #include "nuiCSS.h"
 #include "nuiVBox.h"
+#include "NativeFileDialog.h"
 
 using namespace lldb;
 using namespace Xspray;
@@ -243,10 +244,14 @@ bool BPCallback (void *baton,
 }
 
 
-#if 0
+#if 1
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
   nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
+
+  std::vector<nglString> types;
+  nglPath chosenpath = ChooseFileDialog(GetNGLWindow(), p.GetParent(), p.GetNodeName(), types, eOpenFile);
+
   //nglPath p("/Applications/Calculator.app");
   //nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
 //  TestMain2(p.GetChars());
@@ -309,8 +314,8 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
         for (int i = 0; i < c; i++)
         {
           lldb::SBTypeCategory cat = rContext.mDebugger.GetCategoryAtIndex(i);
-          printf("cat %d %s\n", i, cat.GetName());
-
+          printf("cat %d %s\t\t\t(%s - %d formats - %d summaries - %d filters)\n", i, cat.GetName(), cat.GetEnabled()?"Enabled":"Disabled", cat.GetNumFormats(), cat.GetNumSummaries(), cat.GetNumFilters());
+          cat.SetEnabled(true);
         }
       }
 
@@ -368,10 +373,10 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
 
   NGL_ASSERT(iOSDevice::GetDeviceCount() > 0);
   iOSDevice* pDevice = iOSDevice::GetDevice(0);
-//  if (!pDevice->InstallApplication(p))
-//  {
-//    NGL_OUT("Unable to install application on device\n");
-//  }
+  if (!pDevice->InstallApplication(p))
+  {
+    NGL_OUT("Unable to install application on device\n");
+  }
 
   if (!pDevice->StartDebugServer())
   {
@@ -395,7 +400,7 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
   {
     //strm->Printf("Logging categories for 'lldb':\n"
     //     "all", // - turn on all available logging categories\n"
-    //"api", // - enable logging of API calls and return values\n"
+    "api", // - enable logging of API calls and return values\n"
     "break", // - log breakpoints\n"
     //     "commands", // - log command argument parsing\n"
     //     "default", // - enable the default set of logging categories for liblldb\n"
@@ -403,14 +408,14 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
     //     "events", // - log broadcaster, listener and event queue activities\n"
     //     "expr", // - log expressions\n"
     //     "object", // - log object construction/destruction for important objects\n"
-    //     "module", // - log module activities such as when modules are created, detroyed, replaced, and more\n"
+         "module", // - log module activities such as when modules are created, detroyed, replaced, and more\n"
     "process", // - log process events and activities\n"
     //     "script", // - log events about the script interpreter\n"
     "state",  //- log private and public process state changes\n"
-    "step", // - log step related activities\n"
-    "symbol", // - log symbol related issues and warnings\n"
+    //"step", // - log step related activities\n"
+    //"symbol", // - log symbol related issues and warnings\n"
     "target", // - log target events and activities\n"
-    "thread", // - log thread events and activities\n"
+    //"thread", // - log thread events and activities\n"
     //     "types", // - log type system related activities\n"
     //     "unwind", // - log stack unwind activities\n"
     //     "verbose", // - enable verbose logging\n"
@@ -430,12 +435,50 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
     rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), "armv7");
     if (rContext.mTarget.IsValid())
     {
+
+      {
+        // Change the remote executable in the target before connecting:
+        NGL_ASSERT(iOSDevice::GetDeviceCount() > 0);
+        iOSDevice* pDevice = iOSDevice::GetDevice(0);
+
+        nglString APPID = pDevice->GetDiskAppIdentifier(p.GetPathName());
+        nglString AppUrl = pDevice->GetDeviceAppURL(APPID);
+        printf("AppUrl: %s\n", AppUrl.GetChars());
+
+        if (AppUrl.IsEmpty())
+        {
+          NGL_OUT("ERROR: Unable to get application URL from device");
+          return;
+        }
+        int todelete = strlen("file://localhost");
+        AppUrl.DeleteLeft(todelete);
+        AppUrl.DeleteRight(1);
+        printf("Trimmed AppUrl: %s\n", AppUrl.GetChars());
+
+
+        SBFileSpec executable = rContext.mTarget.GetExecutable();
+        NGL_OUT("Local Executable: %s/%s\n",  executable.GetDirectory(), executable.GetFilename());
+        SBModule exe_module = rContext.mTarget.FindModule(executable);
+        if (!exe_module.IsValid())
+        {
+          NGL_OUT("Remote Launch impossible: unable to find the executable module\n");
+          return;
+        }
+
+        lldb::SBFileSpec remote_path = exe_module.GetPlatformFileSpec();
+        NGL_OUT("Current remote Executable: %s/%s\n",  remote_path.GetDirectory(), remote_path.GetFilename());
+        remote_path = SBFileSpec(AppUrl.GetChars(), false);
+        exe_module.SetPlatformFileSpec (remote_path);
+        NGL_OUT("New remote Executable: %s/%s\n",  remote_path.GetDirectory(), remote_path.GetFilename());
+      }
+
+      if (0)
       {
         uint32_t c = rContext.mDebugger.GetNumCategories ();
         for (int i = 0; i < c; i++)
         {
           lldb::SBTypeCategory cat = rContext.mDebugger.GetCategoryAtIndex(i);
-          printf("cat %d %s\n", i, cat.GetName());
+          printf("cat %d %s\t\t\t(%s - %d formats - %d summaries - %d filters)\n", i, cat.GetName(), cat.GetEnabled()?"Enabled":"Disabled", cat.GetNumFormats(), cat.GetNumSummaries(), cat.GetNumFilters());
 
         }
       }
@@ -444,9 +487,6 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
       pTree->Acquire();
       pTree->Open(true);
       mpModules->SetTree(pTree);
-
-
-      //breakpoint.SetCallback(BPCallback, 0);
 
       SBError error;
       nglString url;
@@ -602,18 +642,9 @@ void MainWindow::OnProcessConnected()
   DebuggerContext& rContext(GetDebuggerContext());
   StateType state = rContext.mProcess.GetState();
 
-  NGL_ASSERT(iOSDevice::GetDeviceCount() > 0);
-  iOSDevice* pDevice = iOSDevice::GetDevice(0);
 
-  nglString APPID = pDevice->GetDiskAppIdentifier(p.GetPathName());
-  nglString AppUrl = pDevice->GetDeviceAppURL(APPID);
-  printf("AppUrl: %s\n", AppUrl.GetChars());
-  AppUrl.DeleteLeft(strlen("file://localhost"));
-  AppUrl.DeleteRight(1);
-  printf("Trimmed AppUrl: %s\n", AppUrl.GetChars());
   //AppUrl = "C385ADFD-3D09-4BC5-9B17-3F547E043156";
-  const char* appid = AppUrl.GetChars();
-  const char *argv[2] = { appid, NULL };
+  const char **argv = NULL;
   const char **envp = NULL;
   const char *working_directory = NULL;
   char *stdin_path = NULL;
@@ -635,6 +666,7 @@ void MainWindow::OnProcessConnected()
   NGL_OUT("Remote Launch result: %s\n", error.GetCString());
   static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
   NGL_OUT("Breakpoint is valid: %s", YESNO(breakpoint.IsValid()));
+
 }
 
 void MainWindow::OnProcessPaused()

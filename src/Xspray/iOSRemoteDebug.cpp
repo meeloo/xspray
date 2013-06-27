@@ -202,6 +202,8 @@ bool iOSDevice::GetDeviceSupportPath(nglString& rPath) const
     "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})",
     "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version}",
     "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+    "/Applications/Xcode5-DP.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+    "/Applications/Xcode5-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
     NULL
   };
 
@@ -242,6 +244,8 @@ bool iOSDevice::GetDeveloperDiskImagePath(nglString& rPath) const
     "{home}/Library/Developer/Xcode/iOS DeviceSupport/Latest/DeveloperDiskImage.dmg",
     "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/Latest/DeveloperDiskImage.dmg",
     "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/6.1 (10B141)/DeveloperDiskImage.dmg",
+    "/Applications/Xcode5-DP.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+    "/Applications/Xcode5-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
     NULL
   };
 
@@ -412,7 +416,8 @@ nglString iOSDevice::GetDeviceAppURL(const nglString& AppId)
 {
   CFStringRef identifier = AppId.ToCFString();
   CFDictionaryRef result;
-  if (AMDeviceLookupApplications(mpDevice, 0, &result) != 0)
+  int res = 0;
+  if ((res = AMDeviceLookupApplications(mpDevice, 0, &result)) != 0)
     return nglString::Null;
 
   CFDictionaryRef app_dict = (CFDictionaryRef)CFDictionaryGetValue(result, identifier);

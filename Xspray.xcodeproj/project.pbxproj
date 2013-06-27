@@ -11,7 +11,8 @@
 		E50FD30A1752C0D100C4AA66 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
-		E5143811176637A400DE52E4 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
+		E51C3C481779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = E51C3C461779EF5E00FDE1AC /* NativeFileDialog.mm */; };
+		E51C3C491779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = E51C3C461779EF5E00FDE1AC /* NativeFileDialog.mm */; };
 		E53D0CF4177445E90082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE6177445E90082B86F /* Breakpoint.cpp */; };
 		E53D0CF5177445E90082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE6177445E90082B86F /* Breakpoint.cpp */; };
 		E53D0CF6177445E90082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE8177445E90082B86F /* DebuggerContext.cpp */; };
@@ -47,6 +48,7 @@
 		E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD40B833F1500BC506C /* CoreServices.framework */; };
 		E5EF6FC311E77DE8000FB337 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD60B833F1500BC506C /* OpenGL.framework */; };
 		E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */; };
+		E5FD8D0B177BCFD4001646F6 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,16 +146,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E51438101766379C00DE52E4 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E5143811176637A400DE52E4 /* libclang.dylib in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E562BF0717685AE70081AF35 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,6 +173,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E50FD30A1752C0D100C4AA66 /* LLDB.framework in CopyFiles */,
+				E5FD8D0B177BCFD4001646F6 /* libclang.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,11 +189,13 @@
 		61A9DFF00B83433800BC506C /* Application.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Application.h; path = src/Application.h; sourceTree = "<group>"; };
 		61A9DFF10B83433800BC506C /* MainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = MainWindow.cpp; path = src/MainWindow.cpp; sourceTree = "<group>"; };
 		61A9DFF20B83433800BC506C /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MainWindow.h; path = src/MainWindow.h; sourceTree = "<group>"; };
-		6E04DC25176618750098D9D5 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = "../llvm/tools/lldb/llvm-build/Release/x86_64/Release/lib/libclang.dylib"; sourceTree = SOURCE_ROOT; };
+		6E04DC25176618750098D9D5 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = "../llvm/tools/lldb/llvm-build/Release+Asserts/x86_64/Release+Asserts/lib/libclang.dylib"; sourceTree = SOURCE_ROOT; };
 		6E37ABC016AD884700C333A4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nui3.xcodeproj; path = ../nui3/nui3.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = ../Release/LLDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50FD30D17534D9900C4AA66 /* LLDB Python API */ = {isa = PBXFileReference; lastKnownFileType = text; path = "LLDB Python API"; sourceTree = "<group>"; };
+		E51C3C461779EF5E00FDE1AC /* NativeFileDialog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NativeFileDialog.mm; path = src/NativeFileDialog.mm; sourceTree = "<group>"; };
+		E51C3C471779EF5E00FDE1AC /* NativeFileDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeFileDialog.h; path = src/NativeFileDialog.h; sourceTree = "<group>"; };
 		E53D0CE6177445E90082B86F /* Breakpoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Breakpoint.cpp; path = src/Xspray/Breakpoint.cpp; sourceTree = "<group>"; };
 		E53D0CE7177445E90082B86F /* Breakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Breakpoint.h; path = src/Xspray/Breakpoint.h; sourceTree = "<group>"; };
 		E53D0CE8177445E90082B86F /* DebuggerContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebuggerContext.cpp; path = src/Xspray/DebuggerContext.cpp; sourceTree = "<group>"; };
@@ -293,6 +288,8 @@
 				61A9DFF00B83433800BC506C /* Application.h */,
 				61A9DFF10B83433800BC506C /* MainWindow.cpp */,
 				61A9DFF20B83433800BC506C /* MainWindow.h */,
+				E51C3C461779EF5E00FDE1AC /* NativeFileDialog.mm */,
+				E51C3C471779EF5E00FDE1AC /* NativeFileDialog.h */,
 			);
 			name = sources;
 			sourceTree = "<group>";
@@ -394,7 +391,6 @@
 				E5EF6FBE11E77DE8000FB337 /* Frameworks */,
 				E5EF6FC511E77DE8000FB337 /* Copy Resources Script */,
 				E5CA921B16F6011800B3A81D /* CopyFiles */,
-				E51438101766379C00DE52E4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -564,6 +560,7 @@
 				E53D0CFF177445E90082B86F /* VariableNode.cpp in Sources */,
 				E53D0D01177445E90082B86F /* Xspray.cpp in Sources */,
 				E53D0D0517750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
+				E51C3C491779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +578,7 @@
 				E53D0CFE177445E90082B86F /* VariableNode.cpp in Sources */,
 				E53D0D00177445E90082B86F /* Xspray.cpp in Sources */,
 				E53D0D0417750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
+				E51C3C481779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +611,7 @@
 				GCC_PREFIX_HEADER = src/Xspray/Xspray.h;
 				HEADER_SEARCH_PATHS = (
 					../nui3/include,
-					../llvm/tools/clang/include,
+					../llvm/tools/lldb/llvm/tools/clang/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";

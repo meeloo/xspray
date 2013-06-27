@@ -17,7 +17,7 @@
       location = "group:../llvm/tools/lldb/tools/debugserver/debugserver.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../llvm/tools/lldb/lldb.xcodeproj">
+      location = "container:../llvm/tools/lldb/lldb.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:../TestLLDB/TestLLDB.xcodeproj">
