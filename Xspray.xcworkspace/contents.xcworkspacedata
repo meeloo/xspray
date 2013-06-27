@@ -14,12 +14,6 @@
       location = "group:../yalive/YaLive.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../llvm/tools/lldb/tools/debugserver/debugserver.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "container:../llvm/tools/lldb/lldb.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../TestLLDB/TestLLDB.xcodeproj">
+      location = "group:../lldb/lldb.xcodeproj">
    </FileRef>
 </Workspace>

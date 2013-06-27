@@ -189,7 +189,7 @@
 		61A9DFF00B83433800BC506C /* Application.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Application.h; path = src/Application.h; sourceTree = "<group>"; };
 		61A9DFF10B83433800BC506C /* MainWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = MainWindow.cpp; path = src/MainWindow.cpp; sourceTree = "<group>"; };
 		61A9DFF20B83433800BC506C /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MainWindow.h; path = src/MainWindow.h; sourceTree = "<group>"; };
-		6E04DC25176618750098D9D5 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = "../llvm/tools/lldb/llvm-build/Release+Asserts/x86_64/Release+Asserts/lib/libclang.dylib"; sourceTree = SOURCE_ROOT; };
+		6E04DC25176618750098D9D5 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = "../lldb/llvm-build/Release+Asserts/x86_64/Release+Asserts/lib/libclang.dylib"; sourceTree = SOURCE_ROOT; };
 		6E37ABC016AD884700C333A4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nui3.xcodeproj; path = ../nui3/nui3.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = ../Release/LLDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -611,7 +611,7 @@
 				GCC_PREFIX_HEADER = src/Xspray/Xspray.h;
 				HEADER_SEARCH_PATHS = (
 					../nui3/include,
-					../llvm/tools/lldb/llvm/tools/clang/include,
+					../lldb/llvm/tools/clang/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
