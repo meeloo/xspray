@@ -220,6 +220,7 @@
 		E5CA922316F62CB200B3A81D /* Xspray.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Xspray.entitlements; sourceTree = "<group>"; };
 		E5D64530120A0B92009C26A9 /* Xspray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xspray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EF6FC811E77DE8000FB337 /* XsprayD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XsprayD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5FD8D1B177C468C001646F6 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +260,7 @@
 		61A9DE3D0B833C9200BC506C = {
 			isa = PBXGroup;
 			children = (
+				E5FD8D1B177C468C001646F6 /* README */,
 				E53D0D07177585F50082B86F /* MobileDevice.framework */,
 				E5CA922316F62CB200B3A81D /* Xspray.entitlements */,
 				E50FD30D17534D9900C4AA66 /* LLDB Python API */,

@@ -1,48 +1,32 @@
 To build Xspray on OSX you need llvm, clang and lldb.
 
-Here is an adapted excerpt from the lldb build manual (can be found here http://lldb.llvm.org/build.html):
+Setting up the folders for correct dependencies:
 
-Building LLDB
+  WORK  
+    `-- lldb
+    |
+    `-- nui3
+    |
+    `-- Xspray
 
-We first need to checkout the source trees into the appropriate locations. Both Clang and LLDB build as subprojects of LLVM. This means we will be checking out the source for both Clang and LLDB into the tools subdirectory of LLVM. We will be setting up a directory hierarchy looking something like this:
+Change to the directory where you want to do development work and checkout LLDB:
 
-            WORK  
-              `-- llvm
-              |   |
-              |   `-- tools
-              |      |
-              |       +-- clang
-              |       |
-              |       `-- lldb
-              |
-              `-- nui3
-              |
-              `-- noodlz
-               
-Change to the directory where you want to do development work and checkout LLVM:
-
-> svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm
-Now switch to LLVM’s tools subdirectory and checkout both Clang and LLDB:
-
-> cd $llvm/tools 
-> svn co http://llvm.org/svn/llvm-project/cfe/trunk clang 
 > svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
-In general, building the LLDB trunk revision requires trunk revisions of both LLVM and Clang.
+In general, building the LLDB trunk revision requires trunk revisions of both LLVM and Clang but the Xcode project takes care of this directly.
 
---------------------
-Once you have the sources laid out like above, you need to create a local cryptographic singature in order to sign your lldb framework and be able to run the debugger:
-Follow the code signing instructions in lldb/docs/code-signing.txt
+Note1: Beware! If you have installed Xcode 5 and you are trying to build with Xcode 4, chances are the system svn will be v1.7 while Xcode 4 is still 1.6 and it will prevent the build script from fetching llvm and clang sources. If thats the case, use the svn binary that is inside the Xcode bundle like that:
+> /Applications/Xcode.app/Contents/Developer/usr/bin/svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
 
-(for now I haven't investigated in the way to create a general signature for when we will distribute the debugger).
+Note2: I have found that we don't need to use a special cryptographic certificate as the lldb mentions, using the default Mac Developper cert will work fine on any machine. YAY!
 
 ------
 Xspray:
 
-You can now launch the Noodlz workspace in Xcode:
+You can now launch the Xspray workspace in Xcode:
 WORK/Xspray/Xspray.xcworkspace
 
-Select the LLDB scheme and build it then go have a cup of coffe. Or watch the all the Lord of the rings movies a couple of times.
-Once it is built without error (hopefully) you can select the noodlz project and build it. It should produce a valid Mac application bundle that contains a valid lldb framework.
+Select the LLDB scheme and edit it to change the default configuration to release. Build LLDB (go have a cup of coffe, it will svn checkout llvm + clang and build them, then build itself, it takes a while). Or watch the all the Lord of the rings movies a couple of times.
+Once it is built without error (hopefully) you can select the Xspray project and build it. It should produce a valid Mac application bundle that contains a valid lldb framework (and libclang.dylib).
 
 Warning: for now, the executable I do my tests on is hardcoded in the MainWindow.cpp. Edit it out to point to an existing debugable executable on your machine.
 
