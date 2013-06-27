@@ -2,18 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../MeAgainstTheMusic/MeAgainstTheMusic.xcodeproj">
+      location = "container:../MeAgainstTheMusic/MeAgainstTheMusic.xcodeproj">
    </FileRef>
    <FileRef
       location = "container:Xspray.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../nui3/nui3.xcodeproj">
+      location = "container:../nui3/nui3.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../yalive/YaLive.xcodeproj">
+      location = "container:../yalive/YaLive.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../lldb/lldb.xcodeproj">
+      location = "container:../lldb/lldb.xcodeproj">
    </FileRef>
 </Workspace>
