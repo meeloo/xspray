@@ -95,6 +95,13 @@ void Application::OnInit()
       else if (!arg.Compare(_T("software"))) Renderer = eSoftware;
       i++;
     }
+    else if (!arg.Compare(_T("--application")) || !arg.Compare(_T("-a")))
+    {
+      // Get the path to the application from the args:
+      arg = GetArg(i+1);
+      mpDebuggerContext->mTargetApplication = arg;
+      i++;
+    }
     i++;
   }
 
@@ -118,7 +125,7 @@ void Application::OnInit()
       Width = 320;
       Height = 480;
 #else
-      Width = 1600;
+      Width = 1200;
       Height = 1200;
 #endif
     }

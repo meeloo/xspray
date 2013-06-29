@@ -22,6 +22,7 @@ namespace Xspray
 #include "VariableNode.h"
 #include "ProcessTree.h"
 #include "DebuggerContext.h"
+#include "Architecture.h"
 }
 
 #include "iOSRemoteDebug.h"

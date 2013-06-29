@@ -247,17 +247,16 @@ bool BPCallback (void *baton,
 #if 1
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
-  nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
+//  nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
 
-  std::vector<nglString> types;
-  nglPath chosenpath = ChooseFileDialog(GetNGLWindow(), p.GetParent(), p.GetNodeName(), types, eOpenFile);
+  //std::vector<nglString> types;
+  //nglPath chosenpath = ChooseFileDialog(GetNGLWindow(), p.GetParent(), p.GetNodeName(), types, eOpenFile);
 
   //nglPath p("/Applications/Calculator.app");
   //nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
-//  TestMain2(p.GetChars());
-//  return;
 
   DebuggerContext& rContext(GetDebuggerContext());
+  nglPath p = rContext.mTargetApplication;
 
   StateType state = rContext.mProcess.GetState();
   if (state == eStateRunning)
@@ -302,13 +301,43 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
   mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &MainWindow::Loop));
   mpDebuggerEventLoop->Start();
 
-
   if (rContext.mDebugger.IsValid())
   {
+    lldb::SBStringList archlist = rContext.mDebugger.GetAvailableArchsFromFile(p.GetChars());
+    // first try to detect the target arch:
+    std::vector<nglString> valid_archs;
+    {
+      size_t count = archlist.GetSize();
+
+      for (size_t i = 0; i < count; i++)
+      {
+        valid_archs.push_back(archlist.GetStringAtIndex(i));
+        NGL_OUT("Valid arch: %s\n", archlist.GetStringAtIndex(i));
+      }
+    }
+
+    if (valid_archs.empty())
+    {
+      NGL_OUT("Found no valid archs\n");
+      return;
+    }
+
     // Create a target using the executable.
-    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), "x86_64");
+    //rContext.mTarget = rContext.mDebugger.CreateTarget(p.GetChars());
+    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), valid_archs[0].GetChars());
     if (rContext.mTarget.IsValid())
     {
+      const char * triple = rContext.mTarget.GetTriple();
+      NGL_OUT("Target triple: %s\n", triple);
+      nglString Triple(triple);
+      std::vector<nglString> infos;
+      Triple.Tokenize(infos, '-');
+      for (int i = 0; i < infos.size(); i++)
+      {
+        NGL_OUT("Info[%d]: %s\n", i, infos[i].GetChars());
+      }
+
+
       {
         uint32_t c = rContext.mDebugger.GetNumCategories ();
         for (int i = 0; i < c; i++)
@@ -432,7 +461,31 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
   if (rContext.mDebugger.IsValid())
   {
     // Create a target using the executable.
-    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), "armv7");
+
+    // first try to detect the target arch:
+    std::vector<nglString> valid_archs;
+    {
+      int i = 0;
+      while (Archs[i])
+      {
+        lldb::SBTarget test = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), Archs[i]);
+        if (test.IsValid())
+        {
+          NGL_OUT("Found 1 valid target: %s\n", Archs[i]);
+          valid_archs.push_back(Archs[i]);
+          rContext.mDebugger.DeleteTarget(test);
+          i++;
+        }
+      }
+    }
+
+    if (valid_archs.empty())
+    {
+      NGL_OUT("Found no valid archs\n");
+      return;
+    }
+
+    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), valid_archs[0]);
     if (rContext.mTarget.IsValid())
     {
 
