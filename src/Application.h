@@ -33,5 +33,4 @@ private:
 // a global call to retrieve the application object
 Application* GetApp();
 MainWindow* GetMainWindow();
-Xspray::DebuggerContext& GetDebuggerContext();
 

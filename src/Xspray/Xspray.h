@@ -14,6 +14,8 @@
 #include <LLDB/SBStream.h>
 #include <LLDB/SBTypeCategory.h>
 
+#include "iOSRemoteDebug.h"
+
 namespace Xspray
 {
 #include "Breakpoint.h"
@@ -22,6 +24,6 @@ namespace Xspray
 #include "VariableNode.h"
 #include "ProcessTree.h"
 #include "DebuggerContext.h"
+#include "DebugView.h"
 }
 
-#include "iOSRemoteDebug.h"

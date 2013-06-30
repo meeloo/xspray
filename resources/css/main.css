@@ -2,8 +2,7 @@
 // main nui3 stylesheet
 //
 
-// you can include your stylesheets this way:
-// #include "myStylesheet.css"
+#include "ApplicationList.css"
 
 // remember each stylesheet file must have at least a blank ending line, 
 // or the stylehsheet parsing may not work properly
@@ -13,6 +12,7 @@
   Name: "Helvetica";
   Size: 12;
 }
+
 
 @Font Icons1
 {
@@ -29,21 +29,23 @@
 +nuiLabel Icon1 { Font: Icons1; }
 +nuiLabel Icon2 { Font: Icons2; }
 
++nuiLabel Label { Font: Helvetica; }
+
 +nuiHBox VariableView
 {
-  +nuiLabel Name
+  +Label Name
   {
     Text: VariableName;
     TextColor: black;
   }
 
-  +nuiLabel Type
+  +Label Type
   {
     Text: VariableType;
     TextColor: rgb(128,128,128);
   }
 
-  +nuiLabel Value
+  +Label Value
   {
     Text: VariableValue;
     TextColor: red;
@@ -52,17 +54,17 @@
 
 +nuiHBox iOSDeviceLabel
 {
-  +nuiLabel Name
+  +Label Name
   {
     Text: DeviceName;
   }
 
-  +nuiLabel Type
+  +Label Type
   {
     Text: DeviceType;
   }
 
-  +nuiLabel Version
+  +Label Version
   {
     Text: DeviceVersion;
   }
@@ -73,24 +75,47 @@
 {
   Expand: ShrinkAndGrow;
   
-  +nuiButton Open
+  +nuiButton ChooseApplication
   {
-    +Icon2 {Text: "\u1F4C1"; }
+    MinIdealWidth : 80;
     Position: Center;
+
+    +nuiHBox
+    {
+      Expand: ShrinkAndGrow;
+      +Icon2 {Text: "\u1F4C1"; }
+      +Label ApplicationName { Text: "Choose application"; }
+    }
   }
 
-  +nuiComboBox Architectures
+  +nuiVBox
   {
-    BorderLeft: 10;
-    BorderRight: 10;
+    Expand: ShrinkAndGrow;
+    MinIdealWidth : 150;
     Position: Center;
+
+    +Label { Text: "Architectures:"; Position: Center; }
+    +nuiComboBox Architectures
+    {
+      BorderLeft: 10;
+      BorderRight: 10;
+      Position: Fill;
+    }
   }
 
-  +nuiComboBox Devices
+  +nuiVBox
   {
-    //BorderLeft: 10;
-    BorderRight: 10;
+    Expand: ShrinkAndGrow;
     Position: Center;
+    MinIdealWidth : 150;
+
+    +Label { Text: "Devices:"; Position: Center; }
+    +nuiComboBox Devices
+    {
+      //BorderLeft: 10;
+      BorderRight: 10;
+      Position: Fill;
+    }
   }
 
   +nuiButton StartStop
@@ -135,7 +160,7 @@
   
 }
 
-+nuiLayout Debugger
++DebugView Debugger
 {
   VAnchors_header = 40;
   VAnchorsType_header = Absolute;

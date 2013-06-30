@@ -20,45 +20,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "271"
-         endingLineNumber = "271"
-         landmarkName = "PrintDebugState(SBProcess&amp; rProcess)"
-         landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "288"
-         endingLineNumber = "288"
-         landmarkName = "BPCallback (void *baton, SBProcess &amp;process, SBThread &amp;thread, SBBreakpointLocation &amp;location)"
-         landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "344"
-         endingLineNumber = "344"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "../llvm/tools/lldb/source/Core/Debugger.cpp"
          timestampString = "391562972.858887"
          startingColumnNumber = "9223372036854775807"
@@ -241,19 +202,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "799"
-         endingLineNumber = "799"
-         landmarkName = "MainWindow::UpdateProcess()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "../nui3/src/TreeViews/nuiTreeView.cpp"
          timestampString = "392320058.802999"
          startingColumnNumber = "9223372036854775807"
@@ -261,19 +209,6 @@
          startingLineNumber = "647"
          endingLineNumber = "647"
          landmarkName = "nuiTreeView::ReparentTree(nuiTreeNode* pTree)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "909"
-         endingLineNumber = "909"
-         landmarkName = "MainWindow::ShowSource(const nglPath&amp; rPath, int32 line, int32 col)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -353,19 +288,6 @@
          endingLineNumber = "357"
          landmarkName = "GetTypeClassName(lldb::TypeClass cls)"
          landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "397"
-         endingLineNumber = "397"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -502,11 +424,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../nui3/src/Base/nuiBuilder.cpp"
-         timestampString = "393414715.412435"
+         timestampString = "394291651.924468"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "408"
-         endingLineNumber = "408"
+         startingLineNumber = "411"
+         endingLineNumber = "411"
          landmarkName = "nuiWidgetCreator::SetAttribute(const nglString&amp; rName, const nglString&amp; rValue, int32 index0, int32 index1)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -534,19 +456,6 @@
          startingLineNumber = "231"
          endingLineNumber = "231"
          landmarkName = "iOSDevice::GetDeveloperDiskImagePath(nglString&amp; rPath)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "453"
-         endingLineNumber = "453"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -605,45 +514,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "451"
-         endingLineNumber = "451"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "587"
-         endingLineNumber = "587"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "707"
-         endingLineNumber = "707"
-         landmarkName = "MainWindow::Loop()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "src/Xspray/iOSRemoteDebug.cpp"
          timestampString = "393805751.749324"
          startingColumnNumber = "9223372036854775807"
@@ -680,110 +550,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "555"
-         endingLineNumber = "555"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "750"
-         endingLineNumber = "750"
-         landmarkName = "MainWindow::OnProcessConnected()"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "305"
-         endingLineNumber = "305"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "377"
-         endingLineNumber = "377"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "373"
-         endingLineNumber = "373"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "529"
-         endingLineNumber = "529"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "525"
-         endingLineNumber = "525"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "367"
-         endingLineNumber = "367"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -794,19 +560,6 @@
          startingLineNumber = "70"
          endingLineNumber = "70"
          landmarkName = "TargetList::CreateTarget (Debugger &amp;debugger, const char *user_exe_path, const char *triple_cstr, bool get_dependent_files, const OptionGroupPlatform *platform_options, TargetSP &amp;target_sp)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394244563.293103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "352"
-         endingLineNumber = "352"
-         landmarkName = "MainWindow::OnStart(const nuiEvent&amp; rEvent)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -833,19 +586,6 @@
          startingLineNumber = "173"
          endingLineNumber = "173"
          landmarkName = "iOSDevice::DeviceCallback(struct am_device_notification_callback_info *info, void *arg)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "src/MainWindow.cpp"
-         timestampString = "394245110.306473"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
-         landmarkName = "MainWindow::OnDeviceDisconnected(iOSDevice&amp; device)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

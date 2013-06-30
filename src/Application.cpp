@@ -189,8 +189,3 @@ MainWindow* GetMainWindow()
   return ((Application*)App)->GetMainWindow();
 }
 
-Xspray::DebuggerContext& GetDebuggerContext()
-{
-  return ((Application*)App)->GetDebuggerContext();
-}
-

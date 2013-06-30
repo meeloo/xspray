@@ -20,3 +20,4 @@ public:
   std::list<Breakpoint*> mBreakpoints;
 };
 
+DebuggerContext& GetDebuggerContext();
