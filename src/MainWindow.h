@@ -25,5 +25,7 @@ protected:
   nuiSlotsSink mSlotSink;
 
   nuiNavigationController* mpController;
+
+  void OnLaunch(const nglPath& rPath);
 };
 

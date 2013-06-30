@@ -16,9 +16,11 @@ public:
 
   virtual void Built();
 
+  nuiSignal1<const nglPath&> Launch;
 private:
   nuiEventSink<HomeView> mEventSink;
   nuiSlotsSink mSlotSink;
 
-  
+  nuiButton* mpLaunchApplication;
+  void OnLaunch(const nuiEvent& rEvent);
 };

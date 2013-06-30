@@ -44,13 +44,16 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   LoadCSS(_T("rsrc:/css/main.css"));
 
   mpController = new nuiNavigationController();
+  mpController->ShowNavigationBar(false);
   AddChild(mpController);
 
   nuiViewController* pView = new nuiViewController();
-  nuiWidget* pDebugger = nuiBuilder::Get().CreateWidget("Home");
-  NGL_ASSERT(pDebugger);
-  pView->AddChild(pDebugger);
-  AddChild(pView);
+  HomeView* pHome = (HomeView*)nuiBuilder::Get().CreateWidget("Home");
+  NGL_ASSERT(pHome);
+  pView->AddChild(pHome);
+  mpController->PushViewController(pView);
+
+  mSlotSink.Connect(pHome->Launch, nuiMakeDelegate(this, &MainWindow::OnLaunch));
 }
 
 MainWindow::~MainWindow()
@@ -99,5 +102,14 @@ bool MainWindow::LoadCSS(const nglPath& rPath)
 
   delete pCSS;
   return false;
+}
+
+void MainWindow::OnLaunch(const nglPath& rPath)
+{
+  nuiViewController* pView = new nuiViewController();
+  nuiWidget* pDebugger = nuiBuilder::Get().CreateWidget("Debugger");
+  NGL_ASSERT(pDebugger);
+  pView->AddChild(pDebugger);
+  mpController->PushViewController(pView);
 }
 

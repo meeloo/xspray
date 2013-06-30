@@ -34,12 +34,16 @@
 
     +nuiButton AddApplication
     {
-      +Label { Text: "+"; }
+      EnableDecoration: false;
+      FocusVisible: false;
+      +Icon2 { Text: "\u2296"; }
     }
 
     +nuiButton RemoveApplication
     {
-      +Label { Text: "-"; }
+      EnableDecoration: false;
+      FocusVisible: false;
+      +Icon2 { Text: "\u2295"; }
     }
   }
 
@@ -59,6 +63,14 @@
     Layout = [inspector, right] / [apps, bottom];
     +nuiVBox
     {
+      +nuiButton LaunchApplication
+      {
+        +nuiHBox
+        {
+          +Label { Text: "Start Debugging"; }
+          +Icon2 { Text: "\uE740"; }
+        }
+      }
       +InspectorLine( LineTitle: "Name:", LineContents: "bleh1" );
       +InspectorLine( LineTitle: "Path:", LineContents: "bleh2" );
       +InspectorLine( LineTitle: "Command line:", LineContents: "bleh3" );

@@ -25,8 +25,8 @@
   Size: 36;
 }
 
-+nuiLabel Icon1 { Font: Icons1; }
-+nuiLabel Icon2 { Font: Icons2; }
++nuiLabel Icon1 { EnableDecoration: false; Font: Icons1; }
++nuiLabel Icon2 { EnableDecoration: false; Font: Icons2; }
 
 +nuiLabel Label { Font: Helvetica; }
 
