@@ -16,6 +16,7 @@ public:
 
   virtual void Built();
 
+  nuiSignal0<> GoHome;
 private:
   nuiEventSink<DebugView> mEventSink;
   nuiSlotsSink mSlotSink;

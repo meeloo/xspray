@@ -60,11 +60,11 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-a /Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-a /bin/bash"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-a /Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app"

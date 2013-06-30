@@ -52,7 +52,7 @@
     +nuiHBox
     {
       Expand: ShrinkAndGrow;
-      +Icon2 {Text: "\u1F4C1"; }
+      +Icon2 {Text: $folder; }
       +Label ApplicationName { Text: "Choose application"; }
     }
   }
@@ -89,37 +89,37 @@
 
   +nuiButton StartStop
   {
-    +Icon2 {Text: "\u1F680"; }
+    +Icon2 {Text: $rocket; }
     Position: Center;
   }
 
   +nuiButton Pause
   {
-    +Icon2 {Text: "\u2016"; }
+    +Icon2 {Text: $pause; }
     Position: Center;
   }
 
   +nuiButton Continue
   {
-    +Icon2{ Text: "\u25B6"; }
+    +Icon2{ Text: $play; }
     Position: Center;
   }
 
   +nuiButton StepIn
   {
-    +Icon2{ Text: "\u21B3"; }
+    +Icon2{ Text: $level_down; }
     Position: Center;
   }
 
   +nuiButton StepOver
   {
-    +Icon2{ Text: "\u27F3"; }
+    +Icon2{ Text: $cw; }
     Position: Center;
   }
 
   +nuiButton StepOut
   {
-    +Icon2{ Text: "\u1F519"; }
+    +Icon2{ Text: $back; }
     Position: Center;
   }
 }
@@ -129,8 +129,22 @@
   
 }
 
++nuiHBox ModulesTabHeader
+{
+  +Icon2 { Text: "\u1F4E6"; }
+  +Label { Text: "Modules"; }
+}
+
++nuiHBox ThreadsTabHeader
+{
+  +Icon2 { Text: "\u1F4C4"; }
+  +Label { Text: "Threads"; }
+}
+
 +DebugView Debugger
 {
+  Decoration: WindowBackground;
+
   VAnchors_header = 40;
   VAnchorsType_header = Absolute;
 
@@ -151,7 +165,7 @@
 
     +nuiScrollView ThreadsScroller
     {
-      TabName= "Threads";
+      TabWidget= ThreadsTabHeader;
 
       +nuiTreeView Threads
       {
@@ -160,7 +174,7 @@
 
     +nuiScrollView ModulesScroller
     {
-      TabName = "Modules";
+      TabWidget = ModulesTabHeader;
 
       +nuiTreeView Modules
       {

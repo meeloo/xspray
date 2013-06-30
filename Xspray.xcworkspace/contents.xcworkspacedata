@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:resources/css/Entypo.css">
+   </FileRef>
+   <FileRef
       location = "group:resources/css/DebugView.css">
    </FileRef>
    <FileRef

@@ -6,6 +6,8 @@
 // remember each stylesheet file must have at least a blank ending line, 
 // or the stylehsheet parsing may not work properly
 
+#include "Entypo.css"
+
 @font Helvetica
 {
   Name: "Helvetica";
@@ -24,6 +26,19 @@
   Name: "rsrc:/fonts/Entypo.ttf";
   Size: 36;
 }
+
+@nuiColorDecoration WindowBackground
+{
+  ShapeMode: FillShape;
+  FillColor: rgb(192, 192, 192);
+}
+
+@nuiColorDecoration WhiteBackground
+{
+  ShapeMode: FillShape;
+  FillColor: rgb(255, 255, 255);
+}
+
 
 +nuiLabel Icon1 { EnableDecoration: false; Font: Icons1; }
 +nuiLabel Icon2 { EnableDecoration: false; Font: Icons2; }

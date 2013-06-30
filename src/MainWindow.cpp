@@ -107,9 +107,14 @@ bool MainWindow::LoadCSS(const nglPath& rPath)
 void MainWindow::OnLaunch(const nglPath& rPath)
 {
   nuiViewController* pView = new nuiViewController();
-  nuiWidget* pDebugger = nuiBuilder::Get().CreateWidget("Debugger");
+  DebugView* pDebugger = (DebugView*)nuiBuilder::Get().CreateWidget("Debugger");
   NGL_ASSERT(pDebugger);
   pView->AddChild(pDebugger);
   mpController->PushViewController(pView);
+  mSlotSink.Connect(pDebugger->GoHome, nuiMakeDelegate(this, &MainWindow::OnGoHome));
 }
 
+void MainWindow::OnGoHome()
+{
+  mpController->PopToRootViewControllerAnimated();
+}

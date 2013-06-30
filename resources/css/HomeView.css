@@ -8,6 +8,8 @@
 
 +HomeView Home
 {
+  Decoration: WindowBackground;
+
   VAnchors_header = 40;
   VAnchorsType_header = Absolute;
 
@@ -36,19 +38,21 @@
     {
       EnableDecoration: false;
       FocusVisible: false;
-      +Icon2 { Text: "\u2296"; }
+      +Icon2 { Text: $circled_minus; }
     }
 
     +nuiButton RemoveApplication
     {
       EnableDecoration: false;
       FocusVisible: false;
-      +Icon2 { Text: "\u2295"; }
+      +Icon2 { Text: $circled_plus; }
     }
   }
 
   +nuiScrollView
   {
+    Borders: 12;
+    Decoration: WhiteBackground;
     Layout = [left, inspector] / [apps, bottom];
     +nuiList AppList
     {
@@ -68,7 +72,7 @@
         +nuiHBox
         {
           +Label { Text: "Start Debugging"; }
-          +Icon2 { Text: "\uE740"; }
+          +Icon2 { Text: $login; }
         }
       }
       +InspectorLine( LineTitle: "Name:", LineContents: "bleh1" );

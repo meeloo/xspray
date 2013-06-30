@@ -27,5 +27,6 @@ protected:
   nuiNavigationController* mpController;
 
   void OnLaunch(const nglPath& rPath);
+  void OnGoHome();
 };
 

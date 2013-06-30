@@ -229,7 +229,8 @@ bool BPCallback (void *baton,
 
 void DebugView::OnChooseApplication(const nuiEvent& rEvent)
 {
-
+  
+  nuiAnimation::RunOnAnimationTick(nuiMakeTask(&GoHome, &nuiSignal0<>::operator()));
 }
 
 #if 1
