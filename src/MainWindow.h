@@ -23,5 +23,7 @@ protected:
 
   nuiEventSink<MainWindow> mEventSink;
   nuiSlotsSink mSlotSink;
+
+  nuiNavigationController* mpController;
 };
 

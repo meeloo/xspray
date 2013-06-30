@@ -1,6 +1,7 @@
 icon.icns        NUI_RESOURCE    "resources/icon.icns"
 icon.ico        NUI_RESOURCE    "resources/icon.ico"
-css/ApplicationList.css        NUI_RESOURCE    "resources/css/ApplicationList.css"
+css/DebugView.css        NUI_RESOURCE    "resources/css/DebugView.css"
+css/HomeView.css        NUI_RESOURCE    "resources/css/HomeView.css"
 css/main.css        NUI_RESOURCE    "resources/css/main.css"
 decorations/image.png        NUI_RESOURCE    "resources/decorations/image.png"
 fonts/Entypo.ttf        NUI_RESOURCE    "resources/fonts/Entypo.ttf"

@@ -1,0 +1,191 @@
+// Debug View
+
++nuiHBox VariableView
+{
+  +Label Name
+  {
+    Text: VariableName;
+    TextColor: black;
+  }
+
+  +Label Type
+  {
+    Text: VariableType;
+    TextColor: rgb(128,128,128);
+  }
+
+  +Label Value
+  {
+    Text: VariableValue;
+    TextColor: red;
+  }
+}
+
++nuiHBox iOSDeviceLabel
+{
+  +Label Name
+  {
+    Text: DeviceName;
+  }
+
+  +Label Type
+  {
+    Text: DeviceType;
+  }
+
+  +Label Version
+  {
+    Text: DeviceVersion;
+  }
+}
+
+
++nuiHBox Transport
+{
+  Expand: ShrinkAndGrow;
+  
+  +nuiButton ChooseApplication
+  {
+    MinIdealWidth : 80;
+    Position: Center;
+
+    +nuiHBox
+    {
+      Expand: ShrinkAndGrow;
+      +Icon2 {Text: "\u1F4C1"; }
+      +Label ApplicationName { Text: "Choose application"; }
+    }
+  }
+
+  +nuiVBox
+  {
+    Expand: ShrinkAndGrow;
+    MinIdealWidth : 150;
+    Position: Center;
+
+    +Label { Text: "Architectures:"; Position: Center; }
+    +nuiComboBox Architectures
+    {
+      BorderLeft: 10;
+      BorderRight: 10;
+      Position: Fill;
+    }
+  }
+
+  +nuiVBox
+  {
+    Expand: ShrinkAndGrow;
+    Position: Center;
+    MinIdealWidth : 150;
+
+    +Label { Text: "Devices:"; Position: Center; }
+    +nuiComboBox Devices
+    {
+      //BorderLeft: 10;
+      BorderRight: 10;
+      Position: Fill;
+    }
+  }
+
+  +nuiButton StartStop
+  {
+    +Icon2 {Text: "\u1F680"; }
+    Position: Center;
+  }
+
+  +nuiButton Pause
+  {
+    +Icon2 {Text: "\u2016"; }
+    Position: Center;
+  }
+
+  +nuiButton Continue
+  {
+    +Icon2{ Text: "\u25B6"; }
+    Position: Center;
+  }
+
+  +nuiButton StepIn
+  {
+    +Icon2{ Text: "\u21B3"; }
+    Position: Center;
+  }
+
+  +nuiButton StepOver
+  {
+    +Icon2{ Text: "\u27F3"; }
+    Position: Center;
+  }
+
+  +nuiButton StepOut
+  {
+    +Icon2{ Text: "\u1F519"; }
+    Position: Center;
+  }
+}
+
++nuiHBox MainArea
+{
+  
+}
+
++DebugView Debugger
+{
+  VAnchors_header = 40;
+  VAnchorsType_header = Absolute;
+
+  VAnchors_variables = -300;
+  VAnchorsType_variables = Absolute;
+
+  HAnchors_threads = 300;
+  VAnchorsType_threads = Absolute;
+
+  +Transport
+  {
+    Layout = [left, right] / [top, header];
+  }
+
+  +nuiTabView Organiser
+  {
+    Layout = [left, threads] / [header, bottom];
+
+    +nuiScrollView ThreadsScroller
+    {
+      TabName= "Threads";
+
+      +nuiTreeView Threads
+      {
+      }
+    }
+
+    +nuiScrollView ModulesScroller
+    {
+      TabName = "Modules";
+
+      +nuiTreeView Modules
+      {
+      }
+    }
+  }
+
+  +nuiScrollView SourceScroller
+  {
+    Layout = [threads, right] / [header, variables];
+    
+    +SourceView source
+    {
+    }
+  }
+
+  +nuiScrollView VariablesScroller
+  {
+    Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
+    DecorationMode: Border;
+    Layout = [threads, right] / [variables, bottom];
+    +nuiTreeView Variables
+    {
+      DisplayRoot: false;
+    }
+  }
+}
+

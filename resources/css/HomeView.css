@@ -1,0 +1,67 @@
+// HomeView CSS
+
++nuiHBox InspectorLine
+{
+  +Label { Text: LineTitle; }
+  +Label { Text: LineContents; }
+}
+
++HomeView Home
+{
+  VAnchors_header = 40;
+  VAnchorsType_header = Absolute;
+
+  VAnchors_icons = 80;
+  VAnchorsType_icons = Absolute;
+
+  VAnchors_apps = 110;
+  VAnchorsType_apps = Absolute;
+
+  HAnchors_inspector = -200;
+  HAnchorsType_inspector = Absolute;
+
+  +Label
+  {
+    Layout = [left, right] / [top, header];
+    Position: Top;
+    Text: "Spray Home Screen";
+  }
+
+  +nuiHBox
+  {
+    Expand: ShinkAndGrow;
+    Layout = [left, right] / [icons, apps];
+
+    +nuiButton AddApplication
+    {
+      +Label { Text: "+"; }
+    }
+
+    +nuiButton RemoveApplication
+    {
+      +Label { Text: "-"; }
+    }
+  }
+
+  +nuiScrollView
+  {
+    Layout = [left, inspector] / [apps, bottom];
+    +nuiList AppList
+    {
+      +Label { Text: "App 1"; }
+      +Label { Text: "App 2"; }
+      +Label { Text: "App 3"; }
+    }
+  }
+
+  +nuiScrollView
+  {
+    Layout = [inspector, right] / [apps, bottom];
+    +nuiVBox
+    {
+      +InspectorLine( LineTitle: "Name:", LineContents: "bleh1" );
+      +InspectorLine( LineTitle: "Path:", LineContents: "bleh2" );
+      +InspectorLine( LineTitle: "Command line:", LineContents: "bleh3" );
+    }
+  }
+}

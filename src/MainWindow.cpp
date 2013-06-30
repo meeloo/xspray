@@ -29,6 +29,7 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   EnableAutoRotation(true);
 
   NUI_ADD_WIDGET_CREATOR(SourceView, "Container");
+  NUI_ADD_WIDGET_CREATOR(HomeView, "Container");
   NUI_ADD_WIDGET_CREATOR(DebugView, "Container");
 
 #ifdef _DEBUG_
@@ -42,10 +43,14 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
 
   LoadCSS(_T("rsrc:/css/main.css"));
 
-  nuiWidget* pDebugger = nuiBuilder::Get().CreateWidget("Debugger");
-  NGL_ASSERT(pDebugger);
-  AddChild(pDebugger);
+  mpController = new nuiNavigationController();
+  AddChild(mpController);
 
+  nuiViewController* pView = new nuiViewController();
+  nuiWidget* pDebugger = nuiBuilder::Get().CreateWidget("Home");
+  NGL_ASSERT(pDebugger);
+  pView->AddChild(pDebugger);
+  AddChild(pView);
 }
 
 MainWindow::~MainWindow()

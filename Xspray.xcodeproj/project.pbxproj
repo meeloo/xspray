@@ -44,6 +44,8 @@
 		E5D6453D120AA7D8009C26A9 /* libnui3Cocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D644FB120A01E0009C26A9 /* libnui3Cocoa.a */; };
 		E5E8E736178060AB001E6358 /* DebugView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E734178060AB001E6358 /* DebugView.cpp */; };
 		E5E8E737178060AB001E6358 /* DebugView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E734178060AB001E6358 /* DebugView.cpp */; };
+		E5E8E73A17806D43001E6358 /* HomeView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E73817806D43001E6358 /* HomeView.cpp */; };
+		E5E8E73B17806D43001E6358 /* HomeView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E73817806D43001E6358 /* HomeView.cpp */; };
 		E5EF6FBC11E77DE8000FB337 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFEF0B83433800BC506C /* Application.cpp */; };
 		E5EF6FBD11E77DE8000FB337 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFF10B83433800BC506C /* MainWindow.cpp */; };
 		E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD30B833F1500BC506C /* CoreFoundation.framework */; };
@@ -223,6 +225,8 @@
 		E5D64530120A0B92009C26A9 /* Xspray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xspray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E8E734178060AB001E6358 /* DebugView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebugView.cpp; path = src/Xspray/DebugView.cpp; sourceTree = "<group>"; };
 		E5E8E735178060AB001E6358 /* DebugView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugView.h; path = src/Xspray/DebugView.h; sourceTree = "<group>"; };
+		E5E8E73817806D43001E6358 /* HomeView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HomeView.cpp; path = src/Xspray/HomeView.cpp; sourceTree = "<group>"; };
+		E5E8E73917806D43001E6358 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeView.h; path = src/Xspray/HomeView.h; sourceTree = "<group>"; };
 		E5EF6FC811E77DE8000FB337 /* XsprayD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XsprayD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FD8D1B177C468C001646F6 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -349,6 +353,8 @@
 				E53D0D0617750E350082B86F /* MobileDevice.h */,
 				E5E8E734178060AB001E6358 /* DebugView.cpp */,
 				E5E8E735178060AB001E6358 /* DebugView.h */,
+				E5E8E73817806D43001E6358 /* HomeView.cpp */,
+				E5E8E73917806D43001E6358 /* HomeView.h */,
 			);
 			name = Xspray;
 			sourceTree = "<group>";
@@ -570,6 +576,7 @@
 				E53D0D0517750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
 				E51C3C491779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
 				E5E8E737178060AB001E6358 /* DebugView.cpp in Sources */,
+				E5E8E73B17806D43001E6358 /* HomeView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +596,7 @@
 				E53D0D0417750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
 				E51C3C481779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
 				E5E8E736178060AB001E6358 /* DebugView.cpp in Sources */,
+				E5E8E73A17806D43001E6358 /* HomeView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
