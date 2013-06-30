@@ -15,13 +15,13 @@
 }
 
 
-@Font Icons1
+@Font FontAwesome
 {
   Name: "rsrc:/fonts/fontawesome-webfont.ttf";
   Size: 18;
 }
 
-@Font Icons2
+@Font Entypo
 {
   Name: "rsrc:/fonts/Entypo.ttf";
   Size: 36;
@@ -40,8 +40,8 @@
 }
 
 
-+nuiLabel Icon1 { EnableDecoration: false; Font: Icons1; }
-+nuiLabel Icon2 { EnableDecoration: false; Font: Icons2; }
++nuiLabel FontAwesome { EnableDecoration: false; Font: FontAwesome; }
++nuiLabel Entypo { EnableDecoration: false; Font: Entypo; }
 
 +nuiLabel Label { Font: Helvetica; }
 

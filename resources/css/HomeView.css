@@ -26,7 +26,7 @@
   {
     Layout = [left, right] / [top, header];
     Position: Top;
-    Text: "Spray Home Screen";
+    Text: "Xspray Home Screen";
   }
 
   +nuiHBox
@@ -38,14 +38,14 @@
     {
       EnableDecoration: false;
       FocusVisible: false;
-      +Icon2 { Text: $circled_minus; }
+      +Entypo { Text: $entypo_circled_minus; }
     }
 
     +nuiButton RemoveApplication
     {
       EnableDecoration: false;
       FocusVisible: false;
-      +Icon2 { Text: $circled_plus; }
+      +Entypo { Text: $entypo_circled_plus; }
     }
   }
 
@@ -72,7 +72,7 @@
         +nuiHBox
         {
           +Label { Text: "Start Debugging"; }
-          +Icon2 { Text: $login; }
+          +Entypo { Text: $entypo_login; }
         }
       }
       +InspectorLine( LineTitle: "Name:", LineContents: "bleh1" );

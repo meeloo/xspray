@@ -52,7 +52,7 @@
     +nuiHBox
     {
       Expand: ShrinkAndGrow;
-      +Icon2 {Text: $folder; }
+      +Entypo {Text: $entypo_folder; }
       +Label ApplicationName { Text: "Choose application"; }
     }
   }
@@ -89,37 +89,37 @@
 
   +nuiButton StartStop
   {
-    +Icon2 {Text: $rocket; }
+    +Entypo {Text: $entypo_rocket; }
     Position: Center;
   }
 
   +nuiButton Pause
   {
-    +Icon2 {Text: $pause; }
+    +Entypo {Text: $entypo_pause; }
     Position: Center;
   }
 
   +nuiButton Continue
   {
-    +Icon2{ Text: $play; }
+    +Entypo{ Text: $entypo_play; }
     Position: Center;
   }
 
   +nuiButton StepIn
   {
-    +Icon2{ Text: $level_down; }
+    +Entypo{ Text: $entypo_level_down; }
     Position: Center;
   }
 
   +nuiButton StepOver
   {
-    +Icon2{ Text: $cw; }
+    +Entypo{ Text: $entypo_cw; }
     Position: Center;
   }
 
   +nuiButton StepOut
   {
-    +Icon2{ Text: $back; }
+    +Entypo{ Text: $entypo_back; }
     Position: Center;
   }
 }
@@ -131,13 +131,13 @@
 
 +nuiHBox ModulesTabHeader
 {
-  +Icon2 { Text: "\u1F4E6"; }
+  +Entypo { Text: $entypo_box; }
   +Label { Text: "Modules"; }
 }
 
 +nuiHBox ThreadsTabHeader
 {
-  +Icon2 { Text: "\u1F4C4"; }
+  +Entypo { Text: $entypo_text_doc; }
   +Label { Text: "Threads"; }
 }
 
