@@ -13,7 +13,7 @@ class MainWindow : public nuiMainWindow
 {
 public:
   MainWindow(const nglContextInfo& rContext, const nglWindowInfo& rInfo, bool ShowFPS = false, const nglContext* pShared = NULL);
-  ~MainWindow();
+  virtual ~MainWindow();
 
   void OnCreation();
   void OnClose();
@@ -43,12 +43,18 @@ protected:
 
   void ShowSource(const nglPath& rPath, int32 line, int32 col);
 
+  void OnDeviceConnected(Xspray::iOSDevice& device);
+  void OnDeviceDisconnected(Xspray::iOSDevice& device);
+
   nglThreadDelegate* mpDebuggerEventLoop;
 
   nuiTreeView* mpThreads;
   nuiTreeView* mpModules;
   nuiTreeView* mpVariables;
   nuiWidget* mpTransport;
+  nuiButton* mpOpen;
+  nuiComboBox* mpArchitecturesCombo;
+  nuiComboBox* mpDevicesCombo;
   nuiButton* mpStart;
   nuiButton* mpPause;
   nuiButton* mpContinue;
@@ -56,10 +62,15 @@ protected:
   nuiButton* mpStepOver;
   nuiButton* mpStepOut;
   Xspray::SourceView* mpSourceView;
-  
+
+  nuiTreeNodePtr mpArchitectures;
+  nuiTreeNodePtr mpDevices;
+
   void SelectProcess(lldb::SBProcess process);
   void SelectThread(lldb::SBThread thread);
   void SelectFrame(lldb::SBFrame frame);
   void UpdateVariables(lldb::SBFrame frame);
+
+  void UpdateArchitectures(std::vector<nglString>& rArchis);
 };
 

@@ -63,6 +63,9 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
 
 
   mpTransport = (nuiWidget*)pDebugger->SearchForChild("Transport", true);
+  mpOpen = (nuiButton*)pDebugger->SearchForChild("Open", true);
+  mpArchitecturesCombo = (nuiComboBox*)pDebugger->SearchForChild("Architectures", true);
+  mpDevicesCombo = (nuiComboBox*)pDebugger->SearchForChild("Devices", true);
   mpStart = (nuiButton*)pDebugger->SearchForChild("StartStop", true);
   mpPause = (nuiButton*)pDebugger->SearchForChild("Pause", true);
   mpContinue = (nuiButton*)pDebugger->SearchForChild("Continue", true);
@@ -70,6 +73,13 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mpStepOver = (nuiButton*)pDebugger->SearchForChild("StepOver", true);
   mpStepOut = (nuiButton*)pDebugger->SearchForChild("StepOut", true);
   mpSourceView = (SourceView*)pDebugger->SearchForChild("source", true);;
+
+  mpDevices = new nuiTreeNode("Devices");
+  mpDevicesCombo->SetTree(mpDevices);
+
+  mpArchitectures = new nuiTreeNode("Archs");
+  mpArchitecturesCombo->SetTree(mpArchitectures);
+
 
   mEventSink.Connect(mpStart->Activated, &MainWindow::OnStart);
   mEventSink.Connect(mpPause->Activated, &MainWindow::OnPause);
@@ -82,12 +92,48 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   mEventSink.Connect(mpModules->SelectionChanged, &MainWindow::OnModuleSelectionChanged);
 
   mSlotSink.Connect(mpSourceView->LineSelected, nuiMakeDelegate(this, &MainWindow::OnLineSelected));
+
+  mSlotSink.Connect(iOSDevice::DeviceConnected, nuiMakeDelegate(this, &MainWindow::OnDeviceConnected));
+  mSlotSink.Connect(iOSDevice::DeviceDisconnected, nuiMakeDelegate(this, &MainWindow::OnDeviceDisconnected));
 }
 
 MainWindow::~MainWindow()
 {
 }
 
+void MainWindow::OnDeviceConnected(iOSDevice& device)
+{
+  std::map<nglString, nglString> dico;
+  dico["DeviceUDID"] = device.GetUDID();
+  dico["DeviceName"] = device.GetName();
+  dico["DeviceType"] = device.GetTypeName();
+  dico["DeviceVersion"] = device.GetVersionString();
+
+  nuiWidget* pWidget = nuiBuilder::Get().CreateWidget("iOSDeviceLabel", dico);
+
+  nuiTreeNodePtr pNode = new nuiTreeNode(pWidget, false, false, false, false);
+  pNode->SetToken(new nuiToken<iOSDevice&>(device));
+  mpDevices->AddChild(pNode);
+}
+
+void MainWindow::OnDeviceDisconnected(iOSDevice& device)
+{
+  for (int32 i = 0; i < mpDevices->GetChildrenCount(); i++)
+  {
+    nuiTreeNode* pNode = (nuiTreeNode*)mpDevices->GetChild(i);
+    NGL_ASSERT(pNode);
+    nuiToken<iOSDevice&>* pToken = (nuiToken<iOSDevice&>*)pNode->GetToken();
+    NGL_ASSERT(pToken);
+    iOSDevice* pDevice = &pToken->Token;
+    NGL_ASSERT(pDevice);
+
+    if (&device == pDevice)
+    {
+      mpDevices->DelChild(i);
+      return;
+    }
+  }
+}
 
 #define FONT_SIZE 35
 
@@ -390,11 +436,6 @@ void MainWindow::OnStart(const nuiEvent& rEvent)
   
 }
 #else
-// IOS Test:
-//nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
-//nglPath p("/Applications/Calculator.app");
-nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
-
 void MainWindow::OnStart(const nuiEvent& rEvent)
 {
   //  TestMain2(p.GetChars());

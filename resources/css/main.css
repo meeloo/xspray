@@ -50,37 +50,83 @@
   }
 }
 
++nuiHBox iOSDeviceLabel
+{
+  +nuiLabel Name
+  {
+    Text: DeviceName;
+  }
+
+  +nuiLabel Type
+  {
+    Text: DeviceType;
+  }
+
+  +nuiLabel Version
+  {
+    Text: DeviceVersion;
+  }
+}
+
+
 +nuiHBox Transport
 {
   Expand: ShrinkAndGrow;
+  
+  +nuiButton Open
+  {
+    +Icon2 {Text: "\u1F4C1"; }
+    Position: Center;
+  }
+
+  +nuiComboBox Architectures
+  {
+    BorderLeft: 10;
+    BorderRight: 10;
+    Position: Center;
+  }
+
+  +nuiComboBox Devices
+  {
+    //BorderLeft: 10;
+    BorderRight: 10;
+    Position: Center;
+  }
+
   +nuiButton StartStop
   {
     +Icon2 {Text: "\u1F680"; }
+    Position: Center;
   }
 
   +nuiButton Pause
   {
     +Icon2 {Text: "\u2016"; }
+    Position: Center;
   }
 
   +nuiButton Continue
   {
     +Icon2{ Text: "\u25B6"; }
+    Position: Center;
   }
 
   +nuiButton StepIn
   {
     +Icon2{ Text: "\u21B3"; }
+    Position: Center;
   }
 
   +nuiButton StepOver
   {
     +Icon2{ Text: "\u27F3"; }
+    Position: Center;
   }
 
   +nuiButton StepOut
   {
     +Icon2{ Text: "\u1F519"; }
+    Position: Center;
   }
 }
 
