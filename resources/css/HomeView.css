@@ -38,14 +38,14 @@
     {
       EnableDecoration: false;
       FocusVisible: false;
-      +Entypo { Text: $entypo_circled_minus; }
+      +fontawesome_minus_sign;
     }
 
     +nuiButton RemoveApplication
     {
       EnableDecoration: false;
       FocusVisible: false;
-      +Entypo { Text: $entypo_circled_plus; }
+      +fontawesome_plus_sign;
     }
   }
 
@@ -72,7 +72,7 @@
         +nuiHBox
         {
           +Label { Text: "Start Debugging"; }
-          +Entypo { Text: $entypo_login; }
+          +fontawesome_signin;
         }
       }
       +InspectorLine( LineTitle: "Name:", LineContents: "bleh1" );

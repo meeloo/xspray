@@ -1,4 +1,11 @@
-// Font Awesome
+// Font Awesome definitions
+
+@Font FontAwesome
+{
+  Name: "rsrc:/fonts/fontawesome-webfont.ttf";
+  Size: 18;
+}
+
 $fontawesome_glass  = "\uf000";
 $fontawesome_music  = "\uf001";
 $fontawesome_search  = "\uf002";
@@ -15,10 +22,10 @@ $fontawesome_ok  = "\uf00c";
 $fontawesome_remove  = "\uf00d";
 $fontawesome_zoom_in  = "\uf00e";
 $fontawesome_zoom_out  = "\uf010";
-$fontawesome_power_off:before,
+$fontawesome_power_off = "\uf011";
 $fontawesome_off  = "\uf011";
 $fontawesome_signal  = "\uf012";
-$fontawesome_gear:before,
+$fontawesome_gear = "\uf013";
 $fontawesome_cog  = "\uf013";
 $fontawesome_trash  = "\uf014";
 $fontawesome_home  = "\uf015";
@@ -30,7 +37,7 @@ $fontawesome_download  = "\uf01a";
 $fontawesome_upload  = "\uf01b";
 $fontawesome_inbox  = "\uf01c";
 $fontawesome_play_circle  = "\uf01d";
-$fontawesome_rotate_right:before,
+$fontawesome_rotate_right = "\uf01e";
 $fontawesome_repeat  = "\uf01e";
 $fontawesome_refresh  = "\uf021";
 $fontawesome_list_alt  = "\uf022";
@@ -96,7 +103,7 @@ $fontawesome_arrow_left  = "\uf060";
 $fontawesome_arrow_right  = "\uf061";
 $fontawesome_arrow_up  = "\uf062";
 $fontawesome_arrow_down  = "\uf063";
-$fontawesome_mail_forward:before,
+$fontawesome_mail_forward = "\uf064";
 $fontawesome_share_alt  = "\uf064";
 $fontawesome_resize_full  = "\uf065";
 $fontawesome_resize_small  = "\uf066";
@@ -128,7 +135,7 @@ $fontawesome_twitter_sign  = "\uf081";
 $fontawesome_facebook_sign  = "\uf082";
 $fontawesome_camera_retro  = "\uf083";
 $fontawesome_key  = "\uf084";
-$fontawesome_gears:before,
+$fontawesome_gears  = "\uf085";
 $fontawesome_cogs  = "\uf085";
 $fontawesome_comments  = "\uf086";
 $fontawesome_thumbs_up_alt  = "\uf087";
@@ -145,7 +152,7 @@ $fontawesome_github_sign  = "\uf092";
 $fontawesome_upload_alt  = "\uf093";
 $fontawesome_lemon  = "\uf094";
 $fontawesome_phone  = "\uf095";
-$fontawesome_unchecked:before,
+$fontawesome_unchecked  = "\uf096";
 $fontawesome_check_empty  = "\uf096";
 $fontawesome_bookmark_empty  = "\uf097";
 $fontawesome_phone_sign  = "\uf098";
@@ -179,7 +186,7 @@ $fontawesome_cloud  = "\uf0c2";
 $fontawesome_beaker  = "\uf0c3";
 $fontawesome_cut  = "\uf0c4";
 $fontawesome_copy  = "\uf0c5";
-$fontawesome_paperclip:before,
+$fontawesome_paperclip  = "\uf0c6";
 $fontawesome_paper_clip  = "\uf0c6";
 $fontawesome_save  = "\uf0c7";
 $fontawesome_sign_blank  = "\uf0c8";
@@ -206,7 +213,7 @@ $fontawesome_sort_down  = "\uf0dd";
 $fontawesome_sort_up  = "\uf0de";
 $fontawesome_envelope  = "\uf0e0";
 $fontawesome_linkedin  = "\uf0e1";
-$fontawesome_rotate_left:before,
+$fontawesome_rotate_left = "\uf0e2";
 $fontawesome_undo  = "\uf0e2";
 $fontawesome_legal  = "\uf0e3";
 $fontawesome_dashboard  = "\uf0e4";
@@ -252,7 +259,7 @@ $fontawesome_quote_left  = "\uf10d";
 $fontawesome_quote_right  = "\uf10e";
 $fontawesome_spinner  = "\uf110";
 $fontawesome_circle  = "\uf111";
-$fontawesome_mail_reply:before,
+$fontawesome_mail_reply = "\uf112";
 $fontawesome_reply  = "\uf112";
 $fontawesome_github_alt  = "\uf113";
 $fontawesome_folder_close_alt  = "\uf114";
@@ -270,7 +277,7 @@ $fontawesome_terminal  = "\uf120";
 $fontawesome_code  = "\uf121";
 $fontawesome_reply_all  = "\uf122";
 $fontawesome_mail_reply_all  = "\uf122";
-$fontawesome_star_half_full:before,
+$fontawesome_star_half_full = "\uf123";
 $fontawesome_star_half_empty  = "\uf123";
 $fontawesome_location_arrow  = "\uf124";
 $fontawesome_crop  = "\uf125";
@@ -316,20 +323,20 @@ $fontawesome_compass  = "\uf14e";
 $fontawesome_collapse  = "\uf150";
 $fontawesome_collapse_top  = "\uf151";
 $fontawesome_expand  = "\uf152";
-$fontawesome_euro:before,
+$fontawesome_euro = "\uf153";
 $fontawesome_eur  = "\uf153";
 $fontawesome_gbp  = "\uf154";
-$fontawesome_dollar:before,
+$fontawesome_dollar = "\uf155";
 $fontawesome_usd  = "\uf155";
-$fontawesome_rupee:before,
+$fontawesome_rupee = "\uf156";
 $fontawesome_inr  = "\uf156";
-$fontawesome_yen:before,
+$fontawesome_yen = "\uf157";
 $fontawesome_jpy  = "\uf157";
-$fontawesome_renminbi:before,
+$fontawesome_renminbi = "\uf158";
 $fontawesome_cny  = "\uf158";
-$fontawesome_won:before,
+$fontawesome_won = "\uf159";
 $fontawesome_krw  = "\uf159";
-$fontawesome_bitcoin:before,
+$fontawesome_bitcoin = "\uf15a";
 $fontawesome_btc  = "\uf15a";
 $fontawesome_file  = "\uf15b";
 $fontawesome_file_text  = "\uf15c";
@@ -377,3 +384,386 @@ $fontawesome_bug  = "\uf188";
 $fontawesome_vk  = "\uf189";
 $fontawesome_weibo  = "\uf18a";
 $fontawesome_renren  = "\uf18b";
+
++nuiLabel FontAwesome { EnableDecoration: false; Font: FontAwesome; }
+
++FontAwesome fontawesome_glass { Text:"\uf000"; }
++FontAwesome fontawesome_music { Text:"\uf001"; }
++FontAwesome fontawesome_search { Text:"\uf002"; }
++FontAwesome fontawesome_envelope_alt { Text:"\uf003"; }
++FontAwesome fontawesome_heart { Text:"\uf004"; }
++FontAwesome fontawesome_star { Text:"\uf005"; }
++FontAwesome fontawesome_star_empty { Text:"\uf006"; }
++FontAwesome fontawesome_user { Text:"\uf007"; }
++FontAwesome fontawesome_film { Text:"\uf008"; }
++FontAwesome fontawesome_th_large { Text:"\uf009"; }
++FontAwesome fontawesome_th { Text:"\uf00a"; }
++FontAwesome fontawesome_th_list { Text:"\uf00b"; }
++FontAwesome fontawesome_ok { Text:"\uf00c"; }
++FontAwesome fontawesome_remove { Text:"\uf00d"; }
++FontAwesome fontawesome_zoom_in { Text:"\uf00e"; }
++FontAwesome fontawesome_zoom_out { Text:"\uf010"; }
++FontAwesome fontawesome_power_off { Text:"\uf011"; }
++FontAwesome fontawesome_off { Text:"\uf011"; }
++FontAwesome fontawesome_signal { Text:"\uf012"; }
++FontAwesome fontawesome_gear { Text:"\uf013"; }
++FontAwesome fontawesome_cog { Text:"\uf013"; }
++FontAwesome fontawesome_trash { Text:"\uf014"; }
++FontAwesome fontawesome_home { Text:"\uf015"; }
++FontAwesome fontawesome_file_alt { Text:"\uf016"; }
++FontAwesome fontawesome_time { Text:"\uf017"; }
++FontAwesome fontawesome_road { Text:"\uf018"; }
++FontAwesome fontawesome_download_alt { Text:"\uf019"; }
++FontAwesome fontawesome_download { Text:"\uf01a"; }
++FontAwesome fontawesome_upload { Text:"\uf01b"; }
++FontAwesome fontawesome_inbox { Text:"\uf01c"; }
++FontAwesome fontawesome_play_circle { Text:"\uf01d"; }
++FontAwesome fontawesome_rotate_right { Text:"\uf01e"; }
++FontAwesome fontawesome_repeat { Text:"\uf01e"; }
++FontAwesome fontawesome_refresh { Text:"\uf021"; }
++FontAwesome fontawesome_list_alt { Text:"\uf022"; }
++FontAwesome fontawesome_lock { Text:"\uf023"; }
++FontAwesome fontawesome_flag { Text:"\uf024"; }
++FontAwesome fontawesome_headphones { Text:"\uf025"; }
++FontAwesome fontawesome_volume_off { Text:"\uf026"; }
++FontAwesome fontawesome_volume_down { Text:"\uf027"; }
++FontAwesome fontawesome_volume_up { Text:"\uf028"; }
++FontAwesome fontawesome_qrcode { Text:"\uf029"; }
++FontAwesome fontawesome_barcode { Text:"\uf02a"; }
++FontAwesome fontawesome_tag { Text:"\uf02b"; }
++FontAwesome fontawesome_tags { Text:"\uf02c"; }
++FontAwesome fontawesome_book { Text:"\uf02d"; }
++FontAwesome fontawesome_bookmark { Text:"\uf02e"; }
++FontAwesome fontawesome_print { Text:"\uf02f"; }
++FontAwesome fontawesome_camera { Text:"\uf030"; }
++FontAwesome fontawesome_font { Text:"\uf031"; }
++FontAwesome fontawesome_bold { Text:"\uf032"; }
++FontAwesome fontawesome_italic { Text:"\uf033"; }
++FontAwesome fontawesome_text_height { Text:"\uf034"; }
++FontAwesome fontawesome_text_width { Text:"\uf035"; }
++FontAwesome fontawesome_align_left { Text:"\uf036"; }
++FontAwesome fontawesome_align_center { Text:"\uf037"; }
++FontAwesome fontawesome_align_right { Text:"\uf038"; }
++FontAwesome fontawesome_align_justify { Text:"\uf039"; }
++FontAwesome fontawesome_list { Text:"\uf03a"; }
++FontAwesome fontawesome_indent_left { Text:"\uf03b"; }
++FontAwesome fontawesome_indent_right { Text:"\uf03c"; }
++FontAwesome fontawesome_facetime_video { Text:"\uf03d"; }
++FontAwesome fontawesome_picture { Text:"\uf03e"; }
++FontAwesome fontawesome_pencil { Text:"\uf040"; }
++FontAwesome fontawesome_map_marker { Text:"\uf041"; }
++FontAwesome fontawesome_adjust { Text:"\uf042"; }
++FontAwesome fontawesome_tint { Text:"\uf043"; }
++FontAwesome fontawesome_edit { Text:"\uf044"; }
++FontAwesome fontawesome_share { Text:"\uf045"; }
++FontAwesome fontawesome_check { Text:"\uf046"; }
++FontAwesome fontawesome_move { Text:"\uf047"; }
++FontAwesome fontawesome_step_backward { Text:"\uf048"; }
++FontAwesome fontawesome_fast_backward { Text:"\uf049"; }
++FontAwesome fontawesome_backward { Text:"\uf04a"; }
++FontAwesome fontawesome_play { Text:"\uf04b"; }
++FontAwesome fontawesome_pause { Text:"\uf04c"; }
++FontAwesome fontawesome_stop { Text:"\uf04d"; }
++FontAwesome fontawesome_forward { Text:"\uf04e"; }
++FontAwesome fontawesome_fast_forward { Text:"\uf050"; }
++FontAwesome fontawesome_step_forward { Text:"\uf051"; }
++FontAwesome fontawesome_eject { Text:"\uf052"; }
++FontAwesome fontawesome_chevron_left { Text:"\uf053"; }
++FontAwesome fontawesome_chevron_right { Text:"\uf054"; }
++FontAwesome fontawesome_plus_sign { Text:"\uf055"; }
++FontAwesome fontawesome_minus_sign { Text:"\uf056"; }
++FontAwesome fontawesome_remove_sign { Text:"\uf057"; }
++FontAwesome fontawesome_ok_sign { Text:"\uf058"; }
++FontAwesome fontawesome_question_sign { Text:"\uf059"; }
++FontAwesome fontawesome_info_sign { Text:"\uf05a"; }
++FontAwesome fontawesome_screenshot { Text:"\uf05b"; }
++FontAwesome fontawesome_remove_circle { Text:"\uf05c"; }
++FontAwesome fontawesome_ok_circle { Text:"\uf05d"; }
++FontAwesome fontawesome_ban_circle { Text:"\uf05e"; }
++FontAwesome fontawesome_arrow_left { Text:"\uf060"; }
++FontAwesome fontawesome_arrow_right { Text:"\uf061"; }
++FontAwesome fontawesome_arrow_up { Text:"\uf062"; }
++FontAwesome fontawesome_arrow_down { Text:"\uf063"; }
++FontAwesome fontawesome_mail_forward { Text:"\uf064"; }
++FontAwesome fontawesome_share_alt { Text:"\uf064"; }
++FontAwesome fontawesome_resize_full { Text:"\uf065"; }
++FontAwesome fontawesome_resize_small { Text:"\uf066"; }
++FontAwesome fontawesome_plus { Text:"\uf067"; }
++FontAwesome fontawesome_minus { Text:"\uf068"; }
++FontAwesome fontawesome_asterisk { Text:"\uf069"; }
++FontAwesome fontawesome_exclamation_sign { Text:"\uf06a"; }
++FontAwesome fontawesome_gift { Text:"\uf06b"; }
++FontAwesome fontawesome_leaf { Text:"\uf06c"; }
++FontAwesome fontawesome_fire { Text:"\uf06d"; }
++FontAwesome fontawesome_eye_open { Text:"\uf06e"; }
++FontAwesome fontawesome_eye_close { Text:"\uf070"; }
++FontAwesome fontawesome_warning_sign { Text:"\uf071"; }
++FontAwesome fontawesome_plane { Text:"\uf072"; }
++FontAwesome fontawesome_calendar { Text:"\uf073"; }
++FontAwesome fontawesome_random { Text:"\uf074"; }
++FontAwesome fontawesome_comment { Text:"\uf075"; }
++FontAwesome fontawesome_magnet { Text:"\uf076"; }
++FontAwesome fontawesome_chevron_up { Text:"\uf077"; }
++FontAwesome fontawesome_chevron_down { Text:"\uf078"; }
++FontAwesome fontawesome_retweet { Text:"\uf079"; }
++FontAwesome fontawesome_shopping_cart { Text:"\uf07a"; }
++FontAwesome fontawesome_folder_close { Text:"\uf07b"; }
++FontAwesome fontawesome_folder_open { Text:"\uf07c"; }
++FontAwesome fontawesome_resize_vertical { Text:"\uf07d"; }
++FontAwesome fontawesome_resize_horizontal { Text:"\uf07e"; }
++FontAwesome fontawesome_bar_chart { Text:"\uf080"; }
++FontAwesome fontawesome_twitter_sign { Text:"\uf081"; }
++FontAwesome fontawesome_facebook_sign { Text:"\uf082"; }
++FontAwesome fontawesome_camera_retro { Text:"\uf083"; }
++FontAwesome fontawesome_key { Text:"\uf084"; }
++FontAwesome fontawesome_gears { Text:"\uf085"; }
++FontAwesome fontawesome_cogs { Text:"\uf085"; }
++FontAwesome fontawesome_comments { Text:"\uf086"; }
++FontAwesome fontawesome_thumbs_up_alt { Text:"\uf087"; }
++FontAwesome fontawesome_thumbs_down_alt { Text:"\uf088"; }
++FontAwesome fontawesome_star_half { Text:"\uf089"; }
++FontAwesome fontawesome_heart_empty { Text:"\uf08a"; }
++FontAwesome fontawesome_signout { Text:"\uf08b"; }
++FontAwesome fontawesome_linkedin_sign { Text:"\uf08c"; }
++FontAwesome fontawesome_pushpin { Text:"\uf08d"; }
++FontAwesome fontawesome_external_link { Text:"\uf08e"; }
++FontAwesome fontawesome_signin { Text:"\uf090"; }
++FontAwesome fontawesome_trophy { Text:"\uf091"; }
++FontAwesome fontawesome_github_sign { Text:"\uf092"; }
++FontAwesome fontawesome_upload_alt { Text:"\uf093"; }
++FontAwesome fontawesome_lemon { Text:"\uf094"; }
++FontAwesome fontawesome_phone { Text:"\uf095"; }
++FontAwesome fontawesome_unchecked { Text:"\uf096"; }
++FontAwesome fontawesome_check_empty { Text:"\uf096"; }
++FontAwesome fontawesome_bookmark_empty { Text:"\uf097"; }
++FontAwesome fontawesome_phone_sign { Text:"\uf098"; }
++FontAwesome fontawesome_twitter { Text:"\uf099"; }
++FontAwesome fontawesome_facebook { Text:"\uf09a"; }
++FontAwesome fontawesome_github { Text:"\uf09b"; }
++FontAwesome fontawesome_unlock { Text:"\uf09c"; }
++FontAwesome fontawesome_credit_card { Text:"\uf09d"; }
++FontAwesome fontawesome_rss { Text:"\uf09e"; }
++FontAwesome fontawesome_hdd { Text:"\uf0a0"; }
++FontAwesome fontawesome_bullhorn { Text:"\uf0a1"; }
++FontAwesome fontawesome_bell { Text:"\uf0a2"; }
++FontAwesome fontawesome_certificate { Text:"\uf0a3"; }
++FontAwesome fontawesome_hand_right { Text:"\uf0a4"; }
++FontAwesome fontawesome_hand_left { Text:"\uf0a5"; }
++FontAwesome fontawesome_hand_up { Text:"\uf0a6"; }
++FontAwesome fontawesome_hand_down { Text:"\uf0a7"; }
++FontAwesome fontawesome_circle_arrow_left { Text:"\uf0a8"; }
++FontAwesome fontawesome_circle_arrow_right { Text:"\uf0a9"; }
++FontAwesome fontawesome_circle_arrow_up { Text:"\uf0aa"; }
++FontAwesome fontawesome_circle_arrow_down { Text:"\uf0ab"; }
++FontAwesome fontawesome_globe { Text:"\uf0ac"; }
++FontAwesome fontawesome_wrench { Text:"\uf0ad"; }
++FontAwesome fontawesome_tasks { Text:"\uf0ae"; }
++FontAwesome fontawesome_filter { Text:"\uf0b0"; }
++FontAwesome fontawesome_briefcase { Text:"\uf0b1"; }
++FontAwesome fontawesome_fullscreen { Text:"\uf0b2"; }
++FontAwesome fontawesome_group { Text:"\uf0c0"; }
++FontAwesome fontawesome_link { Text:"\uf0c1"; }
++FontAwesome fontawesome_cloud { Text:"\uf0c2"; }
++FontAwesome fontawesome_beaker { Text:"\uf0c3"; }
++FontAwesome fontawesome_cut { Text:"\uf0c4"; }
++FontAwesome fontawesome_copy { Text:"\uf0c5"; }
++FontAwesome fontawesome_paperclip { Text:"\uf0c6"; }
++FontAwesome fontawesome_paper_clip { Text:"\uf0c6"; }
++FontAwesome fontawesome_save { Text:"\uf0c7"; }
++FontAwesome fontawesome_sign_blank { Text:"\uf0c8"; }
++FontAwesome fontawesome_reorder { Text:"\uf0c9"; }
++FontAwesome fontawesome_list_ul { Text:"\uf0ca"; }
++FontAwesome fontawesome_list_ol { Text:"\uf0cb"; }
++FontAwesome fontawesome_strikethrough { Text:"\uf0cc"; }
++FontAwesome fontawesome_underline { Text:"\uf0cd"; }
++FontAwesome fontawesome_table { Text:"\uf0ce"; }
++FontAwesome fontawesome_magic { Text:"\uf0d0"; }
++FontAwesome fontawesome_truck { Text:"\uf0d1"; }
++FontAwesome fontawesome_pinterest { Text:"\uf0d2"; }
++FontAwesome fontawesome_pinterest_sign { Text:"\uf0d3"; }
++FontAwesome fontawesome_google_plus_sign { Text:"\uf0d4"; }
++FontAwesome fontawesome_google_plus { Text:"\uf0d5"; }
++FontAwesome fontawesome_money { Text:"\uf0d6"; }
++FontAwesome fontawesome_caret_down { Text:"\uf0d7"; }
++FontAwesome fontawesome_caret_up { Text:"\uf0d8"; }
++FontAwesome fontawesome_caret_left { Text:"\uf0d9"; }
++FontAwesome fontawesome_caret_right { Text:"\uf0da"; }
++FontAwesome fontawesome_columns { Text:"\uf0db"; }
++FontAwesome fontawesome_sort { Text:"\uf0dc"; }
++FontAwesome fontawesome_sort_down { Text:"\uf0dd"; }
++FontAwesome fontawesome_sort_up { Text:"\uf0de"; }
++FontAwesome fontawesome_envelope { Text:"\uf0e0"; }
++FontAwesome fontawesome_linkedin { Text:"\uf0e1"; }
++FontAwesome fontawesome_rotate_left { Text:"\uf0e2"; }
++FontAwesome fontawesome_undo { Text:"\uf0e2"; }
++FontAwesome fontawesome_legal { Text:"\uf0e3"; }
++FontAwesome fontawesome_dashboard { Text:"\uf0e4"; }
++FontAwesome fontawesome_comment_alt { Text:"\uf0e5"; }
++FontAwesome fontawesome_comments_alt { Text:"\uf0e6"; }
++FontAwesome fontawesome_bolt { Text:"\uf0e7"; }
++FontAwesome fontawesome_sitemap { Text:"\uf0e8"; }
++FontAwesome fontawesome_umbrella { Text:"\uf0e9"; }
++FontAwesome fontawesome_paste { Text:"\uf0ea"; }
++FontAwesome fontawesome_lightbulb { Text:"\uf0eb"; }
++FontAwesome fontawesome_exchange { Text:"\uf0ec"; }
++FontAwesome fontawesome_cloud_download { Text:"\uf0ed"; }
++FontAwesome fontawesome_cloud_upload { Text:"\uf0ee"; }
++FontAwesome fontawesome_user_md { Text:"\uf0f0"; }
++FontAwesome fontawesome_stethoscope { Text:"\uf0f1"; }
++FontAwesome fontawesome_suitcase { Text:"\uf0f2"; }
++FontAwesome fontawesome_bell_alt { Text:"\uf0f3"; }
++FontAwesome fontawesome_coffee { Text:"\uf0f4"; }
++FontAwesome fontawesome_food { Text:"\uf0f5"; }
++FontAwesome fontawesome_file_text_alt { Text:"\uf0f6"; }
++FontAwesome fontawesome_building { Text:"\uf0f7"; }
++FontAwesome fontawesome_hospital { Text:"\uf0f8"; }
++FontAwesome fontawesome_ambulance { Text:"\uf0f9"; }
++FontAwesome fontawesome_medkit { Text:"\uf0fa"; }
++FontAwesome fontawesome_fighter_jet { Text:"\uf0fb"; }
++FontAwesome fontawesome_beer { Text:"\uf0fc"; }
++FontAwesome fontawesome_h_sign { Text:"\uf0fd"; }
++FontAwesome fontawesome_plus_sign_alt { Text:"\uf0fe"; }
++FontAwesome fontawesome_double_angle_left { Text:"\uf100"; }
++FontAwesome fontawesome_double_angle_right { Text:"\uf101"; }
++FontAwesome fontawesome_double_angle_up { Text:"\uf102"; }
++FontAwesome fontawesome_double_angle_down { Text:"\uf103"; }
++FontAwesome fontawesome_angle_left { Text:"\uf104"; }
++FontAwesome fontawesome_angle_right { Text:"\uf105"; }
++FontAwesome fontawesome_angle_up { Text:"\uf106"; }
++FontAwesome fontawesome_angle_down { Text:"\uf107"; }
++FontAwesome fontawesome_desktop { Text:"\uf108"; }
++FontAwesome fontawesome_laptop { Text:"\uf109"; }
++FontAwesome fontawesome_tablet { Text:"\uf10a"; }
++FontAwesome fontawesome_mobile_phone { Text:"\uf10b"; }
++FontAwesome fontawesome_circle_blank { Text:"\uf10c"; }
++FontAwesome fontawesome_quote_left { Text:"\uf10d"; }
++FontAwesome fontawesome_quote_right { Text:"\uf10e"; }
++FontAwesome fontawesome_spinner { Text:"\uf110"; }
++FontAwesome fontawesome_circle { Text:"\uf111"; }
++FontAwesome fontawesome_mail_reply { Text:"\uf112"; }
++FontAwesome fontawesome_reply { Text:"\uf112"; }
++FontAwesome fontawesome_github_alt { Text:"\uf113"; }
++FontAwesome fontawesome_folder_close_alt { Text:"\uf114"; }
++FontAwesome fontawesome_folder_open_alt { Text:"\uf115"; }
++FontAwesome fontawesome_expand_alt { Text:"\uf116"; }
++FontAwesome fontawesome_collapse_alt { Text:"\uf117"; }
++FontAwesome fontawesome_smile { Text:"\uf118"; }
++FontAwesome fontawesome_frown { Text:"\uf119"; }
++FontAwesome fontawesome_meh { Text:"\uf11a"; }
++FontAwesome fontawesome_gamepad { Text:"\uf11b"; }
++FontAwesome fontawesome_keyboard { Text:"\uf11c"; }
++FontAwesome fontawesome_flag_alt { Text:"\uf11d"; }
++FontAwesome fontawesome_flag_checkered { Text:"\uf11e"; }
++FontAwesome fontawesome_terminal { Text:"\uf120"; }
++FontAwesome fontawesome_code { Text:"\uf121"; }
++FontAwesome fontawesome_reply_all { Text:"\uf122"; }
++FontAwesome fontawesome_mail_reply_all { Text:"\uf122"; }
++FontAwesome fontawesome_star_half_full { Text:"\uf123"; }
++FontAwesome fontawesome_star_half_empty { Text:"\uf123"; }
++FontAwesome fontawesome_location_arrow { Text:"\uf124"; }
++FontAwesome fontawesome_crop { Text:"\uf125"; }
++FontAwesome fontawesome_code_fork { Text:"\uf126"; }
++FontAwesome fontawesome_unlink { Text:"\uf127"; }
++FontAwesome fontawesome_question { Text:"\uf128"; }
++FontAwesome fontawesome_info { Text:"\uf129"; }
++FontAwesome fontawesome_exclamation { Text:"\uf12a"; }
++FontAwesome fontawesome_superscript { Text:"\uf12b"; }
++FontAwesome fontawesome_subscript { Text:"\uf12c"; }
++FontAwesome fontawesome_eraser { Text:"\uf12d"; }
++FontAwesome fontawesome_puzzle_piece { Text:"\uf12e"; }
++FontAwesome fontawesome_microphone { Text:"\uf130"; }
++FontAwesome fontawesome_microphone_off { Text:"\uf131"; }
++FontAwesome fontawesome_shield { Text:"\uf132"; }
++FontAwesome fontawesome_calendar_empty { Text:"\uf133"; }
++FontAwesome fontawesome_fire_extinguisher { Text:"\uf134"; }
++FontAwesome fontawesome_rocket { Text:"\uf135"; }
++FontAwesome fontawesome_maxcdn { Text:"\uf136"; }
++FontAwesome fontawesome_chevron_sign_left { Text:"\uf137"; }
++FontAwesome fontawesome_chevron_sign_right { Text:"\uf138"; }
++FontAwesome fontawesome_chevron_sign_up { Text:"\uf139"; }
++FontAwesome fontawesome_chevron_sign_down { Text:"\uf13a"; }
++FontAwesome fontawesome_html5 { Text:"\uf13b"; }
++FontAwesome fontawesome_css3 { Text:"\uf13c"; }
++FontAwesome fontawesome_anchor { Text:"\uf13d"; }
++FontAwesome fontawesome_unlock_alt { Text:"\uf13e"; }
++FontAwesome fontawesome_bullseye { Text:"\uf140"; }
++FontAwesome fontawesome_ellipsis_horizontal { Text:"\uf141"; }
++FontAwesome fontawesome_ellipsis_vertical { Text:"\uf142"; }
++FontAwesome fontawesome_rss_sign { Text:"\uf143"; }
++FontAwesome fontawesome_play_sign { Text:"\uf144"; }
++FontAwesome fontawesome_ticket { Text:"\uf145"; }
++FontAwesome fontawesome_minus_sign_alt { Text:"\uf146"; }
++FontAwesome fontawesome_check_minus { Text:"\uf147"; }
++FontAwesome fontawesome_level_up { Text:"\uf148"; }
++FontAwesome fontawesome_level_down { Text:"\uf149"; }
++FontAwesome fontawesome_check_sign { Text:"\uf14a"; }
++FontAwesome fontawesome_edit_sign { Text:"\uf14b"; }
++FontAwesome fontawesome_external_link_sign { Text:"\uf14c"; }
++FontAwesome fontawesome_share_sign { Text:"\uf14d"; }
++FontAwesome fontawesome_compass { Text:"\uf14e"; }
++FontAwesome fontawesome_collapse { Text:"\uf150"; }
++FontAwesome fontawesome_collapse_top { Text:"\uf151"; }
++FontAwesome fontawesome_expand { Text:"\uf152"; }
++FontAwesome fontawesome_euro { Text:"\uf153"; }
++FontAwesome fontawesome_eur { Text:"\uf153"; }
++FontAwesome fontawesome_gbp { Text:"\uf154"; }
++FontAwesome fontawesome_dollar { Text:"\uf155"; }
++FontAwesome fontawesome_usd { Text:"\uf155"; }
++FontAwesome fontawesome_rupee { Text:"\uf156"; }
++FontAwesome fontawesome_inr { Text:"\uf156"; }
++FontAwesome fontawesome_yen { Text:"\uf157"; }
++FontAwesome fontawesome_jpy { Text:"\uf157"; }
++FontAwesome fontawesome_renminbi { Text:"\uf158"; }
++FontAwesome fontawesome_cny { Text:"\uf158"; }
++FontAwesome fontawesome_won { Text:"\uf159"; }
++FontAwesome fontawesome_krw { Text:"\uf159"; }
++FontAwesome fontawesome_bitcoin { Text:"\uf15a"; }
++FontAwesome fontawesome_btc { Text:"\uf15a"; }
++FontAwesome fontawesome_file { Text:"\uf15b"; }
++FontAwesome fontawesome_file_text { Text:"\uf15c"; }
++FontAwesome fontawesome_sort_by_alphabet { Text:"\uf15d"; }
++FontAwesome fontawesome_sort_by_alphabet_alt { Text:"\uf15e"; }
++FontAwesome fontawesome_sort_by_attributes { Text:"\uf160"; }
++FontAwesome fontawesome_sort_by_attributes_alt { Text:"\uf161"; }
++FontAwesome fontawesome_sort_by_order { Text:"\uf162"; }
++FontAwesome fontawesome_sort_by_order_alt { Text:"\uf163"; }
++FontAwesome fontawesome_thumbs_up { Text:"\uf164"; }
++FontAwesome fontawesome_thumbs_down { Text:"\uf165"; }
++FontAwesome fontawesome_youtube_sign { Text:"\uf166"; }
++FontAwesome fontawesome_youtube { Text:"\uf167"; }
++FontAwesome fontawesome_xing { Text:"\uf168"; }
++FontAwesome fontawesome_xing_sign { Text:"\uf169"; }
++FontAwesome fontawesome_youtube_play { Text:"\uf16a"; }
++FontAwesome fontawesome_dropbox { Text:"\uf16b"; }
++FontAwesome fontawesome_stackexchange { Text:"\uf16c"; }
++FontAwesome fontawesome_instagram { Text:"\uf16d"; }
++FontAwesome fontawesome_flickr { Text:"\uf16e"; }
++FontAwesome fontawesome_adn { Text:"\uf170"; }
++FontAwesome fontawesome_bitbucket { Text:"\uf171"; }
++FontAwesome fontawesome_bitbucket_sign { Text:"\uf172"; }
++FontAwesome fontawesome_tumblr { Text:"\uf173"; }
++FontAwesome fontawesome_tumblr_sign { Text:"\uf174"; }
++FontAwesome fontawesome_long_arrow_down { Text:"\uf175"; }
++FontAwesome fontawesome_long_arrow_up { Text:"\uf176"; }
++FontAwesome fontawesome_long_arrow_left { Text:"\uf177"; }
++FontAwesome fontawesome_long_arrow_right { Text:"\uf178"; }
++FontAwesome fontawesome_apple { Text:"\uf179"; }
++FontAwesome fontawesome_windows { Text:"\uf17a"; }
++FontAwesome fontawesome_android { Text:"\uf17b"; }
++FontAwesome fontawesome_linux { Text:"\uf17c"; }
++FontAwesome fontawesome_dribbble { Text:"\uf17d"; }
++FontAwesome fontawesome_skype { Text:"\uf17e"; }
++FontAwesome fontawesome_foursquare { Text:"\uf180"; }
++FontAwesome fontawesome_trello { Text:"\uf181"; }
++FontAwesome fontawesome_female { Text:"\uf182"; }
++FontAwesome fontawesome_male { Text:"\uf183"; }
++FontAwesome fontawesome_gittip { Text:"\uf184"; }
++FontAwesome fontawesome_sun { Text:"\uf185"; }
++FontAwesome fontawesome_moon { Text:"\uf186"; }
++FontAwesome fontawesome_archive { Text:"\uf187"; }
++FontAwesome fontawesome_bug { Text:"\uf188"; }
++FontAwesome fontawesome_vk { Text:"\uf189"; }
++FontAwesome fontawesome_weibo { Text:"\uf18a"; }
++FontAwesome fontawesome_renren { Text:"\uf18b"; }
+
+

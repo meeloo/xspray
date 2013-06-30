@@ -7,24 +7,18 @@
 // or the stylehsheet parsing may not work properly
 
 #include "Entypo.css"
+#include "FontAwesome.css"
 
 @font Helvetica
 {
   Name: "Helvetica";
-  Size: 12;
+  Size: 14;
 }
 
-
-@Font FontAwesome
+@font Default
 {
-  Name: "rsrc:/fonts/fontawesome-webfont.ttf";
-  Size: 18;
-}
-
-@Font Entypo
-{
-  Name: "rsrc:/fonts/Entypo.ttf";
-  Size: 36;
+  Name: "Lucida Grande";
+  Size: 14;
 }
 
 @nuiColorDecoration WindowBackground
@@ -39,11 +33,7 @@
   FillColor: rgb(255, 255, 255);
 }
 
-
-+nuiLabel FontAwesome { EnableDecoration: false; Font: FontAwesome; }
-+nuiLabel Entypo { EnableDecoration: false; Font: Entypo; }
-
-+nuiLabel Label { Font: Helvetica; }
++nuiLabel Label { Font: Default; }
 
 #include "HomeView.css"
 #include "DebugView.css"

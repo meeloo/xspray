@@ -52,7 +52,7 @@
     +nuiHBox
     {
       Expand: ShrinkAndGrow;
-      +Entypo {Text: $entypo_folder; }
+      +fontawesome_folder_open_alt;
       +Label ApplicationName { Text: "Choose application"; }
     }
   }
@@ -89,37 +89,37 @@
 
   +nuiButton StartStop
   {
-    +Entypo {Text: $entypo_rocket; }
+    +fontawesome_rocket;
     Position: Center;
   }
 
   +nuiButton Pause
   {
-    +Entypo {Text: $entypo_pause; }
+    +fontawesome_pause;
     Position: Center;
   }
 
   +nuiButton Continue
   {
-    +Entypo{ Text: $entypo_play; }
+    +fontawesome_play;
     Position: Center;
   }
 
   +nuiButton StepIn
   {
-    +Entypo{ Text: $entypo_level_down; }
+    +fontawesome_collapse;
     Position: Center;
   }
 
   +nuiButton StepOver
   {
-    +Entypo{ Text: $entypo_cw; }
+    +fontawesome_collapse_top;
     Position: Center;
   }
 
   +nuiButton StepOut
   {
-    +Entypo{ Text: $entypo_back; }
+    +fontawesome_level_up;
     Position: Center;
   }
 }
@@ -131,13 +131,13 @@
 
 +nuiHBox ModulesTabHeader
 {
-  +Entypo { Text: $entypo_box; }
+  +fontawesome_suitcase;
   +Label { Text: "Modules"; }
 }
 
 +nuiHBox ThreadsTabHeader
 {
-  +Entypo { Text: $entypo_text_doc; }
+  +fontawesome_cogs;
   +Label { Text: "Threads"; }
 }
 
