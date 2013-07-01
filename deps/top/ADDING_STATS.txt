@@ -1,0 +1,22 @@
+
+o Steps to add a statistic
+
+Define an enum value in statistic.h, such as STATISTIC_FOO.
+
+In statistic.c add a struct entry to to the statistic_name_map.
+
+In preferences.c add .array[N] = STATISTIC_FOO to .display_stats.
+
+In preferences.c add the symbolic name(s) for the statistic to stat_map.
+
+In top.c you should add the type to the sort function, if needed.
+
+Create or extend one of the .c files and add it to the Makefile.
+You could start by copying user.c and user.h.
+
+You should now be able to do: 
+ -stats foo
+
+The foo statistic will also be inserted as necessary, depending
+on the ordering of the preferences .display_stat.array, and the
+available space.

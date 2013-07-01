@@ -1,0 +1,182 @@
+Release 0.8.1  (Current)
+# Sourceforge SVN rev 226 - current
+- fix libtool issue
+- Debian packaging updates
+- fix cppcheck issues
+- implement 1024x1024 support
+- autotools fixes
+- generate ChangeLog from VCS
+
+Release 0.8.0  (01/20/2012)
+# Sourceforge SVN rev 170 - 226
+- libicns version 2.8.2 (per libtool)
+- fixed potentially dangerous parsing error
+- improved icns2png's understanding of 'icnV' type
+- added awareness of 'TOC ' type to libicns/icns2png
+- added support for PNG icns elements
+- added support for icon variant type
+- fix for alignment/bus errors on ARM/Sparc 
+
+Release 0.7.1  (09/03/2009)
+# Sourceforge SVN rev 165 - 170
+- libicns version 2.7.1 (per libtool)
+- 
+
+Release 0.7.0  (07/28/2009)
+# Sourceforge SVN rev 163 - 165
+- libicns version 2.7.1 (per libtool)
+- Fixed licensing concerns
+
+Release 0.6.2  (05/10/2009)
+# Sourceforge SVN rev 154 - 162
+- libicns version 2.6.1 (per libtool)
+- Changed icns_type_t from struct to uint32_t
+- Updated all code relevant to the icns_type_t change
+- Added a function for creating NULL terminated type strings
+
+Release 0.6.1  (02/05/2009)
+# Sourceforge SVN rev 152 - 153
+- libicns version 2.6.1 (per libtool)
+- Removed debug code from png2icns
+- Added CDEF block to jp2 writing code
+- Modified icns_set_element_in_family to sort newly inserted elements
+- Added icns_type_to_uint32 to libicns internals (for faster type checking)
+- Added icns_get_element_order to libicns internals (for sorting elements)
+- Minor performance improvements
+
+Release 0.6.0  (01/05/2009)
+# Sourceforge SVN rev 149 - 151
+- libicns version 2.5.1 (per libtool)
+- Fixed bug in with global variable - SF Bug 2139996
+- Fixed bug in png2icns; info was not properly updated after transforms
+
+Release 0.5.9  (10/09/2008)
+# Sourceforge SVN rev 138 - 148
+# libicns version 2.4.1 (per libtool)
+- Fixed several small bugs
+- Fixed major bug in RLE compressor
+- Changed icns2png to save extracted files to current directory by default
+- Completed write support for 256x256 & 512x512 via Jasper
+
+Release 0.5.8  (06/12/2008)
+# Sourceforge SVN rev 135 - 137
+# libicns version 2.3.1 (per libtool) - (NOTE: fix to 2.3.1 at SVN rev 137)
+- Fixed licensing issues with FSF address
+- Fixed incorrect libicns/libtool versioning
+
+Release 0.5.7  (06/10/2008)
+# Sourceforge SVN rev 118 - 134
+# libicns version 2.0.1 (per libtool) - (NOTE: should have changed to 2.2.1)
+- Updated to use autoconf 2.61, automake 1.10
+- Added debain packaging to SVN tree (NOTE: Maintainer use only!)
+- Moved libicns/ to src/ for more conventional structure
+- Added png2icns utility
+- Added confgure check for libjasper and/or libopenjpeg
+- Added manpages for png2icns and icontainer2icns
+- Prevented libicns from exporting internal-only symbols
+- Fixed some compiler errors regarding pointers
+
+Release 0.5.6  (04/10/2008)
+# Sourceforge SVN rev 109 - 117
+# libicns version 2.0.1 (per libtool) - (NOTE: should have changed to 2.1.1)
+- Several write support bugfixes (write support was broken up to this point)
+- Minor code clarifications
+- Updated icns2png manpage
+
+
+Release 0.5.5  (03/17/2008)
+# Sourceforge SVN rev 102 - 108
+# libicns version 2.0.1 (per libtool)
+- Converted project to use GNU automake and friends
+- Converted all files to UTF-8
+- Added multiple batch extraction to icns2png
+- Added png output path to icns2png
+- Enhanced icns2png for Mac OS X (accesses resource fork now)
+- Added HTML API documentation
+
+Release 0.5.2  (03/11/2008)
+# Sourceforge SVN rev 93 - 101
+- Restructured code tree to seperate icns2png from libicns
+- Minor bugfixes
+
+Release 0.5.1  (03/07/2008)
+# Sourceforge SVN rev 88 - 92
+- Added Jasper JP2 decoder
+- Minor bugfixes
+
+Release 0.5.0  (03/05/2008)
+# Sourceforge SVN rev 75 - 87
+- Added basic API documentation
+- Dramatially enhanced handling of endian issues
+- Added some minor debug checks
+- Changed data types to use stdint.h
+
+Release 0.4.1  (02/28/2008)
+# Sourceforge SVN rev 72 - 74
+- Fixed libtool issue under Darwin
+- Several minor bugfixes
+
+Release 0.3.0  (02/26/2008)
+# Sourceforge SVN rev 63 - 71
+- Fixed numerous bugs
+- Split icns.c into manageable portions
+- Added function to retrieve image with mask from icon family
+- Modified endian swap routines for easier debugging
+- Added routines for accessing unaligned memory
+- Made minor code changes for consistency within libicns
+
+Release 0.1.1  (02/20/2008)
+# Sourceforge SVN rev 62
+- Fixed dynamic library build issues under OS X
+- Fixed bugs when uncompressing RLE data in sizes < 128
+- Other minor bugfixes
+- Added changelog
+- Added versioning specifications
+
+Release 0.1.0  (02/18/2008)
+- first major release of libicns with write support
+- added read support for 1,4,8 bit icons
+- removed all possible Apple copyrighted stuff
+- added support to modify the icns structure
+- added support for 32-bit image manipulation
+- added support to do internal rle compression
+- added file read/write support using the library directly
+- fixed Mac OS X build
+
+Release 0.0.9  (02/14/2008)
+- merged in test icns files from original source tree
+- added TODO for libicns developers
+- finished breakdown of libicns and icns2png
+- merged all headers required by libicns into icns.h
+- moved jpeg decoding routines into icns.c
+- established libicns development naming conventions
+- added DEVNOTES
+
+Release 0.0.8  (02/13/2008)
+- merged forked source trees from chenxio and baghira
+- preliminary split of source into libicns and icns2png
+
+Release 0.0.7  (01/16/2008)
+- forked by chenxiao.zhao at Google Code
+- added 256x256 and 512x512 support via openjpeg
+- added command-line parameters
+
+Release 0.0.6  (08/30/2007)
+- forked by baghira at CLI-Apps
+- added "NG" icns support
+- added icontainter2icns utility
+
+Release 0.0.5 (01/28/2003)
+- Fixed bug in resource fork parsing
+
+Release 0.0.4 (01/23/2003)
+- Fixed a bug with filenames that was causing segfaults
+
+Release 0.0.3 (12/18/2002)
+- Much improved parsing of the icons within resource forks and resource files.
+- Much improved MacBinary support.
+- Updated README with unstuff information
+
+Release 0.0.2 (01/11/2002)
+- Inital public release
+

@@ -1,0 +1,1306 @@
+2012-06-14 02:32  pabs3
+
+	* /DEVNOTES, /NEWS, /README, /configure.ac, /debian/changelog:
+	  Release version 0.8.1
+
+2012-06-14 01:54  pabs3
+
+	* /debian/changelog, /debian/copyright: Switch to Debian copyright
+	  format 1.0 for the source Debian copyright file
+
+2012-06-14 01:22  pabs3
+
+	* /configure.ac: Stop using AM_MAINTAINER_MODE since it is
+	  dangerous.
+	  
+	  http://blogs.gnome.org/desrt/2011/09/08/am_maintainer_mode-is-not-cool/
+
+2012-06-14 00:57  pabs3
+
+	* /debian/changelog, /debian/control: Mark packages as multi-arch
+	  appropriately
+
+2012-06-14 00:46  pabs3
+
+	* /debian/doc-base, /debian/libicns-dev.doc-base: Do not ship the
+	  Debian doc-base info in the library package
+
+2012-06-14 00:45  pabs3
+
+	* /debian/changelog, /debian/docs: Drop API docs from lib package
+
+2012-06-14 00:37  pabs3
+
+	* /Makefile.am, /src/Makefile.am: Ship some missing files in the
+	  tarball
+
+2012-06-14 00:25  pabs3
+
+	* /debian/changelog, /debian/libicns-dev.docs: Also install the API
+	  docs
+
+2012-06-14 00:25  pabs3
+
+	* /debian/control: Woops, need multiarch-support in pre-depends
+
+2012-06-14 00:20  pabs3
+
+	* /debian/changelog, /debian/source/format: Switch to dpkg-source
+	  v3
+
+2012-06-14 00:16  pabs3
+
+	* /debian/control, /debian/libicns-dev.install: Fix wrap-and-sort
+	  stuff
+
+2012-06-14 00:03  pabs3
+
+	* /debian/changelog, /debian/libicns-dev.install,
+	  /debian/libicns1.install: Use multi-arch paths
+
+2012-06-13 23:54  pabs3
+
+	* /debian/changelog, /debian/control, /debian/rules: Drop
+	  autotools_dev and use dh-autoreconf
+
+2012-06-13 23:53  pabs3
+
+	* /debian/changelog, /debian/compat, /debian/control,
+	  /debian/rules: Switch to debhelper compat 9 and dh tiny rules
+
+2012-06-13 23:36  pabs3
+
+	* /debian/changelog, /debian/control: Add Vcs-* headers
+
+2012-06-13 23:30  pabs3
+
+	* /debian/changelog, /debian/control: Add myself to uploaders
+
+2012-06-13 23:28  pabs3
+
+	* /debian/changelog: Compile against libpng-dev instead of the old
+	  version (Closes: #662403)
+
+2012-06-13 21:28  pabs3
+
+	* /icnsutils/icns2png.c, /icnsutils/png2icns.c,
+	  /src/icns_element.c, /src/icns_image.c, /src/icns_internals.h,
+	  /src/icns_utils.c: Implement 3510157: add read and write support
+	  for 1024x1024 icons.
+
+2012-06-08 09:10  pabs3
+
+	* /icnsutils/png2icns.c: Better version of previous commit
+
+2012-06-08 09:07  pabs3
+
+	* /icnsutils/png2icns.c: Fix 3259820: more readable check for newer
+	  libpng
+
+2012-06-08 08:26  pabs3
+
+	* /COPYING, /COPYING.LGPL-2, /COPYING.LGPL-2.1, /Makefile.am,
+	  /README: Fix 3455292: incorrect FSF and other license details
+
+2012-06-08 06:13  pabs3
+
+	* /, /.gitignore, /debian, /debian/source, /icnsutils, /samples,
+	  /src: Make SVN and git-svn ignore some generated files
+
+2012-06-08 05:54  pabs3
+
+	* /Makefile.am, /icnsutils/Makefile.am, /src/Makefile.am: Clean up
+	  properly in maintainer-clean
+
+2012-06-08 05:23  pabs3
+
+	* /ChangeLog, /Makefile.am: Generate the ChangeLog from the VCS
+	  history in `make dist`
+
+2012-06-08 04:54  pabs3
+
+	* /README, /README.install: Split the build/install information out
+	  into a separate file
+
+2012-06-08 04:42  pabs3
+
+	* /ChangeLog, /NEWS: Rename the ChangeLog to NEWS since it is
+	  incorrectly named
+
+2012-05-24 06:17  pabs3
+
+	* /src/icns_png.c: Drop an unused variable
+
+2012-05-24 06:16  pabs3
+
+	* /src/icns_png.c: Prevent a memory leak in an unlikely case
+
+2012-05-24 05:09  pabs3
+
+	* /debian/changelog, /debian/watch: Adjust the watch file to only
+	  look for release versions
+
+2012-05-24 05:09  pabs3
+
+	* /debian/changelog, /debian/control: Bump to 3.9.3
+	  Standards-Version (no change needed).
+
+2012-05-24 05:01  pabs3
+
+	* /debian/changelog, /debian/control: Compile against libpng-dev
+	  instead of the old version
+
+2012-05-24 05:00  pabs3
+
+	* /debian/changelog, /debian/control: Compile against libjpeg-dev
+	  instead of the old version (Closes: #643316)
+
+2012-05-24 05:00  pabs3
+
+	* /debian/changelog: Fixes FTBFS with newer libpng (Closes:
+	  #635952)
+
+2012-05-24 04:52  pabs3
+
+	* /debian/changelog, /debian/control, /debian/copyright: Wrap and
+	  sort various files using wrap-and-sort -s
+
+2012-05-24 04:50  pabs3
+
+	* /debian/changelog, /debian/libicns-dev.install: Include changes
+	  from Debian NMU
+
+2012-01-29 09:07  kingrobot
+
+	* /src/Makefile.am: Fixed fubared libtool revision
+
+2012-01-29 08:52  kingrobot
+
+	* /debian/changelog, /debian/control, /debian/source,
+	  /debian/source/format: Preparing for debian release
+
+2012-01-20 08:01  kingrobot
+
+	* /ChangeLog, /DEVNOTES, /README, /configure.ac, /debian/copyright,
+	  /debian/libicns-dev.copyright, /debian/libicns1.copyright,
+	  /icnsutils/icns2png.c, /icnsutils/icontainer2icns-v2.c,
+	  /icnsutils/png2icns.c, /src/Makefile.am, /src/apidocs.html,
+	  /src/apidocs.txt, /src/icns.h, /src/icns_colormaps.h,
+	  /src/icns_debug.c, /src/icns_element.c, /src/icns_family.c,
+	  /src/icns_image.c, /src/icns_internals.h, /src/icns_io.c,
+	  /src/icns_jp2.c, /src/icns_rle24.c, /src/icns_utils.c: Updated
+	  docs, version numbers, and copyrights for next release, to be
+	  0.8.0
+
+2012-01-20 07:30  kingrobot
+
+	* /icnsutils/icns2png.c: Updated icns2png to understand version/toc
+	  element types
+
+2012-01-20 07:29  kingrobot
+
+	* /src/icns.h, /src/icns_utils.c: Better support for unique element
+	  types
+
+2012-01-20 06:36  kingrobot
+
+	* /src/icns_png.c: Slight cleanup of png read parser
+
+2012-01-20 06:29  kingrobot
+
+	* /src/icns_io.c: Fixed a potentially dangerous io parsing bug
+
+2012-01-20 06:29  kingrobot
+
+	* /src/icns_png.c: Lion 256+ icns files can be imported now...
+	  still needs cleanup
+
+2012-01-19 08:59  kingrobot
+
+	* /src/Makefile.am, /src/icns_image.c, /src/icns_internals.h:
+	  Sketched out the PNG processor for Lion icons... still need to
+	  make it work tho
+
+2012-01-03 06:26  pabs3
+
+	* /INSTALL, /Makefile.in, /aclocal.m4, /config.guess, /config.h.in,
+	  /config.sub, /configure, /depcomp, /icnsutils/Makefile.in,
+	  /install-sh, /ltmain.sh, /missing, /src/Makefile.in: Drop some
+	  autotools cruft from SVN.
+
+2012-01-03 06:25  pabs3
+
+	* /icnsutils/icns2png.c, /src/icns_image.c, /src/icns_io.c: Drop
+	  some variables that are set but not used.
+
+2012-01-03 06:10  pabs3
+
+	* /src/icns_element.c: Prevent a failure to build when ICNS_DEBUG
+	  is defined.
+
+2012-01-03 06:09  pabs3
+
+	* /icnsutils/icns2png.c: Explicitly free memory in the case of
+	  failure.
+
+2012-01-03 06:09  pabs3
+
+	* /icnsutils/icontainer2icns-v2.c: Explicitly close files in case
+	  of failure.
+
+2011-11-04 07:28  kingrobot
+
+	* /icnsutils/icns2png.c: icns2png now fully supports odrp and other
+	  variants
+
+2011-11-01 17:52  kingrobot
+
+	* /configure, /configure.ac: Better configure checks to verify
+	  noinline memcpy works
+
+2011-11-01 17:44  kingrobot
+
+	* /configure, /configure.ac, /src/icns_internals.h, /src/icns_io.c:
+	  Added configure check for unaligned memcpy support and cleaned up
+	  macros
+
+2011-11-01 08:49  kingrobot
+
+	* /src/icns_internals.h, /src/icns_io.c: Preliminary fix for
+	  alignment/bus errors on ARM/Sparc
+
+2011-10-30 10:08  kingrobot
+
+	* /icnsutils/icns2png.c, /icnsutils/png2icns.c: png2icns better
+	  libpng support, icns2png more robust error handling
+
+2011-02-20 03:02  matheweis
+
+	* /src/icns.h: Added icon variant type definitions
+
+2011-02-20 01:18  matheweis
+
+	* /icnsutils/png2icns.c: Added fix for SF ID: 2991016
+	  [png_set_expand_gray_1_2_4_to_8]
+
+2009-09-04 06:53  kingrobot
+
+	* /debian/control, /debian/rules: more debian fixes
+
+2009-09-04 06:35  kingrobot
+
+	* /debian/doc-base: added debian doc-base
+
+2009-09-04 05:51  kingrobot
+
+	* /README, /debian/changelog, /debian/control, /debian/docs,
+	  /debian/rules: more debian changes
+
+2009-09-04 04:39  kingrobot
+
+	* /debian/changelog, /debian/control, /debian/rules: updated debian
+	  files
+
+2009-09-04 04:08  kingrobot
+
+	* /ChangeLog: Noted license fix in ChangeLog
+
+2009-07-28 22:00  kingrobot
+
+	* /src/icns.h, /src/icns_colormaps.h, /src/icns_debug.c,
+	  /src/icns_element.c, /src/icns_family.c, /src/icns_image.c,
+	  /src/icns_internals.h, /src/icns_io.c, /src/icns_jp2.c,
+	  /src/icns_rle24.c, /src/icns_utils.c: Consistent use of LGPL v2.1
+	  in library source headers
+
+2009-06-25 17:50  kingrobot
+
+	* /debian/control: debcontrol: Reverted back to depending on
+	  libjpeg62-dev
+
+2009-05-12 05:44  kingrobot
+
+	* /debian/control: Fixed build-depends
+
+2009-05-11 07:40  kingrobot
+
+	* /configure, /configure.ac, /debian/libicns1.symbols,
+	  /src/icns_jp2.c: Switched back to libjasper as primary lib
+
+2009-05-11 06:14  kingrobot
+
+	* /debian/libicns1.symbols: Fixed symbol file for debian
+
+2009-05-11 06:09  kingrobot
+
+	* /icnsutils/icns2png.c, /src/icns_io.c: minor bugfixes
+
+2009-05-11 05:53  kingrobot
+
+	* /ChangeLog, /src/Makefile.am, /src/Makefile.in: Fixed version as
+	  appropriate for libtool
+
+2009-05-11 05:49  kingrobot
+
+	* /icnsutils/Makefile.am, /icnsutils/Makefile.in: Removed
+	  unnecessary linkage against jpeg libs for icnsutils
+
+2009-05-11 05:22  kingrobot
+
+	* /configure, /configure.ac, /debian/control, /debian/copyright,
+	  /debian/icnsutils.copyright, /debian/libicns-dev.copyright,
+	  /debian/libicns1.copyright, /icnsutils/png2icns.c,
+	  /src/icns_internals.h, /src/icns_jp2.c: Updated OpenJPEG writing
+	  routines, changed default JP2 lib to OpenJPEG, other minor
+	  bugfixes
+
+2009-05-10 22:26  kingrobot
+
+	* /ChangeLog, /configure, /debian/changelog, /icnsutils/icns2png.c,
+	  /icnsutils/png2icns.c, /src/apidocs.html, /src/apidocs.txt,
+	  /src/icns.h, /src/icns_debug.c, /src/icns_element.c,
+	  /src/icns_image.c, /src/icns_internals.h, /src/icns_io.c,
+	  /src/icns_jp2.c, /src/icns_rle24.c, /src/icns_utils.c: General
+	  code cleanup, use of 32-bit type codes, more
+
+2009-02-06 01:34  KingRobot
+
+	* /debian/copyright, /debian/icnsutils.copyright,
+	  /debian/libicns-dev.copyright, /debian/libicns1.copyright: Fixed
+	  Debian copyright, per lintian
+
+2009-02-05 23:59  KingRobot
+
+	* /ChangeLog, /configure, /configure.ac, /debian/NEWS.Debian,
+	  /debian/changelog, /icnsutils/icns2png.c, /icnsutils/png2icns.c,
+	  /src/Makefile.am, /src/Makefile.in, /src/apidocs.html,
+	  /src/apidocs.txt, /src/icns.h, /src/icns_element.c,
+	  /src/icns_internals.h, /src/icns_utils.c: Prepped for 0.6.2,
+	  removed errant png2icns debugs, modified libicns to sort elements
+
+2009-01-29 05:33  KingRobot
+
+	* /src/icns_jp2.c: Code to add CDEF block
+
+2009-01-01 00:50  KingRobot
+
+	* /ChangeLog, /configure, /debian/changelog: Updated changelogs
+
+2008-12-31 23:12  KingRobot
+
+	* /icnsutils/png2icns.c: png2icns bugfixes (added
+	  png_read_update_info) to load png after transformations
+
+2008-10-10 02:43  KingRobot
+
+	* /src/icns_internals.h: Fixed extern in global - SF Bug 2139996
+
+2008-10-10 02:39  KingRobot
+
+	* /ChangeLog, /TODO, /configure, /debian/changelog,
+	  /icnsutils/icns2png.c, /icnsutils/png2icns.c, /src/Makefile.am,
+	  /src/Makefile.in, /src/icns_internals.h, /src/icns_rle24.c:
+	  Preperation for new release
+
+2008-10-10 01:47  KingRobot
+
+	* /icnsutils/icontainer2icns-v2.c, /icnsutils/png2icns.c,
+	  /src/icns_element.c, /src/icns_rle24.c: Several bugfixes, more
+	  work on v2 icontainer extract
+
+2008-09-01 05:29  KingRobot
+
+	* /icnsutils/icns2png.c, /icnsutils/icontainer2icns-v2.c,
+	  /src/icns_io.c: More work on icontainer parser, removed unused
+	  vars from io, changed output file behavior in icns2png
+
+2008-08-06 11:11  KingRobot
+
+	* /icnsutils/icontainer2icns-v2.c: More work on the iContainer
+	  decoder
+
+2008-08-06 06:40  KingRobot
+
+	* /icnsutils/icontainer2icns-v2.c: First stage of new icontainer
+	  parser.
+
+2008-08-05 04:11  KingRobot
+
+	* /src/icns_internals.h, /src/icns_io.c: Added support for
+	  extracting icons little endian rsrc and apple double rsrc
+
+2008-07-12 05:34  pabs3
+
+	* /debian/control: Add misc:Depends to the dependencies
+
+2008-07-12 05:32  pabs3
+
+	* /debian/changelog: Fix Debian changelog
+
+2008-06-26 02:38  KingRobot
+
+	* /debian/control, /src/Makefile.am, /src/Makefile.in: Fix link
+	  against jasper in Makefile
+
+2008-06-26 02:09  KingRobot
+
+	* /ChangeLog, /README, /configure, /configure.ac,
+	  /debian/changelog, /debian/control, /icnsutils/png2icns.c,
+	  /src/Makefile.am, /src/Makefile.in, /src/icns_jp2.c: Several
+	  bugfixes, configure link against jasper/openjpeg, write support
+	  for 256x256-512x512, version to 0.5.9
+
+2008-06-25 08:31  KingRobot
+
+	* /icnsutils/png2icns.c, /src/icns_image.c, /src/icns_jp2.c: Added
+	  jp2 writing code (not working yet), fixed minor bug in png2icns
+
+2008-06-24 06:43  KingRobot
+
+	* /config.h.in, /configure, /configure.ac, /icnsutils/Makefile.am,
+	  /icnsutils/Makefile.in, /src/icns_internals.h: autotools
+	  jasper/openjpeg fix
+
+2008-06-12 09:51  KingRobot
+
+	* /ChangeLog, /debian/copyright, /debian/icnsutils.copyright,
+	  /debian/libicns-dev.copyright, /debian/libicns1.copyright,
+	  /icnsutils/icns2png.c, /icnsutils/icontainer2icns.c, /src/icns.h,
+	  /src/icns_colormaps.h, /src/icns_debug.c, /src/icns_element.c,
+	  /src/icns_family.c, /src/icns_image.c, /src/icns_internals.h,
+	  /src/icns_io.c, /src/icns_jp2.c, /src/icns_rle24.c,
+	  /src/icns_utils.c: Fixed incorrect FSF address, updated ChangeLog
+
+2008-06-10 08:53  KingRobot
+
+	* /debian/changelog: Updated versioning to 0.5.8
+
+2008-06-10 08:40  KingRobot
+
+	* /configure, /configure.ac, /src/Makefile.am, /src/Makefile.in:
+	  Updated version numbering for release
+
+2008-06-10 08:32  KingRobot
+
+	* /debian/control, /debian/rules: Added DEB_BUILD_OPTIONS support
+	  to debian packaging
+
+2008-06-09 22:18  KingRobot
+
+	* /debian/control, /src/icns_element.c: Fixed munged pointer issue,
+	  minor change to debian control file
+
+2008-06-04 03:44  KingRobot
+
+	* /debian/control: Changed webpage in debian control
+
+2008-06-04 03:36  KingRobot
+
+	* /configure, /configure.ac, /debian/watch, /src/apidocs.html,
+	  /src/apidocs.txt, /src/icns.h, /src/icns_element.c,
+	  /src/icns_image.c, /src/icns_internals.h, /src/icns_io.c,
+	  /src/icns_rle24.c: Some bugfixes, clarifications
+
+2008-06-01 00:39  KingRobot
+
+	* /debian/libicns1.symbols, /src/icns_internals.h: Fixed symbols
+	  file
+
+2008-06-01 00:09  KingRobot
+
+	* /src/icns_internals.h: Fixed bad export of global variable
+
+2008-05-31 23:51  KingRobot
+
+	* /Makefile.in, /configure, /configure.ac, /debian/changelog,
+	  /debian/control, /debian/copyright, /debian/dirs,
+	  /debian/icns-dev.dirs, /debian/icns-dev.install,
+	  /debian/icnsutils.dirs, /debian/icnsutils.install,
+	  /debian/libicns-dev.install, /debian/libicns1-dev.dirs,
+	  /debian/libicns1-dev.install, /debian/libicns1.dirs,
+	  /debian/rules, /icnsutils/Makefile.am, /icnsutils/Makefile.in,
+	  /icnsutils/icns2png.1, /icnsutils/icontainer2icns.1,
+	  /icnsutils/png2icns.1, /src/Makefile.in: debian fixes, updated
+	  and added manpages
+
+2008-05-30 02:42  KingRobot
+
+	* /debian/libicns-dev.dirs, /debian/libicns-dev.install,
+	  /debian/libicns1-dev.dirs, /debian/libicns1-dev.install: Finished
+	  debainization
+
+2008-05-30 02:30  KingRobot
+
+	* /debian/control, /debian/icns1.dirs, /debian/icns1.install,
+	  /debian/libicns-dev.install, /debian/rules,
+	  /icnsutils/png2icns.c: Finished up debianization
+
+2008-05-30 00:12  KingRobot
+
+	* /debian/README, /debian/README.Debian, /debian/control,
+	  /debian/copyright, /debian/cron.d.ex, /debian/emacsen-install.ex,
+	  /debian/emacsen-remove.ex, /debian/emacsen-startup.ex,
+	  /debian/icns.default.ex, /debian/icns.doc-base.EX,
+	  /debian/icnsutils.dirs, /debian/icnsutils.install,
+	  /debian/init.d.ex, /debian/init.d.lsb.ex,
+	  /debian/libicns-dev.dirs, /debian/libicns-dev.install,
+	  /debian/libicns1.dirs, /debian/libicns1.install,
+	  /debian/manpage.1.ex, /debian/manpage.sgml.ex,
+	  /debian/manpage.xml.ex, /debian/menu.ex, /debian/postinst.ex,
+	  /debian/postrm.ex, /debian/preinst.ex, /debian/prerm.ex,
+	  /debian/shlibs.local.ex, /debian/watch.ex: Updated debianization
+
+2008-05-28 09:35  KingRobot
+
+	* /debian/README, /debian/README.Debian, /debian/changelog,
+	  /debian/control, /debian/copyright, /debian/cron.d.ex,
+	  /debian/emacsen-install.ex, /debian/emacsen-remove.ex,
+	  /debian/emacsen-startup.ex, /debian/init.d.ex,
+	  /debian/init.d.lsb.ex, /debian/manpage.1.ex,
+	  /debian/manpage.sgml.ex, /debian/manpage.xml.ex, /debian/menu.ex,
+	  /debian/postinst.ex, /debian/postrm.ex, /debian/preinst.ex,
+	  /debian/prerm.ex, /debian/shlibs.local.ex, /debian/watch.ex:
+	  Debianizing source tree
+
+2008-05-28 09:30  KingRobot
+
+	* /debian, /debian/README, /debian/README.Debian,
+	  /debian/changelog, /debian/compat, /debian/control,
+	  /debian/copyright, /debian/cron.d.ex, /debian/dirs, /debian/docs,
+	  /debian/emacsen-install.ex, /debian/emacsen-remove.ex,
+	  /debian/emacsen-startup.ex, /debian/icns-dev.dirs,
+	  /debian/icns-dev.install, /debian/icns.default.ex,
+	  /debian/icns.doc-base.EX, /debian/icns1.dirs,
+	  /debian/icns1.install, /debian/init.d.ex, /debian/init.d.lsb.ex,
+	  /debian/manpage.1.ex, /debian/manpage.sgml.ex,
+	  /debian/manpage.xml.ex, /debian/menu.ex, /debian/postinst.ex,
+	  /debian/postrm.ex, /debian/preinst.ex, /debian/prerm.ex,
+	  /debian/rules, /debian/shlibs.local.ex, /debian/watch.ex:
+	  Debianizing source tree
+
+2008-05-28 09:06  KingRobot
+
+	* /icnsutils/Makefile.am, /icnsutils/Makefile.in: Debianizing
+	  source tree
+
+2008-05-28 09:04  KingRobot
+
+	* /Makefile.am, /Makefile.in, /configure, /configure.ac,
+	  /src/Makefile.in: Debianizing source tree
+
+2008-05-28 08:59  KingRobot
+
+	* /libicns, /src: Debianizing source tree
+
+2008-05-28 08:33  KingRobot
+
+	* /Makefile.in, /aclocal.m4, /config.guess, /config.sub,
+	  /configure, /icnsutils/Makefile.in, /libicns/Makefile.in,
+	  /ltmain.sh: Updated to use autoconf 2.61, automake 1.10
+
+2008-04-12 11:42  kingrobot
+
+	* /configure.ac: Changed release ver to 0.5.7
+
+2008-04-11 05:42  KingRobot
+
+	* /libicns/icns.h, /libicns/icns_io.c, /libicns/icns_utils.c: More
+	  minor bugfixes with write support
+
+2008-04-11 04:20  KingRobot
+
+	* /configure, /configure.ac, /icnsutils/icns2png.c,
+	  /libicns/icns.h, /libicns/icns_element.c, /libicns/icns_image.c,
+	  /libicns/icns_rle24.c: Several bugs fixed in write support
+
+2008-04-08 07:02  KingRobot
+
+	* /libicns/icns_element.c, /libicns/icns_io.c,
+	  /libicns/icns_rle24.c: More write bugfixes
+
+2008-04-08 05:52  KingRobot
+
+	* /TODO, /icnsutils/icns2png.c, /libicns/icns.h,
+	  /libicns/icns_element.c, /libicns/icns_image.c,
+	  /libicns/icns_io.c, /libicns/icns_utils.c: More minor bugfixes
+
+2008-04-08 05:28  KingRobot
+
+	* /libicns/icns.h, /libicns/icns_element.c, /libicns/icns_image.c,
+	  /libicns/icns_io.c, /libicns/icns_rle24.c, /libicns/icns_utils.c:
+	  Several bugfixes in write support
+
+2008-04-08 01:05  KingRobot
+
+	* /libicns/icns.h, /libicns/icns_internals.h: Moved library-only
+	  definitions to internal header
+
+2008-04-01 01:54  KingRobot
+
+	* /icnsutils/icns2png.1: Updated manpage
+
+2008-03-17 23:09  KingRobot
+
+	* /README: Updated README
+
+2008-03-17 22:01  KingRobot
+
+	* /ChangeLog, /configure, /configure.ac, /libicns.spec.in: Updated
+	  ChangeLog, versions
+
+2008-03-17 21:21  KingRobot
+
+	* /libicns/APIDOCS, /libicns/apidocs.html, /libicns/apidocs.txt:
+	  Added html api documentation
+
+2008-03-17 21:18  KingRobot
+
+	* /APIDOCS, /DEVNOTES, /libicns/APIDOCS: Updated API documentation
+
+2008-03-16 21:56  kingrobot
+
+	* /APIDOCS, /icnsutils/icns2png.c, /libicns/icns.h,
+	  /libicns/icns_io.c: Exhanced build for Mac OS X systems
+
+2008-03-16 10:43  KingRobot
+
+	* /APIDOCS, /configure, /configure.ac, /configure.ac.in,
+	  /icnsutils/Makefile.am, /icnsutils/Makefile.in,
+	  /icnsutils/icns2png.c, /libicns/Makefile.am,
+	  /libicns/Makefile.in, /libicns/icns.h, /libicns/icns_element.c,
+	  /libicns/icns_family.c, /libicns/icns_image.c,
+	  /libicns/icns_internals.h: Added batch extraction to icns2png
+
+2008-03-12 07:21  KingRobot
+
+	* /AUTHORS, /TODO, /icnsutils/icontainer2icns.c,
+	  /libicns/icns_element.c, /libicns/icns_family.c,
+	  /libicns/icns_image.c, /libicns/icns_io.c, /libicns/icns_jp2.c,
+	  /libicns/icns_rle24.c: UTF-8 conversion
+
+2008-03-12 07:14  KingRobot
+
+	* /test: Converted project to use GNU automake
+
+2008-03-12 07:13  KingRobot
+
+	* /CHANGELOG, /COPYING, /ChangeLog, /DEVNOTES, /INSTALL, /LICENSE,
+	  /MANIFEST.sources, /Makefile, /Makefile.am, /Makefile.in,
+	  /Makefile.inc, /NEWS, /aclocal.m4, /config.guess, /config.h.in,
+	  /config.sub, /configure, /configure.ac, /configure.ac.in,
+	  /depcomp, /icnsutils/Makefile, /icnsutils/Makefile.am,
+	  /icnsutils/Makefile.in, /icnsutils/icns2png.1,
+	  /icnsutils/icns2png.c, /install-sh, /libicns.spec.in,
+	  /libicns/Makefile, /libicns/Makefile.am, /libicns/Makefile.in,
+	  /libicns/icns_jp2.c, /libicns/libicns.pc.in, /ltmain.sh,
+	  /missing, /samples, /test: Converted project to use GNU automake
+
+2008-03-11 23:40  KingRobot
+
+	* /icnsutils/icns2png.c: Fixed include getopt.h in icns2png
+
+2008-03-11 23:34  KingRobot
+
+	* /icnsutils/Makefile, /libicns/Makefile: Added missing Makefiles
+
+2008-03-11 23:29  KingRobot
+
+	* /Makefile.inc: Added missing Makefile.inc
+
+2008-03-08 05:17  KingRobot
+
+	* /icnsutils/icns2png.c, /libicns/icns.h,
+	  /libicns/icns_internals.h: Removed icns2png dependency on
+	  internal functions
+
+2008-03-08 05:09  KingRobot
+
+	* /APIDOCS, /icnsutils/icns2png.c, /icnsutils/icnsinfo.c,
+	  /libicns/icns.h, /libicns/icns_element.c,
+	  /libicns/icns_internals.h, /libicns/icns_utils.c: Merged info
+	  functionality into icns2png, enhanced write support of libicns
+
+2008-03-08 02:36  KingRobot
+
+	* /Makefile, /icnsutils/icns.h, /icnsutils/icns_colormaps.h,
+	  /icnsutils/icns_debug.c, /icnsutils/icns_element.c,
+	  /icnsutils/icns_family.c, /icnsutils/icns_image.c,
+	  /icnsutils/icns_internals.h, /icnsutils/icns_io.c,
+	  /icnsutils/icns_jp2.c, /icnsutils/icns_rle24.c,
+	  /icnsutils/icns_utils.c, /libicns/icns.h,
+	  /libicns/icns_colormaps.h, /libicns/icns_debug.c,
+	  /libicns/icns_element.c, /libicns/icns_family.c,
+	  /libicns/icns_image.c, /libicns/icns_internals.h,
+	  /libicns/icns_io.c, /libicns/icns_jp2.c, /libicns/icns_rle24.c,
+	  /libicns/icns_utils.c, /libicns/test1.icns, /test/test1.icns:
+	  Finished restructuring compile now works
+
+2008-03-08 01:14  KingRobot
+
+	* /icnsutils/test1.icns, /icnsutils/test2.rsrc,
+	  /icnsutils/test3.bin, /libicns, /libicns/test1.icns,
+	  /test/test2.rsrc, /test/test3.bin: More restructuring - still
+	  broken
+
+2008-03-08 01:12  KingRobot
+
+	* /CHANGELOG, /DEVNOTES, /LICENSE, /Makefile, /README, /TODO,
+	  /icnsutils/CHANGELOG, /icnsutils/DEVNOTES, /icnsutils/LICENSE,
+	  /icnsutils/Makefile, /icnsutils/README, /icnsutils/TODO, /test:
+	  More restructuring - broken for now
+
+2008-03-08 01:10  KingRobot
+
+	* /APIDOCS, /AUTHORS, /icns2png, /icnsutils, /icnsutils/APIDOCS,
+	  /icnsutils/AUTHORS, /icnsutils/CHANGELOG, /icnsutils/DEVNOTES,
+	  /icnsutils/LICENSE, /icnsutils/Makefile, /icnsutils/README,
+	  /icnsutils/TODO, /icnsutils/icns.h, /icnsutils/icns2png.c,
+	  /icnsutils/icns_colormaps.h, /icnsutils/icns_debug.c,
+	  /icnsutils/icns_element.c, /icnsutils/icns_family.c,
+	  /icnsutils/icns_image.c, /icnsutils/icns_internals.h,
+	  /icnsutils/icns_io.c, /icnsutils/icns_jp2.c,
+	  /icnsutils/icns_rle24.c, /icnsutils/icns_utils.c,
+	  /icnsutils/icnsinfo.c, /icnsutils/icontainer2icns.c,
+	  /icnsutils/test1.icns, /icnsutils/test2.rsrc,
+	  /icnsutils/test3.bin: Restructuring to seperate library from
+	  utils
+
+2008-03-07 23:33  KingRobot
+
+	* /icns2png/APIDOCS, /icns2png/DEVNOTES, /icns2png/icns.h,
+	  /icns2png/icns_element.c, /icns2png/icns_internals.h,
+	  /icns2png/icns_io.c, /icns2png/icns_rle24.c: Fixed compile issue
+
+2008-03-07 04:42  KingRobot
+
+	* /icns2png/APIDOCS, /icns2png/Makefile, /icns2png/icns.h,
+	  /icns2png/icns_element.c, /icns2png/icns_internals.h,
+	  /icns2png/icns_jp2.c: Minor bugfix changes
+
+2008-03-07 02:14  KingRobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/README,
+	  /icns2png/icns_image.c, /icns2png/icns_jp2.c,
+	  /icns2png/test4.icns, /icns2png/test5.icns: jasper decoding
+	  routing finished (Note libjasper is buggy)
+
+2008-03-06 03:32  KingRobot
+
+	* /icns2png/APIDOCS, /icns2png/Makefile, /icns2png/icns.h,
+	  /icns2png/icns2png.c, /icns2png/icns_element.c,
+	  /icns2png/icns_image.c, /icns2png/icns_internals.h,
+	  /icns2png/icns_io.c, /icns2png/icns_jp2.c,
+	  /icns2png/icns_utils.c: More work on jasper decoder - still
+	  nonfunctional
+
+2008-03-05 10:32  kingrobot
+
+	* /icns2png/APIDOCS, /icns2png/Makefile, /icns2png/icns.h,
+	  /icns2png/icns_image.c, /icns2png/icns_jp2.c: Started jasper jp2
+	  decoder
+
+2008-03-05 08:35  kingrobot
+
+	* /icns2png/icns2png.c: data type size debug test
+
+2008-03-05 08:11  kingrobot
+
+	* /icns2png/icns_io.c: Fixed dual sizeof error 2nd try
+
+2008-03-05 08:01  kingrobot
+
+	* /icns2png/icns_element.c, /icns2png/icns_family.c,
+	  /icns2png/icns_internals.h, /icns2png/icns_io.c: Fixed dual
+	  sizeof error
+
+2008-03-04 10:58  kingrobot
+
+	* /icns2png/icns_io.c: Fixed problem with 64-bit big endian read
+
+2008-03-04 10:56  kingrobot
+
+	* /icns2png/icns_io.c: Remove oddly placed cast
+
+2008-03-04 10:43  kingrobot
+
+	* /icns2png/icns.h, /icns2png/icns_colormaps.h,
+	  /icns2png/icns_element.c, /icns2png/icns_image.c,
+	  /icns2png/icns_internals.h, /icns2png/icns_io.c,
+	  /icns2png/icns_jp2.c, /icns2png/icns_rle24.c: Fixed uncertain
+	  data types
+
+2008-03-04 10:35  kingrobot
+
+	* /icns2png/Makefile, /icns2png/icns_io.c, /icns2png/icns_utils.c:
+	  Added byte reading check debug
+
+2008-03-03 22:23  KingRobot
+
+	* /icns2png/icns_utils.c: Fixed missing icns_utils.c
+
+2008-03-03 22:21  KingRobot
+
+	* /icns2png/icns_internals.h: Fixed missing icns_internals.h
+
+2008-03-01 15:09  KingRobot
+
+	* /icns2png/Makefile, /icns2png/test4.icns, /icns2png/test5.icns:
+	  Added additional tests to 'make test'
+
+2008-03-01 14:53  KingRobot
+
+	* /icns2png/icontainer2icns.c: Minor bugfix to icontainer2icns
+
+2008-03-01 14:38  KingRobot
+
+	* /icns2png/Makefile, /icns2png/icns2png.c, /icns2png/icnsinfo.c:
+	  Added icnsinfo utility
+
+2008-03-01 13:29  KingRobot
+
+	* /icns2png/APIDOCS, /icns2png/DEVNOTES, /icns2png/Makefile,
+	  /icns2png/TODO, /icns2png/endianswap.c, /icns2png/endianswap.h,
+	  /icns2png/icns.h, /icns2png/icns2png.c, /icns2png/icns_debug.c,
+	  /icns2png/icns_element.c, /icns2png/icns_family.c,
+	  /icns2png/icns_image.c, /icns2png/icns_io.c,
+	  /icns2png/icns_jp2.c, /icns2png/icns_rle24.c: Updated endian
+	  handling, enhanced error handling, added API doc template
+
+2008-02-28 12:09  KingRobot
+
+	* /icns2png/icns.h, /icns2png/icns2png.c, /icns2png/icns_image.c,
+	  /icns2png/icns_io.c, /icns2png/icns_rle24.c: Several bugfixes
+
+2008-02-28 04:34  KingRobot
+
+	* /icns2png/Makefile: Moved paths to config section of Makefile
+
+2008-02-26 06:42  kingrobot
+
+	* /icns2png/Makefile, /icns2png/TODO: Fixed compatibility_version
+	  in Makefile for Darwin
+
+2008-02-26 05:49  kingrobot
+
+	* /icns2png/icns_element.c, /icns2png/icns_jp2.c,
+	  /icns2png/icns_rle24.c: Minor textual changes for consistency
+
+2008-02-26 05:41  KingRobot
+
+	* /icns2png/Makefile, /icns2png/TODO: Updated TODO
+
+2008-02-26 04:41  kingrobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/icns.h,
+	  /icns2png/icns2png.c, /icns2png/icns_family.c,
+	  /icns2png/icns_image.c, /icns2png/icns_io.c: Minor bugfixes
+
+2008-02-25 15:00  kingrobot
+
+	* /icns2png/Makefile, /icns2png/colormaps.h,
+	  /icns2png/endianswap.h, /icns2png/icns.h,
+	  /icns2png/icns_colormaps.h, /icns2png/icns_element.c,
+	  /icns2png/icns_family.c, /icns2png/icns_image.c,
+	  /icns2png/icns_io.c: Added routines for unaligned memory access
+
+2008-02-24 23:55  kingrobot
+
+	* /icns2png/Makefile, /icns2png/endianswap.c,
+	  /icns2png/endianswap.h, /icns2png/icns_element.c,
+	  /icns2png/icns_image.c, /icns2png/icns_io.c: Minor bugfixes,
+	  moved refs/derefs out of EndianSwap routines
+
+2008-02-21 08:26  KingRobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/icns.h,
+	  /icns2png/icns2png.c, /icns2png/icns_element.c,
+	  /icns2png/icns_family.c, /icns2png/icns_image.c,
+	  /icns2png/icns_io.c, /icns2png/icns_rle24.c: Added function for
+	  pulling single image from family, fixed bug in Makefile
+
+2008-02-21 07:04  kingrobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/TODO,
+	  /icns2png/endianswap.c, /icns2png/endianswap.h, /icns2png/icns.c,
+	  /icns2png/icns.h, /icns2png/icns2png.c, /icns2png/icns_debug.c,
+	  /icns2png/icns_element.c, /icns2png/icns_family.c,
+	  /icns2png/icns_image.c, /icns2png/icns_io.c,
+	  /icns2png/icns_jp2.c, /icns2png/icns_rle24.c: Enhanced endian
+	  detection, split icns.c (2500+ lines of code) into more
+	  manageable portions.
+
+2008-02-20 11:15  KingRobot
+
+	* /icns2png/Makefile, /icns2png/icns.c, /icns2png/icns.h: Added
+	  support to toggle debug/openjpeg from Makefile
+
+2008-02-20 10:45  KingRobot
+
+	* /icns2png/Makefile, /icns2png/icns.c: Fixed numerous bugs, added
+	  many error checks
+
+2008-02-20 05:04  KingRobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/icns.h: Release
+	  0.1.1 for bugfixes
+
+2008-02-20 01:33  kingrobot
+
+	* /icns2png/Makefile, /icns2png/icns.h, /icns2png/icns2png.c: Fixed
+	  dynamic library build issues on OS X
+
+2008-02-19 07:40  KingRobot
+
+	* /icns2png/CHANGELOG, /icns2png/Makefile, /icns2png/README,
+	  /icns2png/icns.c, /icns2png/icns.h, /icns2png/icns2png.c: Fixed
+	  bug with RLE data < 128px
+
+2008-02-19 05:39  KingRobot
+
+	* /icns2png/CHANGELOG, /icns2png/DEVNOTES, /icns2png/Makefile:
+	  Added CHANGELOG and versioning info
+
+2008-02-19 04:53  KingRobot
+
+	* /icns2png/README: Updated README in preperation for release
+
+2008-02-19 04:46  KingRobot
+
+	* /icns2png/icns.c: Finished icns_write_family_to_file. Write
+	  support functional
+
+2008-02-19 04:33  KingRobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/TODO,
+	  /icns2png/icns.c, /icns2png/icns.h, /icns2png/icns2png.c:
+	  Finished up write struct support
+
+2008-02-19 02:50  KingRobot
+
+	* /icns2png/icns.c: Improved error handling messages
+
+2008-02-19 02:36  KingRobot
+
+	* /icns2png/TODO, /icns2png/icns.c, /icns2png/icns.h,
+	  /icns2png/icns2png.c: Fixed macbinary read error, other bugfixes
+
+2008-02-19 01:46  KingRobot
+
+	* /icns2png/AUTHORS, /icns2png/Makefile, /icns2png/icns.c,
+	  /icns2png/icns.h, /icns2png/icns2png.c: Yun Zheng Hu - OS X
+	  Makefile,getopts
+
+2008-02-19 01:13  KingRobot
+
+	* /icns2png/icns.c, /icns2png/icns.h: Finished RLE encoder, minor
+	  bugfixes
+
+2008-02-18 12:48  KingRobot
+
+	* /icns2png/icns.c, /icns2png/icns.h: Created RLE compression
+	  function, but problems may exist: data sizes not equal
+
+2008-02-18 08:32  KingRobot
+
+	* /icns2png/icns.c: Made memory error reporting more consistent
+
+2008-02-18 03:56  kingrobot
+
+	* /icns2png/DEVNOTES: Added newfound IconFamily project link
+
+2008-02-18 03:42  kingrobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/icns.c,
+	  /icns2png/icns.h, /icns2png/icns2png.c, /icns2png/jp2dec.c,
+	  /icns2png/jp2dec.h: Updated naming conventions, moved jp2000
+	  stuff into icns
+
+2008-02-16 12:07  kingrobot
+
+	* /icns2png/DEVNOTES, /icns2png/TODO, /icns2png/icns.c,
+	  /icns2png/icns.h: Added more write support
+	  (SetIcnsElementForIcnsFamily)
+
+2008-02-16 11:21  kingrobot
+
+	* /icns2png/DEVNOTES, /icns2png/TODO, /icns2png/endianswap.h,
+	  /icns2png/icns.c, /icns2png/icns.h, /icns2png/icns2png.c: Added
+	  to write support (RemoveIcnsElementFromIcnsFamily), fixed naming
+	  conventions, minor bugfixes.
+
+2008-02-16 10:10  kingrobot
+
+	* /icns2png/TODO, /icns2png/icns.c, /icns2png/icns.h,
+	  /icns2png/icns2png.c: Removed ALL Apple Copyrighted stuff,
+	  replaced with libicns specific constants
+
+2008-02-16 09:34  kingrobot
+
+	* /icns2png/DEVNOTES: Fixed DEVNOTES ^M issues
+
+2008-02-16 09:24  kingrobot
+
+	* /icns2png/DEVNOTES, /icns2png/TODO, /icns2png/icns.c,
+	  /icns2png/icns.h, /icns2png/icns2png.c,
+	  /icns2png/icontainer2icns.c, /icns2png/jp2dec.c: Finished 1,4,8
+	  bit read support, started write support
+
+2008-02-16 08:42  pabs3
+
+	* /icns2png/TODO: Add some quality control items to TODO
+
+2008-02-16 07:25  kingrobot
+
+	* /icns2png/AUTHORS, /icns2png/DEVNOTES, /icns2png/Makefile,
+	  /icns2png/README, /icns2png/TODO, /icns2png/colormaps.h,
+	  /icns2png/endianswap.h, /icns2png/icns.c, /icns2png/icns.h,
+	  /icns2png/icns2png.c: Added support to icns2png for additional
+	  icon sizes and bit depths. Made preliminary changes to libicns to
+	  support bit depths <= 8
+
+2008-02-16 03:53  kingrobot
+
+	* /icns2png/DEVNOTES, /icns2png/Makefile, /icns2png/README,
+	  /icns2png/TODO, /icns2png/icns.c, /icns2png/icns.h,
+	  /icns2png/icns2png.c, /icns2png/jp2dec.c, /icns2png/jp2dec.h:
+	  Established icns type naming conventions, added DEVNOTES (API
+	  established), removed Apple data types, minor version is at 0.9
+
+2008-02-14 12:35  kingrobot
+
+	* /icns2png/Makefile: Fixed bug with make install
+
+2008-02-14 12:33  kingrobot
+
+	* /icns2png/Makefile, /icns2png/TODO, /icns2png/icns.h,
+	  /icns2png/icns2png.c, /icns2png/image.h, /icns2png/jp2dec.c,
+	  /icns2png/pngwriter.c, /icns2png/pngwriter.h: icns is now a fully
+	  standalone library
+
+2008-02-14 12:14  kingrobot
+
+	* /icns2png/Makefile, /icns2png/icns.c, /icns2png/icns.h,
+	  /icns2png/icns2png.c, /icns2png/jp2dec.c, /icns2png/jp2dec.h,
+	  /icns2png/pngwriter.c: Moved jp2 decoding routines into icns.c
+	  for better library portability. Still need to link the library
+	  with jp2dec.c
+
+2008-02-14 09:32  kingrobot
+
+	* /icns2png/Makefile, /icns2png/apple_icons.h,
+	  /icns2png/apple_iconstorage.h, /icns2png/apple_mactypes.h,
+	  /icns2png/icns.c, /icns2png/icns.h, /icns2png/icns2png.c,
+	  /icns2png/pngwriter.c, /icns2png/pngwriter.h, /icns2png/test,
+	  /icns2png/test1.icns, /icns2png/test2.rsrc, /icns2png/test3.bin:
+	  Merged apple_* into icns.h for more sensible portability, made
+	  'make test' work better
+
+2008-02-14 08:06  kingrobot
+
+	* /icns2png/Makefile, /icns2png/TODO, /icns2png/icns2png.c: Broke
+	  down source into libicns / icns2png, minor bugfixes, updated TODO
+
+2008-02-14 06:11  kingrobot
+
+	* /icns2png/TODO: Updated TODO
+
+2008-02-14 06:09  kingrobot
+
+	* /icns2png/TODO: Added TODO for developers wanting to help
+
+2008-02-14 06:02  kingrobot
+
+	* /icns2png/Makefile, /icns2png/endianswap.h, /icns2png/icns.c,
+	  /icns2png/icns.h, /icns2png/icns2png.c, /icns2png/iconvert.c,
+	  /icns2png/iconvert.h: Prepped for standalone icns library
+
+2008-02-14 05:11  kingrobot
+
+	* /icns2png/test, /icns2png/test/Gnu_I.icns,
+	  /icns2png/test/Gnu_II.rsrc, /icns2png/test/Gnu_III.bin: Added
+	  make test files from original branch
+
+2008-02-14 05:09  kingrobot
+
+	* /icns2png/AUTHORS, /icns2png/Makefile, /icns2png/README,
+	  /icns2png/apple_icons.h, /icns2png/apple_iconstorage.h,
+	  /icns2png/byteswap.c, /icns2png/byteswap.h,
+	  /icns2png/endianswap.h, /icns2png/icns2png.c,
+	  /icns2png/iconvert.c, /icns2png/iconvert.h, /icns2png/image.h,
+	  /icns2png/jp2dec.c, /icns2png/jp2dec.h, /icns2png/pngwriter.c,
+	  /icns2png/pngwriter.h: Merged with tree from
+	  http://code.google.com/p/icns2png/
+	  Now requires libopenjpeg for > 128x128 icons
+	  Changed version to 0.8
+
+2008-02-13 10:43  KingRobot
+
+	* /icns2png/byteswap.h, /icns2png/iconvert.h: Fixed commit of
+	  bugged SVN client
+
+2008-02-13 10:12  KingRobot
+
+	* /icns2png/byteswap.h, /icns2png/iconvert.c, /icns2png/iconvert.h,
+	  /icns2png/pngwriter.c: byteswap routines to be replaced with
+	  endian.h library. Hacks to retain work for now.
+
+2008-02-13 09:47  KingRobot
+
+	* /icns2png/Makefile, /icns2png/apple_icons.h,
+	  /icns2png/apple_mactypes.h, /icns2png/byteswap.c,
+	  /icns2png/byteswap.cpp, /icns2png/byteswap.h,
+	  /icns2png/icns2png.c, /icns2png/icns2png.cpp,
+	  /icns2png/icontainer2icns.c, /icns2png/icontainer2icns.cpp,
+	  /icns2png/iconvert.c, /icns2png/iconvert.cpp,
+	  /icns2png/iconvert.h, /icns2png/macicondefs.h,
+	  /icns2png/mactypes.h, /icns2png/pngwriter.c,
+	  /icns2png/pngwriter.cpp, /icns2png/pngwriter.h: Post-merge
+	  reimplementation of pabs3's changes
+
+2008-02-13 08:07  KingRobot
+
+	* /icns2png/AUTHORS, /icns2png/Makefile, /icns2png/README,
+	  /icns2png/byteswap.c, /icns2png/byteswap.cpp,
+	  /icns2png/byteswap.h, /icns2png/common.h, /icns2png/icns2png.c,
+	  /icns2png/icns2png.cpp, /icns2png/icontainer2icns.cpp,
+	  /icns2png/iconvert.c, /icns2png/iconvert.cpp,
+	  /icns2png/iconvert.h, /icns2png/macicondefs.h,
+	  /icns2png/mactypes.h, /icns2png/pngwriter.c,
+	  /icns2png/pngwriter.cpp, /icns2png/pngwriter.h: Merged with
+	  source from icns2png '0.6' fork. Primarily minor bugfixes, and
+	  icontainer2icns utility. Updated version to 0.7
+
+2007-03-29 11:44  pabs3
+
+	* /icns2png/iconvert.c: Ensure that we are reading resource data
+	  only from within the data loaded from the file
+
+2007-03-29 11:11  pabs3
+
+	* /icns2png/iconvert.c: Don't attempt to process invalid MacBinary
+	  files
+
+2007-03-29 09:14  pabs3
+
+	* /icns2png/Makefile: By default compile with debugging information
+	  instead of optimisation.
+
+2007-03-14 14:25  pabs3
+
+	* /icns2png/README, /icns2png/iconvert.c: Fix some URLs in the code
+	  and the README
+
+2007-02-07 01:55  pabs3
+
+	* /icns2png/icns2png.c: Fix out-of-bounds string modification found
+	  by valgrind
+
+2007-02-05 06:14  pabs3
+
+	* /icns2png/icns2png.c, /icns2png/pngwriter.c: Fix memory leaks in
+	  pngwriter.c and icns2png.c
+
+2007-02-05 06:14  pabs3
+
+	* /icns2png/iconvert.c: Fix gcc warning about unused variable
+	  dataCount
+
+2007-02-05 03:21  pabs3
+
+	* /icns2png/pngwriter.c, /icns2png/pngwriter.cpp: Convert
+	  pngwriter.cpp from C++ to C
+
+2007-02-05 03:21  pabs3
+
+	* /icns2png/iconvert.c, /icns2png/iconvert.cpp: Convert
+	  iconvert.cpp from C++ to C
+
+2007-02-05 03:20  pabs3
+
+	* /icns2png/icns2png.c, /icns2png/icns2png.cpp: Convert
+	  icns2png.cpp from C++ to C
+
+2007-02-05 03:20  pabs3
+
+	* /icns2png/byteswap.c, /icns2png/byteswap.cpp: Convert
+	  byteswap.cpp from C++ to C
+
+2007-02-02 04:11  pabs3
+
+	* /icns2png/README: Update the URL to some sample OSX icons
+
+2007-02-02 03:46  pabs3
+
+	* /icns2png/Makefile, /icns2png/byteswap.h, /icns2png/common.h:
+	  Prepare for converting from C++ to C since C has more compilers
+	  on more systems.
+
+2007-02-02 03:44  pabs3
+
+	* /icns2png/Makefile: Use system zlib and libpng libraries
+
+2007-02-02 03:43  pabs3
+
+	* /icns2png/icns2png.cpp, /icns2png/iconvert.cpp,
+	  /icns2png/pngwriter.cpp: Fix some warnings output by gcc -Wall
+
+2007-02-02 03:40  pabs3
+
+	* /icns2png/AUTHORS: Add an AUTHORS file
+
+2007-02-02 03:39  pabs3
+
+	* /icns2png/Makefile: Accept CFLAGS and LDFLAGS from the
+	  environment
+
+2007-02-02 03:39  pabs3
+
+	* /icns2png/common.h, /icns2png/icns2png.cpp,
+	  /icns2png/iconvert.cpp, /icns2png/iconvert.h,
+	  /icns2png/pngwriter.cpp, /icns2png/pngwriter.h: Replace
+	  dependence on icondefs.h, mactypes.h and other mac headers with
+	  common.h
+
+2006-08-13 07:05  pabs3
+
+	* /icns2png/Makefile: Enable more warnings during building
+
+2006-08-13 07:03  pabs3
+
+	* /icns2png/Makefile: Fix typo in release target of Makefile
+
+2006-08-10 11:45  pabs3
+
+	* /icns2png/Makefile: Fix typo in clean target of Makefile
+
+2006-08-10 11:43  pabs3
+
+	* /icns2png/Makefile, /icns2png/README, /icns2png/byteswap.cpp,
+	  /icns2png/byteswap.h, /icns2png/icns2png.cpp,
+	  /icns2png/iconvert.cpp, /icns2png/iconvert.h,
+	  /icns2png/pngwriter.cpp, /icns2png/pngwriter.h: Fix formatting:
+	  - use tabs and spaces properly
+	  - remove * crud from licence statements
+	  - remove extra whitespace
+
+2006-08-10 10:33  pabs3
+
+	* /icns2png/Makefile: Build using png shared library by default
+
+2006-08-10 10:28  pabs3
+
+	* /icns2png/byteswap.cpp, /icns2png/byteswap.h,
+	  /icns2png/icns2png.cpp, /icns2png/iconvert.h,
+	  /icns2png/pngwriter.cpp, /icns2png/pngwriter.h: Convert to Unix
+	  (LF) line endings
+
+2006-08-10 10:17  pabs3
+
+	* /icns2png, /icns2png/LICENSE, /icns2png/Makefile,
+	  /icns2png/README, /icns2png/byteswap.cpp, /icns2png/byteswap.h,
+	  /icns2png/icns2png.cpp, /icns2png/iconvert.cpp,
+	  /icns2png/iconvert.h, /icns2png/pngwriter.cpp,
+	  /icns2png/pngwriter.h: Import initial icns2png distribution.
+	  Removed stuff of questionable origin and copyright/licencing.
+	  Source: http://baghira.sourceforge.net/Goodies/icns2png.tar.bz2
+

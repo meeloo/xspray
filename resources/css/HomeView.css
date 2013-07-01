@@ -22,6 +22,12 @@
   HAnchors_inspector = -200;
   HAnchorsType_inspector = Absolute;
 
+  HAnchors_left = 50;
+  HAnchorsType_inspector = Absolute;
+
+  HAnchors_right = -50;
+  HAnchorsType_inspector = Absolute;
+
   +Label
   {
     Layout = [left, right] / [top, header];
@@ -54,12 +60,7 @@
     Borders: 12;
     Decoration: WhiteBackgroundStroke;
     Layout = [left, inspector] / [apps, bottom];
-    +nuiList AppList
-    {
-      +Label { Text: "App 1"; }
-      +Label { Text: "App 2"; }
-      +Label { Text: "App 3"; }
-    }
+    +nuiList AppList;
   }
 
   +nuiScrollView

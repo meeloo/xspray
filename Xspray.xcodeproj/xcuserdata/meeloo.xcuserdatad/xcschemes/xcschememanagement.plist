@@ -14,6 +14,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>icns.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
+		<key>jasper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +37,21 @@
 			<true/>
 		</dict>
 		<key>61A9DFC80B833EF200BC506C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E54FABF4178175AF00E09874</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E54FACF41781771F00E09874</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E54FAD681781774000E09874</key>
 		<dict>
 			<key>primary</key>
 			<true/>

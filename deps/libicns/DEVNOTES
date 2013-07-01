@@ -1,0 +1,200 @@
+===============================================================================
+Developers notes for libicns 0.8.1 - June 14, 2012
+Copyright (C) 2001-2008 Mathew Eis <mathew@eisbox.net>
+
+===============================================================================
+This file is indented for those wishing to contribute to libicns
+-------------------------------------------------------------------------------
+To develop an application using libicns, please see the file APIDOCS
+===============================================================================
+1) Preprocessor constants
+2) Debugging
+3) Jasper vs OpenJPEG
+4) Versioning Notes
+5) Naming Conventions
+6) Endianness issues
+7) icns data format
+===============================================================================
+Preprocessor constants
+
+These are generally expected to be defined by the makefile, but can
+be hardcoded into icns.h if necessary
+
+To enable debugging messages
+#define	ICNS_DEBUG 1
+
+To enable libjasper support for 256x256 and 512x512 icons
+#define	ICNS_JASPER
+
+To enable libopenjpeg support for 256x256 and 512x512 icons
+#define	ICNS_OPENJPEG
+===============================================================================
+Debugging
+
+Normal error messages will be displayed by libicns even without debugging
+enabled, however, enabling ICNS_DEBUG will enable an _EXTENSIVE_ amount
+of detailed debugging messages that should help solve any problems within
+libicns.
+
+===============================================================================
+Jasper vs OpenJPEG
+
+Jasper and OpenJPEG are both excellent JPEG2000 decoders, however, their
+presence on various linux distributions is at present uncertain.
+
+Jasper (libjasper)
+As of 1.9001 it may 'crash' unless the library is built with -DNDEBUG.
+There is an assertion in the decoding library (jpc_dec.c)
+that fails if there are not 3 channels or components (RGB). The
+data in icns files is usually RGBA - 4 channels. Thus, the
+assert will cause the program to crash. If that is fixed, it works fine.
+
+OpenJPEG (libopenjpeg)
+Building libicns against the OpenJPEG library will provide full read
+support of 256x256 and 512x512 icns data. However, it's distribution at
+present is quite limited, and there seems to be an ongoing debate as
+to it's compatability with free software guidelines.
+
+===============================================================================
+Version information
+IMPORTANT:
+There are two versions in use:
+1) The library interface version
+2) The package release version
+-------------------------------------------------------------------------------
+Library interface versioning follows GNU libtool versioning to the letter
+1:0:0 (CURRENT:REVISION:AGE)
+See GNU libtool documentation for more information:
+http://www.gnu.org/software/libtool/manual.html#Libtool-versioning
+
+Please take the time to understand this before making changes to libicns
+-------------------------------------------------------------------------------
+package release versions are in the format of: 0.0.0 (MAJOR.MINOR.REVISION)
+
+The revision number should increase with each development change, and return
+ to zero with any major or minor change
+The minor number should increase with change that adds, removes, or changes
+ the functionality of libicns or it's utility programs.
+The major number should increase with any change that dramatically breaks
+ compatability with some major part of the library or utilities
+===============================================================================
+Naming conventions
+
+Where possible, the naming conventions are to be similar in manner to the
+libpng library. libpng has been around for a long time, it's naming conventions
+are mature, and developers are well aquanted with them.
+
+===============================================================================
+Endianness issues
+
+-------------------------------------------------------------------------------
+Everything in libicns is in native endian format, with two exceptions:
+
+int icns_export_family_data(icns_family_t *iconFamily,icns_uint32_t *dataSizeOut,unsigned char **dataPtrOut);
+Here, the outgoing data pointer will have big endian values where necessary
+
+int icns_import_family_data(icns_uint32_t dataSize,unsigned char *data,icns_family_t **iconFamilyOut);
+Here, the incoming icon family MUST be in 'native' big endian where appropriate
+
+These two functions call icns_export_family_data and icns_import_family_data:
+int icns_write_family_to_file(FILE *dataFile,icns_family_t *iconFamilyIn);
+int icns_read_family_from_file(FILE *dataFile,icns_family_t **iconFamilyOut);
+The resulting data written to the file is thus in big-endian format.
+
+-------------------------------------------------------------------------------
+All endian swapping is handled by icns_io by icns.c with the following:
+#define ICNS_READ_UNALIGNED_BE(val, addr, type)    icns_read_be(&(val), (addr), sizeof(type))
+static inline void icns_read_be(void *outp, void *inp, int size)
+#define ICNS_WRITE_UNALIGNED_BE(addr, val, type)    icns_write_be((addr), &(val), sizeof(type))
+static inline void icns_write_be(void *outp, void *inp, int size)
+
+As the macro names imply, these functions are safe to use on architectures
+that do not deal well with unaligned memory access.
+   
+-------------------------------------------------------------------------------
+Where there are endian issues in the first place
+
+The 'icns' icon family type has been in existence since the Mac 68k. The data
+stored within the files is, therefore, big-endian native. From experience, it
+seems unclear whether we are guaranteed this to be the case.
+The current definitive documentation on the issue seems to be found in the
+Apple Developer Connection document "Guidelines for Swapping Bytes" from
+"Universal Binary Programming Guidelines Second Edition" - see as follows:
+-------------------------------------------------------------------------------
+Be aware of which functions return big-endian data, and use them appropriately.
+These include the BSD Sockets networking functions, the DNSServiceDiscovery
+functions (for example, TCP and UDP ports are specified in network byte order),
+and the ColorSync profile functions (for which all data is big-endian). The
+IconFamilyElement and IconFamilyResource data types (which also include the
+data types IconFamilyPtr and IconFamilyHandle) are always big-endian. There
+may be other functions and data types that are not listed here. Consult the
+appropriate API reference for information on data returned by a function. For
+more information see 
+Network-Related Data.
+-------------------------------------------------------------------------------
+Source: http://developer.apple.com/documentation/MacOSX/Conceptual/
+universal_binary/universal_binary_byte_swap/chapter_4_section_3.html
+
+Since Apple's own Developer Documentation indicates icns is ALWAYS big-endian
+libicns assumes that all data will be in the big endian format, and therefore
+assumes any data that is not big endian to be corrupt. Perhaps at some point
+in the future it could add support for recovering an improperly written file.
+
+===============================================================================
+icns data format is basically an 8-byte header, followed by icns elements
+---- 8 byte header ----
++4 byte type id, always 'icns'
++4 byte int - total size of icns data: equal to total icns size
+---- icns_element objects ----
+|---- 8 byte header ----
+|+4 byte type id 'ICN#', 'icl8', etc...
+|+4 byte int - total size of element data: equal to size of element
+|==== raw, rle, jp2, or png image data
+|---- 8 byte header ----
+|+4 byte type id 'ICN#', 'icl8', etc...
+|+4 byte int - total size of image data: equal to size of element
+|==== raw, rle, jp2, or png image data
+|EOF
+
+===============================================================================
+icns element is basically an 8-byte header, followed by icon data
++4 byte type id 'ICN#', 'icl8', etc...
++4 byte int - total size of icns data: equal to total element size
+== data size equal to (elementSize - 8)
+
+1-bit ich#, icm#, ics#, ICN#, icon notes 
+- data is 8 pixels to a byte. 
+- mask data follows the icon data
+- example: data should be 256 bytes long for 32x32 icons
+--- 128 bytes (32*32) / 8 for the icon data
+--- 128 bytes (32*32) / 8 for the mask data
+
+4-bit ich4, icm4, ics4, icl4, icon notes 
+- data is 2 pixels to a byte, mask data is not part of the resource
+- data is in 16 indexed colors, libicns provides the 32-bit colormap
+- example: data should be 512 bytes long for 32x32 icons
+--- 512 bytes (32*32) / 2 for the icon data
+
+8-bit ich8, icm8, ics8, icl8, icon notes 
+- data is 1 pixels to a byte, mask data is not part of the resource
+- data is in 256 indexed colors, libicns provides the 32-bit colormap
+- example: data should be 1024 bytes long for 32x32 icons
+--- 1024 bytes (32*32) for the icon data
+
+32-bit icon notes (size < 256x256) 
+- data may or may not be RLE ecoded. Older icons never were, but newer
+- icon editors seem to RLE encode even 16x16 32-bit icons. Mac OS seems
+- to have no problem with this although only 128x128 icons were originally
+- compressed using RLE.
+
+32-bit icon notes (size >= 256x256) 
+- data may be either jp2 or PNG encoded
+- valid sizes are: 256x256, 512x512, 1024x1024
+
+Other valid elements found in .icns files
+- 'TOC ' table of contents; all icon elements and their sizes
+- 'icnV' If created with Icon Composer, version number of app bundle
+
+
+
+==============================================================================

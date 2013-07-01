@@ -1,0 +1,50 @@
+%define package @PACKAGE@
+%define version @VERSION@
+%define release 1
+
+Summary:     Library for manipulating Macintosh icns files
+Name:        %{package}
+Version:     %{version}
+Release:     %{release}
+Epoch:       1
+Copyright:   GNU General Public License
+Group:       Graphics
+URL:         http://sourceforge.net/projects/icns
+Packager:    Paul Wise <pabs@debian.org>
+Vendor:      Mathew Eis <mathew@eisbox.net>
+Source:      %{package}-%{version}.tar.gz
+BuildRoot:   %{_tmppath}/%{name}-%{version}-root
+Provides:    libicns-%{version}
+AutoReqProv: yes
+Prefix: /usr
+
+%description
+libicns is a library providing functionality for easily reading and writing Macintosh icns files
+
+%prep
+
+%setup -q
+
+%build
+./configure --prefix=${prefix}
+make
+
+%install
+rm -rf %{buildroot}
+mkdir -p %{buildroot}
+make prefix=%{buildroot}%{prefix} \
+	mandir=$RPM_BUILD_ROOT%{_mandir} \
+	sysconfdir=%{buildroot}/etc \
+	install
+
+%clean
+rm -rf %{buildroot}
+
+%files
+%defattr(-,root,root)
+%doc AUTHORS COPYING CHANGELOG TODO
+%{_mandir}/*/*
+%{_bindir}/*
+
+%changelog
+

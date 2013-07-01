@@ -1,0 +1,9 @@
+===================================================================
+Authors and contributors of libicns
+===================================================================
+Mathew Eis <mathew@eisbox.net> - Original Developer & Maintainer
+Paul Wise http://pabs.zip.to - Developer & Maintainer
+Chenxiao Zhao <chenxiao.zhao@gmail.com> - 256x256, 512x512 openjpeg
+Thomas Lübking <baghira-style@gmx.net> - 'NG' icns code
+Lyonel Vincent <lyonel@ezix.org> - mac pallete defs
+Yun Zheng Hu <yunzheng.hu@gmail.com> - OS X compat Makefile

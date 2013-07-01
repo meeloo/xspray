@@ -1,0 +1,328 @@
+   libicns Documentation
+   Copyright (C) 2012 Mathew Eis
+   Released under the terms of the LGPL v2 or later
+   libicns release 0.8.0, version 2:8:2
+   Table of contents:
+
+     * Part I: Tutorial / Example
+         i. A quick read of a 128x128 icon with mask from 'test.icns'
+     * Part II: Data types and constants
+         i. Basic Data Types
+        ii. Icon Family and Element Header Types
+        iii. Icon Family and Element Types
+        iv. Icon Image Type
+         v. Icon Type Constants
+        vi. File/Resource Type Constants
+        vii. Error return codes
+     * Part III: Manipulating the icon family
+         i. Reading and writing to files
+        ii. Reading specifically from an HFS+ resource fork (i.e.
+            icon.icns/..namedfork/rsrc)
+        iii. Reading and writing to memory
+        iv. Creating an new icon family
+         v. Counting the number of elements in an icon family
+     * Part IV: Manipulating elements of the icon family
+         i. Getting and setting elements of the icon family
+        ii. Adding and removing new elements of the icon family
+        iii. Creating new elements from image data
+        iv. Updating existing elements with image data
+     * Part V: Manipulating images of the icon family and icon elements
+         i. Fast retrival of a complete icon image from an icon family
+        ii. Retriving a image or mask from an icon element
+        iii. Initializing an empty image - ready for data
+        iv. Freeing the memory allocated by an icon image
+     * Part VI: Decoding and encoding image data for certian formats
+         i. Decoding and encoding 3 channel RLE data
+        ii. Decoding and encoding jpeg2000 image data
+     * Part VII: Misc utility functions
+         i. Finding the correct mask type with an icon type
+        ii. Enable or disable the printing of error messages during
+            runtime
+        iii. Comparing icns_type_t data
+     __________________________________________________________________
+
+   Part I: Tutorial / Example
+   A quick read of a 128x128 icon with mask from 'test.icns'
+#include <stdio.h>
+
+#include "icns.h"
+
+int main(void)
+{
+        int             error = 0;
+        FILE            *inFile = NULL;
+        icns_family_t   *iconFamily = NULL;
+        icns_image_t    iconImage;
+
+        inFile = fopen( "test.icns", "r" );
+
+        if ( inFile == NULL ) {
+                fprintf(stderr,"Unable to open test.icns!\n");
+                goto cleanup;
+        }
+
+        // Import icon family from the file data
+        error = icns_read_family_from_file(inFile,&iconFamily);
+
+        fclose(inFile);
+
+        if(error) {
+                fprintf(stderr,"Unable to read icns family from file!\n");
+        } else {
+
+                // Read in a 128x128 32-bit RGBA image (with mask in alpha channel)
+                // from the 128x128 32-bit icon and 128x128 8-bit mask
+                error = icns_get_image32_with_mask_from_family(iconFamily,ICNS_128X128_32BIT_DATA,&iconImage);
+
+                if(error) {
+                        fprintf(stderr,"Unable to get 128x128 image icon family!\n");
+                } else {
+                        // Print out some information about the image
+                        printf("width: %d\n",image->imageWidth);
+                        printf("height: %d\n",image->imageHeight);
+                        printf("image channels: %d\n",image->imageChannels);
+                        printf("image pixel depth: %d\n",image->imagePixelDepth);
+                        printf("image data size: %ul\n",image->imageDataSize);
+                }
+
+                // Free the memory used by the image
+                icns_image_free(&iconImage);
+        }
+
+        // Free the memory used by the icon family
+        if(iconFamily != NULL) {
+                free(iconFamily);
+                iconFamily = NULL;
+        }
+
+        return error;
+}
+     __________________________________________________________________
+
+   Part II: Data types and constants
+   Basic Data Types
+
+   To ensure that libicns can be easily ported to various systems, it uses
+   it's own data types, based off standard C library as defined in
+   <stdint.h>:
+
+   stdint.h type libicns type  description
+   uint8_t       icns_bool_t   flag
+   uint8_t       icns_uint8_t  8-bit unsigned int
+   int8_t        icns_sint8_t  8-bit signed int
+   uint16_t      icns_uint16_t 16-bit unsigned int
+   int16_t       icns_sint16_t 16-bit signed int
+   uint32_t      icns_uint32_t 32-bit unsigned int
+   int32_t       icns_sint32_t 32-bit signed int
+   uint64_t      icns_uint64_t 64-bit unsigned int
+   int64_t       icns_sint64_t 64-bit signed int
+   uint8_t       icns_byte_t   8-bit unsigned int
+
+   Please note that if porting to a different system, the bit-widths are
+   important. Icon Family and Element Header Types
+
+   The type and size of an icon family or element:
+typedef struct icns_type_t {
+  int8_t                c[4];
+} icns_type_t;
+
+typedef int32_t         icns_size_t;
+
+   Icon Family and Element Types
+
+   The structure of an icon element:
+typedef struct icns_element_t {
+  icns_type_t           elementType;    /* 'ICN#', 'icl8', etc... */
+  icns_size_t           elementSize;    /* Total size of element  */
+  icns_byte_t           elementData[1]; /* icon image data */
+} icns_element_t;
+
+   The structure of an icon family:
+typedef struct icns_family_t {
+  icns_type_t           resourceType;   /* Always should be 'icns' */
+  icns_size_t           resourceSize;   /* Total size of resource  */
+  icns_element_t        elements[1];    /* icon elements */
+} icns_family_t;
+
+   Icon Image Type
+
+   The structure of an icon image
+typedef struct icns_image_t
+{
+  icns_uint32_t         imageWidth;     // width of image in pixels
+  icns_uint32_t         imageHeight;    // height of image in pixels
+  icns_uint8_t          imageChannels;  // number of channels in data
+  icns_uint16_t         imagePixelDepth;// number of bits-per-pixel
+  icns_uint64_t         imageDataSize;  // bytes = width * height * depth / bits-per-pixel
+  icns_byte_t           *imageData;     // pointer to base address of uncompressed raw image data
+} icns_image_t;
+
+   Icon Type Constants
+
+   The various icon types found within an icon family:
+static const icns_type_t  ICNS_TABLE_OF_CONTENTS         = {{'T','O','C',' '}};
+static const icns_type_t  ICNS_ICON_VERSION              = {{'i','c','n','V'}};
+static const icns_type_t  ICNS_1024x1024_32BIT_ARGB_DATA = {{'i','c','1','0'}};
+static const icns_type_t  ICNS_512x512_32BIT_ARGB_DATA   = {{'i','c','0','9'}};
+static const icns_type_t  ICNS_256x256_32BIT_ARGB_DATA   = {{'i','c','0','8'}};
+static const icns_type_t  ICNS_128X128_32BIT_DATA        = {{'i','t','3','2'}};
+static const icns_type_t  ICNS_128X128_8BIT_MASK         = {{'t','8','m','k'}};
+static const icns_type_t  ICNS_48x48_1BIT_DATA           = {{'i','c','h','#'}};
+static const icns_type_t  ICNS_48x48_4BIT_DATA           = {{'i','c','h','4'}};
+static const icns_type_t  ICNS_48x48_8BIT_DATA           = {{'i','c','h','8'}};
+static const icns_type_t  ICNS_48x48_32BIT_DATA          = {{'i','h','3','2'}};
+static const icns_type_t  ICNS_48x48_1BIT_MASK           = {{'i','c','h','#'}};
+static const icns_type_t  ICNS_48x48_8BIT_MASK           = {{'h','8','m','k'}};
+static const icns_type_t  ICNS_32x32_1BIT_DATA           = {{'I','C','N','#'}};
+static const icns_type_t  ICNS_32x32_4BIT_DATA           = {{'i','c','l','4'}};
+static const icns_type_t  ICNS_32x32_8BIT_DATA           = {{'i','c','l','8'}};
+static const icns_type_t  ICNS_32x32_32BIT_DATA          = {{'i','l','3','2'}};
+static const icns_type_t  ICNS_32x32_1BIT_MASK           = {{'I','C','N','#'}};
+static const icns_type_t  ICNS_32x32_8BIT_MASK           = {{'l','8','m','k'}};
+static const icns_type_t  ICNS_16x16_1BIT_DATA           = {{'i','c','s','#'}};
+static const icns_type_t  ICNS_16x16_4BIT_DATA           = {{'i','c','s','4'}};
+static const icns_type_t  ICNS_16x16_8BIT_DATA           = {{'i','c','s','8'}};
+static const icns_type_t  ICNS_16x16_32BIT_DATA          = {{'i','s','3','2'}};
+static const icns_type_t  ICNS_16x16_1BIT_MASK           = {{'i','c','s','#'}};
+static const icns_type_t  ICNS_16x16_8BIT_MASK           = {{'s','8','m','k'}};
+static const icns_type_t  ICNS_16x12_1BIT_DATA           = {{'i','c','m','#'}};
+static const icns_type_t  ICNS_16x12_4BIT_DATA           = {{'i','c','m','4'}};
+static const icns_type_t  ICNS_16x12_1BIT_MASK           = {{'i','c','m','#'}};
+static const icns_type_t  ICNS_16x12_8BIT_DATA           = {{'i','c','m','8'}};
+static const icns_type_t  ICNS_32x32_1BIT_ICON           = {{'I','C','O','N'}};
+
+   Used for initializing variables or during errors:
+static const icns_type_t  ICNS_NULL_DATA                 = {{ 0 , 0 , 0 , 0 }};
+static const icns_type_t  ICNS_NULL_MASK                 = {{ 0 , 0 , 0 , 0 }};
+
+   File/Resource Type Constants
+
+   The icns family data type:
+static const icns_type_t  ICNS_FAMILY_TYPE               = {{'i','c','n','s'}};
+
+   The Macbinary file header:
+static const icns_type_t  ICNS_MACBINARY_TYPE            = {{'m','B','I','N'}};
+
+   Used for initializing variables or during errors:
+static const icns_type_t  ICNS_NULL_TYPE                 = {{ 0 , 0 , 0 , 0 }};
+
+   Error return codes
+
+   Constants returned by most libicns functions:
+
+   return code constant       value description
+   ICNS_STATUS_OK             0     no error
+   ICNS_STATUS_NULL_PARAM     -1    a null pointer was passed to a function
+   ICNS_STATUS_NO_MEMORY      -2    an error occured allocating memory
+   ICNS_STATUS_INVALID_DATA   -3    invalid data was read or passed to a
+                                    function
+   ICNS_STATUS_IO_READ_ERR    1     an error occured while reading a file
+   ICNS_STATUS_IO_WRITE_ERR   2     an error occured while writing to a file
+   ICNS_STATUS_DATA_NOT_FOUND 3     the necessary or requested data was not
+                                    found
+   ICNS_STATUS_UNSUPPORTED    4     64-bit unsigned int
+     __________________________________________________________________
+
+   Part III: Manipulating the icon family
+   Reading and writing to files
+
+   int icns_write_family_to_file(FILE *dataFile,icns_family_t
+   *iconFamilyIn);
+   int icns_read_family_from_file(FILE *dataFile,icns_family_t
+   **iconFamilyOut);
+   Reading specifically from an HFS+ resource fork (i.e.
+   icon.icns/..namedfork/rsrc)
+
+   int icns_read_family_from_rsrc(FILE *rsrcFile,icns_family_t
+   **iconFamilyOut);
+   Reading and writing to memory
+
+   int icns_export_family_data(icns_family_t *iconFamily,icns_size_t
+   *dataSizeOut,unsigned char **dataPtrOut);
+   int icns_import_family_data(icns_size_t dataSize,unsigned char
+   *data,icns_family_t **iconFamilyOut);
+   Creating an new icon family
+
+   int icns_create_family(icns_family_t **iconFamilyOut);
+   Counting the number of elements in an icon family
+
+   int icns_count_elements_in_family(icns_family_t *iconFamily,
+   icns_sint32_t *elementTotal)
+     __________________________________________________________________
+
+   Part IV: Manipulating elements of the icon family
+   Getting and setting elements of the icon family
+
+   int icns_get_element_from_family(icns_family_t *iconFamily,icns_type_t
+   iconType,icns_element_t **iconElementOut);
+   int icns_set_element_in_family(icns_family_t
+   **iconFamilyRef,icns_element_t *newIconElement);
+   Adding and removing new elements of the icon family
+
+   int icns_remove_element_in_family(icns_family_t
+   **iconFamilyRef,icns_type_t iconType);
+   int icns_add_element_in_family(icns_family_t
+   **iconFamilyRef,icns_element_t *newIconElement);
+   Creating new elements from image data
+
+   int icns_new_element_from_image(icns_image_t *imageIn,icns_type_t
+   iconType,icns_element_t **iconElementOut);
+   int icns_new_element_from_mask(icns_image_t *imageIn,icns_type_t
+   iconType,icns_element_t **iconElementOut);
+   Updating existing elements with image data
+
+   int icns_update_element_with_image(icns_image_t *imageIn,icns_element_t
+   **iconElement);
+   int icns_update_element_with_mask(icns_image_t *imageIn,icns_element_t
+   **iconElement);
+     __________________________________________________________________
+
+   Part V: Manipulating images of the icon family and icon elements
+   Fast retrival of a complete icon image from an icon family
+
+   int icns_get_image32_with_mask_from_family(icns_family_t
+   *iconFamily,icns_type_t sourceType,icns_image_t *imageOut);
+   Retriving a image or mask from an icon element
+
+   int icns_get_image_from_element(icns_element_t
+   *iconElement,icns_image_t *imageOut);
+   int icns_get_mask_from_element(icns_element_t *iconElement,icns_image_t
+   *imageOut);
+   Initializing an empty image - ready for data
+
+   int icns_init_image_for_type(icns_type_t iconType,icns_image_t
+   *imageOut);
+   int icns_init_image(unsigned int iconWidth,unsigned int
+   iconHeight,unsigned int iconChannels,unsigned int
+   iconPixelDepth,icns_image_t *imageOut);
+   Freeing the memory allocated by an icon image
+
+   int icns_free_image(icns_image_t *imageIn);
+     __________________________________________________________________
+
+   Part VI: Decoding and encoding image data for certian formats
+   Decoding and encoding 3 channel RLE data
+
+   int icns_decode_rle24_data(icns_size_t dataSizeIn, icns_byte_t
+   *dataPtrIn,icns_size_t *dataSizeOut, icns_byte_t **dataPtrOut);
+   int icns_encode_rle24_data(icns_size_t dataSizeIn, icns_byte_t
+   *dataPtrIn,icns_size_t *dataSizeOut, icns_byte_t **dataPtrOut);
+   Decoding and encoding jpeg2000 image data
+
+   int icns_jp2_to_image(icns_size_t dataSize, icns_byte_t *dataPtr,
+   icns_image_t **imageOut);
+   int icns_image_to_jp2(icns_image_t *image, icns_size_t *dataSizeOut,
+   icns_byte_t **dataPtrOut);
+     __________________________________________________________________
+
+   Part VII: Misc utility functions
+   Finding the correct mask type with an icon type
+
+   icns_type_t icns_get_mask_type_for_icon_type(icns_type_t);
+   Enable or disable the printing of error messages during runtime
+
+   void icns_set_print_errors(icns_bool_t shouldPrint);
+   Comparing icns_type_t data
+
+   icns_bool_t icns_types_equal(icns_type_t typeA,icns_type_t typeB);
+   icns_bool_t icns_types_not_equal(icns_type_t typeA,icns_type_t typeB);

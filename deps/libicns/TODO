@@ -1,0 +1,10 @@
+TODO
+
+1) Make various routines more efficient
+2) Make write routines sort icons in descending size order
+3) Add routines to stream-read an icns: (rather then entire glob as now)
+   a) Add routine to determine sizes of icns in file
+   b) Add routine to read a single icns from a file
+3) Update API documentation, in txt and html format
+4) Clarify in API the input/output for the various image functions
+5) Remove usage of global variable to allow thread-safe usage of library

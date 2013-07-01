@@ -24,7 +24,7 @@
 @nuiColorDecoration WindowBackground
 {
   ShapeMode: FillShape;
-  FillColor: rgb(192, 192, 192);
+  FillColor: #dce1e7;
 }
 
 @nuiColorDecoration WhiteBackground

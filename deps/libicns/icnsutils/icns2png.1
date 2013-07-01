@@ -1,0 +1,46 @@
+.TH ICNS2PNG "1" "March 2008" "icns2png 1.5" "User Commands"
+.SH NAME
+icns2png \- convert Mac OS icns files to png images
+.SH SYNOPSIS
+.B icns2png
+[\fI-x|-l\fR] [\fIoptions\fR] [\fIfile \fR... ]
+.SH DESCRIPTION
+icns2png extracts images from mac .icns files, and exports them to png format.
+.SH OPTIONS
+.TP
+\fB\-l\fR, \fB\-\-list\fR
+List the contents of one or more icns images
+.HP
+\fB\-x\fR, \fB\-\-extract\fR Extract one or more icons to png images
+.TP
+\fB\-o\fR, \fB\-\-output\fR
+Where to place extracted files. If not specified, icons will be
+extracted to the same path as the source file.
+.TP
+\fB\-d\fR, \fB\-\-depth\fR
+Sets the pixel depth of the icons to extract. (1,4,8,32)
+.TP
+\fB\-s\fR, \fB\-\-size\fR
+Sets the width and height of the icons to extract. (16,48,etc)
+Sizes 16x12, 16x16, 32x32, 48x48, 128x128, etc. are also valid.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Displays this help message.
+.HP
+\fB\-v\fR, \fB\-\-version\fR Displays the version information
+.SH EXAMPLES
+icns2png \fB\-x\fR anicon.icns            # Extract all icon found in anicon.icns
+.br
+icns2png \fB\-x\fR \fB\-s\fR 48 anicon.icns      # Extract all 48x48 32\-bit icons
+.br
+icns2png \fB\-x\fR \fB\-s\fR 32 \fB\-d\fR 1 anicon.icns # Extract all 32x32 1\-bit icons
+.br
+icns2png \fB\-l\fR anicon.icns            # Lists the icons contained in anicon.icns
+.SH AUTHOR
+Written by Mathew Eis
+.SH COPYRIGHT
+Copyright \(co 2001-2008 Mathew Eis
+.br
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.br
