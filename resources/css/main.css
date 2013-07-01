@@ -33,6 +33,16 @@
   FillColor: rgb(255, 255, 255);
 }
 
+@nuiColorDecoration WhiteBackgroundStroke
+{
+  ShapeMode: StrokeAndFill;
+  FillColor: rgb(255, 255, 255);
+  StrokeColor: rgb(0, 0, 0);
+  StrokeSize: 0.5;
+  ClientRect: "{1 1 1 1}";
+}
+
+
 +nuiLabel Label { Font: Default; }
 
 #include "HomeView.css"

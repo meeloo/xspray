@@ -52,7 +52,7 @@
   +nuiScrollView
   {
     Borders: 12;
-    Decoration: WhiteBackground;
+    Decoration: WhiteBackgroundStroke;
     Layout = [left, inspector] / [apps, bottom];
     +nuiList AppList
     {
