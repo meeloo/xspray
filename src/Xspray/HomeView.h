@@ -22,5 +22,12 @@ private:
   nuiSlotsSink mSlotSink;
 
   nuiButton* mpLaunchApplication;
+  nuiButton* mpAddApplication;
+  nuiButton* mpRemoveApplication;
+
   void OnLaunch(const nuiEvent& rEvent);
+  void AddApplication(const nuiEvent& rEvent);
+  void RemoveApplication(const nuiEvent& rEvent);
+  void OnApplicationChosen(const ChooseFileParams& params);
+
 };

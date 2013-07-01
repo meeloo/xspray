@@ -15,6 +15,7 @@
 #include <LLDB/SBTypeCategory.h>
 
 #include "iOSRemoteDebug.h"
+#include "NativeFileDialog.h"
 
 namespace Xspray
 {

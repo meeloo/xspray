@@ -17,5 +17,22 @@ enum ChooseFileMode
   eSaveFile
 };
 
-nglPath ChooseFileDialog(nglWindow* pWindow, const nglPath& rDefaultDirectory, const nglString& rDefaultName, std::vector<nglString>& types, ChooseFileMode mode);
+class ChooseFileParams
+{
+public:
+  ChooseFileParams();
+
+  // Inputs:
+  nglPath mPath;
+  std::vector<nglString> mTypes;
+  ChooseFileMode mMode;
+
+  // Outputs:
+  nuiFastDelegate1<const ChooseFileParams&> mCompletionDelegate;
+  std::vector<nglString> mFiles;
+  bool mCancelled;
+
+};
+
+void ChooseFileDialog(nglWindow* pWindow, const ChooseFileParams& rParams);
 

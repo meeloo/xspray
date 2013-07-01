@@ -34,14 +34,14 @@
     Expand: ShinkAndGrow;
     Layout = [left, right] / [icons, apps];
 
-    +nuiButton AddApplication
+    +nuiButton RemoveApplication
     {
       EnableDecoration: false;
       FocusVisible: false;
       +fontawesome_minus_sign;
     }
 
-    +nuiButton RemoveApplication
+    +nuiButton AddApplication
     {
       EnableDecoration: false;
       FocusVisible: false;
