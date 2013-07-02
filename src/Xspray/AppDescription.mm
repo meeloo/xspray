@@ -203,43 +203,23 @@ bool ConvertNSImage(NSImage* image, nglImageInfo& rInfo)
   rInfo.mHeight = h;
   rInfo.mWidth = w;
   rInfo.mpBuffer = (char*)data;
-  switch (rInfo.mBitDepth)
+  NGL_ASSERT(rInfo.mBitDepth == 32);
+  if ([bmp bitmapFormat] & NSAlphaFirstBitmapFormat)
   {
-    case 8:
-      rInfo.mPixelFormat = nglImagePixelFormat::eImagePixelLum;
-      break;
-
-    case 16:
-      rInfo.mPixelFormat = nglImagePixelFormat::eImagePixelRGB;
-      break;
-
-    case 24:
-      rInfo.mPixelFormat = nglImagePixelFormat::eImagePixelRGB;
-      break;
-
-    case 32:
-      if ([bmp bitmapFormat] & NSAlphaFirstBitmapFormat)
+    for (int y = 0; y < h; y++)
+    {
+      char* data = rInfo.mpBuffer + rInfo.mBytesPerLine * y;
+      for (int x = 0; x < w; x++)
       {
-
+        int o = 4 * x;
+        data[o + 0] = data[o + 3];
+        data[o + 1] = data[o + 2];
+        data[o + 2] = data[o + 1];
+        data[o + 3] = data[o + 0];
       }
-      else if ([bmp bitmapFormat] & NSAlphaFirstBitmapFormat)
-      {
-        for (int y = 0; y < h; y++)
-        {
-          char* data = rInfo.mpBuffer + rInfo.mBytesPerLine * y;
-          for (int x = 0; x < w; x++)
-          {
-            int o = 4 * x;
-            data[o + 0] = data[o + 3];
-            data[o + 1] = data[o + 2];
-            data[o + 2] = data[o + 1];
-            data[o + 3] = data[o + 0];
-          }
-        }
-      }
-      rInfo.mPixelFormat = nglImagePixelFormat::eImagePixelRGBA;
-      break;
+    }
   }
+  rInfo.mPixelFormat = nglImagePixelFormat::eImagePixelRGBA;
 
   return true;
 }
