@@ -19,6 +19,7 @@
 
 namespace Xspray
 {
+#include "AppDescription.h"
 #include "Breakpoint.h"
 #include "ModuleTree.h"
 #include "SourceView.h"
@@ -27,6 +28,5 @@ namespace Xspray
 #include "DebuggerContext.h"
 #include "HomeView.h"
 #include "DebugView.h"
-#include "AppDescription.h"
 }
 

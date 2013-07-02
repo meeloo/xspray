@@ -21,6 +21,7 @@ HomeView::HomeView()
   mpLaunchApplication = NULL;
   mpAddApplication = NULL;
   mpRemoveApplication = NULL;
+  mpApplicationList = NULL;
 }
 
 HomeView::~HomeView()
@@ -33,7 +34,9 @@ void HomeView::Built()
   mpLaunchApplication = (nuiButton*)SearchForChild("LaunchApplication");
   mpAddApplication = (nuiButton*)SearchForChild("AddApplication");
   mpRemoveApplication = (nuiButton*)SearchForChild("RemoveApplication");
+  mpApplicationList = (nuiList*)SearchForChild("AppList");
   NGL_ASSERT(mpLaunchApplication);
+  mpIcon = (nuiImage*)SearchForChild("Icon");
 
   mEventSink.Connect(mpLaunchApplication->Activated, &HomeView::OnLaunch);
   mEventSink.Connect(mpAddApplication->Activated, &HomeView::AddApplication);
@@ -60,10 +63,33 @@ void HomeView::AddApplication(const nuiEvent& rEvent)
 
 void HomeView::OnApplicationChosen(const ChooseFileParams& params)
 {
-  for (uint32 i = 0; i < params.mFiles.size(); i++)
+  if (params.mFiles.empty())
+    return;
+
+  int index = AppDescription::AddApp(params.mFiles[0]);
+  if (index >= 0)
   {
-    NGL_OUT("File chosen: %s\n", params.mFiles[i].GetChars());
+    AppDescription* pApp = AppDescription::GetApp(index);
+    if (pApp->IsValid())
+    {
+      AddApplication(pApp);
+      return;
+    }
+
+    AppDescription::RemoveApp(index);
   }
+}
+
+void HomeView::AddApplication(AppDescription* pApp)
+{
+  nuiWidget* pLine = nuiBuilder::Get().CreateWidget("ListLine");
+  nuiLabel* pLabel = (nuiLabel*)pLine->SearchForChild("Title", true);
+  nuiImage* pIcon = (nuiImage*)pLine->SearchForChild("Icon", true);
+  pLabel->SetText(pApp->GetName());
+  pIcon->SetTexture(pApp->GetIcon());
+  mpApplicationList->AddChild(pLine);
+
+  mpIcon->SetTexture(pApp->GetIcon());
 }
 
 void HomeView::RemoveApplication(const nuiEvent& rEvent)

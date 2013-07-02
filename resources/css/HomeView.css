@@ -6,6 +6,19 @@
   +Label { Text: LineContents; }
 }
 
++nuiHBox ListLine
+{
+  +nuiImage Icon
+  {
+    UserWidth: 22;
+    UserHeight: 22;
+    Position: Fill;
+    FillRule: Center;
+  }
+  +Label Title { Text: LineContents; }
+}
+
+
 +HomeView Home
 {
   Decoration: WindowBackground;
@@ -76,6 +89,12 @@
           +fontawesome_signin;
         }
       }
+      
+      +nuiImage Icon
+      {
+        Position: Center;
+      }
+      
       +InspectorLine( LineTitle: "Name:", LineContents: "bleh1" );
       +InspectorLine( LineTitle: "Path:", LineContents: "bleh2" );
       +InspectorLine( LineTitle: "Command line:", LineContents: "bleh3" );

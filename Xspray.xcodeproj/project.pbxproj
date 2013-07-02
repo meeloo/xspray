@@ -31,228 +31,8 @@
 		E53D0D0517750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */; };
 		E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53D0D07177585F50082B86F /* MobileDevice.framework */; };
 		E53D0D0A1775869A0082B86F /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53D0D07177585F50082B86F /* MobileDevice.framework */; };
-		E54FABE317816B5400E09874 /* AppDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.cpp */; };
-		E54FABE417816B5400E09874 /* AppDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.cpp */; };
-		E54FAC88178175E200E09874 /* jas_cm.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABF9178175E200E09874 /* jas_cm.c */; };
-		E54FAC89178175E200E09874 /* jas_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFA178175E200E09874 /* jas_debug.c */; };
-		E54FAC8A178175E200E09874 /* jas_getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFB178175E200E09874 /* jas_getopt.c */; };
-		E54FAC8B178175E200E09874 /* jas_icc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFC178175E200E09874 /* jas_icc.c */; };
-		E54FAC8C178175E200E09874 /* jas_iccdata.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFD178175E200E09874 /* jas_iccdata.c */; };
-		E54FAC8D178175E200E09874 /* jas_image.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFE178175E200E09874 /* jas_image.c */; };
-		E54FAC8E178175E200E09874 /* jas_init.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFF178175E200E09874 /* jas_init.c */; };
-		E54FAC8F178175E200E09874 /* jas_malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC00178175E200E09874 /* jas_malloc.c */; };
-		E54FAC90178175E200E09874 /* jas_seq.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC01178175E200E09874 /* jas_seq.c */; };
-		E54FAC91178175E200E09874 /* jas_stream.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC02178175E200E09874 /* jas_stream.c */; };
-		E54FAC92178175E200E09874 /* jas_string.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC03178175E200E09874 /* jas_string.c */; };
-		E54FAC93178175E200E09874 /* jas_tmr.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC04178175E200E09874 /* jas_tmr.c */; };
-		E54FAC94178175E200E09874 /* jas_tvp.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC05178175E200E09874 /* jas_tvp.c */; };
-		E54FAC95178175E200E09874 /* jas_version.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC06178175E200E09874 /* jas_version.c */; };
-		E54FAC96178175E200E09874 /* bmp_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC0A178175E200E09874 /* bmp_cod.c */; };
-		E54FAC97178175E200E09874 /* bmp_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC0B178175E200E09874 /* bmp_cod.h */; };
-		E54FAC98178175E200E09874 /* bmp_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC0C178175E200E09874 /* bmp_dec.c */; };
-		E54FAC99178175E200E09874 /* bmp_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC0D178175E200E09874 /* bmp_enc.c */; };
-		E54FAC9A178175E200E09874 /* bmp_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC0E178175E200E09874 /* bmp_enc.h */; };
-		E54FAC9B178175E200E09874 /* jas_cm.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC13178175E200E09874 /* jas_cm.h */; };
-		E54FAC9C178175E200E09874 /* jas_config.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC14178175E200E09874 /* jas_config.h */; };
-		E54FAC9D178175E200E09874 /* jas_config2.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC16178175E200E09874 /* jas_config2.h */; };
-		E54FAC9E178175E200E09874 /* jas_debug.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC17178175E200E09874 /* jas_debug.h */; };
-		E54FAC9F178175E200E09874 /* jas_fix.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC18178175E200E09874 /* jas_fix.h */; };
-		E54FACA0178175E200E09874 /* jas_getopt.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC19178175E200E09874 /* jas_getopt.h */; };
-		E54FACA1178175E200E09874 /* jas_icc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1A178175E200E09874 /* jas_icc.h */; };
-		E54FACA2178175E200E09874 /* jas_image.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1B178175E200E09874 /* jas_image.h */; };
-		E54FACA3178175E200E09874 /* jas_init.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1C178175E200E09874 /* jas_init.h */; };
-		E54FACA4178175E200E09874 /* jas_malloc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1D178175E200E09874 /* jas_malloc.h */; };
-		E54FACA5178175E200E09874 /* jas_math.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1E178175E200E09874 /* jas_math.h */; };
-		E54FACA6178175E200E09874 /* jas_seq.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1F178175E200E09874 /* jas_seq.h */; };
-		E54FACA7178175E200E09874 /* jas_stream.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC20178175E200E09874 /* jas_stream.h */; };
-		E54FACA8178175E200E09874 /* jas_string.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC21178175E200E09874 /* jas_string.h */; };
-		E54FACA9178175E200E09874 /* jas_tmr.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC22178175E200E09874 /* jas_tmr.h */; };
-		E54FACAA178175E200E09874 /* jas_tvp.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC23178175E200E09874 /* jas_tvp.h */; };
-		E54FACAB178175E200E09874 /* jas_types.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC24178175E200E09874 /* jas_types.h */; };
-		E54FACAC178175E200E09874 /* jas_version.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC25178175E200E09874 /* jas_version.h */; };
-		E54FACAD178175E200E09874 /* jasper.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC26178175E200E09874 /* jasper.h */; };
-		E54FACAE178175E200E09874 /* jp2_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC2C178175E200E09874 /* jp2_cod.c */; };
-		E54FACAF178175E200E09874 /* jp2_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC2D178175E200E09874 /* jp2_cod.h */; };
-		E54FACB0178175E200E09874 /* jp2_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC2E178175E200E09874 /* jp2_dec.c */; };
-		E54FACB1178175E200E09874 /* jp2_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC2F178175E200E09874 /* jp2_dec.h */; };
-		E54FACB2178175E200E09874 /* jp2_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC30178175E200E09874 /* jp2_enc.c */; };
-		E54FACB3178175E200E09874 /* jpc_bs.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC34178175E200E09874 /* jpc_bs.c */; };
-		E54FACB4178175E200E09874 /* jpc_bs.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC35178175E200E09874 /* jpc_bs.h */; };
-		E54FACB5178175E200E09874 /* jpc_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC36178175E200E09874 /* jpc_cod.h */; };
-		E54FACB6178175E200E09874 /* jpc_cs.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC37178175E200E09874 /* jpc_cs.c */; };
-		E54FACB7178175E200E09874 /* jpc_cs.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC38178175E200E09874 /* jpc_cs.h */; };
-		E54FACB8178175E200E09874 /* jpc_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC39178175E200E09874 /* jpc_dec.c */; };
-		E54FACB9178175E200E09874 /* jpc_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3A178175E200E09874 /* jpc_dec.h */; };
-		E54FACBA178175E200E09874 /* jpc_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC3B178175E200E09874 /* jpc_enc.c */; };
-		E54FACBB178175E200E09874 /* jpc_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3C178175E200E09874 /* jpc_enc.h */; };
-		E54FACBC178175E200E09874 /* jpc_fix.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3D178175E200E09874 /* jpc_fix.h */; };
-		E54FACBD178175E200E09874 /* jpc_flt.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3E178175E200E09874 /* jpc_flt.h */; };
-		E54FACBE178175E200E09874 /* jpc_math.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC3F178175E200E09874 /* jpc_math.c */; };
-		E54FACBF178175E200E09874 /* jpc_math.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC40178175E200E09874 /* jpc_math.h */; };
-		E54FACC0178175E200E09874 /* jpc_mct.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC41178175E200E09874 /* jpc_mct.c */; };
-		E54FACC1178175E200E09874 /* jpc_mct.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC42178175E200E09874 /* jpc_mct.h */; };
-		E54FACC2178175E200E09874 /* jpc_mqcod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC43178175E200E09874 /* jpc_mqcod.c */; };
-		E54FACC3178175E200E09874 /* jpc_mqcod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC44178175E200E09874 /* jpc_mqcod.h */; };
-		E54FACC4178175E200E09874 /* jpc_mqdec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC45178175E200E09874 /* jpc_mqdec.c */; };
-		E54FACC5178175E200E09874 /* jpc_mqdec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC46178175E200E09874 /* jpc_mqdec.h */; };
-		E54FACC6178175E200E09874 /* jpc_mqenc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC47178175E200E09874 /* jpc_mqenc.c */; };
-		E54FACC7178175E200E09874 /* jpc_mqenc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC48178175E200E09874 /* jpc_mqenc.h */; };
-		E54FACC8178175E200E09874 /* jpc_qmfb.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC49178175E200E09874 /* jpc_qmfb.c */; };
-		E54FACC9178175E200E09874 /* jpc_qmfb.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC4A178175E200E09874 /* jpc_qmfb.h */; };
-		E54FACCA178175E200E09874 /* jpc_t1cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC4B178175E200E09874 /* jpc_t1cod.c */; };
-		E54FACCB178175E200E09874 /* jpc_t1cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC4C178175E200E09874 /* jpc_t1cod.h */; };
-		E54FACCC178175E200E09874 /* jpc_t1dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC4D178175E200E09874 /* jpc_t1dec.c */; };
-		E54FACCD178175E200E09874 /* jpc_t1dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC4E178175E200E09874 /* jpc_t1dec.h */; };
-		E54FACCE178175E200E09874 /* jpc_t1enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC4F178175E200E09874 /* jpc_t1enc.c */; };
-		E54FACCF178175E200E09874 /* jpc_t1enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC50178175E200E09874 /* jpc_t1enc.h */; };
-		E54FACD0178175E200E09874 /* jpc_t2cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC51178175E200E09874 /* jpc_t2cod.c */; };
-		E54FACD1178175E200E09874 /* jpc_t2cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC52178175E200E09874 /* jpc_t2cod.h */; };
-		E54FACD2178175E200E09874 /* jpc_t2dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC53178175E200E09874 /* jpc_t2dec.c */; };
-		E54FACD3178175E200E09874 /* jpc_t2dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC54178175E200E09874 /* jpc_t2dec.h */; };
-		E54FACD4178175E200E09874 /* jpc_t2enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC55178175E200E09874 /* jpc_t2enc.c */; };
-		E54FACD5178175E200E09874 /* jpc_t2enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC56178175E200E09874 /* jpc_t2enc.h */; };
-		E54FACD6178175E200E09874 /* jpc_tagtree.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC57178175E200E09874 /* jpc_tagtree.c */; };
-		E54FACD7178175E200E09874 /* jpc_tagtree.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC58178175E200E09874 /* jpc_tagtree.h */; };
-		E54FACD8178175E200E09874 /* jpc_tsfb.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC59178175E200E09874 /* jpc_tsfb.c */; };
-		E54FACD9178175E200E09874 /* jpc_tsfb.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC5A178175E200E09874 /* jpc_tsfb.h */; };
-		E54FACDA178175E200E09874 /* jpc_util.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC5B178175E200E09874 /* jpc_util.c */; };
-		E54FACDB178175E200E09874 /* jpc_util.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC5C178175E200E09874 /* jpc_util.h */; };
-		E54FACDC178175E200E09874 /* jpg_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC60178175E200E09874 /* jpg_cod.h */; };
-		E54FACDD178175E200E09874 /* jpg_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC61178175E200E09874 /* jpg_dec.c */; };
-		E54FACDE178175E200E09874 /* jpg_dummy.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC62178175E200E09874 /* jpg_dummy.c */; };
-		E54FACDF178175E200E09874 /* jpg_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC63178175E200E09874 /* jpg_enc.c */; };
-		E54FACE0178175E200E09874 /* jpg_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC64178175E200E09874 /* jpg_enc.h */; };
-		E54FACE1178175E200E09874 /* jpg_jpeglib.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC65178175E200E09874 /* jpg_jpeglib.h */; };
-		E54FACE2178175E200E09874 /* jpg_val.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC66178175E200E09874 /* jpg_val.c */; };
-		E54FACE3178175E200E09874 /* mif_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC6D178175E200E09874 /* mif_cod.c */; };
-		E54FACE4178175E200E09874 /* mif_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC6E178175E200E09874 /* mif_cod.h */; };
-		E54FACE5178175E200E09874 /* pgx_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC73178175E200E09874 /* pgx_cod.c */; };
-		E54FACE6178175E200E09874 /* pgx_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC74178175E200E09874 /* pgx_cod.h */; };
-		E54FACE7178175E200E09874 /* pgx_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC75178175E200E09874 /* pgx_dec.c */; };
-		E54FACE8178175E200E09874 /* pgx_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC76178175E200E09874 /* pgx_enc.c */; };
-		E54FACE9178175E200E09874 /* pgx_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC77178175E200E09874 /* pgx_enc.h */; };
-		E54FACEA178175E200E09874 /* pnm_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC7B178175E200E09874 /* pnm_cod.c */; };
-		E54FACEB178175E200E09874 /* pnm_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC7C178175E200E09874 /* pnm_cod.h */; };
-		E54FACEC178175E200E09874 /* pnm_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC7D178175E200E09874 /* pnm_dec.c */; };
-		E54FACED178175E200E09874 /* pnm_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC7E178175E200E09874 /* pnm_enc.c */; };
-		E54FACEE178175E200E09874 /* pnm_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC7F178175E200E09874 /* pnm_enc.h */; };
-		E54FACEF178175E200E09874 /* ras_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC83178175E200E09874 /* ras_cod.c */; };
-		E54FACF0178175E200E09874 /* ras_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC84178175E200E09874 /* ras_cod.h */; };
-		E54FACF1178175E200E09874 /* ras_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC85178175E200E09874 /* ras_dec.c */; };
-		E54FACF2178175E200E09874 /* ras_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC86178175E200E09874 /* ras_enc.c */; };
-		E54FACF3178175E200E09874 /* ras_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC87178175E200E09874 /* ras_enc.h */; };
-		E54FAD6A1781774000E09874 /* jas_cm.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABF9178175E200E09874 /* jas_cm.c */; };
-		E54FAD6B1781774000E09874 /* jas_debug.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFA178175E200E09874 /* jas_debug.c */; };
-		E54FAD6C1781774000E09874 /* jas_getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFB178175E200E09874 /* jas_getopt.c */; };
-		E54FAD6D1781774000E09874 /* jas_icc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFC178175E200E09874 /* jas_icc.c */; };
-		E54FAD6E1781774000E09874 /* jas_iccdata.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFD178175E200E09874 /* jas_iccdata.c */; };
-		E54FAD6F1781774000E09874 /* jas_image.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFE178175E200E09874 /* jas_image.c */; };
-		E54FAD701781774000E09874 /* jas_init.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FABFF178175E200E09874 /* jas_init.c */; };
-		E54FAD711781774000E09874 /* jas_malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC00178175E200E09874 /* jas_malloc.c */; };
-		E54FAD721781774000E09874 /* jas_seq.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC01178175E200E09874 /* jas_seq.c */; };
-		E54FAD731781774000E09874 /* jas_stream.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC02178175E200E09874 /* jas_stream.c */; };
-		E54FAD741781774000E09874 /* jas_string.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC03178175E200E09874 /* jas_string.c */; };
-		E54FAD751781774000E09874 /* jas_tmr.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC04178175E200E09874 /* jas_tmr.c */; };
-		E54FAD761781774000E09874 /* jas_tvp.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC05178175E200E09874 /* jas_tvp.c */; };
-		E54FAD771781774000E09874 /* jas_version.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC06178175E200E09874 /* jas_version.c */; };
-		E54FAD781781774000E09874 /* bmp_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC0A178175E200E09874 /* bmp_cod.c */; };
-		E54FAD791781774000E09874 /* bmp_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC0C178175E200E09874 /* bmp_dec.c */; };
-		E54FAD7A1781774000E09874 /* bmp_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC0D178175E200E09874 /* bmp_enc.c */; };
-		E54FAD7B1781774000E09874 /* jp2_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC2C178175E200E09874 /* jp2_cod.c */; };
-		E54FAD7C1781774000E09874 /* jp2_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC2E178175E200E09874 /* jp2_dec.c */; };
-		E54FAD7D1781774000E09874 /* jp2_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC30178175E200E09874 /* jp2_enc.c */; };
-		E54FAD7E1781774000E09874 /* jpc_bs.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC34178175E200E09874 /* jpc_bs.c */; };
-		E54FAD7F1781774000E09874 /* jpc_cs.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC37178175E200E09874 /* jpc_cs.c */; };
-		E54FAD801781774000E09874 /* jpc_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC39178175E200E09874 /* jpc_dec.c */; };
-		E54FAD811781774000E09874 /* jpc_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC3B178175E200E09874 /* jpc_enc.c */; };
-		E54FAD821781774000E09874 /* jpc_math.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC3F178175E200E09874 /* jpc_math.c */; };
-		E54FAD831781774000E09874 /* jpc_mct.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC41178175E200E09874 /* jpc_mct.c */; };
-		E54FAD841781774000E09874 /* jpc_mqcod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC43178175E200E09874 /* jpc_mqcod.c */; };
-		E54FAD851781774000E09874 /* jpc_mqdec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC45178175E200E09874 /* jpc_mqdec.c */; };
-		E54FAD861781774000E09874 /* jpc_mqenc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC47178175E200E09874 /* jpc_mqenc.c */; };
-		E54FAD871781774000E09874 /* jpc_qmfb.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC49178175E200E09874 /* jpc_qmfb.c */; };
-		E54FAD881781774000E09874 /* jpc_t1cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC4B178175E200E09874 /* jpc_t1cod.c */; };
-		E54FAD891781774000E09874 /* jpc_t1dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC4D178175E200E09874 /* jpc_t1dec.c */; };
-		E54FAD8A1781774000E09874 /* jpc_t1enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC4F178175E200E09874 /* jpc_t1enc.c */; };
-		E54FAD8B1781774000E09874 /* jpc_t2cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC51178175E200E09874 /* jpc_t2cod.c */; };
-		E54FAD8C1781774000E09874 /* jpc_t2dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC53178175E200E09874 /* jpc_t2dec.c */; };
-		E54FAD8D1781774000E09874 /* jpc_t2enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC55178175E200E09874 /* jpc_t2enc.c */; };
-		E54FAD8E1781774000E09874 /* jpc_tagtree.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC57178175E200E09874 /* jpc_tagtree.c */; };
-		E54FAD8F1781774000E09874 /* jpc_tsfb.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC59178175E200E09874 /* jpc_tsfb.c */; };
-		E54FAD901781774000E09874 /* jpc_util.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC5B178175E200E09874 /* jpc_util.c */; };
-		E54FAD911781774000E09874 /* jpg_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC61178175E200E09874 /* jpg_dec.c */; };
-		E54FAD921781774000E09874 /* jpg_dummy.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC62178175E200E09874 /* jpg_dummy.c */; };
-		E54FAD931781774000E09874 /* jpg_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC63178175E200E09874 /* jpg_enc.c */; };
-		E54FAD941781774000E09874 /* jpg_val.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC66178175E200E09874 /* jpg_val.c */; };
-		E54FAD951781774000E09874 /* mif_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC6D178175E200E09874 /* mif_cod.c */; };
-		E54FAD961781774000E09874 /* pgx_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC73178175E200E09874 /* pgx_cod.c */; };
-		E54FAD971781774000E09874 /* pgx_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC75178175E200E09874 /* pgx_dec.c */; };
-		E54FAD981781774000E09874 /* pgx_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC76178175E200E09874 /* pgx_enc.c */; };
-		E54FAD991781774000E09874 /* pnm_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC7B178175E200E09874 /* pnm_cod.c */; };
-		E54FAD9A1781774000E09874 /* pnm_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC7D178175E200E09874 /* pnm_dec.c */; };
-		E54FAD9B1781774000E09874 /* pnm_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC7E178175E200E09874 /* pnm_enc.c */; };
-		E54FAD9C1781774000E09874 /* ras_cod.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC83178175E200E09874 /* ras_cod.c */; };
-		E54FAD9D1781774000E09874 /* ras_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC85178175E200E09874 /* ras_dec.c */; };
-		E54FAD9E1781774000E09874 /* ras_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = E54FAC86178175E200E09874 /* ras_enc.c */; };
-		E54FADA11781774000E09874 /* bmp_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC0B178175E200E09874 /* bmp_cod.h */; };
-		E54FADA21781774000E09874 /* bmp_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC0E178175E200E09874 /* bmp_enc.h */; };
-		E54FADA31781774000E09874 /* jas_cm.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC13178175E200E09874 /* jas_cm.h */; };
-		E54FADA41781774000E09874 /* jas_config.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC14178175E200E09874 /* jas_config.h */; };
-		E54FADA51781774000E09874 /* jas_config2.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC16178175E200E09874 /* jas_config2.h */; };
-		E54FADA61781774000E09874 /* jas_debug.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC17178175E200E09874 /* jas_debug.h */; };
-		E54FADA71781774000E09874 /* jas_fix.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC18178175E200E09874 /* jas_fix.h */; };
-		E54FADA81781774000E09874 /* jas_getopt.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC19178175E200E09874 /* jas_getopt.h */; };
-		E54FADA91781774000E09874 /* jas_icc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1A178175E200E09874 /* jas_icc.h */; };
-		E54FADAA1781774000E09874 /* jas_image.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1B178175E200E09874 /* jas_image.h */; };
-		E54FADAB1781774000E09874 /* jas_init.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1C178175E200E09874 /* jas_init.h */; };
-		E54FADAC1781774000E09874 /* jas_malloc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1D178175E200E09874 /* jas_malloc.h */; };
-		E54FADAD1781774000E09874 /* jas_math.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1E178175E200E09874 /* jas_math.h */; };
-		E54FADAE1781774000E09874 /* jas_seq.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC1F178175E200E09874 /* jas_seq.h */; };
-		E54FADAF1781774000E09874 /* jas_stream.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC20178175E200E09874 /* jas_stream.h */; };
-		E54FADB01781774000E09874 /* jas_string.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC21178175E200E09874 /* jas_string.h */; };
-		E54FADB11781774000E09874 /* jas_tmr.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC22178175E200E09874 /* jas_tmr.h */; };
-		E54FADB21781774000E09874 /* jas_tvp.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC23178175E200E09874 /* jas_tvp.h */; };
-		E54FADB31781774000E09874 /* jas_types.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC24178175E200E09874 /* jas_types.h */; };
-		E54FADB41781774000E09874 /* jas_version.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC25178175E200E09874 /* jas_version.h */; };
-		E54FADB51781774000E09874 /* jasper.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC26178175E200E09874 /* jasper.h */; };
-		E54FADB61781774000E09874 /* jp2_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC2D178175E200E09874 /* jp2_cod.h */; };
-		E54FADB71781774000E09874 /* jp2_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC2F178175E200E09874 /* jp2_dec.h */; };
-		E54FADB81781774000E09874 /* jpc_bs.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC35178175E200E09874 /* jpc_bs.h */; };
-		E54FADB91781774000E09874 /* jpc_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC36178175E200E09874 /* jpc_cod.h */; };
-		E54FADBA1781774000E09874 /* jpc_cs.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC38178175E200E09874 /* jpc_cs.h */; };
-		E54FADBB1781774000E09874 /* jpc_dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3A178175E200E09874 /* jpc_dec.h */; };
-		E54FADBC1781774000E09874 /* jpc_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3C178175E200E09874 /* jpc_enc.h */; };
-		E54FADBD1781774000E09874 /* jpc_fix.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3D178175E200E09874 /* jpc_fix.h */; };
-		E54FADBE1781774000E09874 /* jpc_flt.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC3E178175E200E09874 /* jpc_flt.h */; };
-		E54FADBF1781774000E09874 /* jpc_math.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC40178175E200E09874 /* jpc_math.h */; };
-		E54FADC01781774000E09874 /* jpc_mct.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC42178175E200E09874 /* jpc_mct.h */; };
-		E54FADC11781774000E09874 /* jpc_mqcod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC44178175E200E09874 /* jpc_mqcod.h */; };
-		E54FADC21781774000E09874 /* jpc_mqdec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC46178175E200E09874 /* jpc_mqdec.h */; };
-		E54FADC31781774000E09874 /* jpc_mqenc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC48178175E200E09874 /* jpc_mqenc.h */; };
-		E54FADC41781774000E09874 /* jpc_qmfb.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC4A178175E200E09874 /* jpc_qmfb.h */; };
-		E54FADC51781774000E09874 /* jpc_t1cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC4C178175E200E09874 /* jpc_t1cod.h */; };
-		E54FADC61781774000E09874 /* jpc_t1dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC4E178175E200E09874 /* jpc_t1dec.h */; };
-		E54FADC71781774000E09874 /* jpc_t1enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC50178175E200E09874 /* jpc_t1enc.h */; };
-		E54FADC81781774000E09874 /* jpc_t2cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC52178175E200E09874 /* jpc_t2cod.h */; };
-		E54FADC91781774000E09874 /* jpc_t2dec.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC54178175E200E09874 /* jpc_t2dec.h */; };
-		E54FADCA1781774000E09874 /* jpc_t2enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC56178175E200E09874 /* jpc_t2enc.h */; };
-		E54FADCB1781774000E09874 /* jpc_tagtree.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC58178175E200E09874 /* jpc_tagtree.h */; };
-		E54FADCC1781774000E09874 /* jpc_tsfb.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC5A178175E200E09874 /* jpc_tsfb.h */; };
-		E54FADCD1781774000E09874 /* jpc_util.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC5C178175E200E09874 /* jpc_util.h */; };
-		E54FADCE1781774000E09874 /* jpg_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC60178175E200E09874 /* jpg_cod.h */; };
-		E54FADCF1781774000E09874 /* jpg_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC64178175E200E09874 /* jpg_enc.h */; };
-		E54FADD01781774000E09874 /* jpg_jpeglib.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC65178175E200E09874 /* jpg_jpeglib.h */; };
-		E54FADD11781774000E09874 /* mif_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC6E178175E200E09874 /* mif_cod.h */; };
-		E54FADD21781774000E09874 /* pgx_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC74178175E200E09874 /* pgx_cod.h */; };
-		E54FADD31781774000E09874 /* pgx_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC77178175E200E09874 /* pgx_enc.h */; };
-		E54FADD41781774000E09874 /* pnm_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC7C178175E200E09874 /* pnm_cod.h */; };
-		E54FADD51781774000E09874 /* pnm_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC7F178175E200E09874 /* pnm_enc.h */; };
-		E54FADD61781774000E09874 /* ras_cod.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC84178175E200E09874 /* ras_cod.h */; };
-		E54FADD71781774000E09874 /* ras_enc.h in Headers */ = {isa = PBXBuildFile; fileRef = E54FAC87178175E200E09874 /* ras_enc.h */; };
-		E54FADDC178178D800E09874 /* libicns.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADDA1781774000E09874 /* libicns.a */; };
-		E54FADDD178178D800E09874 /* libjasper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FABF5178175AF00E09874 /* libjasper.a */; };
-		E54FADE6178178EB00E09874 /* libicns.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADDA1781774000E09874 /* libicns.a */; };
-		E54FADE7178178EB00E09874 /* libjasper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FABF5178175AF00E09874 /* libjasper.a */; };
+		E54FABE317816B5400E09874 /* AppDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.mm */; };
+		E54FABE417816B5400E09874 /* AppDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.mm */; };
 		E54FADF6178179A700E09874 /* libtop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADF11781796200E09874 /* libtop.a */; };
 		E54FADF7178179AE00E09874 /* libtop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADF11781796200E09874 /* libtop.a */; };
 		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
@@ -307,34 +87,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = E52420E511CBCE9E0025CA71;
 			remoteInfo = nuiPhone;
-		};
-		E54FADDE178178DE00E09874 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 61A9DE3F0B833C9200BC506C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E54FABF4178175AF00E09874;
-			remoteInfo = jasper;
-		};
-		E54FADE0178178DE00E09874 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 61A9DE3F0B833C9200BC506C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E54FAD681781774000E09874;
-			remoteInfo = icns;
-		};
-		E54FADE2178178E600E09874 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 61A9DE3F0B833C9200BC506C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E54FABF4178175AF00E09874;
-			remoteInfo = jasper;
-		};
-		E54FADE4178178E600E09874 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 61A9DE3F0B833C9200BC506C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E54FAD681781774000E09874;
-			remoteInfo = icns;
 		};
 		E54FADEE1781796200E09874 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -498,123 +250,8 @@
 		E53D0D0317750CDC0082B86F /* iOSRemoteDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSRemoteDebug.h; path = src/Xspray/iOSRemoteDebug.h; sourceTree = "<group>"; };
 		E53D0D0617750E350082B86F /* MobileDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileDevice.h; path = src/Xspray/MobileDevice.h; sourceTree = "<group>"; };
 		E53D0D07177585F50082B86F /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = /System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<absolute>"; };
-		E54FABE117816B5400E09874 /* AppDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDescription.cpp; path = src/Xspray/AppDescription.cpp; sourceTree = "<group>"; };
+		E54FABE117816B5400E09874 /* AppDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDescription.mm; path = src/Xspray/AppDescription.mm; sourceTree = "<group>"; };
 		E54FABE217816B5400E09874 /* AppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDescription.h; path = src/Xspray/AppDescription.h; sourceTree = "<group>"; };
-		E54FABF5178175AF00E09874 /* libjasper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libjasper.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E54FABF9178175E200E09874 /* jas_cm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_cm.c; sourceTree = "<group>"; };
-		E54FABFA178175E200E09874 /* jas_debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_debug.c; sourceTree = "<group>"; };
-		E54FABFB178175E200E09874 /* jas_getopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_getopt.c; sourceTree = "<group>"; };
-		E54FABFC178175E200E09874 /* jas_icc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_icc.c; sourceTree = "<group>"; };
-		E54FABFD178175E200E09874 /* jas_iccdata.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_iccdata.c; sourceTree = "<group>"; };
-		E54FABFE178175E200E09874 /* jas_image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_image.c; sourceTree = "<group>"; };
-		E54FABFF178175E200E09874 /* jas_init.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_init.c; sourceTree = "<group>"; };
-		E54FAC00178175E200E09874 /* jas_malloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_malloc.c; sourceTree = "<group>"; };
-		E54FAC01178175E200E09874 /* jas_seq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_seq.c; sourceTree = "<group>"; };
-		E54FAC02178175E200E09874 /* jas_stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_stream.c; sourceTree = "<group>"; };
-		E54FAC03178175E200E09874 /* jas_string.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_string.c; sourceTree = "<group>"; };
-		E54FAC04178175E200E09874 /* jas_tmr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_tmr.c; sourceTree = "<group>"; };
-		E54FAC05178175E200E09874 /* jas_tvp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_tvp.c; sourceTree = "<group>"; };
-		E54FAC06178175E200E09874 /* jas_version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jas_version.c; sourceTree = "<group>"; };
-		E54FAC0A178175E200E09874 /* bmp_cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bmp_cod.c; sourceTree = "<group>"; };
-		E54FAC0B178175E200E09874 /* bmp_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bmp_cod.h; sourceTree = "<group>"; };
-		E54FAC0C178175E200E09874 /* bmp_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bmp_dec.c; sourceTree = "<group>"; };
-		E54FAC0D178175E200E09874 /* bmp_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bmp_enc.c; sourceTree = "<group>"; };
-		E54FAC0E178175E200E09874 /* bmp_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bmp_enc.h; sourceTree = "<group>"; };
-		E54FAC13178175E200E09874 /* jas_cm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_cm.h; sourceTree = "<group>"; };
-		E54FAC14178175E200E09874 /* jas_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_config.h; sourceTree = "<group>"; };
-		E54FAC15178175E200E09874 /* jas_config.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jas_config.h.in; sourceTree = "<group>"; };
-		E54FAC16178175E200E09874 /* jas_config2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_config2.h; sourceTree = "<group>"; };
-		E54FAC17178175E200E09874 /* jas_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_debug.h; sourceTree = "<group>"; };
-		E54FAC18178175E200E09874 /* jas_fix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_fix.h; sourceTree = "<group>"; };
-		E54FAC19178175E200E09874 /* jas_getopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_getopt.h; sourceTree = "<group>"; };
-		E54FAC1A178175E200E09874 /* jas_icc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_icc.h; sourceTree = "<group>"; };
-		E54FAC1B178175E200E09874 /* jas_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_image.h; sourceTree = "<group>"; };
-		E54FAC1C178175E200E09874 /* jas_init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_init.h; sourceTree = "<group>"; };
-		E54FAC1D178175E200E09874 /* jas_malloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_malloc.h; sourceTree = "<group>"; };
-		E54FAC1E178175E200E09874 /* jas_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_math.h; sourceTree = "<group>"; };
-		E54FAC1F178175E200E09874 /* jas_seq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_seq.h; sourceTree = "<group>"; };
-		E54FAC20178175E200E09874 /* jas_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_stream.h; sourceTree = "<group>"; };
-		E54FAC21178175E200E09874 /* jas_string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_string.h; sourceTree = "<group>"; };
-		E54FAC22178175E200E09874 /* jas_tmr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_tmr.h; sourceTree = "<group>"; };
-		E54FAC23178175E200E09874 /* jas_tvp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_tvp.h; sourceTree = "<group>"; };
-		E54FAC24178175E200E09874 /* jas_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_types.h; sourceTree = "<group>"; };
-		E54FAC25178175E200E09874 /* jas_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jas_version.h; sourceTree = "<group>"; };
-		E54FAC26178175E200E09874 /* jasper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jasper.h; sourceTree = "<group>"; };
-		E54FAC2C178175E200E09874 /* jp2_cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jp2_cod.c; sourceTree = "<group>"; };
-		E54FAC2D178175E200E09874 /* jp2_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jp2_cod.h; sourceTree = "<group>"; };
-		E54FAC2E178175E200E09874 /* jp2_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jp2_dec.c; sourceTree = "<group>"; };
-		E54FAC2F178175E200E09874 /* jp2_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jp2_dec.h; sourceTree = "<group>"; };
-		E54FAC30178175E200E09874 /* jp2_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jp2_enc.c; sourceTree = "<group>"; };
-		E54FAC34178175E200E09874 /* jpc_bs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_bs.c; sourceTree = "<group>"; };
-		E54FAC35178175E200E09874 /* jpc_bs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_bs.h; sourceTree = "<group>"; };
-		E54FAC36178175E200E09874 /* jpc_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_cod.h; sourceTree = "<group>"; };
-		E54FAC37178175E200E09874 /* jpc_cs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_cs.c; sourceTree = "<group>"; };
-		E54FAC38178175E200E09874 /* jpc_cs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_cs.h; sourceTree = "<group>"; };
-		E54FAC39178175E200E09874 /* jpc_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_dec.c; sourceTree = "<group>"; };
-		E54FAC3A178175E200E09874 /* jpc_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_dec.h; sourceTree = "<group>"; };
-		E54FAC3B178175E200E09874 /* jpc_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_enc.c; sourceTree = "<group>"; };
-		E54FAC3C178175E200E09874 /* jpc_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_enc.h; sourceTree = "<group>"; };
-		E54FAC3D178175E200E09874 /* jpc_fix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_fix.h; sourceTree = "<group>"; };
-		E54FAC3E178175E200E09874 /* jpc_flt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_flt.h; sourceTree = "<group>"; };
-		E54FAC3F178175E200E09874 /* jpc_math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_math.c; sourceTree = "<group>"; };
-		E54FAC40178175E200E09874 /* jpc_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_math.h; sourceTree = "<group>"; };
-		E54FAC41178175E200E09874 /* jpc_mct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_mct.c; sourceTree = "<group>"; };
-		E54FAC42178175E200E09874 /* jpc_mct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_mct.h; sourceTree = "<group>"; };
-		E54FAC43178175E200E09874 /* jpc_mqcod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_mqcod.c; sourceTree = "<group>"; };
-		E54FAC44178175E200E09874 /* jpc_mqcod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_mqcod.h; sourceTree = "<group>"; };
-		E54FAC45178175E200E09874 /* jpc_mqdec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_mqdec.c; sourceTree = "<group>"; };
-		E54FAC46178175E200E09874 /* jpc_mqdec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_mqdec.h; sourceTree = "<group>"; };
-		E54FAC47178175E200E09874 /* jpc_mqenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_mqenc.c; sourceTree = "<group>"; };
-		E54FAC48178175E200E09874 /* jpc_mqenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_mqenc.h; sourceTree = "<group>"; };
-		E54FAC49178175E200E09874 /* jpc_qmfb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_qmfb.c; sourceTree = "<group>"; };
-		E54FAC4A178175E200E09874 /* jpc_qmfb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_qmfb.h; sourceTree = "<group>"; };
-		E54FAC4B178175E200E09874 /* jpc_t1cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_t1cod.c; sourceTree = "<group>"; };
-		E54FAC4C178175E200E09874 /* jpc_t1cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_t1cod.h; sourceTree = "<group>"; };
-		E54FAC4D178175E200E09874 /* jpc_t1dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_t1dec.c; sourceTree = "<group>"; };
-		E54FAC4E178175E200E09874 /* jpc_t1dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_t1dec.h; sourceTree = "<group>"; };
-		E54FAC4F178175E200E09874 /* jpc_t1enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_t1enc.c; sourceTree = "<group>"; };
-		E54FAC50178175E200E09874 /* jpc_t1enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_t1enc.h; sourceTree = "<group>"; };
-		E54FAC51178175E200E09874 /* jpc_t2cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_t2cod.c; sourceTree = "<group>"; };
-		E54FAC52178175E200E09874 /* jpc_t2cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_t2cod.h; sourceTree = "<group>"; };
-		E54FAC53178175E200E09874 /* jpc_t2dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_t2dec.c; sourceTree = "<group>"; };
-		E54FAC54178175E200E09874 /* jpc_t2dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_t2dec.h; sourceTree = "<group>"; };
-		E54FAC55178175E200E09874 /* jpc_t2enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_t2enc.c; sourceTree = "<group>"; };
-		E54FAC56178175E200E09874 /* jpc_t2enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_t2enc.h; sourceTree = "<group>"; };
-		E54FAC57178175E200E09874 /* jpc_tagtree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_tagtree.c; sourceTree = "<group>"; };
-		E54FAC58178175E200E09874 /* jpc_tagtree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_tagtree.h; sourceTree = "<group>"; };
-		E54FAC59178175E200E09874 /* jpc_tsfb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_tsfb.c; sourceTree = "<group>"; };
-		E54FAC5A178175E200E09874 /* jpc_tsfb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_tsfb.h; sourceTree = "<group>"; };
-		E54FAC5B178175E200E09874 /* jpc_util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpc_util.c; sourceTree = "<group>"; };
-		E54FAC5C178175E200E09874 /* jpc_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpc_util.h; sourceTree = "<group>"; };
-		E54FAC60178175E200E09874 /* jpg_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpg_cod.h; sourceTree = "<group>"; };
-		E54FAC61178175E200E09874 /* jpg_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpg_dec.c; sourceTree = "<group>"; };
-		E54FAC62178175E200E09874 /* jpg_dummy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpg_dummy.c; sourceTree = "<group>"; };
-		E54FAC63178175E200E09874 /* jpg_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpg_enc.c; sourceTree = "<group>"; };
-		E54FAC64178175E200E09874 /* jpg_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpg_enc.h; sourceTree = "<group>"; };
-		E54FAC65178175E200E09874 /* jpg_jpeglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpg_jpeglib.h; sourceTree = "<group>"; };
-		E54FAC66178175E200E09874 /* jpg_val.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpg_val.c; sourceTree = "<group>"; };
-		E54FAC69178175E200E09874 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		E54FAC6D178175E200E09874 /* mif_cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mif_cod.c; sourceTree = "<group>"; };
-		E54FAC6E178175E200E09874 /* mif_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mif_cod.h; sourceTree = "<group>"; };
-		E54FAC6F178175E200E09874 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		E54FAC73178175E200E09874 /* pgx_cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pgx_cod.c; sourceTree = "<group>"; };
-		E54FAC74178175E200E09874 /* pgx_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pgx_cod.h; sourceTree = "<group>"; };
-		E54FAC75178175E200E09874 /* pgx_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pgx_dec.c; sourceTree = "<group>"; };
-		E54FAC76178175E200E09874 /* pgx_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pgx_enc.c; sourceTree = "<group>"; };
-		E54FAC77178175E200E09874 /* pgx_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pgx_enc.h; sourceTree = "<group>"; };
-		E54FAC7B178175E200E09874 /* pnm_cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pnm_cod.c; sourceTree = "<group>"; };
-		E54FAC7C178175E200E09874 /* pnm_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pnm_cod.h; sourceTree = "<group>"; };
-		E54FAC7D178175E200E09874 /* pnm_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pnm_dec.c; sourceTree = "<group>"; };
-		E54FAC7E178175E200E09874 /* pnm_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pnm_enc.c; sourceTree = "<group>"; };
-		E54FAC7F178175E200E09874 /* pnm_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pnm_enc.h; sourceTree = "<group>"; };
-		E54FAC83178175E200E09874 /* ras_cod.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ras_cod.c; sourceTree = "<group>"; };
-		E54FAC84178175E200E09874 /* ras_cod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ras_cod.h; sourceTree = "<group>"; };
-		E54FAC85178175E200E09874 /* ras_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ras_dec.c; sourceTree = "<group>"; };
-		E54FAC86178175E200E09874 /* ras_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ras_enc.c; sourceTree = "<group>"; };
-		E54FAC87178175E200E09874 /* ras_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ras_enc.h; sourceTree = "<group>"; };
-		E54FAD671781771F00E09874 /* jasper copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "jasper copy-Info.plist"; path = "/Users/meeloo/work/xspray/jasper copy-Info.plist"; sourceTree = "<absolute>"; };
-		E54FADDA1781774000E09874 /* libicns.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libicns.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E54FADDB1781774100E09874 /* jasper copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "jasper copy2-Info.plist"; path = "/Users/meeloo/work/xspray/jasper copy2-Info.plist"; sourceTree = "<absolute>"; };
 		E54FADE81781796200E09874 /* top.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = top.xcodeproj; path = deps/top/top.xcodeproj; sourceTree = "<group>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
@@ -630,27 +267,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E54FABF2178175AF00E09874 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E54FAD9F1781774000E09874 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E5D64527120A0B92009C26A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E54FADF6178179A700E09874 /* libtop.a in Frameworks */,
-				E54FADDC178178D800E09874 /* libicns.a in Frameworks */,
-				E54FADDD178178D800E09874 /* libjasper.a in Frameworks */,
 				E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */,
 				E562BF0B17685C600081AF35 /* LLDB.framework in Frameworks */,
 				E5D64528120A0B92009C26A9 /* CoreFoundation.framework in Frameworks */,
@@ -667,8 +288,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E54FADF7178179AE00E09874 /* libtop.a in Frameworks */,
-				E54FADE6178178EB00E09874 /* libicns.a in Frameworks */,
-				E54FADE7178178EB00E09874 /* libjasper.a in Frameworks */,
 				E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */,
 				6E04DC26176618750098D9D5 /* libclang.dylib in Frameworks */,
 				E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */,
@@ -694,8 +313,6 @@
 				61A9DE4A0B833CD000BC506C /* sources */,
 				61A9DE490B833CB000BC506C /* dependencies */,
 				61A9DFB50B833DE500BC506C /* Products */,
-				E54FAD671781771F00E09874 /* jasper copy-Info.plist */,
-				E54FADDB1781774100E09874 /* jasper copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -703,8 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				E54FADE81781796200E09874 /* top.xcodeproj */,
-				E54FABF01781753300E09874 /* libicns */,
-				E54FABEE1781752000E09874 /* jasper */,
 				6E04DC25176618750098D9D5 /* libclang.dylib */,
 				E5F8FA2F16F4C5B300563A78 /* Frameworks */,
 				BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */,
@@ -732,8 +347,6 @@
 			children = (
 				E5EF6FC811E77DE8000FB337 /* XsprayD.app */,
 				E5D64530120A0B92009C26A9 /* Xspray.app */,
-				E54FABF5178175AF00E09874 /* libjasper.a */,
-				E54FADDA1781774000E09874 /* libicns.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -780,233 +393,10 @@
 				E5E8E735178060AB001E6358 /* DebugView.h */,
 				E5E8E73817806D43001E6358 /* HomeView.cpp */,
 				E5E8E73917806D43001E6358 /* HomeView.h */,
-				E54FABE117816B5400E09874 /* AppDescription.cpp */,
+				E54FABE117816B5400E09874 /* AppDescription.mm */,
 				E54FABE217816B5400E09874 /* AppDescription.h */,
 			);
 			name = Xspray;
-			sourceTree = "<group>";
-		};
-		E54FABEE1781752000E09874 /* jasper */ = {
-			isa = PBXGroup;
-			children = (
-				E54FABF8178175E200E09874 /* base */,
-				E54FAC09178175E200E09874 /* bmp */,
-				E54FAC11178175E200E09874 /* include */,
-				E54FAC2B178175E200E09874 /* jp2 */,
-				E54FAC33178175E200E09874 /* jpc */,
-				E54FAC5F178175E200E09874 /* jpg */,
-				E54FAC6A178175E200E09874 /* mif */,
-				E54FAC70178175E200E09874 /* pgx */,
-				E54FAC78178175E200E09874 /* pnm */,
-				E54FAC80178175E200E09874 /* ras */,
-			);
-			name = jasper;
-			sourceTree = "<group>";
-		};
-		E54FABF01781753300E09874 /* libicns */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = libicns;
-			sourceTree = "<group>";
-		};
-		E54FABF8178175E200E09874 /* base */ = {
-			isa = PBXGroup;
-			children = (
-				E54FABF9178175E200E09874 /* jas_cm.c */,
-				E54FABFA178175E200E09874 /* jas_debug.c */,
-				E54FABFB178175E200E09874 /* jas_getopt.c */,
-				E54FABFC178175E200E09874 /* jas_icc.c */,
-				E54FABFD178175E200E09874 /* jas_iccdata.c */,
-				E54FABFE178175E200E09874 /* jas_image.c */,
-				E54FABFF178175E200E09874 /* jas_init.c */,
-				E54FAC00178175E200E09874 /* jas_malloc.c */,
-				E54FAC01178175E200E09874 /* jas_seq.c */,
-				E54FAC02178175E200E09874 /* jas_stream.c */,
-				E54FAC03178175E200E09874 /* jas_string.c */,
-				E54FAC04178175E200E09874 /* jas_tmr.c */,
-				E54FAC05178175E200E09874 /* jas_tvp.c */,
-				E54FAC06178175E200E09874 /* jas_version.c */,
-			);
-			name = base;
-			path = deps/jasper/src/libjasper/base;
-			sourceTree = "<group>";
-		};
-		E54FAC09178175E200E09874 /* bmp */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC0A178175E200E09874 /* bmp_cod.c */,
-				E54FAC0B178175E200E09874 /* bmp_cod.h */,
-				E54FAC0C178175E200E09874 /* bmp_dec.c */,
-				E54FAC0D178175E200E09874 /* bmp_enc.c */,
-				E54FAC0E178175E200E09874 /* bmp_enc.h */,
-			);
-			name = bmp;
-			path = deps/jasper/src/libjasper/bmp;
-			sourceTree = "<group>";
-		};
-		E54FAC11178175E200E09874 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC12178175E200E09874 /* jasper */,
-			);
-			name = include;
-			path = deps/jasper/src/libjasper/include;
-			sourceTree = "<group>";
-		};
-		E54FAC12178175E200E09874 /* jasper */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC13178175E200E09874 /* jas_cm.h */,
-				E54FAC14178175E200E09874 /* jas_config.h */,
-				E54FAC15178175E200E09874 /* jas_config.h.in */,
-				E54FAC16178175E200E09874 /* jas_config2.h */,
-				E54FAC17178175E200E09874 /* jas_debug.h */,
-				E54FAC18178175E200E09874 /* jas_fix.h */,
-				E54FAC19178175E200E09874 /* jas_getopt.h */,
-				E54FAC1A178175E200E09874 /* jas_icc.h */,
-				E54FAC1B178175E200E09874 /* jas_image.h */,
-				E54FAC1C178175E200E09874 /* jas_init.h */,
-				E54FAC1D178175E200E09874 /* jas_malloc.h */,
-				E54FAC1E178175E200E09874 /* jas_math.h */,
-				E54FAC1F178175E200E09874 /* jas_seq.h */,
-				E54FAC20178175E200E09874 /* jas_stream.h */,
-				E54FAC21178175E200E09874 /* jas_string.h */,
-				E54FAC22178175E200E09874 /* jas_tmr.h */,
-				E54FAC23178175E200E09874 /* jas_tvp.h */,
-				E54FAC24178175E200E09874 /* jas_types.h */,
-				E54FAC25178175E200E09874 /* jas_version.h */,
-				E54FAC26178175E200E09874 /* jasper.h */,
-			);
-			path = jasper;
-			sourceTree = "<group>";
-		};
-		E54FAC2B178175E200E09874 /* jp2 */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC2C178175E200E09874 /* jp2_cod.c */,
-				E54FAC2D178175E200E09874 /* jp2_cod.h */,
-				E54FAC2E178175E200E09874 /* jp2_dec.c */,
-				E54FAC2F178175E200E09874 /* jp2_dec.h */,
-				E54FAC30178175E200E09874 /* jp2_enc.c */,
-			);
-			name = jp2;
-			path = deps/jasper/src/libjasper/jp2;
-			sourceTree = "<group>";
-		};
-		E54FAC33178175E200E09874 /* jpc */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC34178175E200E09874 /* jpc_bs.c */,
-				E54FAC35178175E200E09874 /* jpc_bs.h */,
-				E54FAC36178175E200E09874 /* jpc_cod.h */,
-				E54FAC37178175E200E09874 /* jpc_cs.c */,
-				E54FAC38178175E200E09874 /* jpc_cs.h */,
-				E54FAC39178175E200E09874 /* jpc_dec.c */,
-				E54FAC3A178175E200E09874 /* jpc_dec.h */,
-				E54FAC3B178175E200E09874 /* jpc_enc.c */,
-				E54FAC3C178175E200E09874 /* jpc_enc.h */,
-				E54FAC3D178175E200E09874 /* jpc_fix.h */,
-				E54FAC3E178175E200E09874 /* jpc_flt.h */,
-				E54FAC3F178175E200E09874 /* jpc_math.c */,
-				E54FAC40178175E200E09874 /* jpc_math.h */,
-				E54FAC41178175E200E09874 /* jpc_mct.c */,
-				E54FAC42178175E200E09874 /* jpc_mct.h */,
-				E54FAC43178175E200E09874 /* jpc_mqcod.c */,
-				E54FAC44178175E200E09874 /* jpc_mqcod.h */,
-				E54FAC45178175E200E09874 /* jpc_mqdec.c */,
-				E54FAC46178175E200E09874 /* jpc_mqdec.h */,
-				E54FAC47178175E200E09874 /* jpc_mqenc.c */,
-				E54FAC48178175E200E09874 /* jpc_mqenc.h */,
-				E54FAC49178175E200E09874 /* jpc_qmfb.c */,
-				E54FAC4A178175E200E09874 /* jpc_qmfb.h */,
-				E54FAC4B178175E200E09874 /* jpc_t1cod.c */,
-				E54FAC4C178175E200E09874 /* jpc_t1cod.h */,
-				E54FAC4D178175E200E09874 /* jpc_t1dec.c */,
-				E54FAC4E178175E200E09874 /* jpc_t1dec.h */,
-				E54FAC4F178175E200E09874 /* jpc_t1enc.c */,
-				E54FAC50178175E200E09874 /* jpc_t1enc.h */,
-				E54FAC51178175E200E09874 /* jpc_t2cod.c */,
-				E54FAC52178175E200E09874 /* jpc_t2cod.h */,
-				E54FAC53178175E200E09874 /* jpc_t2dec.c */,
-				E54FAC54178175E200E09874 /* jpc_t2dec.h */,
-				E54FAC55178175E200E09874 /* jpc_t2enc.c */,
-				E54FAC56178175E200E09874 /* jpc_t2enc.h */,
-				E54FAC57178175E200E09874 /* jpc_tagtree.c */,
-				E54FAC58178175E200E09874 /* jpc_tagtree.h */,
-				E54FAC59178175E200E09874 /* jpc_tsfb.c */,
-				E54FAC5A178175E200E09874 /* jpc_tsfb.h */,
-				E54FAC5B178175E200E09874 /* jpc_util.c */,
-				E54FAC5C178175E200E09874 /* jpc_util.h */,
-			);
-			name = jpc;
-			path = deps/jasper/src/libjasper/jpc;
-			sourceTree = "<group>";
-		};
-		E54FAC5F178175E200E09874 /* jpg */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC60178175E200E09874 /* jpg_cod.h */,
-				E54FAC61178175E200E09874 /* jpg_dec.c */,
-				E54FAC62178175E200E09874 /* jpg_dummy.c */,
-				E54FAC63178175E200E09874 /* jpg_enc.c */,
-				E54FAC64178175E200E09874 /* jpg_enc.h */,
-				E54FAC65178175E200E09874 /* jpg_jpeglib.h */,
-				E54FAC66178175E200E09874 /* jpg_val.c */,
-				E54FAC69178175E200E09874 /* README */,
-			);
-			name = jpg;
-			path = deps/jasper/src/libjasper/jpg;
-			sourceTree = "<group>";
-		};
-		E54FAC6A178175E200E09874 /* mif */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC6D178175E200E09874 /* mif_cod.c */,
-				E54FAC6E178175E200E09874 /* mif_cod.h */,
-				E54FAC6F178175E200E09874 /* README */,
-			);
-			name = mif;
-			path = deps/jasper/src/libjasper/mif;
-			sourceTree = "<group>";
-		};
-		E54FAC70178175E200E09874 /* pgx */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC73178175E200E09874 /* pgx_cod.c */,
-				E54FAC74178175E200E09874 /* pgx_cod.h */,
-				E54FAC75178175E200E09874 /* pgx_dec.c */,
-				E54FAC76178175E200E09874 /* pgx_enc.c */,
-				E54FAC77178175E200E09874 /* pgx_enc.h */,
-			);
-			name = pgx;
-			path = deps/jasper/src/libjasper/pgx;
-			sourceTree = "<group>";
-		};
-		E54FAC78178175E200E09874 /* pnm */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC7B178175E200E09874 /* pnm_cod.c */,
-				E54FAC7C178175E200E09874 /* pnm_cod.h */,
-				E54FAC7D178175E200E09874 /* pnm_dec.c */,
-				E54FAC7E178175E200E09874 /* pnm_enc.c */,
-				E54FAC7F178175E200E09874 /* pnm_enc.h */,
-			);
-			name = pnm;
-			path = deps/jasper/src/libjasper/pnm;
-			sourceTree = "<group>";
-		};
-		E54FAC80178175E200E09874 /* ras */ = {
-			isa = PBXGroup;
-			children = (
-				E54FAC83178175E200E09874 /* ras_cod.c */,
-				E54FAC84178175E200E09874 /* ras_cod.h */,
-				E54FAC85178175E200E09874 /* ras_dec.c */,
-				E54FAC86178175E200E09874 /* ras_enc.c */,
-				E54FAC87178175E200E09874 /* ras_enc.h */,
-			);
-			name = ras;
-			path = deps/jasper/src/libjasper/ras;
 			sourceTree = "<group>";
 		};
 		E54FADE91781796200E09874 /* Products */ = {
@@ -1035,168 +425,7 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		E54FABF3178175AF00E09874 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E54FAC97178175E200E09874 /* bmp_cod.h in Headers */,
-				E54FAC9A178175E200E09874 /* bmp_enc.h in Headers */,
-				E54FAC9B178175E200E09874 /* jas_cm.h in Headers */,
-				E54FAC9C178175E200E09874 /* jas_config.h in Headers */,
-				E54FAC9D178175E200E09874 /* jas_config2.h in Headers */,
-				E54FAC9E178175E200E09874 /* jas_debug.h in Headers */,
-				E54FAC9F178175E200E09874 /* jas_fix.h in Headers */,
-				E54FACA0178175E200E09874 /* jas_getopt.h in Headers */,
-				E54FACA1178175E200E09874 /* jas_icc.h in Headers */,
-				E54FACA2178175E200E09874 /* jas_image.h in Headers */,
-				E54FACA3178175E200E09874 /* jas_init.h in Headers */,
-				E54FACA4178175E200E09874 /* jas_malloc.h in Headers */,
-				E54FACA5178175E200E09874 /* jas_math.h in Headers */,
-				E54FACA6178175E200E09874 /* jas_seq.h in Headers */,
-				E54FACA7178175E200E09874 /* jas_stream.h in Headers */,
-				E54FACA8178175E200E09874 /* jas_string.h in Headers */,
-				E54FACA9178175E200E09874 /* jas_tmr.h in Headers */,
-				E54FACAA178175E200E09874 /* jas_tvp.h in Headers */,
-				E54FACAB178175E200E09874 /* jas_types.h in Headers */,
-				E54FACAC178175E200E09874 /* jas_version.h in Headers */,
-				E54FACAD178175E200E09874 /* jasper.h in Headers */,
-				E54FACAF178175E200E09874 /* jp2_cod.h in Headers */,
-				E54FACB1178175E200E09874 /* jp2_dec.h in Headers */,
-				E54FACB4178175E200E09874 /* jpc_bs.h in Headers */,
-				E54FACB5178175E200E09874 /* jpc_cod.h in Headers */,
-				E54FACB7178175E200E09874 /* jpc_cs.h in Headers */,
-				E54FACB9178175E200E09874 /* jpc_dec.h in Headers */,
-				E54FACBB178175E200E09874 /* jpc_enc.h in Headers */,
-				E54FACBC178175E200E09874 /* jpc_fix.h in Headers */,
-				E54FACBD178175E200E09874 /* jpc_flt.h in Headers */,
-				E54FACBF178175E200E09874 /* jpc_math.h in Headers */,
-				E54FACC1178175E200E09874 /* jpc_mct.h in Headers */,
-				E54FACC3178175E200E09874 /* jpc_mqcod.h in Headers */,
-				E54FACC5178175E200E09874 /* jpc_mqdec.h in Headers */,
-				E54FACC7178175E200E09874 /* jpc_mqenc.h in Headers */,
-				E54FACC9178175E200E09874 /* jpc_qmfb.h in Headers */,
-				E54FACCB178175E200E09874 /* jpc_t1cod.h in Headers */,
-				E54FACCD178175E200E09874 /* jpc_t1dec.h in Headers */,
-				E54FACCF178175E200E09874 /* jpc_t1enc.h in Headers */,
-				E54FACD1178175E200E09874 /* jpc_t2cod.h in Headers */,
-				E54FACD3178175E200E09874 /* jpc_t2dec.h in Headers */,
-				E54FACD5178175E200E09874 /* jpc_t2enc.h in Headers */,
-				E54FACD7178175E200E09874 /* jpc_tagtree.h in Headers */,
-				E54FACD9178175E200E09874 /* jpc_tsfb.h in Headers */,
-				E54FACDB178175E200E09874 /* jpc_util.h in Headers */,
-				E54FACDC178175E200E09874 /* jpg_cod.h in Headers */,
-				E54FACE0178175E200E09874 /* jpg_enc.h in Headers */,
-				E54FACE1178175E200E09874 /* jpg_jpeglib.h in Headers */,
-				E54FACE4178175E200E09874 /* mif_cod.h in Headers */,
-				E54FACE6178175E200E09874 /* pgx_cod.h in Headers */,
-				E54FACE9178175E200E09874 /* pgx_enc.h in Headers */,
-				E54FACEB178175E200E09874 /* pnm_cod.h in Headers */,
-				E54FACEE178175E200E09874 /* pnm_enc.h in Headers */,
-				E54FACF0178175E200E09874 /* ras_cod.h in Headers */,
-				E54FACF3178175E200E09874 /* ras_enc.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E54FADA01781774000E09874 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E54FADA11781774000E09874 /* bmp_cod.h in Headers */,
-				E54FADA21781774000E09874 /* bmp_enc.h in Headers */,
-				E54FADA31781774000E09874 /* jas_cm.h in Headers */,
-				E54FADA41781774000E09874 /* jas_config.h in Headers */,
-				E54FADA51781774000E09874 /* jas_config2.h in Headers */,
-				E54FADA61781774000E09874 /* jas_debug.h in Headers */,
-				E54FADA71781774000E09874 /* jas_fix.h in Headers */,
-				E54FADA81781774000E09874 /* jas_getopt.h in Headers */,
-				E54FADA91781774000E09874 /* jas_icc.h in Headers */,
-				E54FADAA1781774000E09874 /* jas_image.h in Headers */,
-				E54FADAB1781774000E09874 /* jas_init.h in Headers */,
-				E54FADAC1781774000E09874 /* jas_malloc.h in Headers */,
-				E54FADAD1781774000E09874 /* jas_math.h in Headers */,
-				E54FADAE1781774000E09874 /* jas_seq.h in Headers */,
-				E54FADAF1781774000E09874 /* jas_stream.h in Headers */,
-				E54FADB01781774000E09874 /* jas_string.h in Headers */,
-				E54FADB11781774000E09874 /* jas_tmr.h in Headers */,
-				E54FADB21781774000E09874 /* jas_tvp.h in Headers */,
-				E54FADB31781774000E09874 /* jas_types.h in Headers */,
-				E54FADB41781774000E09874 /* jas_version.h in Headers */,
-				E54FADB51781774000E09874 /* jasper.h in Headers */,
-				E54FADB61781774000E09874 /* jp2_cod.h in Headers */,
-				E54FADB71781774000E09874 /* jp2_dec.h in Headers */,
-				E54FADB81781774000E09874 /* jpc_bs.h in Headers */,
-				E54FADB91781774000E09874 /* jpc_cod.h in Headers */,
-				E54FADBA1781774000E09874 /* jpc_cs.h in Headers */,
-				E54FADBB1781774000E09874 /* jpc_dec.h in Headers */,
-				E54FADBC1781774000E09874 /* jpc_enc.h in Headers */,
-				E54FADBD1781774000E09874 /* jpc_fix.h in Headers */,
-				E54FADBE1781774000E09874 /* jpc_flt.h in Headers */,
-				E54FADBF1781774000E09874 /* jpc_math.h in Headers */,
-				E54FADC01781774000E09874 /* jpc_mct.h in Headers */,
-				E54FADC11781774000E09874 /* jpc_mqcod.h in Headers */,
-				E54FADC21781774000E09874 /* jpc_mqdec.h in Headers */,
-				E54FADC31781774000E09874 /* jpc_mqenc.h in Headers */,
-				E54FADC41781774000E09874 /* jpc_qmfb.h in Headers */,
-				E54FADC51781774000E09874 /* jpc_t1cod.h in Headers */,
-				E54FADC61781774000E09874 /* jpc_t1dec.h in Headers */,
-				E54FADC71781774000E09874 /* jpc_t1enc.h in Headers */,
-				E54FADC81781774000E09874 /* jpc_t2cod.h in Headers */,
-				E54FADC91781774000E09874 /* jpc_t2dec.h in Headers */,
-				E54FADCA1781774000E09874 /* jpc_t2enc.h in Headers */,
-				E54FADCB1781774000E09874 /* jpc_tagtree.h in Headers */,
-				E54FADCC1781774000E09874 /* jpc_tsfb.h in Headers */,
-				E54FADCD1781774000E09874 /* jpc_util.h in Headers */,
-				E54FADCE1781774000E09874 /* jpg_cod.h in Headers */,
-				E54FADCF1781774000E09874 /* jpg_enc.h in Headers */,
-				E54FADD01781774000E09874 /* jpg_jpeglib.h in Headers */,
-				E54FADD11781774000E09874 /* mif_cod.h in Headers */,
-				E54FADD21781774000E09874 /* pgx_cod.h in Headers */,
-				E54FADD31781774000E09874 /* pgx_enc.h in Headers */,
-				E54FADD41781774000E09874 /* pnm_cod.h in Headers */,
-				E54FADD51781774000E09874 /* pnm_enc.h in Headers */,
-				E54FADD61781774000E09874 /* ras_cod.h in Headers */,
-				E54FADD71781774000E09874 /* ras_enc.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		E54FABF4178175AF00E09874 /* jasper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E54FABF6178175AF00E09874 /* Build configuration list for PBXNativeTarget "jasper" */;
-			buildPhases = (
-				E54FABF1178175AF00E09874 /* Sources */,
-				E54FABF2178175AF00E09874 /* Frameworks */,
-				E54FABF3178175AF00E09874 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = jasper;
-			productName = jasper;
-			productReference = E54FABF5178175AF00E09874 /* libjasper.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		E54FAD681781774000E09874 /* icns */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E54FADD81781774000E09874 /* Build configuration list for PBXNativeTarget "icns" */;
-			buildPhases = (
-				E54FAD691781774000E09874 /* Sources */,
-				E54FAD9F1781774000E09874 /* Frameworks */,
-				E54FADA01781774000E09874 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = icns;
-			productName = jasper;
-			productReference = E54FADDA1781774000E09874 /* libicns.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		E5D64521120A0B92009C26A9 /* Xspray OSX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Xspray OSX" */;
@@ -1211,8 +440,6 @@
 			);
 			dependencies = (
 				E54FADF51781799A00E09874 /* PBXTargetDependency */,
-				E54FADDF178178DE00E09874 /* PBXTargetDependency */,
-				E54FADE1178178DE00E09874 /* PBXTargetDependency */,
 				E5D64535120A0BA3009C26A9 /* PBXTargetDependency */,
 			);
 			name = "Xspray OSX";
@@ -1233,8 +460,6 @@
 			);
 			dependencies = (
 				E54FADF31781799500E09874 /* PBXTargetDependency */,
-				E54FADE3178178E600E09874 /* PBXTargetDependency */,
-				E54FADE5178178E600E09874 /* PBXTargetDependency */,
 				E5EF6FCC11E77E22000FB337 /* PBXTargetDependency */,
 			);
 			name = "XsprayD OSX";
@@ -1274,8 +499,6 @@
 			targets = (
 				E5EF6FB811E77DE8000FB337 /* XsprayD OSX */,
 				E5D64521120A0B92009C26A9 /* Xspray OSX */,
-				E54FABF4178175AF00E09874 /* jasper */,
-				E54FAD681781774000E09874 /* icns */,
 			);
 		};
 /* End PBXProject section */
@@ -1406,126 +629,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E54FABF1178175AF00E09874 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E54FAC88178175E200E09874 /* jas_cm.c in Sources */,
-				E54FAC89178175E200E09874 /* jas_debug.c in Sources */,
-				E54FAC8A178175E200E09874 /* jas_getopt.c in Sources */,
-				E54FAC8B178175E200E09874 /* jas_icc.c in Sources */,
-				E54FAC8C178175E200E09874 /* jas_iccdata.c in Sources */,
-				E54FAC8D178175E200E09874 /* jas_image.c in Sources */,
-				E54FAC8E178175E200E09874 /* jas_init.c in Sources */,
-				E54FAC8F178175E200E09874 /* jas_malloc.c in Sources */,
-				E54FAC90178175E200E09874 /* jas_seq.c in Sources */,
-				E54FAC91178175E200E09874 /* jas_stream.c in Sources */,
-				E54FAC92178175E200E09874 /* jas_string.c in Sources */,
-				E54FAC93178175E200E09874 /* jas_tmr.c in Sources */,
-				E54FAC94178175E200E09874 /* jas_tvp.c in Sources */,
-				E54FAC95178175E200E09874 /* jas_version.c in Sources */,
-				E54FAC96178175E200E09874 /* bmp_cod.c in Sources */,
-				E54FAC98178175E200E09874 /* bmp_dec.c in Sources */,
-				E54FAC99178175E200E09874 /* bmp_enc.c in Sources */,
-				E54FACAE178175E200E09874 /* jp2_cod.c in Sources */,
-				E54FACB0178175E200E09874 /* jp2_dec.c in Sources */,
-				E54FACB2178175E200E09874 /* jp2_enc.c in Sources */,
-				E54FACB3178175E200E09874 /* jpc_bs.c in Sources */,
-				E54FACB6178175E200E09874 /* jpc_cs.c in Sources */,
-				E54FACB8178175E200E09874 /* jpc_dec.c in Sources */,
-				E54FACBA178175E200E09874 /* jpc_enc.c in Sources */,
-				E54FACBE178175E200E09874 /* jpc_math.c in Sources */,
-				E54FACC0178175E200E09874 /* jpc_mct.c in Sources */,
-				E54FACC2178175E200E09874 /* jpc_mqcod.c in Sources */,
-				E54FACC4178175E200E09874 /* jpc_mqdec.c in Sources */,
-				E54FACC6178175E200E09874 /* jpc_mqenc.c in Sources */,
-				E54FACC8178175E200E09874 /* jpc_qmfb.c in Sources */,
-				E54FACCA178175E200E09874 /* jpc_t1cod.c in Sources */,
-				E54FACCC178175E200E09874 /* jpc_t1dec.c in Sources */,
-				E54FACCE178175E200E09874 /* jpc_t1enc.c in Sources */,
-				E54FACD0178175E200E09874 /* jpc_t2cod.c in Sources */,
-				E54FACD2178175E200E09874 /* jpc_t2dec.c in Sources */,
-				E54FACD4178175E200E09874 /* jpc_t2enc.c in Sources */,
-				E54FACD6178175E200E09874 /* jpc_tagtree.c in Sources */,
-				E54FACD8178175E200E09874 /* jpc_tsfb.c in Sources */,
-				E54FACDA178175E200E09874 /* jpc_util.c in Sources */,
-				E54FACDD178175E200E09874 /* jpg_dec.c in Sources */,
-				E54FACDE178175E200E09874 /* jpg_dummy.c in Sources */,
-				E54FACDF178175E200E09874 /* jpg_enc.c in Sources */,
-				E54FACE2178175E200E09874 /* jpg_val.c in Sources */,
-				E54FACE3178175E200E09874 /* mif_cod.c in Sources */,
-				E54FACE5178175E200E09874 /* pgx_cod.c in Sources */,
-				E54FACE7178175E200E09874 /* pgx_dec.c in Sources */,
-				E54FACE8178175E200E09874 /* pgx_enc.c in Sources */,
-				E54FACEA178175E200E09874 /* pnm_cod.c in Sources */,
-				E54FACEC178175E200E09874 /* pnm_dec.c in Sources */,
-				E54FACED178175E200E09874 /* pnm_enc.c in Sources */,
-				E54FACEF178175E200E09874 /* ras_cod.c in Sources */,
-				E54FACF1178175E200E09874 /* ras_dec.c in Sources */,
-				E54FACF2178175E200E09874 /* ras_enc.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E54FAD691781774000E09874 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E54FAD6A1781774000E09874 /* jas_cm.c in Sources */,
-				E54FAD6B1781774000E09874 /* jas_debug.c in Sources */,
-				E54FAD6C1781774000E09874 /* jas_getopt.c in Sources */,
-				E54FAD6D1781774000E09874 /* jas_icc.c in Sources */,
-				E54FAD6E1781774000E09874 /* jas_iccdata.c in Sources */,
-				E54FAD6F1781774000E09874 /* jas_image.c in Sources */,
-				E54FAD701781774000E09874 /* jas_init.c in Sources */,
-				E54FAD711781774000E09874 /* jas_malloc.c in Sources */,
-				E54FAD721781774000E09874 /* jas_seq.c in Sources */,
-				E54FAD731781774000E09874 /* jas_stream.c in Sources */,
-				E54FAD741781774000E09874 /* jas_string.c in Sources */,
-				E54FAD751781774000E09874 /* jas_tmr.c in Sources */,
-				E54FAD761781774000E09874 /* jas_tvp.c in Sources */,
-				E54FAD771781774000E09874 /* jas_version.c in Sources */,
-				E54FAD781781774000E09874 /* bmp_cod.c in Sources */,
-				E54FAD791781774000E09874 /* bmp_dec.c in Sources */,
-				E54FAD7A1781774000E09874 /* bmp_enc.c in Sources */,
-				E54FAD7B1781774000E09874 /* jp2_cod.c in Sources */,
-				E54FAD7C1781774000E09874 /* jp2_dec.c in Sources */,
-				E54FAD7D1781774000E09874 /* jp2_enc.c in Sources */,
-				E54FAD7E1781774000E09874 /* jpc_bs.c in Sources */,
-				E54FAD7F1781774000E09874 /* jpc_cs.c in Sources */,
-				E54FAD801781774000E09874 /* jpc_dec.c in Sources */,
-				E54FAD811781774000E09874 /* jpc_enc.c in Sources */,
-				E54FAD821781774000E09874 /* jpc_math.c in Sources */,
-				E54FAD831781774000E09874 /* jpc_mct.c in Sources */,
-				E54FAD841781774000E09874 /* jpc_mqcod.c in Sources */,
-				E54FAD851781774000E09874 /* jpc_mqdec.c in Sources */,
-				E54FAD861781774000E09874 /* jpc_mqenc.c in Sources */,
-				E54FAD871781774000E09874 /* jpc_qmfb.c in Sources */,
-				E54FAD881781774000E09874 /* jpc_t1cod.c in Sources */,
-				E54FAD891781774000E09874 /* jpc_t1dec.c in Sources */,
-				E54FAD8A1781774000E09874 /* jpc_t1enc.c in Sources */,
-				E54FAD8B1781774000E09874 /* jpc_t2cod.c in Sources */,
-				E54FAD8C1781774000E09874 /* jpc_t2dec.c in Sources */,
-				E54FAD8D1781774000E09874 /* jpc_t2enc.c in Sources */,
-				E54FAD8E1781774000E09874 /* jpc_tagtree.c in Sources */,
-				E54FAD8F1781774000E09874 /* jpc_tsfb.c in Sources */,
-				E54FAD901781774000E09874 /* jpc_util.c in Sources */,
-				E54FAD911781774000E09874 /* jpg_dec.c in Sources */,
-				E54FAD921781774000E09874 /* jpg_dummy.c in Sources */,
-				E54FAD931781774000E09874 /* jpg_enc.c in Sources */,
-				E54FAD941781774000E09874 /* jpg_val.c in Sources */,
-				E54FAD951781774000E09874 /* mif_cod.c in Sources */,
-				E54FAD961781774000E09874 /* pgx_cod.c in Sources */,
-				E54FAD971781774000E09874 /* pgx_dec.c in Sources */,
-				E54FAD981781774000E09874 /* pgx_enc.c in Sources */,
-				E54FAD991781774000E09874 /* pnm_cod.c in Sources */,
-				E54FAD9A1781774000E09874 /* pnm_dec.c in Sources */,
-				E54FAD9B1781774000E09874 /* pnm_enc.c in Sources */,
-				E54FAD9C1781774000E09874 /* ras_cod.c in Sources */,
-				E54FAD9D1781774000E09874 /* ras_dec.c in Sources */,
-				E54FAD9E1781774000E09874 /* ras_enc.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E5D64524120A0B92009C26A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1543,7 +646,7 @@
 				E51C3C491779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
 				E5E8E737178060AB001E6358 /* DebugView.cpp in Sources */,
 				E5E8E73B17806D43001E6358 /* HomeView.cpp in Sources */,
-				E54FABE417816B5400E09874 /* AppDescription.cpp in Sources */,
+				E54FABE417816B5400E09874 /* AppDescription.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1564,33 +667,13 @@
 				E51C3C481779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
 				E5E8E736178060AB001E6358 /* DebugView.cpp in Sources */,
 				E5E8E73A17806D43001E6358 /* HomeView.cpp in Sources */,
-				E54FABE317816B5400E09874 /* AppDescription.cpp in Sources */,
+				E54FABE317816B5400E09874 /* AppDescription.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E54FADDF178178DE00E09874 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E54FABF4178175AF00E09874 /* jasper */;
-			targetProxy = E54FADDE178178DE00E09874 /* PBXContainerItemProxy */;
-		};
-		E54FADE1178178DE00E09874 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E54FAD681781774000E09874 /* icns */;
-			targetProxy = E54FADE0178178DE00E09874 /* PBXContainerItemProxy */;
-		};
-		E54FADE3178178E600E09874 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E54FABF4178175AF00E09874 /* jasper */;
-			targetProxy = E54FADE2178178E600E09874 /* PBXContainerItemProxy */;
-		};
-		E54FADE5178178E600E09874 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E54FAD681781774000E09874 /* icns */;
-			targetProxy = E54FADE4178178E600E09874 /* PBXContainerItemProxy */;
-		};
 		E54FADF31781799500E09874 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = libtop;
@@ -1628,6 +711,7 @@
 				HEADER_SEARCH_PATHS = (
 					../nui3/include,
 					../lldb/llvm/tools/clang/include,
+					deps/top,
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
@@ -1640,77 +724,6 @@
 					"-lz",
 					"-liconv",
 				);
-			};
-			name = Default;
-		};
-		E54FABF7178175AF00E09874 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				EXECUTABLE_PREFIX = lib;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../nui3/deps/libjpeg/;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Default;
-		};
-		E54FADD91781774000E09874 /* Default */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				EXECUTABLE_PREFIX = lib;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					deps/jasper/src/libjasper/include/,
-					../nui3/deps/libjpeg/,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = icns;
-				SDKROOT = macosx;
 			};
 			name = Default;
 		};
@@ -1786,20 +799,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;
-		};
-		E54FABF6178175AF00E09874 /* Build configuration list for PBXNativeTarget "jasper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E54FABF7178175AF00E09874 /* Default */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		E54FADD81781774000E09874 /* Build configuration list for PBXNativeTarget "icns" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E54FADD91781774000E09874 /* Default */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 		E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Xspray OSX" */ = {
 			isa = XCConfigurationList;
