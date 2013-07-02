@@ -717,7 +717,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../llvm/tools/lldb/llvm-build/Release/x86_64/Release/lib\"",
+					"\"$(SRCROOT)/../lldb/llvm-build/Release+Asserts/x86_64/Release+Asserts/lib\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
