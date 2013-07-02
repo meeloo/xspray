@@ -155,9 +155,44 @@ void AppDescription::InsertArgument(int index, const nglString& rString)
   Changed();
 }
 
+
+NSBitmapImageRep * GetBitmapImageRepresentation(NSImage* image)
+{
+#define SCALE (4.0 * nuiGetScaleFactor())
+  int width = [image size].width * SCALE;
+  int height = [image size].height * SCALE;
+
+  if(width < 1 || height < 1)
+    return nil;
+
+  NSBitmapImageRep *rep = [[NSBitmapImageRep alloc]
+                           initWithBitmapDataPlanes: NULL
+                           pixelsWide: width
+                           pixelsHigh: height
+                           bitsPerSample: 8
+                           samplesPerPixel: 4
+                           hasAlpha: YES
+                           isPlanar: NO
+                           colorSpaceName: NSDeviceRGBColorSpace
+                           bytesPerRow: width * 4
+                           bitsPerPixel: 32];
+
+  NSGraphicsContext *ctx = [NSGraphicsContext graphicsContextWithBitmapImageRep: rep];
+  [NSGraphicsContext saveGraphicsState];
+  [NSGraphicsContext setCurrentContext: ctx];
+  NSAffineTransform* scale = [NSAffineTransform transform];
+  [scale scaleBy: SCALE];
+  [scale concat];
+  [image drawAtPoint: NSZeroPoint fromRect: NSZeroRect operation: NSCompositeCopy fraction: 1.0];
+  [ctx flushGraphics];
+  [NSGraphicsContext restoreGraphicsState];
+
+  return [rep autorelease];
+}
+
 bool ConvertNSImage(NSImage* image, nglImageInfo& rInfo)
 {
-  NSBitmapImageRep *bmp = [[image representations] objectAtIndex:0];
+  NSBitmapImageRep *bmp = GetBitmapImageRepresentation(image);
   NSInteger h = [bmp pixelsHigh], w = [bmp pixelsWide];
   unsigned char *data = [bmp bitmapData];
 
@@ -184,6 +219,10 @@ bool ConvertNSImage(NSImage* image, nglImageInfo& rInfo)
 
     case 32:
       if ([bmp bitmapFormat] & NSAlphaFirstBitmapFormat)
+      {
+
+      }
+      else if ([bmp bitmapFormat] & NSAlphaFirstBitmapFormat)
       {
         for (int y = 0; y < h; y++)
         {
@@ -215,6 +254,7 @@ bool AppDescription::LoadBundleIcon(const nglPath& rBundlePath)
     nglImageInfo info;
     ConvertNSImage(image, info);
     mpIcon = nuiTexture::GetTexture(info);
+    mpIcon->SetScale(nuiGetScaleFactor());
 
 //    [image release];
   }
