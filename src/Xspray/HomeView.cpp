@@ -22,6 +22,12 @@ HomeView::HomeView()
   mpAddApplication = NULL;
   mpRemoveApplication = NULL;
   mpApplicationList = NULL;
+
+  mpAppName = NULL;
+  mpAppPath = NULL;
+  mpAppCommandLine = NULL;
+  mpAppEnvironment = NULL;
+
 }
 
 HomeView::~HomeView()
@@ -38,9 +44,23 @@ void HomeView::Built()
   NGL_ASSERT(mpLaunchApplication);
   mpIcon = (nuiImage*)SearchForChild("Icon");
 
+  nuiWidget* pLine = NULL;
+  pLine = SearchForChild("AppName");
+  mpAppName = (nuiLabel*)pLine->SearchForChild("Contents", true);
+
+  pLine = SearchForChild("AppPath");
+  mpAppPath = (nuiLabel*)pLine->SearchForChild("Contents", true);
+
+  pLine = SearchForChild("AppCommandLine");
+  mpAppCommandLine = (nuiEditLine*)pLine->SearchForChild("Contents", true);
+
+  pLine = SearchForChild("AppEnvironment");
+  mpAppEnvironment = (nuiEditLine*)pLine->SearchForChild("Contents", true);
+
   mEventSink.Connect(mpLaunchApplication->Activated, &HomeView::OnLaunch);
   mEventSink.Connect(mpAddApplication->Activated, &HomeView::AddApplication);
   mEventSink.Connect(mpRemoveApplication->Activated, &HomeView::RemoveApplication);
+  mEventSink.Connect(mpApplicationList->SelectionChanged, &HomeView::OnApplicationSelected);
 }
 
 void HomeView::OnLaunch(const nuiEvent& rEvent)
@@ -83,13 +103,46 @@ void HomeView::OnApplicationChosen(const ChooseFileParams& params)
 void HomeView::AddApplication(AppDescription* pApp)
 {
   nuiWidget* pLine = nuiBuilder::Get().CreateWidget("ListLine");
+  pLine->SetToken(new nuiFreeToken<AppDescription*>(pApp));
   nuiLabel* pLabel = (nuiLabel*)pLine->SearchForChild("Title", true);
   nuiImage* pIcon = (nuiImage*)pLine->SearchForChild("Icon", true);
   pLabel->SetText(pApp->GetName());
   pIcon->SetTexture(pApp->GetIcon());
   mpApplicationList->AddChild(pLine);
 
+  mpApplicationList->SelectItem(pLine);
+  mpApplicationList->SelectionChanged();
+}
+
+void HomeView::OnApplicationSelected(const nuiEvent& rEVent)
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+
+  nuiWidget* pLine = mpApplicationList->GetSelected();
+  if (!pLine)
+  {
+    mpIcon->SetTexture(NULL);
+    mpAppName->SetText(nglString::Empty);
+    mpAppPath->SetText(nglString::Empty);
+    mpAppEnvironment->SetText(nglString::Empty);
+    mpAppCommandLine->SetText(nglString::Empty);
+
+    rContext.mTargetApplication = nglPath();
+
+    return;
+  }
+
+  AppDescription* pApp = NULL;
+  nuiGetTokenValue<AppDescription*>(pLine->GetToken(), pApp);
+  NGL_ASSERT(pApp != NULL);
   mpIcon->SetTexture(pApp->GetIcon());
+
+  mpAppName->SetText(pApp->GetName());
+  mpAppPath->SetText(pApp->GetLocalPath().GetPathName());
+  mpAppCommandLine->SetText(nglString::Empty);
+  mpAppEnvironment->SetText(nglString::Empty);
+
+  rContext.mTargetApplication = pApp->GetLocalPath();
 }
 
 void HomeView::RemoveApplication(const nuiEvent& rEvent)

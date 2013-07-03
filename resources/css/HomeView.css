@@ -1,9 +1,16 @@
 // HomeView CSS
 
++Label ContentsType
+{
+  Text: "";
+}
+
 +nuiHBox InspectorLine
 {
-  +Label { Text: LineTitle; }
-  +Label { Text: LineContents; }
+  Borders : 4;
+  +Label Title { Text: LineTitle; }
+  +ContentsType Contents { Text: LineContents; }
+  CellExpand[1]: ShrinkAndGrow;
 }
 
 +nuiHBox ListLine
@@ -32,13 +39,7 @@
   VAnchors_apps = 110;
   VAnchorsType_apps = Absolute;
 
-  HAnchors_inspector = -200;
-  HAnchorsType_inspector = Absolute;
-
-  HAnchors_left = 50;
-  HAnchorsType_inspector = Absolute;
-
-  HAnchors_right = -50;
+  HAnchors_inspector = -400;
   HAnchorsType_inspector = Absolute;
 
   +Label
@@ -50,8 +51,11 @@
 
   +nuiHBox
   {
-    Expand: ShinkAndGrow;
+    BorderLeft: 10;
+    Expand: ShrinkAndGrow;
     Layout = [left, right] / [icons, apps];
+    MaxHeight: 20;
+    Position: BottomLeft;
 
     +nuiButton RemoveApplication
     {
@@ -79,12 +83,18 @@
   +nuiScrollView
   {
     Layout = [inspector, right] / [apps, bottom];
+
     +nuiVBox
     {
+      Borders: 10;
+      Expand: ShrinkAndGrow;
+
       +nuiButton LaunchApplication
       {
+        Position: Left;
         +nuiHBox
         {
+          Borders : 5;
           +Label { Text: "Start Debugging"; }
           +fontawesome_signin;
         }
@@ -92,12 +102,14 @@
       
       +nuiImage Icon
       {
+        Borders : 10;
         Position: Center;
       }
       
-      +InspectorLine( LineTitle: "Name:", LineContents: "bleh1" );
-      +InspectorLine( LineTitle: "Path:", LineContents: "bleh2" );
-      +InspectorLine( LineTitle: "Command line:", LineContents: "bleh3" );
+      +InspectorLine AppName( LineTitle: "Name:", LineContents: "" );
+      +InspectorLine AppPath( LineTitle: "Path:", LineContents: "" );
+      +InspectorLine AppCommandLine( LineTitle: "Command line:", LineContents: "", ContentsType: "nuiEditLine" );
+      +InspectorLine AppEnvironment( LineTitle: "Environment:", LineContents: "", ContentsType: "nuiEditLine" );
     }
   }
 }

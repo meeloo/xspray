@@ -28,10 +28,16 @@ private:
   nuiList* mpApplicationList;
   nuiImage* mpIcon;
 
+  nuiLabel* mpAppName;
+  nuiLabel* mpAppPath;
+  nuiEditLine* mpAppCommandLine;
+  nuiEditLine* mpAppEnvironment;
+
   void OnLaunch(const nuiEvent& rEvent);
   void AddApplication(const nuiEvent& rEvent);
   void RemoveApplication(const nuiEvent& rEvent);
   void OnApplicationChosen(const ChooseFileParams& params);
   void AddApplication(AppDescription* pApp);
 
+  void OnApplicationSelected(const nuiEvent& rEVent);
 };
