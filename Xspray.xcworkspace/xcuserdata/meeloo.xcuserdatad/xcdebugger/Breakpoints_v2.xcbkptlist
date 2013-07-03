@@ -568,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/HomeView.cpp"
-            timestampString = "394584251.362704"
+            timestampString = "394587830.280231"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "HomeView::Built()"
             landmarkType = "5">
          </BreakpointContent>

@@ -83,6 +83,7 @@
   +nuiScrollView
   {
     Layout = [inspector, right] / [apps, bottom];
+    EnableHorizontalScroll: false;
 
     +nuiVBox
     {

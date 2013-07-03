@@ -16,6 +16,8 @@ public:
 
   virtual void Built();
 
+  void AddApplication(const nglPath& rApplication);
+
   nuiSignal1<const nglPath&> Launch;
 private:
   nuiEventSink<HomeView> mEventSink;

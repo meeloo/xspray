@@ -27,7 +27,6 @@ HomeView::HomeView()
   mpAppPath = NULL;
   mpAppCommandLine = NULL;
   mpAppEnvironment = NULL;
-
 }
 
 HomeView::~HomeView()
@@ -61,6 +60,12 @@ void HomeView::Built()
   mEventSink.Connect(mpAddApplication->Activated, &HomeView::AddApplication);
   mEventSink.Connect(mpRemoveApplication->Activated, &HomeView::RemoveApplication);
   mEventSink.Connect(mpApplicationList->SelectionChanged, &HomeView::OnApplicationSelected);
+
+  DebuggerContext& rContext(GetDebuggerContext());
+  if (!rContext.mTargetApplication.GetPathName().IsEmpty())
+  {
+    AddApplication(rContext.mTargetApplication);
+  }
 }
 
 void HomeView::OnLaunch(const nuiEvent& rEvent)
@@ -85,8 +90,12 @@ void HomeView::OnApplicationChosen(const ChooseFileParams& params)
 {
   if (params.mFiles.empty())
     return;
+  AddApplication(params.mFiles[0]);
+}
 
-  int index = AppDescription::AddApp(params.mFiles[0]);
+void HomeView::AddApplication(const nglPath& rApplication)
+{
+  int index = AppDescription::AddApp(rApplication);
   if (index >= 0)
   {
     AppDescription* pApp = AppDescription::GetApp(index);
