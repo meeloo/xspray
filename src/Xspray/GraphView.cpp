@@ -72,6 +72,37 @@ nuiRect GraphView::CalcIdeadSize()
 
 bool GraphView::Draw(nuiDrawContext* pContext)
 {
+  float height = mRect.GetHeight();
+  auto it = mModels.begin();
+  auto end = mModels.end();
+
+  while (it != end)
+  {
+    ArrayModel* pModel = it->first;
+    auto options = it->second;
+
+    int32 start = MIN(mStart, pModel->GetNumValues());
+    int32 end = MIN(mEnd, mStart + pModel->GetNumValues());
+
+    int32 len = end - start;
+
+    if (len > 0)
+    {
+      nuiShape* pShape = new nuiShape();
+      for (int32 i = 0; i < len; i++)
+      {
+        float y = pModel->GetValue(start + i);
+        pShape->LineTo(nuiPoint(i, height - y));
+      }
+
+      pContext->SetLineWidth(options.mWeight);
+      pContext->SetStrokeColor(options.mColor);
+      pContext->DrawShape(pShape, eStrokeShape);
+      delete pShape;
+    }
+
+    ++it;
+  }
   return nuiSimpleContainer::Draw(pContext);
 }
 

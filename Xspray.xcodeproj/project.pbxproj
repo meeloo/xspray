@@ -35,6 +35,8 @@
 		E54FABE417816B5400E09874 /* AppDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.mm */; };
 		E54FADF6178179A700E09874 /* libtop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADF11781796200E09874 /* libtop.a */; };
 		E54FADF7178179AE00E09874 /* libtop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADF11781796200E09874 /* libtop.a */; };
+		E551CBD6178A4718008FCD2F /* ArrayModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E551CBD5178A4718008FCD2F /* ArrayModel.cpp */; };
+		E551CBD7178A4718008FCD2F /* ArrayModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E551CBD5178A4718008FCD2F /* ArrayModel.cpp */; };
 		E5523F24178A2AF400C499E9 /* GraphView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523F22178A2AF400C499E9 /* GraphView.cpp */; };
 		E5523F25178A2AF400C499E9 /* GraphView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523F22178A2AF400C499E9 /* GraphView.cpp */; };
 		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
@@ -255,6 +257,7 @@
 		E54FABE117816B5400E09874 /* AppDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDescription.mm; path = src/Xspray/AppDescription.mm; sourceTree = "<group>"; };
 		E54FABE217816B5400E09874 /* AppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDescription.h; path = src/Xspray/AppDescription.h; sourceTree = "<group>"; };
 		E54FADE81781796200E09874 /* top.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = top.xcodeproj; path = deps/top/top.xcodeproj; sourceTree = "<group>"; };
+		E551CBD5178A4718008FCD2F /* ArrayModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrayModel.cpp; path = src/Xspray/ArrayModel.cpp; sourceTree = "<group>"; };
 		E5523F141789DD2600C499E9 /* ArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayModel.h; path = src/Xspray/ArrayModel.h; sourceTree = "<group>"; };
 		E5523F22178A2AF400C499E9 /* GraphView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GraphView.cpp; path = src/Xspray/GraphView.cpp; sourceTree = "<group>"; };
 		E5523F23178A2AF400C499E9 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = src/Xspray/GraphView.h; sourceTree = "<group>"; };
@@ -400,6 +403,7 @@
 				E5E8E73917806D43001E6358 /* HomeView.h */,
 				E54FABE117816B5400E09874 /* AppDescription.mm */,
 				E54FABE217816B5400E09874 /* AppDescription.h */,
+				E551CBD5178A4718008FCD2F /* ArrayModel.cpp */,
 				E5523F141789DD2600C499E9 /* ArrayModel.h */,
 				E5523F22178A2AF400C499E9 /* GraphView.cpp */,
 				E5523F23178A2AF400C499E9 /* GraphView.h */,
@@ -656,6 +660,7 @@
 				E5E8E737178060AB001E6358 /* DebugView.cpp in Sources */,
 				E5E8E73B17806D43001E6358 /* HomeView.cpp in Sources */,
 				E54FABE417816B5400E09874 /* AppDescription.mm in Sources */,
+				E551CBD7178A4718008FCD2F /* ArrayModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +683,7 @@
 				E5E8E736178060AB001E6358 /* DebugView.cpp in Sources */,
 				E5E8E73A17806D43001E6358 /* HomeView.cpp in Sources */,
 				E54FABE317816B5400E09874 /* AppDescription.mm in Sources */,
+				E551CBD6178A4718008FCD2F /* ArrayModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
