@@ -557,8 +557,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "229"
             endingLineNumber = "229"
-            landmarkName = "AppDescription::LoadBundleIcon(const nglPath&amp; rBundlePath)"
-            landmarkType = "5">
+            landmarkName = "ConvertNSImage(NSImage* image, nglImageInfo&amp; rInfo)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

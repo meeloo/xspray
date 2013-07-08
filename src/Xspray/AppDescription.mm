@@ -42,31 +42,6 @@ bool AppDescription::IsValid() const
   return !mArchitectures.empty() && mLocalPath.Exists();
 }
 
-uint32 AppDescription::GetArchitecturesRange(uint32 dimension) const
-{
-  if (dimension == 0)
-    return mArchitectures.size();
-  return 0;
-}
-
-const nglString& AppDescription::GetArchitectureByIndex(uint32 index) const
-{
-  return mArchitectures[index];
-}
-
-
-uint32 AppDescription::GetArgumentRange(uint32 dimension) const
-{
-  if (dimension == 0)
-    return mArguments.size();
-  return 0;
-}
-
-const nglString& AppDescription::GetArgumentByIndex(uint32 index) const
-{
-  return mArguments[index];
-}
-
 AppDescription::AppDescription(const nglPath& rPath)
 : mLocalPath(rPath), mpIcon(NULL)
 {
@@ -87,19 +62,6 @@ AppDescription::AppDescription(const nglPath& rPath)
     AddAttribute(new nuiAttribute<const nglString&>
                  (nglString(_T("Architecture")), nuiUnitNone,
                   nuiMakeDelegate(this, &AppDescription::GetArchitecture)));
-
-    AddAttribute(new nuiAttribute<const nglString&>
-                 (nglString(_T("Architectures")), nuiUnitNone,
-                  nuiMakeDelegate(this, &AppDescription::GetArchitectureByIndex),
-                  nuiMakeDelegate(this, &AppDescription::GetArchitecturesRange)));
-
-    AddAttribute(new nuiAttribute<const nglString&>
-                 (nglString(_T("Arguments")), nuiUnitNone,
-                  nuiMakeDelegate(this, &AppDescription::GetArgumentByIndex),
-                  nuiMakeDelegate(this, &AppDescription::SetArgument),
-                  nuiMakeDelegate(this, &AppDescription::GetArgumentRange)));
-
-
   }
 
   DebuggerContext& rContext(GetDebuggerContext());
@@ -170,7 +132,7 @@ const std::map<nglString, nglString>& AppDescription::GetEnvironement() const
   return mEnvironement;
 }
 
-void AppDescription::DelArgument(uint32 index)
+void AppDescription::DelArgument(int32 index)
 {
   NGL_ASSERT(index < mArguments.size());
   mArguments.erase(mArguments.begin() + index);
@@ -185,7 +147,7 @@ void AppDescription::DelEnvironement(const nglString& rVar)
   Changed();
 }
 
-void AppDescription::SetArgument(uint32 index, const nglString& rString)
+void AppDescription::SetArgument(int32 index, const nglString& rString)
 {
   NGL_ASSERT(index < mArguments.size());
   mArguments[index] = rString;
@@ -204,7 +166,7 @@ void AppDescription::AddArgument(const nglString& rString)
   Changed();
 }
 
-void AppDescription::InsertArgument(uint32 index, const nglString& rString)
+void AppDescription::InsertArgument(int32 index, const nglString& rString)
 {
   NGL_ASSERT(index < mArguments.size());
   mArguments.insert(mArguments.begin() + index, rString);

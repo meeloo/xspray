@@ -28,5 +28,7 @@ namespace Xspray
 #include "DebuggerContext.h"
 #include "HomeView.h"
 #include "DebugView.h"
+#include "ArrayModel.h"
+#include "GraphView.h"
 }
 
