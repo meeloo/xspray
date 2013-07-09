@@ -17,6 +17,7 @@ public:
   void Open(bool Opened);
   bool IsEmpty() const;
 
+  virtual void Select(bool Select, bool Temporary = false);
 private:
   lldb::SBValue mValue;
 };

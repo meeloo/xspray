@@ -640,6 +640,19 @@
          landmarkName = "ConvertNSImage(NSImage* image, nglImageInfo&amp; rInfo)"
          landmarkType = "7">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/Xspray/VariableNode.cpp"
+         timestampString = "394986246.042051"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
+         landmarkName = "ResolveType(SBType type)"
+         landmarkType = "7">
+      </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>
       <ExceptionBreakpoint

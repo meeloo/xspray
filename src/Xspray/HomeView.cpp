@@ -61,10 +61,9 @@ void HomeView::Built()
   mEventSink.Connect(mpRemoveApplication->Activated, &HomeView::RemoveApplication);
   mEventSink.Connect(mpApplicationList->SelectionChanged, &HomeView::OnApplicationSelected);
 
-  DebuggerContext& rContext(GetDebuggerContext());
-  if (!rContext.mTargetApplication.GetPathName().IsEmpty())
+  for (int i = 0; i < AppDescription::GetAppCount(); i++)
   {
-    AddApplication(rContext.mTargetApplication);
+    AddApplication(AppDescription::GetApp(i));
   }
 }
 
@@ -136,7 +135,7 @@ void HomeView::OnApplicationSelected(const nuiEvent& rEVent)
     mpAppEnvironment->SetText(nglString::Empty);
     mpAppCommandLine->SetText(nglString::Empty);
 
-    rContext.mTargetApplication = nglPath();
+    rContext.mpAppDescription = NULL;
 
     return;
   }
@@ -151,7 +150,7 @@ void HomeView::OnApplicationSelected(const nuiEvent& rEVent)
   mpAppCommandLine->SetText(nglString::Empty);
   mpAppEnvironment->SetText(nglString::Empty);
 
-  rContext.mTargetApplication = pApp->GetLocalPath();
+  rContext.mpAppDescription = pApp;
 }
 
 void HomeView::RemoveApplication(const nuiEvent& rEvent)

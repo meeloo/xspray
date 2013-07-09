@@ -99,7 +99,8 @@ void Application::OnInit()
     {
       // Get the path to the application from the args:
       arg = GetArg(i+1);
-      mpDebuggerContext->mTargetApplication = arg;
+      int index = Xspray::AppDescription::AddApp(arg);
+      mpDebuggerContext->mpAppDescription = Xspray::AppDescription::GetApp(index);
       i++;
     }
     i++;

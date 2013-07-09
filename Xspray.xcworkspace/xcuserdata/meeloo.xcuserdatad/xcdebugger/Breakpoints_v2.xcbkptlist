@@ -552,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/AppDescription.mm"
-            timestampString = "394450651.313573"
+            timestampString = "395019231.73767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "ConvertNSImage(NSImage* image, nglImageInfo&amp; rInfo)"
             landmarkType = "7">
          </BreakpointContent>
@@ -575,6 +575,80 @@
             endingLineNumber = "47"
             landmarkName = "HomeView::Built()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/Xspray/AppDescription.mm"
+            timestampString = "395019085.794437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "AppDescription::AppDescription(const nglPath&amp; rPath)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Xspray::AppDescription::AppDescription(nglPath const&amp;)"
+                  moduleName = "XsprayD"
+                  urlString = "file://localhost/Users/meeloo/work/xspray/src/Xspray/AppDescription.mm"
+                  timestampString = "395019312.054859"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "3192">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Xspray::AppDescription::AppDescription(nglPath const&amp;)"
+                  moduleName = "XsprayD"
+                  urlString = "file://localhost/Users/meeloo/work/xspray/src/Xspray/AppDescription.mm"
+                  timestampString = "395019312.055206"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "4381">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Xspray::AppDescription::AppDescription(nglPath const&amp;)"
+                  moduleName = "XsprayD"
+                  urlString = "file://localhost/Users/meeloo/work/xspray/src/Xspray/AppDescription.mm"
+                  timestampString = "395019312.055508"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "3187">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Xspray::AppDescription::AppDescription(nglPath const&amp;)"
+                  moduleName = "XsprayD"
+                  urlString = "file://localhost/Users/meeloo/work/xspray/src/Xspray/AppDescription.mm"
+                  timestampString = "395019312.05581"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "4376">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

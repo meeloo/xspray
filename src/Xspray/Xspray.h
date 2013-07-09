@@ -13,6 +13,8 @@
 #include <LLDB/LLDB.h>
 #include <LLDB/SBStream.h>
 #include <LLDB/SBTypeCategory.h>
+#include <LLDB/SBModuleSpec.h>
+#include <LLDB/lldb-enumerations.h>
 
 #include "iOSRemoteDebug.h"
 #include "NativeFileDialog.h"

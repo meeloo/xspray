@@ -245,7 +245,8 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   //nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
 
   DebuggerContext& rContext(GetDebuggerContext());
-  nglPath p = rContext.mTargetApplication;
+  NGL_ASSERT(rContext.mpAppDescription != NULL);
+  nglPath p = rContext.mpAppDescription->GetLocalPath();
 
   StateType state = rContext.mProcess.GetState();
   if (state == eStateRunning)
@@ -292,20 +293,9 @@ void DebugView::OnStart(const nuiEvent& rEvent)
 
   if (rContext.mDebugger.IsValid())
   {
-    SBStringList archlist = rContext.mDebugger.GetAvailableArchsFromFile(p.GetChars());
-    // first try to detect the target arch:
-    std::vector<nglString> valid_archs;
-    {
-      size_t count = archlist.GetSize();
-
-      for (size_t i = 0; i < count; i++)
-      {
-        valid_archs.push_back(archlist.GetStringAtIndex(i));
-        NGL_OUT("Valid arch: %s\n", archlist.GetStringAtIndex(i));
-      }
-    }
-
-    if (valid_archs.empty())
+    AppDescription* pApp = rContext.mpAppDescription;
+    NGL_ASSERT(pApp != NULL);
+    if (pApp->GetArchitectures().empty())
     {
       NGL_OUT("Found no valid archs\n");
       return;
@@ -313,7 +303,7 @@ void DebugView::OnStart(const nuiEvent& rEvent)
 
     // Create a target using the executable.
     //rContext.mTarget = rContext.mDebugger.CreateTarget(p.GetChars());
-    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), valid_archs[0].GetChars());
+    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), pApp->GetArchitecture().GetChars());
     if (rContext.mTarget.IsValid())
     {
       const char * triple = rContext.mTarget.GetTriple();

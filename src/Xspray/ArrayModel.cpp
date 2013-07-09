@@ -82,38 +82,46 @@ MemoryArray::MemoryArray(const double* pData, int32 length)
 {
   mArray.resize(length);
   for (int32 i = 0; i < length; ++i)
-    mArray[i] = pData[i];
+    mArray[i] = (float)pData[i];
 }
 
 MemoryArray::MemoryArray(const int8* pData, int32 length)
 {
   mArray.resize(length);
   for (int32 i = 0; i < length; ++i)
-    mArray[i] = pData[i];
+    mArray[i] = (float)pData[i];
 }
 
 MemoryArray::MemoryArray(const int16* pData, int32 length)
 {
   mArray.resize(length);
   for (int32 i = 0; i < length; ++i)
-    mArray[i] = pData[i];
+    mArray[i] = (float)pData[i];
 }
 
 MemoryArray::MemoryArray(const int32* pData, int32 length)
 {
   mArray.resize(length);
   for (int32 i = 0; i < length; ++i)
-    mArray[i] = pData[i];
+    mArray[i] = (float)pData[i];
 }
 
 MemoryArray::MemoryArray(const int64* pData, int32 length)
 {
   mArray.resize(length);
   for (int32 i = 0; i < length; ++i)
-    mArray[i] = pData[i];
+    mArray[i] = (float)pData[i];
 }
 
 MemoryArray::MemoryArray(float* pData, int32 length)
 {
+  mArray.resize(length);
+  for (int32 i = 0; i < length; ++i)
+    mArray[i] = (float)pData[i];
 }
+
+MemoryArray::MemoryArray(lldb::SBValue value)
+{
+}
+
 

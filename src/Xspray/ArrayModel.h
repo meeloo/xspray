@@ -43,6 +43,8 @@ public:
   MemoryArray(const int64* pData, int32 length);
   MemoryArray(float* pData, int32 length);
 
+  MemoryArray(lldb::SBValue value);
+
 protected:
   std::vector<float> mArray;
 };

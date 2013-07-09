@@ -68,14 +68,20 @@ AppDescription::AppDescription(const nglPath& rPath)
 
   nglPath p = rPath.GetNodeName();
   mName = p.GetRemovedExtension();
-  SBStringList archlist = rContext.mDebugger.GetAvailableArchsFromFile(rPath.GetChars());
-  // first try to detect the target arch:
-  std::vector<nglString> valid_archs;
-  {
-    size_t count = archlist.GetSize();
 
-    for (size_t i = 0; i < count; i++)
-      mArchitectures.push_back(archlist.GetStringAtIndex(i));
+  SBModuleSpecList specs = SBModuleSpecList::GetModuleSpecifications(rPath.GetChars());
+  // first try to detect the target arch:
+
+  const size_t count = specs.GetSize();
+  for (size_t i = 0; i < count; ++i)
+  {
+    SBModuleSpec module_spec = specs.GetSpecAtIndex(i);
+    const char *triple = module_spec.GetTriple();
+    std::vector<nglString> tokens;
+    nglString triplestr = triple;
+    triplestr.Tokenize(tokens, '-');
+    NGL_OUT("%s -> '%s' '%s' '%s'\n", triple, tokens[0].GetChars(), tokens[1].GetChars(), tokens[2].GetChars());
+    mArchitectures.push_back(tokens[0]);
   }
 
   LoadBundleIcon(rPath);

@@ -16,7 +16,7 @@ public:
   lldb::SBDebugger mDebugger;
   lldb::SBTarget mTarget;
   lldb::SBProcess mProcess;
-  nglPath mTargetApplication;
+  AppDescription* mpAppDescription;
   std::list<Breakpoint*> mBreakpoints;
 };
 
