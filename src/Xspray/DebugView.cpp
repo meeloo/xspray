@@ -80,6 +80,15 @@ void DebugView::Built()
 
   mSlotSink.Connect(iOSDevice::DeviceConnected, nuiMakeDelegate(this, &DebugView::OnDeviceConnected));
   mSlotSink.Connect(iOSDevice::DeviceDisconnected, nuiMakeDelegate(this, &DebugView::OnDeviceDisconnected));
+
+  // Load modules:
+  DebuggerContext& rContext(GetDebuggerContext());
+  ModuleTree* pTree = new ModuleTree(rContext.mTarget);
+  pTree->Acquire();
+  pTree->Open(true);
+  mpModules->SetTree(pTree);
+
+
 }
 
 void DebugView::OnDeviceConnected(iOSDevice& device)
@@ -114,11 +123,6 @@ void DebugView::OnDeviceDisconnected(iOSDevice& device)
       return;
     }
   }
-}
-
-void MyLogOutputCallback(const char * str, void *baton)
-{
-  printf("LLDB> %s", str);
 }
 
 const char* GetStateName(StateType s)
@@ -257,82 +261,14 @@ void DebugView::OnStart(const nuiEvent& rEvent)
     return;
   }
 
-  // Create a debugger instance so we can create a target
-  const char *channel = "lldb";
-  const char *categories[] =
-  {
-    //strm->Printf("Logging categories for 'lldb':\n"
-    //     "all", // - turn on all available logging categories\n"
-    //"api", // - enable logging of API calls and return values\n"
-    "break", // - log breakpoints\n"
-    //     "commands", // - log command argument parsing\n"
-    //     "default", // - enable the default set of logging categories for liblldb\n"
-    //     "dyld", // - log shared library related activities\n"
-    //     "events", // - log broadcaster, listener and event queue activities\n"
-    //     "expr", // - log expressions\n"
-    //     "object", // - log object construction/destruction for important objects\n"
-    //     "module", // - log module activities such as when modules are created, detroyed, replaced, and more\n"
-    "process", // - log process events and activities\n"
-    //     "script", // - log events about the script interpreter\n"
-    "state",  //- log private and public process state changes\n"
-    "step", // - log step related activities\n"
-    "symbol", // - log symbol related issues and warnings\n"
-    "target", // - log target events and activities\n"
-    "thread", // - log thread events and activities\n"
-    //     "types", // - log type system related activities\n"
-    //     "unwind", // - log stack unwind activities\n"
-    //     "verbose", // - enable verbose logging\n"
-    //     "watch", // - log watchpoint related activities\n");
-    NULL
-  };
-  rContext.mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
-  rContext.mDebugger.EnableLog(channel, categories);
 
   mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &DebugView::Loop));
   mpDebuggerEventLoop->Start();
 
   if (rContext.mDebugger.IsValid())
   {
-    AppDescription* pApp = rContext.mpAppDescription;
-    NGL_ASSERT(pApp != NULL);
-    if (pApp->GetArchitectures().empty())
-    {
-      NGL_OUT("Found no valid archs\n");
-      return;
-    }
-
-    // Create a target using the executable.
-    //rContext.mTarget = rContext.mDebugger.CreateTarget(p.GetChars());
-    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), pApp->GetArchitecture().GetChars());
     if (rContext.mTarget.IsValid())
     {
-      const char * triple = rContext.mTarget.GetTriple();
-      NGL_OUT("Target triple: %s\n", triple);
-      nglString Triple(triple);
-      std::vector<nglString> infos;
-      Triple.Tokenize(infos, '-');
-      for (int i = 0; i < infos.size(); i++)
-      {
-        NGL_OUT("Info[%d]: %s\n", i, infos[i].GetChars());
-      }
-
-
-      {
-        uint32_t c = rContext.mDebugger.GetNumCategories ();
-        for (int i = 0; i < c; i++)
-        {
-          SBTypeCategory cat = rContext.mDebugger.GetCategoryAtIndex(i);
-          printf("cat %d %s\t\t\t(%s - %d formats - %d summaries - %d filters)\n", i, cat.GetName(), cat.GetEnabled()?"Enabled":"Disabled", cat.GetNumFormats(), cat.GetNumSummaries(), cat.GetNumFilters());
-          cat.SetEnabled(true);
-        }
-      }
-
-      ModuleTree* pTree = new ModuleTree(rContext.mTarget);
-      pTree->Acquire();
-      pTree->Open(true);
-      mpModules->SetTree(pTree);
-
-
       static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
       //breakpoint.SetCallback(BPCallback, 0);
 

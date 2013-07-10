@@ -12,7 +12,7 @@ using namespace lldb;
 using namespace Xspray;
 
 GraphOptions::GraphOptions()
-: mColor("black"), mWeight(1), mName("noname")
+: mColor("black"), mWeight(5), mName("noname")
 {
 }
 

@@ -12,6 +12,7 @@ class DebuggerContext
 {
 public:
   DebuggerContext();
+  bool LoadApp();
 
   lldb::SBDebugger mDebugger;
   lldb::SBTarget mTarget;

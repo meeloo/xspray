@@ -112,6 +112,32 @@ SBType ResolveType(SBType type)
   return type;
 }
 
+void ShowTypeInfo(SBType _type, int level = 0)
+{
+  SBType type(ResolveType(_type));
+  TypeClass typeclass = type.GetTypeClass();
+
+  // Detection:
+  nglString idnt;
+  for (int i = 0; i < level; i++)
+    idnt.Add("   ");
+  const char* indent = idnt.GetChars();
+  NGL_OUT("%s================= Type: %s\n", indent, type.GetName());
+  //NGL_OUT("%sMightHaveChildren: %s\n", indent, YESNO(mValue.MightHaveChildren()));
+  NGL_OUT("%sTypeClass: %s\n", indent, GetTypeClassName(typeclass));
+  NGL_OUT("%sNumberOfFields: %d\n", indent, type.GetNumberOfFields());
+  NGL_OUT("%sBasicType: %s\n", indent, GetBasicTypeName(type.GetBasicType()));
+  NGL_OUT("%sIsPointer %s\n", indent, YESNO(type.IsPointerType()));
+  if (type.IsPointerType())
+  {
+    ShowTypeInfo(type.GetPointeeType(), level + 2);
+  }
+  else if (type.IsReferenceType())
+  {
+    ShowTypeInfo(type.GetDereferencedType(), level + 2);
+  }
+
+}
 
 void VariableNode::Select(bool DoSelect, bool Temporary)
 {
@@ -119,15 +145,7 @@ void VariableNode::Select(bool DoSelect, bool Temporary)
 
   if (DoSelect && !Temporary)
   {
-    SBType type(ResolveType(mValue.GetType()));
-    TypeClass typeclass = type.GetTypeClass();
-
-    // Detection:
-    NGL_OUT("================= Type: %s\n", type.GetName());
-    NGL_OUT("MightHaveChildren: %s\n", YESNO(mValue.MightHaveChildren()));
-    NGL_OUT("TypeClass: %s\n", GetTypeClassName(typeclass));
-    NGL_OUT("NumberOfFields: %d\n", type.GetNumberOfFields());
-    NGL_OUT("BasicType: %s\n", GetBasicTypeName(type.GetBasicType()));
+    ShowTypeInfo(mValue.GetType());
     NGL_OUT("\n");
   }
 }

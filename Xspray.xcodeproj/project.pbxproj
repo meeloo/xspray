@@ -380,10 +380,23 @@
 		E53D0CE5177445DA0082B86F /* Xspray */ = {
 			isa = PBXGroup;
 			children = (
+				E54FABE217816B5400E09874 /* AppDescription.h */,
+				E54FABE117816B5400E09874 /* AppDescription.mm */,
+				E551CBD5178A4718008FCD2F /* ArrayModel.cpp */,
+				E5523F141789DD2600C499E9 /* ArrayModel.h */,
 				E53D0CE6177445E90082B86F /* Breakpoint.cpp */,
 				E53D0CE7177445E90082B86F /* Breakpoint.h */,
 				E53D0CE8177445E90082B86F /* DebuggerContext.cpp */,
 				E53D0CE9177445E90082B86F /* DebuggerContext.h */,
+				E5E8E734178060AB001E6358 /* DebugView.cpp */,
+				E5E8E735178060AB001E6358 /* DebugView.h */,
+				E5523F22178A2AF400C499E9 /* GraphView.cpp */,
+				E5523F23178A2AF400C499E9 /* GraphView.h */,
+				E5E8E73817806D43001E6358 /* HomeView.cpp */,
+				E5E8E73917806D43001E6358 /* HomeView.h */,
+				E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */,
+				E53D0D0317750CDC0082B86F /* iOSRemoteDebug.h */,
+				E53D0D0617750E350082B86F /* MobileDevice.h */,
 				E53D0CEA177445E90082B86F /* ModuleTree.cpp */,
 				E53D0CEB177445E90082B86F /* ModuleTree.h */,
 				E53D0CEC177445E90082B86F /* ProcessTree.cpp */,
@@ -394,19 +407,6 @@
 				E53D0CF1177445E90082B86F /* VariableNode.h */,
 				E53D0CF2177445E90082B86F /* Xspray.cpp */,
 				E53D0CF3177445E90082B86F /* Xspray.h */,
-				E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */,
-				E53D0D0317750CDC0082B86F /* iOSRemoteDebug.h */,
-				E53D0D0617750E350082B86F /* MobileDevice.h */,
-				E5E8E734178060AB001E6358 /* DebugView.cpp */,
-				E5E8E735178060AB001E6358 /* DebugView.h */,
-				E5E8E73817806D43001E6358 /* HomeView.cpp */,
-				E5E8E73917806D43001E6358 /* HomeView.h */,
-				E54FABE117816B5400E09874 /* AppDescription.mm */,
-				E54FABE217816B5400E09874 /* AppDescription.h */,
-				E551CBD5178A4718008FCD2F /* ArrayModel.cpp */,
-				E5523F141789DD2600C499E9 /* ArrayModel.h */,
-				E5523F22178A2AF400C499E9 /* GraphView.cpp */,
-				E5523F23178A2AF400C499E9 /* GraphView.h */,
 			);
 			name = Xspray;
 			sourceTree = "<group>";

@@ -107,12 +107,19 @@ bool MainWindow::LoadCSS(const nglPath& rPath)
 
 void MainWindow::OnLaunch(const nglPath& rPath)
 {
-  nuiViewController* pView = new nuiViewController();
-  DebugView* pDebugger = (DebugView*)nuiBuilder::Get().CreateWidget("Debugger");
-  NGL_ASSERT(pDebugger);
-  pView->AddChild(pDebugger);
-  mpController->PushViewController(pView);
-  mSlotSink.Connect(pDebugger->GoHome, nuiMakeDelegate(this, &MainWindow::OnGoHome));
+  if (GetDebuggerContext().LoadApp())
+  {
+    nuiViewController* pView = new nuiViewController();
+    DebugView* pDebugger = (DebugView*)nuiBuilder::Get().CreateWidget("Debugger");
+    NGL_ASSERT(pDebugger);
+    pView->AddChild(pDebugger);
+    mpController->PushViewController(pView);
+    mSlotSink.Connect(pDebugger->GoHome, nuiMakeDelegate(this, &MainWindow::OnGoHome));
+  }
+  else
+  {
+    NGL_OUT("ERROR LOADING APPLICATION\n");
+  }
 }
 
 void MainWindow::OnGoHome()

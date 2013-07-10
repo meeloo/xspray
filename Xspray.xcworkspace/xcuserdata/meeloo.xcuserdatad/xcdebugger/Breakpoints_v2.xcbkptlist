@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/MainWindow.cpp"
-            timestampString = "395063703.286301"
+            timestampString = "395154545.860765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222">
+            startingLineNumber = "229"
+            endingLineNumber = "229">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/MainWindow.cpp"
-            timestampString = "395063703.286301"
+            timestampString = "395154545.860765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "246"
+            endingLineNumber = "246">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -54,11 +54,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/MainWindow.cpp"
-            timestampString = "395063703.286301"
+            timestampString = "395154545.860765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291">
+            startingLineNumber = "298"
+            endingLineNumber = "298">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/MainWindow.cpp"
-            timestampString = "395063703.286301"
+            timestampString = "395154545.860765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "513"
-            endingLineNumber = "513">
+            startingLineNumber = "520"
+            endingLineNumber = "520">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -322,11 +322,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/MainWindow.cpp"
-            timestampString = "395063703.286301"
+            timestampString = "395154545.860765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "623"
-            endingLineNumber = "623">
+            startingLineNumber = "630"
+            endingLineNumber = "630">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -432,11 +432,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/MainWindow.cpp"
-            timestampString = "395063703.286301"
+            timestampString = "395154545.860765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314">
+            startingLineNumber = "321"
+            endingLineNumber = "321">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
