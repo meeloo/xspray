@@ -191,14 +191,24 @@
     }
   }
 
-  +nuiScrollView VariablesScroller
+  +nuiSplitter
   {
-    Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
-    DecorationMode: Border;
+    Orientation: Vertical;
     Layout = [threads, right] / [variables, bottom];
-    +nuiTreeView Variables
+
+    +nuiScrollView VariablesScroller
     {
-      DisplayRoot: false;
+      Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
+      DecorationMode: Border;
+      +nuiTreeView Variables
+      {
+        DisplayRoot: false;
+      }
+    }
+
+    +GraphView SharedPlotter
+    {
+
     }
   }
 }

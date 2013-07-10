@@ -40,6 +40,8 @@ public:
   void SetRangeStart(int32 start);
   void SetRangeEnd(int32 end);
   void SetRangeLength(int32 length);
+  void SetAutoZoomY(bool set);
+  bool GetAutoZoomY() const;
 
   void SetYOffset(float offset);
   float GetYOffset() const;
@@ -50,5 +52,6 @@ protected:
   float mYOffset;
   int32 mStart;
   int32 mEnd;
+  bool mAutoZoomY;
   
 };

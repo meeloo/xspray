@@ -31,6 +31,7 @@ MainWindow::MainWindow(const nglContextInfo& rContextInfo, const nglWindowInfo& 
   NUI_ADD_WIDGET_CREATOR(SourceView, "Container");
   NUI_ADD_WIDGET_CREATOR(HomeView, "Container");
   NUI_ADD_WIDGET_CREATOR(DebugView, "Container");
+  NUI_ADD_WIDGET_CREATOR(GraphView, "Container");
 
 #ifdef _DEBUG_
   nglString t = "DEBUG";
