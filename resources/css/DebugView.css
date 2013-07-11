@@ -208,6 +208,8 @@
 
   +nuiSplitter
   {
+    MasterChild: false;
+    HandlePos: 50;
     Orientation: Vertical;
     Layout = [threads, right] / [variables, bottom];
 
