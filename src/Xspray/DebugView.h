@@ -35,7 +35,8 @@ private:
   void OnThreadSelectionChanged(const nuiEvent& rEvent);
   void Loop();
   void UpdateVariablesForCurrentFrame();
-  void OnModuleSelectionChanged(const nuiEvent& rEvent);
+  void OnModuleFileSelectionChanged(const nuiEvent& rEvent);
+  void OnModuleSymbolSelectionChanged(const nuiEvent& rEvent);
   void OnProcessConnected();
 
   void OnLineSelected(float X, float Y, int32 line, bool ingutter);
@@ -48,7 +49,8 @@ private:
   nglThreadDelegate* mpDebuggerEventLoop;
 
   nuiTreeView* mpThreads;
-  nuiTreeView* mpModules;
+  nuiTreeView* mpModulesFiles;
+  nuiTreeView* mpModulesSymbols;
   nuiTreeView* mpVariables;
   nuiWidget* mpTransport;
   nuiButton* mpChooseApplication;
@@ -72,3 +74,4 @@ private:
 
   void UpdateArchitectures(std::vector<nglString>& rArchis);
 };
+

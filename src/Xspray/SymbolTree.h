@@ -1,5 +1,5 @@
 //
-//  ModuleTree.h
+//  SymbolTree.h
 //  Xspray
 //
 //  Created by Sébastien Métrot on 6/15/13.
@@ -8,21 +8,21 @@
 
 #pragma once
 
-class ModuleTree : public nuiTreeNode
+class SymbolTree : public nuiTreeNode
 {
 public:
   enum Type
   {
     eTarget,
     eModule,
-    eCompileUnit
+    eSymbol
   };
 
-  ModuleTree(const lldb::SBTarget& rTarget);
-  ModuleTree(const lldb::SBModule& rModule, Type type);
-  ModuleTree(const lldb::SBCompileUnit& rCompileUnit);
+  SymbolTree(const lldb::SBTarget& rTarget);
+  SymbolTree(const lldb::SBModule& rModule);
+  SymbolTree(const lldb::SBSymbol& rSymbol);
 
-  virtual ~ModuleTree();
+  virtual ~SymbolTree();
 
   virtual void Open(bool Opened);
   bool IsEmpty() const;
@@ -30,7 +30,7 @@ public:
   void Update();
   void UpdateTarget();
   void UpdateModule();
-  void UpdateCompileUnit();
+  void UpdateSymbol();
 
   Type GetType() const;
 
@@ -41,7 +41,7 @@ public:
 private:
   lldb::SBTarget mTarget;
   mutable lldb::SBModule mModule;
-  lldb::SBCompileUnit mCompileUnit;
+  lldb::SBSymbol mSymbol;
   Type mType;
 };
 

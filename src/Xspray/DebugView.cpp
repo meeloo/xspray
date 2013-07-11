@@ -37,8 +37,10 @@ void DebugView::Built()
   mpVariables->SetSubElementWidth(0, 200);
   mpVariables->SetSubElementWidth(1, 200);
 
-  mpModules = (nuiTreeView*)SearchForChild("Modules", true);
-  NGL_ASSERT(mpModules);
+  mpModulesFiles = (nuiTreeView*)SearchForChild("ModulesFiles", true);
+  NGL_ASSERT(mpModulesFiles);
+  mpModulesSymbols = (nuiTreeView*)SearchForChild("ModulesSymbols", true);
+  NGL_ASSERT(mpModulesSymbols);
 
   nuiScrollView* pScroller = (nuiScrollView*)SearchForChild("ThreadsScroller", true);
   pScroller->ActivateHotRect(false, true);
@@ -74,7 +76,8 @@ void DebugView::Built()
   mEventSink.Connect(mpStepOut->Activated, &DebugView::OnStepOut);
 
   mEventSink.Connect(mpThreads->SelectionChanged, &DebugView::OnThreadSelectionChanged);
-  mEventSink.Connect(mpModules->SelectionChanged, &DebugView::OnModuleSelectionChanged);
+  mEventSink.Connect(mpModulesFiles->SelectionChanged, &DebugView::OnModuleFileSelectionChanged);
+  mEventSink.Connect(mpModulesSymbols->SelectionChanged, &DebugView::OnModuleSymbolSelectionChanged);
 
   mSlotSink.Connect(mpSourceView->LineSelected, nuiMakeDelegate(this, &DebugView::OnLineSelected));
 
@@ -83,11 +86,15 @@ void DebugView::Built()
 
   // Load modules:
   DebuggerContext& rContext(GetDebuggerContext());
-  ModuleTree* pTree = new ModuleTree(rContext.mTarget);
-  pTree->Acquire();
-  pTree->Open(true);
-  mpModules->SetTree(pTree);
+  ModuleTree* pFilesTree = new ModuleTree(rContext.mTarget);
+  pFilesTree->Acquire();
+  pFilesTree->Open(true);
+  mpModulesFiles->SetTree(pFilesTree);
 
+  SymbolTree* pSymbolsTree = new SymbolTree(rContext.mTarget);
+  pSymbolsTree->Acquire();
+  pSymbolsTree->Open(true);
+  mpModulesSymbols->SetTree(pSymbolsTree);
 
 }
 
@@ -445,11 +452,6 @@ void DebugView::OnStart(const nuiEvent& rEvent)
 
         }
       }
-
-      ModuleTree* pTree = new ModuleTree(rContext.mTarget);
-      pTree->Acquire();
-      pTree->Open(true);
-      mpModules->SetTree(pTree);
 
       SBError error;
       nglString url;
@@ -813,9 +815,9 @@ void DebugView::OnThreadSelectionChanged(const nuiEvent& rEvent)
   UpdateVariablesForCurrentFrame();
 }
 
-void DebugView::OnModuleSelectionChanged(const nuiEvent& rEvent)
+void DebugView::OnModuleFileSelectionChanged(const nuiEvent& rEvent)
 {
-  ModuleTree* pNode = (ModuleTree*)mpModules->GetSelectedNode();
+  ModuleTree* pNode = (ModuleTree*)mpModulesFiles->GetSelectedNode();
   if (!pNode)
     return;
   
@@ -824,6 +826,19 @@ void DebugView::OnModuleSelectionChanged(const nuiEvent& rEvent)
   
   nglPath p = pNode->GetSourcePath();
   ShowSource(p, 0, 0);
+}
+
+void DebugView::OnModuleSymbolSelectionChanged(const nuiEvent& rEvent)
+{
+//  ModuleTree* pNode = (ModuleTree*)mpModulesSymbols->GetSelectedNode();
+//  if (!pNode)
+//    return;
+//
+//  if (pNode->GetType() != ModuleTree::eSymbol)
+//    return;
+//
+//  nglPath p = pNode->GetSourcePath();
+//  ShowSource(p, 0, 0);
 }
 
 

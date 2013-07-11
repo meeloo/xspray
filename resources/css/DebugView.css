@@ -129,10 +129,16 @@
   
 }
 
-+nuiHBox ModulesTabHeader
++nuiHBox ModulesFilesTabHeader
 {
   +fontawesome_suitcase;
-  +Label { Text: "Modules"; }
+  +Label { Text: "Files"; }
+}
+
++nuiHBox ModulesSymbolsTabHeader
+{
+  +fontawesome_suitcase;
+  +Label { Text: "Symbols"; }
 }
 
 +nuiHBox ThreadsTabHeader
@@ -172,11 +178,20 @@
       }
     }
 
-    +nuiScrollView ModulesScroller
+    +nuiScrollView ModulesFilesScroller
     {
-      TabWidget = ModulesTabHeader;
+      TabWidget = ModulesFilesTabHeader;
 
-      +nuiTreeView Modules
+      +nuiTreeView ModulesFiles
+      {
+      }
+    }
+
+    +nuiScrollView ModulesSymbolsScroller
+    {
+      TabWidget = ModulesSymbolsTabHeader;
+
+      +nuiTreeView ModulesSymbols
       {
       }
     }

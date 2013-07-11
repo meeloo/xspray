@@ -24,6 +24,7 @@ namespace Xspray
 #include "AppDescription.h"
 #include "Breakpoint.h"
 #include "ModuleTree.h"
+#include "SymbolTree.h"
 #include "SourceView.h"
 #include "VariableNode.h"
 #include "ProcessTree.h"
