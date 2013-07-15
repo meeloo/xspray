@@ -24,14 +24,14 @@ namespace Xspray
 #include "AppDescription.h"
 #include "Breakpoint.h"
 #include "ModuleTree.h"
+#include "ArrayModel.h"
 #include "SymbolTree.h"
 #include "SourceView.h"
 #include "VariableNode.h"
 #include "ProcessTree.h"
 #include "DebuggerContext.h"
 #include "HomeView.h"
-#include "DebugView.h"
-#include "ArrayModel.h"
 #include "GraphView.h"
+#include "DebugView.h"
 }
 

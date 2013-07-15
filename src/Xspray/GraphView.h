@@ -24,10 +24,11 @@ public:
   GraphView();
   virtual ~GraphView();
 
-  void AddSource(ArrayModel* pModel, const GraphOptions& rOptions = GraphOptions());
-  void DelSource(ArrayModel* pModel);
-  void SetSourceOptions(ArrayModel* pModel, const GraphOptions& rOptions);
-  const GraphOptions&  GetSourceOptions(ArrayModel* pModel) const;
+  void DelAllSources();
+  void AddSource(ArrayModel<float>* pModel, const GraphOptions& rOptions = GraphOptions());
+  void DelSource(ArrayModel<float>* pModel);
+  void SetSourceOptions(ArrayModel<float>* pModel, const GraphOptions& rOptions);
+  const GraphOptions&  GetSourceOptions(ArrayModel<float>* pModel) const;
 
   nuiRect CalcIdeadSize();
   bool Draw(nuiDrawContext* pContext);
@@ -46,7 +47,7 @@ public:
   void SetYOffset(float offset);
   float GetYOffset() const;
 protected:
-  std::map<ArrayModel*, GraphOptions> mModels;
+  std::map<ArrayModel<float>*, GraphOptions> mModels;
   float mZoom;
   float mZoomY;
   float mYOffset;

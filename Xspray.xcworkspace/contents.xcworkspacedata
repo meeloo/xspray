@@ -2,15 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:resources/css/Entypo.css">
-   </FileRef>
-   <FileRef
-      location = "group:resources/css/DebugView.css">
-   </FileRef>
-   <FileRef
-      location = "group:resources/css/ApplicationList.css">
-   </FileRef>
-   <FileRef
       location = "container:../MeAgainstTheMusic/MeAgainstTheMusic.xcodeproj">
    </FileRef>
    <FileRef

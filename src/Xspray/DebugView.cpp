@@ -60,6 +60,8 @@ void DebugView::Built()
   mpStepOut = (nuiButton*)SearchForChild("StepOut", true);
   mpSourceView = (SourceView*)SearchForChild("source", true);;
 
+  mpGraphView = (GraphView*)SearchForChild("SharedPlotter", true);
+
   mpDevices = new nuiTreeNode("Devices");
   mpDevicesCombo->SetTree(mpDevices);
 
@@ -79,6 +81,7 @@ void DebugView::Built()
   mEventSink.Connect(mpModulesFiles->SelectionChanged, &DebugView::OnModuleFileSelectionChanged);
   mEventSink.Connect(mpModulesSymbols->SelectionChanged, &DebugView::OnModuleSymbolSelectionChanged);
 
+  mEventSink.Connect(mpVariables->SelectionChanged, &DebugView::OnVariableSelectionChanged);
   mSlotSink.Connect(mpSourceView->LineSelected, nuiMakeDelegate(this, &DebugView::OnLineSelected));
 
   mSlotSink.Connect(iOSDevice::DeviceConnected, nuiMakeDelegate(this, &DebugView::OnDeviceConnected));
@@ -276,7 +279,7 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   {
     if (rContext.mTarget.IsValid())
     {
-      static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
+      static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("TestXspray");
       //breakpoint.SetCallback(BPCallback, 0);
 
       SBError error;
@@ -629,7 +632,7 @@ void DebugView::OnProcessConnected()
                                              error);
 
   NGL_OUT("Remote Launch result: %s\n", error.GetCString());
-  static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("main");
+  static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("TestXspray");
   NGL_OUT("Breakpoint is valid: %s", YESNO(breakpoint.IsValid()));
 
 }
@@ -847,6 +850,17 @@ void DebugView::OnLineSelected(float X, float Y, int32 line, bool ingutter)
   printf("OnLineSelected: %f,%f -- %d (in gutter: %s)\n", X, Y, line, YESNO(ingutter));
 }
 
+void DebugView::OnVariableSelectionChanged(const nuiEvent& rEvent)
+{
+  VariableNode* pNode = (VariableNode*)mpVariables->GetSelectedNode();
+  mpGraphView->DelAllSources();
+  if (!pNode)
+    return;
+
+  SBValue val = pNode->GetValue();
+  ValueArray* pVal = new ValueArray(val);
+  mpGraphView->AddSource(pVal);
+}
 
 
 

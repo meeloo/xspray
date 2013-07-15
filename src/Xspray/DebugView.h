@@ -39,6 +39,8 @@ private:
   void OnModuleSymbolSelectionChanged(const nuiEvent& rEvent);
   void OnProcessConnected();
 
+  void OnVariableSelectionChanged(const nuiEvent& rEvent);
+
   void OnLineSelected(float X, float Y, int32 line, bool ingutter);
 
   void ShowSource(const nglPath& rPath, int32 line, int32 col);
@@ -66,6 +68,8 @@ private:
 
   nuiTreeNodePtr mpArchitectures;
   nuiTreeNodePtr mpDevices;
+
+  GraphView* mpGraphView;
 
   void SelectProcess(lldb::SBProcess process);
   void SelectThread(lldb::SBThread thread);

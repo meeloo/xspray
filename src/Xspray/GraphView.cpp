@@ -45,7 +45,7 @@ GraphView::~GraphView()
 
 
 
-void GraphView::AddSource(ArrayModel* pModel, const GraphOptions& rOptions)
+void GraphView::AddSource(ArrayModel<float>* pModel, const GraphOptions& rOptions)
 {
   NGL_ASSERT(mModels.find(pModel) == mModels.end());
   pModel->Acquire();
@@ -57,7 +57,7 @@ void GraphView::AddSource(ArrayModel* pModel, const GraphOptions& rOptions)
 }
 
 
-void GraphView::DelSource(ArrayModel* pModel)
+void GraphView::DelSource(ArrayModel<float>* pModel)
 {
   auto it = mModels.find(pModel);
   NGL_ASSERT(it != mModels.end());
@@ -66,14 +66,22 @@ void GraphView::DelSource(ArrayModel* pModel)
   Invalidate();
 }
 
-void GraphView::SetSourceOptions(ArrayModel* pModel, const GraphOptions& rOptions)
+void GraphView::DelAllSources()
+{
+  for (auto it = mModels.begin(); it != mModels.end(); ++it)
+    it->first->Release();
+
+  mModels.clear();
+}
+
+void GraphView::SetSourceOptions(ArrayModel<float>* pModel, const GraphOptions& rOptions)
 {
   auto it = mModels.find(pModel);
   NGL_ASSERT(it != mModels.end());
   it->second = rOptions;
 }
 
-const GraphOptions& GraphView::GetSourceOptions(ArrayModel* pModel) const
+const GraphOptions& GraphView::GetSourceOptions(ArrayModel<float>* pModel) const
 {
   auto it = mModels.find(pModel);
   NGL_ASSERT(it != mModels.end());
@@ -94,7 +102,7 @@ bool GraphView::Draw(nuiDrawContext* pContext)
 
   while (it != end)
   {
-    ArrayModel* pModel = it->first;
+    ArrayModel<float>* pModel = it->first;
     auto options = it->second;
 
     int32 start = MIN(mStart, pModel->GetNumValues());

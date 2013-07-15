@@ -200,7 +200,8 @@
   +nuiScrollView SourceScroller
   {
     Layout = [threads, right] / [header, variables];
-    
+    EnableSmoothScrolling: false;
+
     +SourceView source
     {
     }

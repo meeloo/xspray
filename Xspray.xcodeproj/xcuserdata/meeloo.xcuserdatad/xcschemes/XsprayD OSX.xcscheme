@@ -63,6 +63,10 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/XsprayD.app"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "-a /bin/bash"
             isEnabled = "NO">
          </CommandLineArgument>
