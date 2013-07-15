@@ -206,6 +206,8 @@ ValueArray::ValueArray(SBValue value)
   nglString n = mType.GetName();
   if (n.CompareLeft("std::__1::list") == 0 || n.CompareLeft("std::__1::vector") == 0)
     mBasicType = mType.GetTemplateArgumentType(0).GetBasicType();
+  else if (mTypeClass == eTypeClassArray && mValue.GetNumChildren() > 0)
+    mBasicType = mValue.GetChildAtIndex(0).GetType().GetBasicType();
 
   ShowTypeInfo(mType);
   NGL_OUT("# Of Children: %d\n", mValue.GetNumChildren());
