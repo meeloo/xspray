@@ -12,7 +12,7 @@ using namespace lldb;
 using namespace Xspray;
 
 GraphOptions::GraphOptions()
-: mColor("black"), mWeight(5), mName("noname")
+: mColor("black"), mWeight(1.5), mName("noname")
 {
 }
 
@@ -25,27 +25,6 @@ GraphView::GraphView()
   mEnd(0),
   mAutoZoomY(true)
 {
-  std::vector<float> v;
-  const int count = 1000;
-  v.resize(count);
-  for (int i = 0; i < count; i++)
-  {
-    float x = i;
-
-    x = x / (10.0f);
-    float x1 = cosf(x * 1.2) * sinf(x);
-    float x2 = cosf(x * 1.8) * sinf(x * .7);
-    float x3 = cosf(x * 1.5) * sinf(x);
-    v[i] = x1;
-//    vints[i] = x1 * 1000.0;
-//    lfloats.push_back(x2);
-//    lints.push_back(x2 * 1000.0);
-//    floats[i] = x3;
-//    ints[i] = x3 * 1000.0;
-  }
-
-  //MemoryArray* pArray = new MemoryArray(&v[0], v.size());
-  //AddSource(pArray);
 }
 
 GraphView::~GraphView()
@@ -167,6 +146,11 @@ bool GraphView::Draw(nuiDrawContext* pContext)
       pContext->SetLineWidth(options.mWeight);
       pContext->SetStrokeColor(options.mColor);
       pContext->DrawShape(pShape, eStrokeShape);
+
+      // X axis:
+      pContext->DrawLine(0, height - mYOffset * mZoomY, mRect.GetWidth(), height - mYOffset * mZoomY);
+
+
       delete pShape;
     }
 

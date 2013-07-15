@@ -144,6 +144,8 @@ const char* GetTypeClassName(TypeClass cls);
 
 SBType ResolveType(SBType type)
 {
+  return type.GetCanonicalType();
+
   TypeClass typeclass = type.GetTypeClass();
   if (typeclass == eTypeClassTypedef)
   {
@@ -153,9 +155,8 @@ SBType ResolveType(SBType type)
   return type;
 }
 
-void ShowTypeInfo(SBType _type, int level = 0)
+void ShowTypeInfo(SBType type, int level = 0)
 {
-  SBType type(ResolveType(_type));
   TypeClass typeclass = type.GetTypeClass();
 
   // Detection:
@@ -175,6 +176,13 @@ void ShowTypeInfo(SBType _type, int level = 0)
   NGL_OUT("%sIsReference %s\n", indent, YESNO(type.IsReferenceType()));
   NGL_OUT("%sIsFunction %s\n", indent, YESNO(type.IsFunctionType()));
   NGL_OUT("%sIsPolymorphic %s\n", indent, YESNO(type.IsPolymorphicClass()));
+  NGL_OUT("%sPointeeType %s\n", indent, type.GetPointeeType().GetName());
+  NGL_OUT("%sDereferencedType %s\n", indent, type.GetDereferencedType().GetName());
+  NGL_OUT("%sUnqualifiedType %s\n", indent, type.GetUnqualifiedType().GetName());
+  for (int i = 0; i < type.GetNumberOfTemplateArguments(); i++)
+  {
+    NGL_OUT("%stmplt[%d] = %s\n", indent, i, type.GetTemplateArgumentType(i).GetName());
+  }
 
   if (type.IsPointerType())
   {
@@ -191,7 +199,15 @@ void ShowTypeInfo(SBType _type, int level = 0)
 ValueArray::ValueArray(SBValue value)
 : mValue(value)
 {
-  ShowTypeInfo(mValue.GetType());
+  mType = ResolveType(mValue.GetType());
+  mTypeClass = mType.GetTypeClass();
+  mBasicType = mType.GetBasicType();
+
+  nglString n = mType.GetName();
+  if (n.CompareLeft("std::__1::list") == 0 || n.CompareLeft("std::__1::vector") == 0)
+    mBasicType = mType.GetTemplateArgumentType(0).GetBasicType();
+
+  ShowTypeInfo(mType);
   NGL_OUT("# Of Children: %d\n", mValue.GetNumChildren());
   NGL_OUT("\n");
 }
@@ -219,6 +235,64 @@ float ValueArray::GetValue(int32 index) const
   SBValue val = mValue.GetChildAtIndex(index);
   SBData data = val.GetData();
   SBError error;
-  return data.GetFloat(error, 0);
+  switch (mBasicType)
+  {
+    case eBasicTypeChar:
+    case eBasicTypeSignedChar:
+      return data.GetSignedInt8(error, 0);
+
+    case eBasicTypeUnsignedChar:
+      return data.GetUnsignedInt8(error, 0);
+
+    case eBasicTypeShort:
+      return data.GetSignedInt16(error, 0);
+
+    case eBasicTypeUnsignedShort:
+      return data.GetUnsignedInt16(error, 0);
+
+    case eBasicTypeInt:
+    case eBasicTypeLong:
+      return data.GetSignedInt32(error, 0);
+
+    case eBasicTypeUnsignedInt:
+    case eBasicTypeUnsignedLong:
+      return data.GetUnsignedInt32(error, 0);
+
+    case eBasicTypeLongLong:
+      return data.GetSignedInt64(error, 0);
+
+    case eBasicTypeUnsignedLongLong:
+      return data.GetUnsignedInt64(error, 0);
+
+    case eBasicTypeFloat:
+      return data.GetFloat(error, 0);
+
+    case eBasicTypeDouble:
+      return data.GetDouble(error, 0);
+
+    case eBasicTypeInvalid:
+    case eBasicTypeVoid:
+    case eBasicTypeWChar:
+    case eBasicTypeSignedWChar:
+    case eBasicTypeUnsignedWChar:
+    case eBasicTypeChar16:
+    case eBasicTypeChar32:
+    case eBasicTypeInt128:
+    case eBasicTypeUnsignedInt128:
+    case eBasicTypeBool:
+    case eBasicTypeHalf:
+    case eBasicTypeLongDouble:
+    case eBasicTypeFloatComplex:
+    case eBasicTypeDoubleComplex:
+    case eBasicTypeLongDoubleComplex:
+    case eBasicTypeObjCID:
+    case eBasicTypeObjCClass:
+    case eBasicTypeObjCSel:
+    case eBasicTypeNullPtr:
+    case eBasicTypeOther:
+    default:
+      // WTF?
+      return 0;
+  }
 }
 

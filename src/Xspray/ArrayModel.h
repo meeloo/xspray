@@ -92,5 +92,9 @@ public:
 
 protected:
   mutable lldb::SBValue mValue;
+  lldb::SBType mType;
+  lldb::BasicType mBasicType;
+  lldb::TypeClass mTypeClass;
+
 };
 
