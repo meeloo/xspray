@@ -26,17 +26,26 @@ GraphView::GraphView()
   mAutoZoomY(true)
 {
   std::vector<float> v;
-  v.resize(1000);
-  for (int i = 0; i < 1000; i++)
+  const int count = 1000;
+  v.resize(count);
+  for (int i = 0; i < count; i++)
   {
     float x = i;
-    x = x * M_PI / (100.0f);
-    x = sinf(x) * 200.0f + (i / 3);
-    v[i] = x;
+
+    x = x / (10.0f);
+    float x1 = cosf(x * 1.2) * sinf(x);
+    float x2 = cosf(x * 1.8) * sinf(x * .7);
+    float x3 = cosf(x * 1.5) * sinf(x);
+    v[i] = x1;
+//    vints[i] = x1 * 1000.0;
+//    lfloats.push_back(x2);
+//    lints.push_back(x2 * 1000.0);
+//    floats[i] = x3;
+//    ints[i] = x3 * 1000.0;
   }
 
-  MemoryArray* pArray = new MemoryArray(&v[0], v.size());
-  AddSource(pArray);
+  //MemoryArray* pArray = new MemoryArray(&v[0], v.size());
+  //AddSource(pArray);
 }
 
 GraphView::~GraphView()
@@ -115,10 +124,10 @@ bool GraphView::Draw(nuiDrawContext* pContext)
       nuiShape* pShape = new nuiShape();
 
       // Scan for minimum and maximum:
+      float min = pModel->GetValue(start);
+      float max = min;
       if (mAutoZoomY)
       {
-        float min = pModel->GetValue(start);
-        float max = min;
 
         for (int32 i = 0; i < len; i++)
         {
@@ -137,8 +146,16 @@ bool GraphView::Draw(nuiDrawContext* pContext)
           max *= 0.9;
 
         float diff = max - min;
-        mZoomY = height / diff;
-        mYOffset = -min;
+        if (diff != 0)
+        {
+          mZoomY = height / diff;
+          mYOffset = -min;
+        }
+        else
+        {
+          mZoomY = 1;
+          mYOffset = 0;
+        }
       }
 
       for (int32 i = 0; i < len; i++)

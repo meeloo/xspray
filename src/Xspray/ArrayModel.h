@@ -91,6 +91,6 @@ public:
 
 
 protected:
-  lldb::SBValue mValue;
+  mutable lldb::SBValue mValue;
 };
 

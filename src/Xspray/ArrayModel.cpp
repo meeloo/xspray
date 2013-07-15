@@ -203,16 +203,22 @@ ValueArray::~ValueArray()
 
 int32 ValueArray::GetNumValues() const
 {
-  return 0;
+  return mValue.GetNumChildren();
 }
 
 void ValueArray::GetValues(std::vector<float>& rValues, int32 index, int32 length) const
 {
-
+  for (int i = 0; i < length; i++)
+  {
+    rValues.push_back(GetValue(i + index));
+  }
 }
 
 float ValueArray::GetValue(int32 index) const
 {
-  
+  SBValue val = mValue.GetChildAtIndex(index);
+  SBData data = val.GetData();
+  SBError error;
+  return data.GetFloat(error, 0);
 }
 

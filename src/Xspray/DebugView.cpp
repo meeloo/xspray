@@ -279,7 +279,8 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   {
     if (rContext.mTarget.IsValid())
     {
-      static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("TestXspray");
+      static SBBreakpoint breakpoint1 = rContext.mTarget.BreakpointCreateByName("TestXspray");
+      static SBBreakpoint breakpoint2 = rContext.mTarget.BreakpointCreateByLocation("Application.cpp", 67);
       //breakpoint.SetCallback(BPCallback, 0);
 
       SBError error;
