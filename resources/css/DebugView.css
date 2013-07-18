@@ -156,9 +156,16 @@
 
   VAnchors_variables = -300;
   VAnchorsType_variables = Absolute;
+  VAnchorsType_variables = Absolute;
+  VAnchorsMovable_variables = true;
+  VAnchorsMinimum_variables = -500;
+  VAnchorsMaximum_variables = -200;
 
   HAnchors_threads = 300;
-  VAnchorsType_threads = Absolute;
+  HAnchorsType_threads = Absolute;
+  HAnchorsMovable_threads = true;
+  HAnchorsMinimum_threads = 100;
+  HAnchorsMaximum_threads = 500;
 
   +Transport
   {
