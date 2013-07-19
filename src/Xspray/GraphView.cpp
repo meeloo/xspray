@@ -91,7 +91,7 @@ bool GraphView::Draw(nuiDrawContext* pContext)
   while (it != end)
   {
     ArrayModel<float>* pModel = it->first;
-    auto options = it->second;
+    auto& options = it->second;
 
     int32 start = MIN(mStart, pModel->GetNumValues());
     int32 end = MIN(mEnd, mStart + pModel->GetNumValues());
@@ -100,6 +100,7 @@ bool GraphView::Draw(nuiDrawContext* pContext)
 
     if (len > 0)
     {
+      len = MIN(mRect.GetWidth(), len * mZoom);
       nuiShape* pShape = new nuiShape();
 
       // Scan for minimum and maximum:
@@ -115,17 +116,20 @@ bool GraphView::Draw(nuiDrawContext* pContext)
         }
 
         if (min > 0)
-          min *= 0.9;
+          min *= 0.8;
         else
-          min *= 1.1;
+          min *= 1.2;
 
         if (max > 0)
-          max *= 1.1;
+          max *= 1.2;
         else
-          max *= 0.9;
+          max *= 0.8;
+
+        options.mDisplayMin = min;
+        options.mDisplayMax = max;
 
         float diff = max - min;
-        if (diff != 0)
+        if (diff > 0 || diff < 0)
         {
           mZoomY = height / diff;
           mYOffset = -min;
@@ -184,8 +188,11 @@ float GraphView::GetZoomY() const
 
 void GraphView::SetRange(int32 start, int32 length)
 {
+  if (start < 0)
+    start = 0;
   mStart = start;
   mEnd = start + length;
+
   Invalidate();
 }
 
@@ -218,12 +225,94 @@ float GraphView::GetYOffset() const
 
 void GraphView::SetAutoZoomY(bool set)
 {
-  mAutoZoomY;
+  mAutoZoomY = set;
   Invalidate();
 }
 
 bool GraphView::GetAutoZoomY() const
 {
-
+  return mAutoZoomY;
 }
+
+int32 GraphView::GetRangeStart() const
+{
+  return mStart;
+}
+
+int32 GraphView::GetRangeEnd() const
+{
+  return mEnd;
+}
+
+int32 GraphView::GetRangeLength() const
+{
+  return mEnd - mStart;
+}
+
+
+
+bool GraphView::MouseClicked(const nglMouseInfo& rInfo)
+{
+  if (rInfo.Buttons & nglMouseInfo::ButtonLeft)
+  {
+    Grab();
+    if (rInfo.Buttons & nglMouseInfo::ButtonDoubleClick)
+      SetAutoZoomY(true);
+    return true;
+  }
+  if (rInfo.Buttons & nglMouseInfo::ButtonWheelRight)
+  {
+    SetRangeStart(GetRangeStart() + 10 * mZoom);
+    return true;
+  }
+  if (rInfo.Buttons & nglMouseInfo::ButtonWheelLeft)
+  {
+    SetRangeStart(GetRangeStart() - 10 * mZoom);
+    return true;
+  }
+  if (rInfo.Buttons & nglMouseInfo::ButtonWheelDown)
+  {
+    if (IsKeyDown(NK_ALT))
+    {
+      SetZoomY(GetZoomY() / 1.05);
+      SetAutoZoomY(false);
+    }
+    return true;
+  }
+  if (rInfo.Buttons & nglMouseInfo::ButtonWheelUp)
+  {
+    if (IsKeyDown(NK_ALT))
+    {
+      SetZoomY(GetZoomY() * 1.05);
+      SetAutoZoomY(false);
+    }
+    return true;
+  }
+  return false;
+}
+
+bool GraphView::MouseUnclicked(const nglMouseInfo& rInfo)
+{
+  if (rInfo.Buttons & nglMouseInfo::ButtonLeft)
+  {
+    Ungrab();
+
+    UpdateLayout();
+    return true;
+  }
+  return false;
+}
+
+bool GraphView::MouseMoved(const nglMouseInfo& rInfo)
+{
+  if (HasGrab())
+  {
+    return true;
+  }
+  else
+  {
+  }
+  return false;
+}
+
 

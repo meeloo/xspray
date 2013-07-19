@@ -11,7 +11,6 @@
   +Label Type
   {
     Text: VariableType;
-    TextColor: rgb(128,128,128);
   }
 
   +Label Value
@@ -19,6 +18,26 @@
     Text: VariableValue;
     TextColor: red;
   }
+}
+
+"Type"[Selected:true]
+{
+  TextColor: rgb(192,192,192);
+}
+
+"Type"[Selected:false]
+{
+  TextColor: rgb(128,128,128);
+}
+
+"Value"[Selected:true]
+{
+  TextColor: rgb(255,100,100);
+}
+
+"Value"[Selected:false]
+{
+  TextColor: rgb(255,0,0);
 }
 
 +nuiHBox iOSDeviceLabel

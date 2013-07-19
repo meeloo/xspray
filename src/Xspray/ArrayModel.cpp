@@ -226,6 +226,9 @@ int32 ValueArray::GetNumValues() const
 
 void ValueArray::GetValues(std::vector<float>& rValues, int32 index, int32 length) const
 {
+  NGL_ASSERT(index >= 0);
+  NGL_ASSERT(index+length < GetNumValues());
+
   for (int i = 0; i < length; i++)
   {
     rValues.push_back(GetValue(i + index));
@@ -234,6 +237,8 @@ void ValueArray::GetValues(std::vector<float>& rValues, int32 index, int32 lengt
 
 float ValueArray::GetValue(int32 index) const
 {
+  if (index < 0 || index > GetNumValues())
+    return 0;
   SBValue val = mValue.GetChildAtIndex(index);
   SBData data = val.GetData();
   SBError error;

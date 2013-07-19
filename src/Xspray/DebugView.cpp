@@ -279,7 +279,7 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   {
     if (rContext.mTarget.IsValid())
     {
-      static SBBreakpoint breakpoint1 = rContext.mTarget.BreakpointCreateByName("TestXspray");
+      //static SBBreakpoint breakpoint1 = rContext.mTarget.BreakpointCreateByName("TestXspray");
       static SBBreakpoint breakpoint2 = rContext.mTarget.BreakpointCreateByLocation("Application.cpp", 67);
       //breakpoint.SetCallback(BPCallback, 0);
 
@@ -724,8 +724,11 @@ void DebugView::UpdateVariables(SBFrame frame)
   for (uint32 i = 0; i < count; i++)
   {
     SBValue val = args.GetValueAtIndex(i);
-    nuiTreeNode* pNode = new VariableNode(val);
-    pArgNode->AddChild(pNode);
+    if (val.IsInScope())
+    {
+      nuiTreeNode* pNode = new VariableNode(val);
+      pArgNode->AddChild(pNode);
+    }
     //NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
   }
   pArgNode->Open(true);
@@ -736,8 +739,11 @@ void DebugView::UpdateVariables(SBFrame frame)
   for (uint32 i = 0; i < count; i++)
   {
     SBValue val = locals.GetValueAtIndex(i);
-    nuiTreeNode* pNode = new VariableNode(val);
-    pLocalNode->AddChild(pNode);
+    if (val.IsInScope())
+    {
+      nuiTreeNode* pNode = new VariableNode(val);
+      pArgNode->AddChild(pNode);
+    }
     //NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
   }
   pLocalNode->Open(true);
@@ -748,8 +754,11 @@ void DebugView::UpdateVariables(SBFrame frame)
   for (uint32 i = 0; i < count; i++)
   {
     SBValue val = globals.GetValueAtIndex(i);
-    nuiTreeNode* pNode = new VariableNode(val);
-    pGlobalNode->AddChild(pNode);
+    if (val.IsInScope())
+    {
+      nuiTreeNode* pNode = new VariableNode(val);
+      pArgNode->AddChild(pNode);
+    }
     //NGL_OUT("%d %s %s \n", i, val.GetTypeName(), val.GetName());
   }
   pGlobalNode->Open(true);

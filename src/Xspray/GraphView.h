@@ -16,6 +16,9 @@ public:
   nuiColor mColor;
   float mWeight;
   nglString mName;
+
+  float mDisplayMin;
+  float mDisplayMax;
 };
 
 class GraphView : public nuiSimpleContainer
@@ -41,11 +44,19 @@ public:
   void SetRangeStart(int32 start);
   void SetRangeEnd(int32 end);
   void SetRangeLength(int32 length);
+  int32 GetRangeStart() const;
+  int32 GetRangeEnd() const;
+  int32 GetRangeLength() const;
   void SetAutoZoomY(bool set);
   bool GetAutoZoomY() const;
 
   void SetYOffset(float offset);
   float GetYOffset() const;
+
+  bool MouseClicked(const nglMouseInfo& rInfo);
+  bool MouseUnclicked(const nglMouseInfo& rInfo);
+  bool MouseMoved(const nglMouseInfo& rInfo);
+
 protected:
   std::map<ArrayModel<float>*, GraphOptions> mModels;
   float mZoom;
