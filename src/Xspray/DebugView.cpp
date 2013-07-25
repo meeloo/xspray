@@ -807,6 +807,10 @@ void DebugView::ShowSource(const nglPath& rPath, int32 line, int32 col)
 
     mSlotSink.Connect(pView->LineSelected, nuiMakeDelegate(this, &DebugView::OnLineSelected));
 
+    nuiButton* pCloser = dynamic_cast<nuiButton*>(pHeader->SearchForChild("CloseTab", true));
+    NGL_ASSERT(pCloser != NULL);
+    mEventSink.Connect(pCloser->Activated, &DebugView::OnCloseTab, pWidget);
+
     pView->Load(rPath);
     mpFilesTabView->SelectTab(tab);
     mpFilesTabView->UpdateLayout();
@@ -828,6 +832,27 @@ void DebugView::ShowSource(const nglPath& rPath, int32 line, int32 col)
 
 }
 
+void DebugView::OnCloseTab(const nuiEvent& event)
+{
+  nuiWidget* pWidget = (nuiWidget*)event.mpUser;
+  NGL_ASSERT(pWidget != NULL);
+  int32 tab = mpFilesTabView->GetTabIndexByContents(pWidget);
+  NGL_ASSERT(tab >= 0);
+  mpFilesTabView->RemoveTab(tab);
+
+  // Remove the tab from our own structure of open files:
+  auto it = mFiles.begin();
+  auto end = mFiles.end();
+  while (it != end)
+  {
+    if (it->second == pWidget)
+    {
+      mFiles.erase(it);
+      return;
+    }
+    ++it;
+  }
+}
 
 void DebugView::UpdateVariablesForCurrentFrame()
 {

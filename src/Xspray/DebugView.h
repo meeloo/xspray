@@ -39,6 +39,8 @@ private:
   void OnModuleSymbolSelectionChanged(const nuiEvent& rEvent);
   void OnProcessConnected();
 
+  void OnCloseTab(const nuiEvent& event);
+  
   void OnVariableSelectionChanged(const nuiEvent& rEvent);
 
   void OnLineSelected(float X, float Y, int32 line, bool ingutter);

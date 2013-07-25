@@ -245,7 +245,7 @@ $entypo_cc_remix = "\u1F54F";  //&#128335;
 $entypo_db_logo = "\u1F5F9";  //&#128505;
 $entypo_db_shape = "\u1F5FA";  //&#128506;
 
-+nuiLabel Entypo { EnableDecoration: false; Font: Entypo; }
++nuiLabel Entypo { EnableDecoration: false; Font: Entypo; HMargin:0; VMargin:0; }
 
 +Entypo entypo_phone { Text:"\u1F4DE"; }  ////&#128222;
 +Entypo entypo_mobile { Text:"\u1F4F1"; }  //&#128241;

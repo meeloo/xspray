@@ -385,7 +385,7 @@ $fontawesome_vk  = "\uf189";
 $fontawesome_weibo  = "\uf18a";
 $fontawesome_renren  = "\uf18b";
 
-+nuiLabel FontAwesome { EnableDecoration: false; Font: FontAwesome; }
++nuiLabel FontAwesome { EnableDecoration: false; Font: FontAwesome;  HMargin:0; VMargin:0; }
 
 +FontAwesome fontawesome_glass { Text:"\uf000"; }
 +FontAwesome fontawesome_music { Text:"\uf001"; }

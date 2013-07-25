@@ -160,6 +160,11 @@
   +Label { Text: "Symbols"; }
 }
 
+@nuiBorderDecoration NoDecoration
+{
+  Borders: None;
+}
+
 +nuiHBox ThreadsTabHeader
 {
   +fontawesome_cogs;
@@ -168,7 +173,11 @@
 
 +nuiHBox FileTabHeader
 {
-  +fontawesome_remove;
+  +nuiButton CloseTab
+  {
+    Decoration : NoDecoration;
+    +fontawesome_remove;
+  }
   +Label { Text: TABNAME; }
 }
 
