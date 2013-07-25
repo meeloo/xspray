@@ -64,7 +64,7 @@ private:
   nuiButton* mpStepIn;
   nuiButton* mpStepOver;
   nuiButton* mpStepOut;
-  Xspray::SourceView* mpSourceView;
+  nuiTabView* mpFilesTabView;
 
   nuiTreeNodePtr mpArchitectures;
   nuiTreeNodePtr mpDevices;
@@ -77,5 +77,7 @@ private:
   void UpdateVariables(lldb::SBFrame frame);
 
   void UpdateArchitectures(std::vector<nglString>& rArchis);
+
+  std::map<nglString, nuiWidget*> mFiles;
 };
 

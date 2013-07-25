@@ -166,6 +166,22 @@
   +Label { Text: "Threads"; }
 }
 
++nuiHBox FileTabHeader
+{
+  +fontawesome_remove;
+  +Label { Text: TABNAME; }
+}
+
++nuiScrollView SourceScroller
+{
+  EnableSmoothScrolling: false;
+
+  +SourceView source
+  {
+  }
+}
+
+
 +DebugView Debugger
 {
   Decoration: WindowBackground;
@@ -223,14 +239,10 @@
     }
   }
 
-  +nuiScrollView SourceScroller
+  +nuiTabView FilesTabView
   {
     Layout = [threads, right] / [header, variables];
-    EnableSmoothScrolling: false;
 
-    +SourceView source
-    {
-    }
   }
 
   +nuiSplitter

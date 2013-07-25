@@ -58,7 +58,7 @@ void DebugView::Built()
   mpStepIn = (nuiButton*)SearchForChild("StepIn", true);
   mpStepOver = (nuiButton*)SearchForChild("StepOver", true);
   mpStepOut = (nuiButton*)SearchForChild("StepOut", true);
-  mpSourceView = (SourceView*)SearchForChild("source", true);;
+  mpFilesTabView = (nuiTabView*)SearchForChild("FilesTabView", true);
 
   mpGraphView = (GraphView*)SearchForChild("SharedPlotter", true);
 
@@ -82,7 +82,6 @@ void DebugView::Built()
   mEventSink.Connect(mpModulesSymbols->SelectionChanged, &DebugView::OnModuleSymbolSelectionChanged);
 
   mEventSink.Connect(mpVariables->SelectionChanged, &DebugView::OnVariableSelectionChanged);
-  mSlotSink.Connect(mpSourceView->LineSelected, nuiMakeDelegate(this, &DebugView::OnLineSelected));
 
   mSlotSink.Connect(iOSDevice::DeviceConnected, nuiMakeDelegate(this, &DebugView::OnDeviceConnected));
   mSlotSink.Connect(iOSDevice::DeviceDisconnected, nuiMakeDelegate(this, &DebugView::OnDeviceDisconnected));
@@ -790,10 +789,43 @@ void DebugView::SelectFrame(SBFrame frame)
 
 void DebugView::ShowSource(const nglPath& rPath, int32 line, int32 col)
 {
-  mpSourceView->Clear();
-  mpSourceView->Load(rPath);
-  mpSourceView->GetParent()->UpdateLayout();
-  mpSourceView->ShowText(line, col);
+  auto it = mFiles.find(rPath.GetPathName());
+  if (it == mFiles.end())
+  {
+    std::map<nglString, nglString> dico;
+    dico["TABNAME"] = rPath.GetNodeName();
+    dico["FILENAME"] = rPath.GetPathName();
+    nuiWidget* pWidget = nuiBuilder::Get().CreateWidget("SourceScroller", dico);
+    NGL_ASSERT(pWidget != NULL);
+
+    nuiWidget* pHeader = nuiBuilder::Get().CreateWidget("FileTabHeader", dico);
+    NGL_ASSERT(pHeader != NULL);
+    int32 tab = mpFilesTabView->AddTab(pHeader, pWidget);
+
+    SourceView* pView = (SourceView*)pWidget->SearchForChild("source", true);
+    NGL_ASSERT(pView != NULL);
+
+    mSlotSink.Connect(pView->LineSelected, nuiMakeDelegate(this, &DebugView::OnLineSelected));
+
+    pView->Load(rPath);
+    mpFilesTabView->SelectTab(tab);
+    mpFilesTabView->UpdateLayout();
+    pView->ShowText(line, col);
+
+    mFiles[rPath.GetPathName()] = pWidget;
+  }
+  else
+  {
+    nuiWidget* pWidget = it->second;
+
+    SourceView* pView = (SourceView*)pWidget->SearchForChild("source", true);
+    NGL_ASSERT(pView != NULL);
+
+    mpFilesTabView->SelectTabByContents(pWidget);
+    mpFilesTabView->UpdateLayout();
+    pView->ShowText(line, col);
+  }
+
 }
 
 
