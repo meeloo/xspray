@@ -148,6 +148,20 @@ void ProcessTree::UpdateFrame()
   str.CFormat("%s", mFrame.GetFunctionName());
 //  NGL_OUT("\t\t%s\n", str.GetChars());
   nuiLabel* pLabel = new nuiLabel(str);
+
+  {
+    lldb::SBSymbolContext context = mFrame.GetSymbolContext(1);
+    lldb::SBLineEntry lineentry = mFrame.GetLineEntry();
+    lldb::SBFileSpec file =  lineentry.GetFileSpec();
+
+    const char * dir = file.GetDirectory();
+    const char * fname = file.GetFilename();
+    nglPath p(dir);
+    p += fname;
+    if (!p.Exists() || !p.IsLeaf())
+      pLabel->SetEnabled(true);
+  }
+
   SetElement(pLabel);
 }
 

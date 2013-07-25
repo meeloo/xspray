@@ -974,12 +974,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/DebugView.cpp"
-            timestampString = "396406184.375514"
+            timestampString = "396406936.189638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "837"
-            endingLineNumber = "837"
+            startingLineNumber = "840"
+            endingLineNumber = "840"
             landmarkName = "DebugView::OnCloseTab(const nuiEvent&amp; event)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/Xspray/DebugView.cpp"
+            timestampString = "396406965.688897"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "795"
+            endingLineNumber = "795"
+            landmarkName = "DebugView::ShowSource(const nglPath&amp; rPath, int32 line, int32 col)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

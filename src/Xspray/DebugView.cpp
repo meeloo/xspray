@@ -792,6 +792,9 @@ void DebugView::ShowSource(const nglPath& rPath, int32 line, int32 col)
   auto it = mFiles.find(rPath.GetPathName());
   if (it == mFiles.end())
   {
+    if (!rPath.Exists() || !rPath.IsLeaf())
+      return;
+
     std::map<nglString, nglString> dico;
     dico["TABNAME"] = rPath.GetNodeName();
     dico["FILENAME"] = rPath.GetPathName();
