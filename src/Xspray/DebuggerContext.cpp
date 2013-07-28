@@ -47,8 +47,8 @@ DebuggerContext::DebuggerContext()
     //     "watch", // - log watchpoint related activities\n");
     NULL
   };
-  mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
-  mDebugger.EnableLog(channel, categories);
+//  mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
+//  mDebugger.EnableLog(channel, categories);
 }
 
 DebuggerContext& Xspray::GetDebuggerContext()

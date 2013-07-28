@@ -974,11 +974,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/DebugView.cpp"
-            timestampString = "396406936.189638"
+            timestampString = "396631572.01502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "840"
-            endingLineNumber = "840"
+            startingLineNumber = "842"
+            endingLineNumber = "842"
             landmarkName = "DebugView::OnCloseTab(const nuiEvent&amp; event)"
             landmarkType = "5">
          </BreakpointContent>
@@ -990,11 +990,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/DebugView.cpp"
-            timestampString = "396406965.688897"
+            timestampString = "396631572.01502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "795"
-            endingLineNumber = "795"
+            startingLineNumber = "797"
+            endingLineNumber = "797"
             landmarkName = "DebugView::ShowSource(const nglPath&amp; rPath, int32 line, int32 col)"
             landmarkType = "5">
          </BreakpointContent>

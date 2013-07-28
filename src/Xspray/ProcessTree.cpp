@@ -159,7 +159,7 @@ void ProcessTree::UpdateFrame()
     nglPath p(dir);
     p += fname;
     if (!p.Exists() || !p.IsLeaf())
-      pLabel->SetEnabled(true);
+      pLabel->SetEnabled(false);
   }
 
   SetElement(pLabel);

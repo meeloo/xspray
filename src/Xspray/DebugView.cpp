@@ -83,6 +83,8 @@ void DebugView::Built()
 
   mEventSink.Connect(mpVariables->SelectionChanged, &DebugView::OnVariableSelectionChanged);
 
+  mEventSink.Connect(nuiAnimation::GetTimer()->Tick, &DebugView::OnHandleSTDIO);
+
   mSlotSink.Connect(iOSDevice::DeviceConnected, nuiMakeDelegate(this, &DebugView::OnDeviceConnected));
   mSlotSink.Connect(iOSDevice::DeviceDisconnected, nuiMakeDelegate(this, &DebugView::OnDeviceDisconnected));
 
@@ -524,7 +526,7 @@ void DebugView::Loop()
       rContext.mDebugger.GetListener().WaitForEvent(UINT32_MAX, evt);
       StateType state = SBProcess::GetStateFromEvent(evt);
 
-      if (SBProcess::GetRestartedFromEvent (evt))
+      if (0 && SBProcess::GetRestartedFromEvent (evt))
       {
         size_t num_reasons = SBProcess::GetNumRestartedReasonsFromEvent(evt);
         if (num_reasons > 0)
@@ -922,7 +924,7 @@ void DebugView::OnLineSelected(float X, float Y, int32 line, bool ingutter)
 
 void DebugView::OnVariableSelectionChanged(const nuiEvent& rEvent)
 {
-  VariableNode* pNode = (VariableNode*)mpVariables->GetSelectedNode();
+  VariableNode* pNode = dynamic_cast<VariableNode*>(mpVariables->GetSelectedNode());
   mpGraphView->DelAllSources();
   if (!pNode)
     return;
@@ -932,5 +934,24 @@ void DebugView::OnVariableSelectionChanged(const nuiEvent& rEvent)
   mpGraphView->AddSource(pVal);
 }
 
+void DebugView::OnHandleSTDIO(const nuiEvent& event)
+{
+  DebuggerContext& rContext(GetDebuggerContext());
+  lldb::SBProcess process(rContext.mProcess);
+  char buffer[10000];
+  memset(buffer, 0, sizeof(buffer));
+  size_t outcount = 0;
+  while ((outcount = process.GetSTDOUT(buffer, sizeof(buffer))))
+  {
+    printf("OUT> %s", buffer);
+    memset(buffer, 0, sizeof(buffer));
+  }
+
+  while ((outcount = process.GetSTDERR(buffer, sizeof(buffer))))
+  {
+    printf("ERR> %s", buffer);
+    memset(buffer, 0, sizeof(buffer));
+  }
+}
 
 

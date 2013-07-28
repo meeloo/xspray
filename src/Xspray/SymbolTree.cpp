@@ -111,6 +111,7 @@ void SymbolTree::UpdateTarget()
 
 void SymbolTree::UpdateModule()
 {
+  if (0)
   {
     uint32_t symbols = mModule.GetNumSymbols();
     int skipped = 0;

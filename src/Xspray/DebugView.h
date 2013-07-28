@@ -50,6 +50,8 @@ private:
   void OnDeviceConnected(Xspray::iOSDevice& device);
   void OnDeviceDisconnected(Xspray::iOSDevice& device);
 
+  void OnHandleSTDIO(const nuiEvent& event);
+
   nglThreadDelegate* mpDebuggerEventLoop;
 
   nuiTreeView* mpThreads;
