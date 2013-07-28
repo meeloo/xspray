@@ -286,7 +286,7 @@
       TabName = "Output";
       +nuiText STDOUT
       {
-
+        FollowModifications: true;
       }
     }
 
@@ -295,7 +295,7 @@
       TabName = "Errors";
       +nuiText STDERR
       {
-
+        FollowModifications: true;
       }
     }
 

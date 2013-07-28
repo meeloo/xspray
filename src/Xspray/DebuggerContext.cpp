@@ -73,4 +73,83 @@ bool DebuggerContext::LoadApp()
   return mTarget.IsValid();
 }
 
+Breakpoint* DebuggerContext::CreateBreakpointByLocation(const nglPath& rPath, int32 line, int32 column)
+{
+  lldb::SBBreakpoint bp = mTarget.BreakpointCreateByLocation(rPath.GetChars(), line);
+  Breakpoint* pBP = new Breakpoint(bp, rPath, line, column);
+  mBreakpoints.push_back(pBP);
+  return pBP;
+}
+
+Breakpoint* DebuggerContext::CreateBreakpointByName(const nglString& rSymbol)
+{
+  lldb::SBBreakpoint bp = mTarget.BreakpointCreateByName(rSymbol.GetChars());
+  Breakpoint* pBP = new Breakpoint(bp, rSymbol, false);
+  mBreakpoints.push_back(pBP);
+  return pBP;
+}
+
+Breakpoint* DebuggerContext::CreateBreakpointByRegex(const nglString& rRegEx)
+{
+  lldb::SBBreakpoint bp = mTarget.BreakpointCreateByRegex(rRegEx.GetChars());
+  Breakpoint* pBP = new Breakpoint(bp, rRegEx, true);
+  mBreakpoints.push_back(pBP);
+  return pBP;
+}
+
+Breakpoint* DebuggerContext::CreateBreakpointForException(lldb::LanguageType language, bool BreakOnCatch, bool BreakOnThrow)
+{
+  lldb::SBBreakpoint bp = mTarget.BreakpointCreateForException(language, BreakOnCatch, BreakOnThrow);
+  Breakpoint* pBP = new Breakpoint(bp, language, BreakOnCatch, BreakOnThrow);
+  mBreakpoints.push_back(pBP);
+  return pBP;
+}
+
+void DebuggerContext::GetBreakpointsForFile(const nglPath& rPath, std::vector<Breakpoint*>& rBreakpoints)
+{
+  auto it = mBreakpoints.begin();
+  while (it != mBreakpoints.end())
+  {
+    Breakpoint* pBP = *it;
+    if (pBP->GetType() == Breakpoint::Location && pBP->GetPath() == rPath)
+      rBreakpoints.push_back(pBP);
+    ++it;
+  }
+}
+
+void DebuggerContext::GetBreakpointsForFiles(std::vector<Breakpoint*>& rBreakpoints)
+{
+  auto it = mBreakpoints.begin();
+  while (it != mBreakpoints.end())
+  {
+    Breakpoint* pBP = *it;
+    if (pBP->GetType() == Breakpoint::Location)
+      rBreakpoints.push_back(pBP);
+    ++it;
+  }
+}
+
+void DebuggerContext::GetBreakpointsForExceptions(std::vector<Breakpoint*>& rBreakpoints)
+{
+  auto it = mBreakpoints.begin();
+  while (it != mBreakpoints.end())
+  {
+    Breakpoint* pBP = *it;
+    if (pBP->GetType() == Breakpoint::Exception)
+      rBreakpoints.push_back(pBP);
+    ++it;
+  }
+}
+
+void DebuggerContext::GetBreakpointsForSymbols(std::vector<Breakpoint*>& rBreakpoints)
+{
+  auto it = mBreakpoints.begin();
+  while (it != mBreakpoints.end())
+  {
+    Breakpoint* pBP = *it;
+    if (pBP->GetType() == Breakpoint::Symbolic)
+      rBreakpoints.push_back(pBP);
+    ++it;
+  }
+}
 

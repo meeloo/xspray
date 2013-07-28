@@ -14,6 +14,7 @@
 #include <LLDB/SBStream.h>
 #include <LLDB/SBTypeCategory.h>
 #include <LLDB/SBModuleSpec.h>
+#include <LLDB/SBBreakpoint.h>
 #include <LLDB/lldb-enumerations.h>
 
 #include "iOSRemoteDebug.h"

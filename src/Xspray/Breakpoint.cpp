@@ -10,15 +10,66 @@
 
 using namespace Xspray;
 
-#if 0
-Breakpoint::Breakpoint(lldb::SBBreakpoint, const nglPath& rPath, int32 line, int32 column);
-Breakpoint::Breakpoint(lldb::SBBreakpoint, const nglString& rSymbol);
-Breakpoint::Breakpoint(lldb::SBBreakpoint, lldb::LanguageType language);
+Breakpoint::Breakpoint(lldb::SBBreakpoint breakpoint, const nglPath& rPath, int32 line, int32 column)
+: mType(Location), mPath(rPath), mLine(line), mColumn(column), mBreakOnCatch(false), mBreakOnThrow(false), mIsRegex(false), mBreakpoint(breakpoint)
+{
+}
 
-lldb::SBBreakpoint Breakpoint::GetBreakpoint() const;
-Type Breakpoint::GetType() const;
-const nglPath& Breakpoint::GetPath() const;
-int32 Breakpoint::GetLine() const;
-int32 Breakpoint::GetColumn() const;
-#endif
+Breakpoint::Breakpoint(lldb::SBBreakpoint breakpoint, const nglString& rSymbol, bool IsRegex)
+: mType(Symbolic), mLine(-1), mColumn(-1), mSymbol(rSymbol), mBreakOnCatch(false), mBreakOnThrow(false), mIsRegex(IsRegex), mBreakpoint(breakpoint)
+{
+
+}
+
+Breakpoint::Breakpoint(lldb::SBBreakpoint breakpoint, lldb::LanguageType language, bool BreakOnCatch, bool BreakOnThrow)
+: mType(Exception), mLine(-1), mColumn(-1), mLanguage(language), mBreakOnCatch(BreakOnCatch), mBreakOnThrow(BreakOnThrow), mIsRegex(false), mBreakpoint(breakpoint)
+{
+  
+}
+
+lldb::SBBreakpoint Breakpoint::GetBreakpoint() const
+{
+  return mBreakpoint;
+}
+
+Breakpoint::Type Breakpoint::GetType() const
+{
+  return mType;
+}
+
+const nglPath& Breakpoint::GetPath() const
+{
+  return mPath;
+}
+
+int32 Breakpoint::GetLine() const
+{
+  return mLine;
+}
+
+int32 Breakpoint::GetColumn() const
+{
+  return mColumn;
+}
+
+const nglString& Breakpoint::GetSymbol() const
+{
+  return mSymbol;
+}
+
+bool Breakpoint::IsRegex() const
+{
+  return mIsRegex;
+}
+
+
+bool Breakpoint::GetBreakOnThrow() const
+{
+  return mBreakOnThrow;
+}
+
+bool Breakpoint::GetBreakOnCatch() const
+{
+  return mBreakOnCatch;
+}
 
