@@ -919,9 +919,29 @@ void DebugView::OnModuleSymbolSelectionChanged(const nuiEvent& rEvent)
 }
 
 
-void DebugView::OnLineSelected(float X, float Y, int32 line, bool ingutter)
+void DebugView::OnLineSelected(const nglPath& rPath, float X, float Y, int32 line, bool ingutter)
 {
-  printf("OnLineSelected: %f,%f -- %d (in gutter: %s)\n", X, Y, line, YESNO(ingutter));
+  printf("OnLineSelected: %f,%f -- %d (in gutter: %s)\n", X, Y, line + 1, YESNO(ingutter));
+  if (ingutter)
+  {
+    Breakpoint* pBP = GetDebuggerContext().GetBreakpointByLocation(rPath, line + 1, 0);
+    if (pBP)
+      GetDebuggerContext().DeleteBreakpoint(pBP);
+    else
+    {
+      pBP = GetDebuggerContext().CreateBreakpointByLocation(rPath, line + 1, 0);
+    }
+
+    auto it = mFiles.find(rPath.GetPathName());
+    if (it != mFiles.end())
+    {
+      nuiWidget* pWidget = it->second;
+      SourceView* pView = (SourceView*)pWidget->SearchForChild("source", true);
+      NGL_ASSERT(pView != NULL);
+      pView->Invalidate();
+    }
+  }
+
 }
 
 void DebugView::OnVariableSelectionChanged(const nuiEvent& rEvent)

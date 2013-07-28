@@ -127,11 +127,11 @@ void DebuggerContext::GetBreakpointsLinesForFile(const nglPath& rPath, std::set<
     if (pBP->GetType() == Breakpoint::Location && pBP->GetPath() == rPath)
     {
       rLines.insert(pBP->GetLine());
-      NGL_OUT("   OK for %s %d\n", pBP->GetPath().GetChars(), pBP->GetLine());
+//      NGL_OUT("   OK for %s %d\n", pBP->GetPath().GetChars(), pBP->GetLine());
     }
     else
     {
-      NGL_OUT("   Skip %s %d\n", pBP->GetPath().GetChars(), pBP->GetLine());
+//      NGL_OUT("   Skip %s %d\n", pBP->GetPath().GetChars(), pBP->GetLine());
     }
     ++it;
   }
@@ -174,3 +174,37 @@ void DebuggerContext::GetBreakpointsForSymbols(std::vector<Breakpoint*>& rBreakp
   }
 }
 
+void DebuggerContext::DeleteBreakpoint(Breakpoint* pBreakpoint)
+{
+  auto it = mBreakpoints.begin();
+  while (it != mBreakpoints.end())
+  {
+    Breakpoint* pBP = *it;
+    if (pBP == pBreakpoint)
+    {
+      mBreakpoints.erase(it);
+      lldb::SBBreakpoint bp = pBreakpoint->GetBreakpoint();
+      mTarget.BreakpointDelete(bp.GetID());
+      delete pBreakpoint;
+      return;
+    }
+    ++it;
+  }
+}
+
+Breakpoint* DebuggerContext::GetBreakpointByLocation(const nglPath& rPath, int32 line, int32 col) const
+{
+  NGL_OUT("DebuggerContext::GetBreakpointsLinesForFile(%s) (among %d breakpoints)\n", rPath.GetChars(), mBreakpoints.size());
+  auto it = mBreakpoints.begin();
+  while (it != mBreakpoints.end())
+  {
+    Breakpoint* pBP = *it;
+    if (pBP->GetType() == Breakpoint::Location && pBP->GetPath() == rPath && pBP->GetLine() == line && pBP->GetColumn() == col)
+    {
+      return pBP;
+    }
+    ++it;
+  }
+
+  return NULL;
+}

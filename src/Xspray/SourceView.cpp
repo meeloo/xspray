@@ -389,7 +389,7 @@ bool SourceView::MouseUnclicked(nuiSize X, nuiSize Y, nglMouseInfo::Flags Button
   if (IsInsideFromSelf(X, Y))
   {
     float h = mStyle.GetFont()->GetHeight();
-    LineSelected(X, Y, Y / h, X < mGutterWidth);
+    LineSelected(mPath, X, Y, Y / h, X < mGutterWidth);
   }
   return true;
 }

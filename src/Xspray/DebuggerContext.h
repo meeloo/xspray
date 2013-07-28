@@ -24,6 +24,9 @@ public:
   void GetBreakpointsForFiles(std::vector<Breakpoint*>& rBreakpoints);
   void GetBreakpointsForExceptions(std::vector<Breakpoint*>& rBreakpoints);
   void GetBreakpointsForSymbols(std::vector<Breakpoint*>& rBreakpoints);
+  Breakpoint* GetBreakpointByLocation(const nglPath& rPath, int32 line, int32 col) const;
+
+  void DeleteBreakpoint(Breakpoint* pBreakpoint);
 
   lldb::SBDebugger mDebugger;
   lldb::SBTarget mTarget;

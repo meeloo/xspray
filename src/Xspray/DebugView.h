@@ -43,7 +43,7 @@ private:
   
   void OnVariableSelectionChanged(const nuiEvent& rEvent);
 
-  void OnLineSelected(float X, float Y, int32 line, bool ingutter);
+  void OnLineSelected(const nglPath& rPath, float X, float Y, int32 line, bool ingutter);
 
   void ShowSource(const nglPath& rPath, int32 line, int32 col);
 

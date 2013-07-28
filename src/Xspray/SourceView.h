@@ -50,7 +50,7 @@ public:
 
   const nglPath& GetPath() const;
 
-  nuiSignal4<float, float, int32, bool> LineSelected;
+  nuiSignal5<const nglPath&, float, float, int32, bool> LineSelected;
 private:
   nglPath mPath;
   nuiRect GetSelectionRect();
