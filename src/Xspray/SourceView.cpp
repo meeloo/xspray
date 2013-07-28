@@ -292,6 +292,9 @@ nuiRect SourceView::GetSelectionRect()
 
 bool SourceView::Draw(nuiDrawContext* pContext)
 {
+  std::set<int32> breakpoints;
+  GetDebuggerContext().GetBreakpointsLinesForFile(mPath, breakpoints);
+
   if (mLine >= 0)
   {
     nuiRect rect = GetSelectionRect();
@@ -307,6 +310,15 @@ bool SourceView::Draw(nuiDrawContext* pContext)
     auto line = mLines[i];
 
     y = ToAbove((float)(i+1) * h);
+
+    if (breakpoints.find(i+1) != breakpoints.end())
+    {
+      pContext->SetFillColor("blue");
+      pContext->SetStrokeColor("black");
+      nuiRect r(0.0, y - h, mGutterMargin, h);
+      r.Grow(-1, -1);
+      pContext->DrawRect(r, eStrokeAndFillShape);
+    }
 
     nuiTextLayout* pLineNumber = line.first;
     nuiRect rln = pLineNumber->GetRect();

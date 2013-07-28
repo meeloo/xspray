@@ -20,6 +20,7 @@ public:
   Breakpoint* CreateBreakpointForException(lldb::LanguageType language, bool BreakOnCatch, bool BreakOnThrow);
 
   void GetBreakpointsForFile(const nglPath& rPath, std::vector<Breakpoint*>& rBreakpoints);
+  void GetBreakpointsLinesForFile(const nglPath& rPath, std::set<int32>& rLines);
   void GetBreakpointsForFiles(std::vector<Breakpoint*>& rBreakpoints);
   void GetBreakpointsForExceptions(std::vector<Breakpoint*>& rBreakpoints);
   void GetBreakpointsForSymbols(std::vector<Breakpoint*>& rBreakpoints);

@@ -284,7 +284,9 @@ void DebugView::OnStart(const nuiEvent& rEvent)
     if (rContext.mTarget.IsValid())
     {
       //static SBBreakpoint breakpoint1 = rContext.mTarget.BreakpointCreateByName("TestXspray");
-      static SBBreakpoint breakpoint2 = rContext.mTarget.BreakpointCreateByLocation("Application.cpp", 67);
+      //static SBBreakpoint breakpoint2 = rContext.mTarget.BreakpointCreateByLocation("Application.cpp", 67);
+      Breakpoint* breakpoint = rContext.CreateBreakpointByLocation("/Users/meeloo/work/yalive/src/Application.cpp", 67, 0);
+      NGL_OUT("Breakpoint is valid: %s", YESNO(breakpoint->IsValid()));
       //breakpoint.SetCallback(BPCallback, 0);
 
       SBError error;
@@ -637,9 +639,6 @@ void DebugView::OnProcessConnected()
                                              error);
 
   NGL_OUT("Remote Launch result: %s\n", error.GetCString());
-  static SBBreakpoint breakpoint = rContext.mTarget.BreakpointCreateByName("TestXspray");
-  NGL_OUT("Breakpoint is valid: %s", YESNO(breakpoint.IsValid()));
-
 }
 
 void DebugView::OnProcessPaused()

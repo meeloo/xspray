@@ -19,6 +19,7 @@ public:
   };
 
   lldb::SBBreakpoint GetBreakpoint() const;
+  bool IsValid() const;
   Type GetType() const;
   const nglPath& GetPath() const;
   const nglString& GetSymbol() const;

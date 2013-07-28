@@ -27,6 +27,11 @@ Breakpoint::Breakpoint(lldb::SBBreakpoint breakpoint, lldb::LanguageType languag
   
 }
 
+bool Breakpoint::IsValid() const
+{
+  return mBreakpoint.IsValid();
+}
+
 lldb::SBBreakpoint Breakpoint::GetBreakpoint() const
 {
   return mBreakpoint;

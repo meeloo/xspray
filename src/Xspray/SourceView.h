@@ -22,6 +22,7 @@ public:
 
   const nglString& GetText() const;
   void Layout();
+
 protected:
   nglString mText;
   int mOffset;
