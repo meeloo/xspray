@@ -62,6 +62,9 @@ void DebugView::Built()
 
   mpGraphView = (GraphView*)SearchForChild("SharedPlotter", true);
 
+  mpOutput = (nuiText*)SearchForChild("STDOUT", true);
+  mpErrors = (nuiText*)SearchForChild("STDERR", true);
+
   mpDevices = new nuiTreeNode("Devices");
   mpDevicesCombo->SetTree(mpDevices);
 
@@ -943,12 +946,14 @@ void DebugView::OnHandleSTDIO(const nuiEvent& event)
   size_t outcount = 0;
   while ((outcount = process.GetSTDOUT(buffer, sizeof(buffer))))
   {
+    mpOutput->AddText(nglString(buffer, outcount));
     printf("OUT> %s", buffer);
     memset(buffer, 0, sizeof(buffer));
   }
 
   while ((outcount = process.GetSTDERR(buffer, sizeof(buffer))))
   {
+    mpErrors->AddText(nglString(buffer, outcount));
     printf("ERR> %s", buffer);
     memset(buffer, 0, sizeof(buffer));
   }

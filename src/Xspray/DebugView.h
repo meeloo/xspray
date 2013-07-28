@@ -69,6 +69,8 @@ private:
   nuiButton* mpStepOver;
   nuiButton* mpStepOut;
   nuiTabView* mpFilesTabView;
+  nuiText* mpOutput;
+  nuiText* mpErrors;
 
   nuiTreeNodePtr mpArchitectures;
   nuiTreeNodePtr mpDevices;

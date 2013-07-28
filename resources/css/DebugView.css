@@ -254,27 +254,52 @@
 
   }
 
-  +nuiSplitter
+  +nuiTabView
   {
-    MasterChild: false;
-    HandlePos: 50;
-    Orientation: Vertical;
     Layout = [threads, right] / [variables, bottom];
 
-    +nuiScrollView VariablesScroller
+    +nuiSplitter
     {
-      Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
-      DecorationMode: Border;
-      +nuiTreeView Variables
+      TabName = "Variables";
+      MasterChild: false;
+      HandlePos: 50;
+      Orientation: Vertical;
+
+      +nuiScrollView VariablesScroller
       {
-        DisplayRoot: false;
+        Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
+        DecorationMode: Border;
+        +nuiTreeView Variables
+        {
+          DisplayRoot: false;
+        }
+      }
+
+      +GraphView SharedPlotter
+      {
+
       }
     }
 
-    +GraphView SharedPlotter
+    +nuiScrollView
     {
+      TabName = "Output";
+      +nuiText STDOUT
+      {
 
+      }
     }
+
+    +nuiScrollView
+    {
+      TabName = "Errors";
+      +nuiText STDERR
+      {
+
+      }
+    }
+
   }
+
 }
 
