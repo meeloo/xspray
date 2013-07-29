@@ -126,19 +126,22 @@
 
   +nuiButton StepIn
   {
-    +fontawesome_collapse;
+    //+fontawesome_collapse;
+    +nuiImage { Position: Center; Texture: "rsrc:/decorations/StepInto.png"; }
     Position: Center;
   }
 
   +nuiButton StepOver
   {
-    +fontawesome_collapse_top;
+    //+fontawesome_collapse_top;
+    +nuiImage { Position: Center; Texture: "rsrc:/decorations/StepOver.png"; }
     Position: Center;
   }
 
   +nuiButton StepOut
   {
-    +fontawesome_level_up;
+    //+fontawesome_level_up;
+    +nuiImage { Position: Center; Texture: "rsrc:/decorations/StepOut.png"; }
     Position: Center;
   }
 }

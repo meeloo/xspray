@@ -292,16 +292,26 @@ nuiRect SourceView::GetSelectionRect()
 
 bool SourceView::Draw(nuiDrawContext* pContext)
 {
+  pContext->SetClearColor(nuiColor(255, 255, 255, 255));
+  pContext->Clear();
   std::set<int32> breakpoints;
   GetDebuggerContext().GetBreakpointsLinesForFile(mPath, breakpoints);
+
+  pContext->SetStrokeColor("grey");
+  pContext->SetLineWidth(0.025f);
+  pContext->EnableBlending(true);
+  pContext->SetBlendFunc(nuiBlendTransp);
 
   if (mLine >= 0)
   {
     nuiRect rect = GetSelectionRect();
+    rect.Left() = 0;
     
     pContext->SetFillColor(nuiColor(230, 230, 250));
     pContext->DrawRect(rect, eFillShape);
   }
+  float x = mGutterWidth - mGutterMargin * 0.5;
+  pContext->DrawLine(x, 0, x, mRect.GetHeight());
 
   float y = 0;
   float h = mStyle.GetFont()->GetHeight();
@@ -313,11 +323,21 @@ bool SourceView::Draw(nuiDrawContext* pContext)
 
     if (breakpoints.find(i+1) != breakpoints.end())
     {
-      pContext->SetFillColor("blue");
-      pContext->SetStrokeColor("black");
-      nuiRect r(0.0, y - h, mGutterMargin, h);
-      r.Grow(-1, -1);
-      pContext->DrawRect(r, eStrokeAndFillShape);
+//      pContext->SetFillColor("blue");
+//      pContext->SetStrokeColor("black");
+//      nuiRect r(0.0, y - h, mGutterMargin, h);
+//      r.Grow(-1, -1);
+//      pContext->DrawRect(r, eStrokeAndFillShape);
+
+      nuiFont* pFontAwesome = nuiFont::GetFont("FontAwesome10");
+      pContext->SetFont(pFontAwesome);
+      pContext->SetTextColor("blue");
+      nglString str("fontawesome_chevron_sign_right");
+      if (i == mLine)
+        str = "fontawesome_circle_arrow_right";
+      pContext->DrawText(0, y, nuiObject::GetGlobalProperty(str));
+      pContext->SetTextColor("black");
+      pFontAwesome->Release();
     }
 
     nuiTextLayout* pLineNumber = line.first;
@@ -330,18 +350,6 @@ bool SourceView::Draw(nuiDrawContext* pContext)
       pContext->DrawText(mGutterWidth, y, *pLine);
   }
 
-//  // Draw breakpoints:
-//  lldb::SBTarget target = GetDebuggerContext().mTarget;
-//  for (int i = 0; i < target.GetNumBreakpoints(); i++)
-//  {
-//    lldb::SBBreakpoint breakpoint = target.GetBreakpointAtIndex(i);
-//    for (int32 l = 0; l < breakpoint.GetNumResolvedLocations(); l++)
-//    {
-//      lldb::SBBreakpointLocation loc = breakpoint.GetLocationAtIndex (l);
-//      
-//    }
-//  }
-//
   return true;
 }
 

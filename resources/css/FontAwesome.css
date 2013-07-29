@@ -6,6 +6,13 @@
   Size: 18;
 }
 
+@Font FontAwesome10
+{
+  Name: "rsrc:/fonts/fontawesome-webfont.ttf";
+  Size: 10;
+}
+
+
 $fontawesome_glass  = "\uf000";
 $fontawesome_music  = "\uf001";
 $fontawesome_search  = "\uf002";
