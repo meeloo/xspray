@@ -57,17 +57,13 @@
     MaxHeight: 20;
     Position: BottomLeft;
 
-    +nuiButton RemoveApplication
+    +RawButton RemoveApplication
     {
-      EnableDecoration: false;
-      FocusVisible: false;
       +fontawesome_minus_sign;
     }
 
-    +nuiButton AddApplication
+    +RawButton AddApplication
     {
-      EnableDecoration: false;
-      FocusVisible: false;
       +fontawesome_plus_sign;
     }
   }

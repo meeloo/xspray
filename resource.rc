@@ -1,5 +1,6 @@
 icon.icns        NUI_RESOURCE    "resources/icon.icns"
 icon.ico        NUI_RESOURCE    "resources/icon.ico"
+css/BreakpointView.css        NUI_RESOURCE    "resources/css/BreakpointView.css"
 css/DebugView.css        NUI_RESOURCE    "resources/css/DebugView.css"
 css/Entypo.css        NUI_RESOURCE    "resources/css/Entypo.css"
 css/FontAwesome.css        NUI_RESOURCE    "resources/css/FontAwesome.css"

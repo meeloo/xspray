@@ -78,9 +78,18 @@ iOSDevice::iOSDevice(am_device *device)
 
     nglString resolution;
 
-    memcpy(_device_name, product_type, strlen(product_type)-3);
-    strncpy(_device_gen, strtok((char *)product_type, _device_name), 1);
-    strncpy(_ios_version, ios_version, 1);
+    _device_name[0] = 0;
+    _device_gen[0] = 0;
+    _ios_version[0] = 0;
+
+    if (product_type)
+    {
+      memcpy(_device_name, product_type, strlen(product_type)-3);
+      if (_device_name)
+        strncpy(_device_gen, strtok((char *)product_type, _device_name), 1);
+    }
+    if (ios_version)
+      strncpy(_ios_version, ios_version, 1);
 
     int rev = atoi(_device_gen);
 
@@ -433,10 +442,9 @@ nglString iOSDevice::GetDeviceAppURL(const nglString& AppId)
   CFRelease(identifier);
 
   CFStringRef app_url = CFURLGetString(url);
-  CFRelease(url);
 
   nglString resultUrl(app_url);
-  CFRelease(app_url);
+  CFRelease(url);
   return resultUrl;
 }
 

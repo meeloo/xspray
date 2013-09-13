@@ -251,7 +251,7 @@ void DebugView::OnChooseApplication(const nuiEvent& rEvent)
   nuiAnimation::RunOnAnimationTick(nuiMakeTask(&GoHome, &nuiSignal0<>::operator()));
 }
 
-#if 1
+#if 0
 void DebugView::OnStart(const nuiEvent& rEvent)
 {
   //  nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
@@ -327,6 +327,10 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   //  TestMain2(p.GetChars());
   //  return;
 
+  DebuggerContext& rContext(GetDebuggerContext());
+  NGL_ASSERT(rContext.mpAppDescription != NULL);
+  nglPath p = rContext.mpAppDescription->GetLocalPath();
+
   NGL_ASSERT(iOSDevice::GetDeviceCount() > 0);
   iOSDevice* pDevice = iOSDevice::GetDevice(0);
   if (!pDevice->InstallApplication(p))
@@ -339,8 +343,6 @@ void DebugView::OnStart(const nuiEvent& rEvent)
     NGL_OUT("Unable to start debug server on device\n");
   }
 
-  DebuggerContext& rContext(GetDebuggerContext());
-
   StateType state = rContext.mProcess.GetState();
   if (state == eStateRunning)
   {
@@ -350,37 +352,6 @@ void DebugView::OnStart(const nuiEvent& rEvent)
     return;
   }
 
-  // Create a debugger instance so we can create a target
-  const char *channel = "lldb";
-  const char *categories[] =
-  {
-    //strm->Printf("Logging categories for 'lldb':\n"
-    //     "all", // - turn on all available logging categories\n"
-    "api", // - enable logging of API calls and return values\n"
-    "break", // - log breakpoints\n"
-    //     "commands", // - log command argument parsing\n"
-    //     "default", // - enable the default set of logging categories for liblldb\n"
-    //     "dyld", // - log shared library related activities\n"
-    //     "events", // - log broadcaster, listener and event queue activities\n"
-    //     "expr", // - log expressions\n"
-    //     "object", // - log object construction/destruction for important objects\n"
-    "module", // - log module activities such as when modules are created, detroyed, replaced, and more\n"
-    "process", // - log process events and activities\n"
-    //     "script", // - log events about the script interpreter\n"
-    "state",  //- log private and public process state changes\n"
-    //"step", // - log step related activities\n"
-    //"symbol", // - log symbol related issues and warnings\n"
-    "target", // - log target events and activities\n"
-    //"thread", // - log thread events and activities\n"
-    //     "types", // - log type system related activities\n"
-    //     "unwind", // - log stack unwind activities\n"
-    //     "verbose", // - enable verbose logging\n"
-    //     "watch", // - log watchpoint related activities\n");
-    NULL
-  };
-  rContext.mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
-  rContext.mDebugger.EnableLog(channel, categories);
-
   mpDebuggerEventLoop = new nglThreadDelegate(nuiMakeDelegate(this, &DebugView::Loop));
   mpDebuggerEventLoop->Start();
 
@@ -389,30 +360,7 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   {
     // Create a target using the executable.
 
-    // first try to detect the target arch:
-    std::vector<nglString> valid_archs;
-    {
-      int i = 0;
-      while (Archs[i])
-      {
-        SBTarget test = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), Archs[i]);
-        if (test.IsValid())
-        {
-          NGL_OUT("Found 1 valid target: %s\n", Archs[i]);
-          valid_archs.push_back(Archs[i]);
-          rContext.mDebugger.DeleteTarget(test);
-          i++;
-        }
-      }
-    }
-
-    if (valid_archs.empty())
-    {
-      NGL_OUT("Found no valid archs\n");
-      return;
-    }
-
-    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), valid_archs[0]);
+    rContext.mTarget = rContext.mDebugger.CreateTargetWithFileAndArch (p.GetChars(), rContext.mpAppDescription->GetArchitecture().GetChars());
     if (rContext.mTarget.IsValid())
     {
 

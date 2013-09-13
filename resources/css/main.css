@@ -45,5 +45,12 @@
 
 +nuiLabel Label { Font: Default; }
 
++nuiButton RawButton
+{
+  EnableDecoration: false;
+  FocusVisible: false;
+}
+
+#include "BreakpointView.css"
 #include "HomeView.css"
 #include "DebugView.css"

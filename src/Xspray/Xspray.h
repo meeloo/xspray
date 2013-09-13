@@ -20,6 +20,8 @@
 #include "iOSRemoteDebug.h"
 #include "NativeFileDialog.h"
 
+#include "msgpack.h"
+
 namespace Xspray
 {
 #include "AppDescription.h"
@@ -33,6 +35,7 @@ namespace Xspray
 #include "DebuggerContext.h"
 #include "HomeView.h"
 #include "GraphView.h"
+#include "BreakpointsView.h"
 #include "DebugView.h"
 }
 

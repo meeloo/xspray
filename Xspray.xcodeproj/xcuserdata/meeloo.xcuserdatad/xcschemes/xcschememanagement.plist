@@ -7,26 +7,36 @@
 		<key>Xspray OSX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<key>XsprayD OSX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>icns.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>15</integer>
 		</dict>
 		<key>jasper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>13</integer>
+		</dict>
+		<key>msgpack.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>sqlite3.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -37,6 +47,11 @@
 			<true/>
 		</dict>
 		<key>61A9DFC80B833EF200BC506C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E536A4EC17C3507C00D9F341</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,6 +87,11 @@
 			<true/>
 		</dict>
 		<key>E5D64521120A0B92009C26A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5EF488117B99ACA00F62017</key>
 		<dict>
 			<key>primary</key>
 			<true/>

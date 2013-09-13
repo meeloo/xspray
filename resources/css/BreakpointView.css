@@ -1,0 +1,19 @@
+
++BreakpointView Breakpoint
+{
+  +Label
+  {
+    Title: TITLE;
+  }
+
+  +nuiToggleButton OnOff
+  {
+    +fontawesome_chevron_sign_right;
+  }
+}
+
++BreakpointsView Breakpoints
+{
+  
+}
+

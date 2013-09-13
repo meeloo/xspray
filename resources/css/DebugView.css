@@ -58,6 +58,11 @@
   }
 }
 
++RawButton ToolButton
+{
+  Position: Center;
+  Borders: 3;
+}
 
 +nuiHBox Transport
 {
@@ -106,43 +111,37 @@
     }
   }
 
-  +nuiButton StartStop
+  +ToolButton StartStop
   {
     +fontawesome_rocket;
-    Position: Center;
   }
 
-  +nuiButton Pause
+  +ToolButton Pause
   {
     +fontawesome_pause;
-    Position: Center;
   }
 
-  +nuiButton Continue
+  +ToolButton Continue
   {
     +fontawesome_play;
-    Position: Center;
   }
 
-  +nuiButton StepIn
+  +ToolButton StepIn
   {
     //+fontawesome_collapse;
     +nuiImage { Position: Center; Texture: "rsrc:/decorations/StepInto.png"; }
-    Position: Center;
   }
 
-  +nuiButton StepOver
+  +ToolButton StepOver
   {
     //+fontawesome_collapse_top;
     +nuiImage { Position: Center; Texture: "rsrc:/decorations/StepOver.png"; }
-    Position: Center;
   }
 
-  +nuiButton StepOut
+  +ToolButton StepOut
   {
     //+fontawesome_level_up;
     +nuiImage { Position: Center; Texture: "rsrc:/decorations/StepOut.png"; }
-    Position: Center;
   }
 }
 
@@ -176,9 +175,8 @@
 
 +nuiHBox FileTabHeader
 {
-  +nuiButton CloseTab
+  +RawButton CloseTab
   {
-    Decoration : NoDecoration;
     +fontawesome_remove;
   }
   +Label { Text: TABNAME; }
@@ -270,8 +268,6 @@
 
       +nuiScrollView VariablesScroller
       {
-        Decoration: nuiDefaultDecorationScrollBarHorizontalBkg;
-        DecorationMode: Border;
         +nuiTreeView Variables
         {
           DisplayRoot: false;

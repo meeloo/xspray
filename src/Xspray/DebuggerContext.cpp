@@ -68,7 +68,9 @@ bool DebuggerContext::LoadApp()
 
   // Create a target using the executable.
   //mTarget = mDebugger.CreateTarget(p.GetChars());
-  mTarget = mDebugger.CreateTargetWithFileAndArch (pApp->GetLocalPath().GetChars(), pApp->GetArchitecture().GetChars());
+  const char* apppath = pApp->GetLocalPath().GetChars();
+  const char* arch = pApp->GetArchitecture().GetChars();
+  mTarget = mDebugger.CreateTargetWithFileAndArch (apppath, arch);
 
   return mTarget.IsValid();
 }
@@ -119,7 +121,7 @@ void DebuggerContext::GetBreakpointsForFile(const nglPath& rPath, std::vector<Br
 
 void DebuggerContext::GetBreakpointsLinesForFile(const nglPath& rPath, std::set<int32>& rLines)
 {
-  NGL_OUT("DebuggerContext::GetBreakpointsLinesForFile(%s) (among %d breakpoints)\n", rPath.GetChars(), mBreakpoints.size());
+  //NGL_OUT("DebuggerContext::GetBreakpointsLinesForFile(%s) (among %d breakpoints)\n", rPath.GetChars(), mBreakpoints.size());
   auto it = mBreakpoints.begin();
   while (it != mBreakpoints.end())
   {
@@ -194,7 +196,7 @@ void DebuggerContext::DeleteBreakpoint(Breakpoint* pBreakpoint)
 
 Breakpoint* DebuggerContext::GetBreakpointByLocation(const nglPath& rPath, int32 line, int32 col) const
 {
-  NGL_OUT("DebuggerContext::GetBreakpointsLinesForFile(%s) (among %d breakpoints)\n", rPath.GetChars(), mBreakpoints.size());
+  //NGL_OUT("DebuggerContext::GetBreakpointsLinesForFile(%s) (among %d breakpoints)\n", rPath.GetChars(), mBreakpoints.size());
   auto it = mBreakpoints.begin();
   while (it != mBreakpoints.end())
   {

@@ -83,6 +83,8 @@ AppDescription::AppDescription(const nglPath& rPath)
     NGL_OUT("%s -> '%s' '%s' '%s'\n", triple, tokens[0].GetChars(), tokens[1].GetChars(), tokens[2].GetChars());
     mArchitectures.push_back(tokens[0]);
   }
+  if (!mArchitectures.empty())
+    mArchitecture = mArchitectures.front();
 
   LoadBundleIcon(rPath);
 }

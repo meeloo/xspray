@@ -81,6 +81,70 @@ const char* GetTokenKindName(CXTokenKind kind)
   return "WTF Unknown Token Kind";
 }
 
+enum CXChildVisitResult SourceView::CursorVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data)
+{
+  SourceView* pView = (SourceView*)client_data;
+  switch (cursor.kind)
+  {
+    case CXCursor_StructDecl:
+    case CXCursor_UnionDecl:
+    case CXCursor_ClassDecl:
+    case CXCursor_EnumDecl:
+    case CXCursor_FieldDecl:
+    case CXCursor_EnumConstantDecl:
+    case CXCursor_FunctionDecl:
+//    case CXCursor_VarDecl:
+//    case CXCursor_ParmDecl:
+    case CXCursor_ObjCInterfaceDecl:
+    case CXCursor_ObjCCategoryDecl:
+    case CXCursor_ObjCProtocolDecl:
+    case CXCursor_ObjCPropertyDecl:
+    case CXCursor_ObjCIvarDecl:
+    case CXCursor_ObjCInstanceMethodDecl:
+    case CXCursor_ObjCClassMethodDecl:
+    case CXCursor_ObjCImplementationDecl:
+    case CXCursor_ObjCCategoryImplDecl:
+    case CXCursor_TypedefDecl:
+    case CXCursor_CXXMethod:
+    case CXCursor_Namespace:
+    case CXCursor_Constructor:
+    case CXCursor_Destructor:
+    case CXCursor_ConversionFunction:
+    case CXCursor_FunctionTemplate:
+    case CXCursor_ClassTemplate:
+    case CXCursor_ClassTemplatePartialSpecialization:
+    case CXCursor_TypeAliasDecl:
+    case CXCursor_ObjCSynthesizeDecl:
+    case CXCursor_ObjCDynamicDecl:
+    case CXCursor_MemberRefExpr:
+    case CXCursor_MacroDefinition:
+    case CXCursor_InclusionDirective:
+    {
+        CXSourceLocation loc = clang_getCursorLocation(cursor);
+        unsigned line = 0, column = 0, offset = 0;
+        CXFile file;
+        clang_getFileLocation(loc, &file, &line, &column, &offset);
+        line--;
+        column--;
+        const char* f = clang_getCString(clang_getFileName(file));
+        if (f && (pView->mPath == nglPath(f)))
+        {
+          printf("decl: %s(%d:%d / %d) %s %s\n",
+                 f,
+                 line, column, offset,
+                 clang_getCString(clang_getCursorKindSpelling(cursor.kind)),
+                 clang_getCString(clang_getCursorDisplayName(cursor)));
+        }
+      }
+      break;
+    default:
+      // Do nothing
+      break;
+  }
+  return CXChildVisit_Recurse;
+}
+
+
 bool SourceView::Load(const nglPath& rPath)
 {
   nglIStream* pStream = rPath.OpenRead();
@@ -88,18 +152,21 @@ bool SourceView::Load(const nglPath& rPath)
     return false;
 
   int32 size = pStream->Available();
+  mPath = rPath;
 
-  mIndex = clang_createIndex(0, 0);
-  int argc = 0;
-  char** argv = NULL;
+  mIndex = clang_createIndex(1, 0);
+  int argc = 1;
+  const char* argv[] = {"-ferror-limit=1000"};
 
-  mTranslationUnit = clang_parseTranslationUnit(mIndex, rPath.GetChars(), argv, argc, 0, 0, CXTranslationUnit_None);
+  //unsigned flags = CXTranslationUnit_None;
+  unsigned flags = CXTranslationUnit_SkipFunctionBodies | CXTranslationUnit_Incomplete;
+  mTranslationUnit = clang_parseTranslationUnit(mIndex, rPath.GetChars(), argv, argc, 0, 0, flags);
 
   for (unsigned I = 0, N = clang_getNumDiagnostics(mTranslationUnit); I != N; ++I)
   {
     CXDiagnostic Diag = clang_getDiagnostic(mTranslationUnit, I);
     CXString String = clang_formatDiagnostic(Diag, clang_defaultDiagnosticDisplayOptions());
-    printf("%s\n", clang_getCString(String));
+    printf("diagnostic %d: %s\n", I, clang_getCString(String));
     clang_disposeString(String);
   }
 
@@ -120,23 +187,23 @@ bool SourceView::Load(const nglPath& rPath)
   clang_annotateTokens(mTranslationUnit, Tokens, NumTokens, cursors);
 
   //printf("Found %d tokens\n", NumTokens);
-  for (int i = 0; i < NumTokens; i++)
-  {
-    CXString str = clang_getTokenSpelling(mTranslationUnit, Tokens[i]);
-    CXSourceLocation location = clang_getTokenLocation(mTranslationUnit, Tokens[i]);
-    CXSourceRange range = clang_getTokenExtent(mTranslationUnit, Tokens[i]);
-    CXSourceLocation start = clang_getRangeStart(range);
-    CXSourceLocation end = clang_getRangeEnd(range);
-
-    unsigned sline = 0, scolumn = 0, soffset = 0;
-    clang_getFileLocation(start, NULL, &sline, &scolumn, &soffset);
-    unsigned eline, ecolumn, eoffset;
-    clang_getFileLocation(end, NULL, &eline, &ecolumn, &eoffset);
-
-    //printf("%d:%d -> %d:%d --> '%s'\n", sline, scolumn, eline, ecolumn, clang_getCString(str));
-
-    clang_disposeString(str);
-  }
+//  for (int i = 0; i < NumTokens; i++)
+//  {
+//    CXString str = clang_getTokenSpelling(mTranslationUnit, Tokens[i]);
+//    CXSourceLocation location = clang_getTokenLocation(mTranslationUnit, Tokens[i]);
+//    CXSourceRange range = clang_getTokenExtent(mTranslationUnit, Tokens[i]);
+//    CXSourceLocation start = clang_getRangeStart(range);
+//    CXSourceLocation end = clang_getRangeEnd(range);
+//
+//    unsigned sline = 0, scolumn = 0, soffset = 0;
+//    clang_getFileLocation(start, NULL, &sline, &scolumn, &soffset);
+//    unsigned eline, ecolumn, eoffset;
+//    clang_getFileLocation(end, NULL, &eline, &ecolumn, &eoffset);
+//
+//    //printf("%d:%d -> %d:%d --> '%s'\n", sline, scolumn, eline, ecolumn, clang_getCString(str));
+//
+//    clang_disposeString(str);
+//  }
 
   nglString line;
   int32 offset = 0;
@@ -149,6 +216,7 @@ bool SourceView::Load(const nglPath& rPath)
 
   while (pStream->ReadLine(line))
   {
+    line.Trim("\n\r");
     SourceLine* pLine = NULL;
     nglString linestr;
     linestr.SetCInt(currentline + 1);
@@ -210,6 +278,12 @@ bool SourceView::Load(const nglPath& rPath)
     }
   }
 
+  // Visit the index cursor to find definitions:
+  {
+    CXCursor parent = clang_getTranslationUnitCursor(mTranslationUnit);
+    unsigned res = clang_visitChildren(parent, &SourceView::CursorVisitor, this);
+  }
+
   delete pStream;
 
   delete[] cursors;
@@ -218,8 +292,6 @@ bool SourceView::Load(const nglPath& rPath)
   clang_disposeIndex(mIndex);
 
   InvalidateLayout();
-
-  mPath = rPath;
   return true;
 }
 

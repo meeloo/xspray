@@ -68,4 +68,7 @@ private:
   std::map<CXTokenKind, nuiTextStyle> mStyles;
 
   int32 mClicked = 0;
+
+  static enum CXChildVisitResult CursorVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data);
+
 };

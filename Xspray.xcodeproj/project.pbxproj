@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6E04DC26176618750098D9D5 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
-		E50FD30A1752C0D100C4AA66 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
-		E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E51C3C481779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = E51C3C461779EF5E00FDE1AC /* NativeFileDialog.mm */; };
 		E51C3C491779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = E51C3C461779EF5E00FDE1AC /* NativeFileDialog.mm */; };
+		E536A50617C3519800D9F341 /* libmsgpack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF488217B99ACA00F62017 /* libmsgpack.a */; };
+		E536A50C17C351A600D9F341 /* libmsgpack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF488217B99ACA00F62017 /* libmsgpack.a */; };
 		E53D0CF4177445E90082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE6177445E90082B86F /* Breakpoint.cpp */; };
 		E53D0CF5177445E90082B86F /* Breakpoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE6177445E90082B86F /* Breakpoint.cpp */; };
 		E53D0CF6177445E90082B86F /* DebuggerContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0CE8177445E90082B86F /* DebuggerContext.cpp */; };
@@ -31,6 +31,8 @@
 		E53D0D0517750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E53D0D0217750CDC0082B86F /* iOSRemoteDebug.cpp */; };
 		E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53D0D07177585F50082B86F /* MobileDevice.framework */; };
 		E53D0D0A1775869A0082B86F /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53D0D07177585F50082B86F /* MobileDevice.framework */; };
+		E54A252C17A7C9DD003EA936 /* BreakpointsView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E54A252A17A7C9DD003EA936 /* BreakpointsView.cpp */; };
+		E54A252D17A7C9DD003EA936 /* BreakpointsView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E54A252A17A7C9DD003EA936 /* BreakpointsView.cpp */; };
 		E54FABE317816B5400E09874 /* AppDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.mm */; };
 		E54FABE417816B5400E09874 /* AppDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.mm */; };
 		E54FADF6178179A700E09874 /* libtop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADF11781796200E09874 /* libtop.a */; };
@@ -44,6 +46,8 @@
 		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E562BF0A17685B000081AF35 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E562BF0B17685C600081AF35 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
+		E58F7E8217E3987200368507 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58F7E8117E3987200368507 /* LLDB.framework */; };
+		E58F7E8317E3988900368507 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E58F7E8117E3987200368507 /* LLDB.framework */; };
 		E59CD16A11EA0C4000955611 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59CD16911EA0C4000955611 /* Cocoa.framework */; };
 		E5D64525120A0B92009C26A9 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFEF0B83433800BC506C /* Application.cpp */; };
 		E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFF10B83433800BC506C /* MainWindow.cpp */; };
@@ -56,6 +60,54 @@
 		E5E8E737178060AB001E6358 /* DebugView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E734178060AB001E6358 /* DebugView.cpp */; };
 		E5E8E73A17806D43001E6358 /* HomeView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E73817806D43001E6358 /* HomeView.cpp */; };
 		E5E8E73B17806D43001E6358 /* HomeView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E73817806D43001E6358 /* HomeView.cpp */; };
+		E5EF48C817B99B6000F62017 /* gcc_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EF488E17B99B6000F62017 /* gcc_atomic.cpp */; };
+		E5EF48C917B99B6000F62017 /* gcc_atomic.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF488F17B99B6000F62017 /* gcc_atomic.h */; };
+		E5EF48CB17B99B6000F62017 /* object.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489417B99B6000F62017 /* object.h */; };
+		E5EF48CC17B99B6000F62017 /* object.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489517B99B6000F62017 /* object.hpp */; };
+		E5EF48CD17B99B6000F62017 /* pack.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489617B99B6000F62017 /* pack.h */; };
+		E5EF48CE17B99B6000F62017 /* pack.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489717B99B6000F62017 /* pack.hpp */; };
+		E5EF48CF17B99B6000F62017 /* pack_define.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489817B99B6000F62017 /* pack_define.h */; };
+		E5EF48D017B99B6000F62017 /* pack_template.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489917B99B6000F62017 /* pack_template.h */; };
+		E5EF48D117B99B6000F62017 /* sbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489A17B99B6000F62017 /* sbuffer.h */; };
+		E5EF48D217B99B6000F62017 /* sbuffer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489B17B99B6000F62017 /* sbuffer.hpp */; };
+		E5EF48D317B99B6000F62017 /* sysdep.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489C17B99B6000F62017 /* sysdep.h */; };
+		E5EF48D417B99B6000F62017 /* bool.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489E17B99B6000F62017 /* bool.hpp */; };
+		E5EF48D517B99B6000F62017 /* define.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF489F17B99B6000F62017 /* define.hpp */; };
+		E5EF48D617B99B6000F62017 /* deque.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A117B99B6000F62017 /* deque.hpp */; };
+		E5EF48D717B99B6000F62017 /* fixint.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A217B99B6000F62017 /* fixint.hpp */; };
+		E5EF48D817B99B6000F62017 /* float.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A317B99B6000F62017 /* float.hpp */; };
+		E5EF48D917B99B6000F62017 /* int.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A417B99B6000F62017 /* int.hpp */; };
+		E5EF48DA17B99B6000F62017 /* list.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A517B99B6000F62017 /* list.hpp */; };
+		E5EF48DB17B99B6000F62017 /* map.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A617B99B6000F62017 /* map.hpp */; };
+		E5EF48DC17B99B6000F62017 /* nil.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A717B99B6000F62017 /* nil.hpp */; };
+		E5EF48DD17B99B6000F62017 /* pair.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A817B99B6000F62017 /* pair.hpp */; };
+		E5EF48DE17B99B6000F62017 /* raw.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48A917B99B6000F62017 /* raw.hpp */; };
+		E5EF48DF17B99B6000F62017 /* set.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48AA17B99B6000F62017 /* set.hpp */; };
+		E5EF48E017B99B6000F62017 /* string.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48AB17B99B6000F62017 /* string.hpp */; };
+		E5EF48E117B99B6000F62017 /* unordered_map.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48AD17B99B6000F62017 /* unordered_map.hpp */; };
+		E5EF48E217B99B6000F62017 /* unordered_set.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48AE17B99B6000F62017 /* unordered_set.hpp */; };
+		E5EF48E317B99B6000F62017 /* tuple.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48AF17B99B6000F62017 /* tuple.hpp */; };
+		E5EF48E417B99B6000F62017 /* vector.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B117B99B6000F62017 /* vector.hpp */; };
+		E5EF48E517B99B6000F62017 /* type.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B217B99B6000F62017 /* type.hpp */; };
+		E5EF48E617B99B6000F62017 /* unpack.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B317B99B6000F62017 /* unpack.h */; };
+		E5EF48E717B99B6000F62017 /* unpack.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B417B99B6000F62017 /* unpack.hpp */; };
+		E5EF48E817B99B6000F62017 /* unpack_define.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B517B99B6000F62017 /* unpack_define.h */; };
+		E5EF48E917B99B6000F62017 /* unpack_template.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B617B99B6000F62017 /* unpack_template.h */; };
+		E5EF48EA17B99B6000F62017 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B717B99B6000F62017 /* version.h */; };
+		E5EF48EB17B99B6000F62017 /* vrefbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48B917B99B6000F62017 /* vrefbuffer.h */; };
+		E5EF48EC17B99B6000F62017 /* vrefbuffer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48BA17B99B6000F62017 /* vrefbuffer.hpp */; };
+		E5EF48ED17B99B6000F62017 /* zbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48BB17B99B6000F62017 /* zbuffer.h */; };
+		E5EF48EE17B99B6000F62017 /* zbuffer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48BC17B99B6000F62017 /* zbuffer.hpp */; };
+		E5EF48EF17B99B6000F62017 /* zone.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48BD17B99B6000F62017 /* zone.h */; };
+		E5EF48F017B99B6000F62017 /* zone.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48BE17B99B6000F62017 /* zone.hpp */; };
+		E5EF48F117B99B6000F62017 /* msgpack.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48C017B99B6000F62017 /* msgpack.h */; };
+		E5EF48F217B99B6000F62017 /* msgpack.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E5EF48C117B99B6000F62017 /* msgpack.hpp */; };
+		E5EF48F317B99B6000F62017 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EF48C217B99B6000F62017 /* object.cpp */; };
+		E5EF48F417B99B6000F62017 /* objectc.c in Sources */ = {isa = PBXBuildFile; fileRef = E5EF48C317B99B6000F62017 /* objectc.c */; };
+		E5EF48F517B99B6000F62017 /* unpack.c in Sources */ = {isa = PBXBuildFile; fileRef = E5EF48C417B99B6000F62017 /* unpack.c */; };
+		E5EF48F617B99B6000F62017 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = E5EF48C517B99B6000F62017 /* version.c */; };
+		E5EF48F717B99B6000F62017 /* vrefbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = E5EF48C617B99B6000F62017 /* vrefbuffer.c */; };
+		E5EF48F817B99B6000F62017 /* zone.c in Sources */ = {isa = PBXBuildFile; fileRef = E5EF48C717B99B6000F62017 /* zone.c */; };
 		E5EF6FBC11E77DE8000FB337 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFEF0B83433800BC506C /* Application.cpp */; };
 		E5EF6FBD11E77DE8000FB337 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFF10B83433800BC506C /* MainWindow.cpp */; };
 		E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD30B833F1500BC506C /* CoreFoundation.framework */; };
@@ -93,6 +145,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = E52420E511CBCE9E0025CA71;
 			remoteInfo = nuiPhone;
+		};
+		E536A50217C3518F00D9F341 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61A9DE3F0B833C9200BC506C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5EF488117B99ACA00F62017;
+			remoteInfo = msgpack;
+		};
+		E536A50817C351A000D9F341 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61A9DE3F0B833C9200BC506C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5EF488117B99ACA00F62017;
+			remoteInfo = msgpack;
 		};
 		E54FADEE1781796200E09874 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -214,7 +280,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E50FD30A1752C0D100C4AA66 /* LLDB.framework in CopyFiles */,
+				E58F7E8317E3988900368507 /* LLDB.framework in CopyFiles */,
 				E5FD8D0B177BCFD4001646F6 /* libclang.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +322,8 @@
 		E53D0D0317750CDC0082B86F /* iOSRemoteDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iOSRemoteDebug.h; path = src/Xspray/iOSRemoteDebug.h; sourceTree = "<group>"; };
 		E53D0D0617750E350082B86F /* MobileDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileDevice.h; path = src/Xspray/MobileDevice.h; sourceTree = "<group>"; };
 		E53D0D07177585F50082B86F /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = /System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<absolute>"; };
+		E54A252A17A7C9DD003EA936 /* BreakpointsView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BreakpointsView.cpp; path = src/Xspray/BreakpointsView.cpp; sourceTree = "<group>"; };
+		E54A252B17A7C9DD003EA936 /* BreakpointsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakpointsView.h; path = src/Xspray/BreakpointsView.h; sourceTree = "<group>"; };
 		E54FABE117816B5400E09874 /* AppDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDescription.mm; path = src/Xspray/AppDescription.mm; sourceTree = "<group>"; };
 		E54FABE217816B5400E09874 /* AppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDescription.h; path = src/Xspray/AppDescription.h; sourceTree = "<group>"; };
 		E54FADE81781796200E09874 /* top.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = top.xcodeproj; path = deps/top/top.xcodeproj; sourceTree = "<group>"; };
@@ -265,6 +333,7 @@
 		E5523F23178A2AF400C499E9 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = src/Xspray/GraphView.h; sourceTree = "<group>"; };
 		E559C65C178DB0A00055848B /* SymbolTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SymbolTree.cpp; path = src/Xspray/SymbolTree.cpp; sourceTree = "<group>"; };
 		E559C65D178DB0A00055848B /* SymbolTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolTree.h; path = src/Xspray/SymbolTree.h; sourceTree = "<group>"; };
+		E58F7E8117E3987200368507 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = "../build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Debug/LLDB.framework"; sourceTree = "<group>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
@@ -274,6 +343,55 @@
 		E5E8E735178060AB001E6358 /* DebugView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugView.h; path = src/Xspray/DebugView.h; sourceTree = "<group>"; };
 		E5E8E73817806D43001E6358 /* HomeView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HomeView.cpp; path = src/Xspray/HomeView.cpp; sourceTree = "<group>"; };
 		E5E8E73917806D43001E6358 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeView.h; path = src/Xspray/HomeView.h; sourceTree = "<group>"; };
+		E5EF488217B99ACA00F62017 /* libmsgpack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmsgpack.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EF488E17B99B6000F62017 /* gcc_atomic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gcc_atomic.cpp; sourceTree = "<group>"; };
+		E5EF488F17B99B6000F62017 /* gcc_atomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gcc_atomic.h; sourceTree = "<group>"; };
+		E5EF489417B99B6000F62017 /* object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = object.h; sourceTree = "<group>"; };
+		E5EF489517B99B6000F62017 /* object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = object.hpp; sourceTree = "<group>"; };
+		E5EF489617B99B6000F62017 /* pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pack.h; sourceTree = "<group>"; };
+		E5EF489717B99B6000F62017 /* pack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pack.hpp; sourceTree = "<group>"; };
+		E5EF489817B99B6000F62017 /* pack_define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pack_define.h; sourceTree = "<group>"; };
+		E5EF489917B99B6000F62017 /* pack_template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pack_template.h; sourceTree = "<group>"; };
+		E5EF489A17B99B6000F62017 /* sbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sbuffer.h; sourceTree = "<group>"; };
+		E5EF489B17B99B6000F62017 /* sbuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sbuffer.hpp; sourceTree = "<group>"; };
+		E5EF489C17B99B6000F62017 /* sysdep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sysdep.h; sourceTree = "<group>"; };
+		E5EF489E17B99B6000F62017 /* bool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bool.hpp; sourceTree = "<group>"; };
+		E5EF489F17B99B6000F62017 /* define.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = define.hpp; sourceTree = "<group>"; };
+		E5EF48A117B99B6000F62017 /* deque.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = deque.hpp; sourceTree = "<group>"; };
+		E5EF48A217B99B6000F62017 /* fixint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fixint.hpp; sourceTree = "<group>"; };
+		E5EF48A317B99B6000F62017 /* float.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = float.hpp; sourceTree = "<group>"; };
+		E5EF48A417B99B6000F62017 /* int.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = int.hpp; sourceTree = "<group>"; };
+		E5EF48A517B99B6000F62017 /* list.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = list.hpp; sourceTree = "<group>"; };
+		E5EF48A617B99B6000F62017 /* map.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = map.hpp; sourceTree = "<group>"; };
+		E5EF48A717B99B6000F62017 /* nil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = nil.hpp; sourceTree = "<group>"; };
+		E5EF48A817B99B6000F62017 /* pair.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pair.hpp; sourceTree = "<group>"; };
+		E5EF48A917B99B6000F62017 /* raw.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = raw.hpp; sourceTree = "<group>"; };
+		E5EF48AA17B99B6000F62017 /* set.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = set.hpp; sourceTree = "<group>"; };
+		E5EF48AB17B99B6000F62017 /* string.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = string.hpp; sourceTree = "<group>"; };
+		E5EF48AD17B99B6000F62017 /* unordered_map.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = unordered_map.hpp; sourceTree = "<group>"; };
+		E5EF48AE17B99B6000F62017 /* unordered_set.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = unordered_set.hpp; sourceTree = "<group>"; };
+		E5EF48AF17B99B6000F62017 /* tuple.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tuple.hpp; sourceTree = "<group>"; };
+		E5EF48B117B99B6000F62017 /* vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector.hpp; sourceTree = "<group>"; };
+		E5EF48B217B99B6000F62017 /* type.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = type.hpp; sourceTree = "<group>"; };
+		E5EF48B317B99B6000F62017 /* unpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack.h; sourceTree = "<group>"; };
+		E5EF48B417B99B6000F62017 /* unpack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = unpack.hpp; sourceTree = "<group>"; };
+		E5EF48B517B99B6000F62017 /* unpack_define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack_define.h; sourceTree = "<group>"; };
+		E5EF48B617B99B6000F62017 /* unpack_template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpack_template.h; sourceTree = "<group>"; };
+		E5EF48B717B99B6000F62017 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		E5EF48B917B99B6000F62017 /* vrefbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vrefbuffer.h; sourceTree = "<group>"; };
+		E5EF48BA17B99B6000F62017 /* vrefbuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vrefbuffer.hpp; sourceTree = "<group>"; };
+		E5EF48BB17B99B6000F62017 /* zbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zbuffer.h; sourceTree = "<group>"; };
+		E5EF48BC17B99B6000F62017 /* zbuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = zbuffer.hpp; sourceTree = "<group>"; };
+		E5EF48BD17B99B6000F62017 /* zone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zone.h; sourceTree = "<group>"; };
+		E5EF48BE17B99B6000F62017 /* zone.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = zone.hpp; sourceTree = "<group>"; };
+		E5EF48C017B99B6000F62017 /* msgpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgpack.h; sourceTree = "<group>"; };
+		E5EF48C117B99B6000F62017 /* msgpack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = msgpack.hpp; sourceTree = "<group>"; };
+		E5EF48C217B99B6000F62017 /* object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = object.cpp; sourceTree = "<group>"; };
+		E5EF48C317B99B6000F62017 /* objectc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = objectc.c; sourceTree = "<group>"; };
+		E5EF48C417B99B6000F62017 /* unpack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unpack.c; sourceTree = "<group>"; };
+		E5EF48C517B99B6000F62017 /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
+		E5EF48C617B99B6000F62017 /* vrefbuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vrefbuffer.c; sourceTree = "<group>"; };
+		E5EF48C717B99B6000F62017 /* zone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zone.c; sourceTree = "<group>"; };
 		E5EF6FC811E77DE8000FB337 /* XsprayD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XsprayD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FD8D1B177C468C001646F6 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,6 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E536A50617C3519800D9F341 /* libmsgpack.a in Frameworks */,
 				E54FADF6178179A700E09874 /* libtop.a in Frameworks */,
 				E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */,
 				E562BF0B17685C600081AF35 /* LLDB.framework in Frameworks */,
@@ -295,19 +414,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5EF487F17B99ACA00F62017 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5EF6FBE11E77DE8000FB337 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58F7E8217E3987200368507 /* LLDB.framework in Frameworks */,
+				E536A50C17C351A600D9F341 /* libmsgpack.a in Frameworks */,
 				E54FADF7178179AE00E09874 /* libtop.a in Frameworks */,
-				E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */,
 				6E04DC26176618750098D9D5 /* libclang.dylib in Frameworks */,
-				E50FD30B1752C0E700C4AA66 /* LLDB.framework in Frameworks */,
 				E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */,
 				E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */,
 				E5EF6FC311E77DE8000FB337 /* OpenGL.framework in Frameworks */,
 				E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */,
 				E59CD16A11EA0C4000955611 /* Cocoa.framework in Frameworks */,
+				E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +444,8 @@
 		61A9DE3D0B833C9200BC506C = {
 			isa = PBXGroup;
 			children = (
+				E58F7E8117E3987200368507 /* LLDB.framework */,
 				E5FD8D1B177C468C001646F6 /* README */,
-				E53D0D07177585F50082B86F /* MobileDevice.framework */,
 				E5CA922316F62CB200B3A81D /* Xspray.entitlements */,
 				E50FD30D17534D9900C4AA66 /* LLDB Python API */,
 				E5C5912216722BA500BAEDE4 /* resources */,
@@ -331,6 +458,7 @@
 		61A9DE490B833CB000BC506C /* dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E5EF487217B99AA900F62017 /* msgpack */,
 				E54FADE81781796200E09874 /* top.xcodeproj */,
 				6E04DC25176618750098D9D5 /* libclang.dylib */,
 				E5F8FA2F16F4C5B300563A78 /* Frameworks */,
@@ -359,6 +487,7 @@
 			children = (
 				E5EF6FC811E77DE8000FB337 /* XsprayD.app */,
 				E5D64530120A0B92009C26A9 /* Xspray.app */,
+				E5EF488217B99ACA00F62017 /* libmsgpack.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -390,6 +519,8 @@
 				E5523F141789DD2600C499E9 /* ArrayModel.h */,
 				E53D0CE6177445E90082B86F /* Breakpoint.cpp */,
 				E53D0CE7177445E90082B86F /* Breakpoint.h */,
+				E54A252A17A7C9DD003EA936 /* BreakpointsView.cpp */,
+				E54A252B17A7C9DD003EA936 /* BreakpointsView.h */,
 				E53D0CE8177445E90082B86F /* DebuggerContext.cpp */,
 				E53D0CE9177445E90082B86F /* DebuggerContext.h */,
 				E5E8E734178060AB001E6358 /* DebugView.cpp */,
@@ -426,9 +557,98 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E5EF487217B99AA900F62017 /* msgpack */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF488517B99B6000F62017 /* src */,
+			);
+			name = msgpack;
+			sourceTree = "<group>";
+		};
+		E5EF488517B99B6000F62017 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF488E17B99B6000F62017 /* gcc_atomic.cpp */,
+				E5EF488F17B99B6000F62017 /* gcc_atomic.h */,
+				E5EF489317B99B6000F62017 /* msgpack */,
+				E5EF48C017B99B6000F62017 /* msgpack.h */,
+				E5EF48C117B99B6000F62017 /* msgpack.hpp */,
+				E5EF48C217B99B6000F62017 /* object.cpp */,
+				E5EF48C317B99B6000F62017 /* objectc.c */,
+				E5EF48C417B99B6000F62017 /* unpack.c */,
+				E5EF48C517B99B6000F62017 /* version.c */,
+				E5EF48C617B99B6000F62017 /* vrefbuffer.c */,
+				E5EF48C717B99B6000F62017 /* zone.c */,
+			);
+			name = src;
+			path = "deps/msgpack-c/src";
+			sourceTree = "<group>";
+		};
+		E5EF489317B99B6000F62017 /* msgpack */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF489417B99B6000F62017 /* object.h */,
+				E5EF489517B99B6000F62017 /* object.hpp */,
+				E5EF489617B99B6000F62017 /* pack.h */,
+				E5EF489717B99B6000F62017 /* pack.hpp */,
+				E5EF489817B99B6000F62017 /* pack_define.h */,
+				E5EF489917B99B6000F62017 /* pack_template.h */,
+				E5EF489A17B99B6000F62017 /* sbuffer.h */,
+				E5EF489B17B99B6000F62017 /* sbuffer.hpp */,
+				E5EF489C17B99B6000F62017 /* sysdep.h */,
+				E5EF489D17B99B6000F62017 /* type */,
+				E5EF48B217B99B6000F62017 /* type.hpp */,
+				E5EF48B317B99B6000F62017 /* unpack.h */,
+				E5EF48B417B99B6000F62017 /* unpack.hpp */,
+				E5EF48B517B99B6000F62017 /* unpack_define.h */,
+				E5EF48B617B99B6000F62017 /* unpack_template.h */,
+				E5EF48B717B99B6000F62017 /* version.h */,
+				E5EF48B917B99B6000F62017 /* vrefbuffer.h */,
+				E5EF48BA17B99B6000F62017 /* vrefbuffer.hpp */,
+				E5EF48BB17B99B6000F62017 /* zbuffer.h */,
+				E5EF48BC17B99B6000F62017 /* zbuffer.hpp */,
+				E5EF48BD17B99B6000F62017 /* zone.h */,
+				E5EF48BE17B99B6000F62017 /* zone.hpp */,
+			);
+			path = msgpack;
+			sourceTree = "<group>";
+		};
+		E5EF489D17B99B6000F62017 /* type */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF489E17B99B6000F62017 /* bool.hpp */,
+				E5EF489F17B99B6000F62017 /* define.hpp */,
+				E5EF48A117B99B6000F62017 /* deque.hpp */,
+				E5EF48A217B99B6000F62017 /* fixint.hpp */,
+				E5EF48A317B99B6000F62017 /* float.hpp */,
+				E5EF48A417B99B6000F62017 /* int.hpp */,
+				E5EF48A517B99B6000F62017 /* list.hpp */,
+				E5EF48A617B99B6000F62017 /* map.hpp */,
+				E5EF48A717B99B6000F62017 /* nil.hpp */,
+				E5EF48A817B99B6000F62017 /* pair.hpp */,
+				E5EF48A917B99B6000F62017 /* raw.hpp */,
+				E5EF48AA17B99B6000F62017 /* set.hpp */,
+				E5EF48AB17B99B6000F62017 /* string.hpp */,
+				E5EF48AC17B99B6000F62017 /* tr1 */,
+				E5EF48AF17B99B6000F62017 /* tuple.hpp */,
+				E5EF48B117B99B6000F62017 /* vector.hpp */,
+			);
+			path = type;
+			sourceTree = "<group>";
+		};
+		E5EF48AC17B99B6000F62017 /* tr1 */ = {
+			isa = PBXGroup;
+			children = (
+				E5EF48AD17B99B6000F62017 /* unordered_map.hpp */,
+				E5EF48AE17B99B6000F62017 /* unordered_set.hpp */,
+			);
+			path = tr1;
+			sourceTree = "<group>";
+		};
 		E5F8FA2F16F4C5B300563A78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E53D0D07177585F50082B86F /* MobileDevice.framework */,
 				E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */,
 				6E37ABC016AD884700C333A4 /* WebKit.framework */,
 				61A9DFD20B833F1500BC506C /* AGL.framework */,
@@ -442,6 +662,57 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E5EF488017B99ACA00F62017 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EF48D417B99B6000F62017 /* bool.hpp in Headers */,
+				E5EF48C917B99B6000F62017 /* gcc_atomic.h in Headers */,
+				E5EF48CB17B99B6000F62017 /* object.h in Headers */,
+				E5EF48E317B99B6000F62017 /* tuple.hpp in Headers */,
+				E5EF48E917B99B6000F62017 /* unpack_template.h in Headers */,
+				E5EF48F117B99B6000F62017 /* msgpack.h in Headers */,
+				E5EF48E517B99B6000F62017 /* type.hpp in Headers */,
+				E5EF48D317B99B6000F62017 /* sysdep.h in Headers */,
+				E5EF48ED17B99B6000F62017 /* zbuffer.h in Headers */,
+				E5EF48EF17B99B6000F62017 /* zone.h in Headers */,
+				E5EF48EE17B99B6000F62017 /* zbuffer.hpp in Headers */,
+				E5EF48CC17B99B6000F62017 /* object.hpp in Headers */,
+				E5EF48E417B99B6000F62017 /* vector.hpp in Headers */,
+				E5EF48CE17B99B6000F62017 /* pack.hpp in Headers */,
+				E5EF48D117B99B6000F62017 /* sbuffer.h in Headers */,
+				E5EF48D517B99B6000F62017 /* define.hpp in Headers */,
+				E5EF48D917B99B6000F62017 /* int.hpp in Headers */,
+				E5EF48E617B99B6000F62017 /* unpack.h in Headers */,
+				E5EF48DF17B99B6000F62017 /* set.hpp in Headers */,
+				E5EF48DC17B99B6000F62017 /* nil.hpp in Headers */,
+				E5EF48CF17B99B6000F62017 /* pack_define.h in Headers */,
+				E5EF48E217B99B6000F62017 /* unordered_set.hpp in Headers */,
+				E5EF48F017B99B6000F62017 /* zone.hpp in Headers */,
+				E5EF48E117B99B6000F62017 /* unordered_map.hpp in Headers */,
+				E5EF48CD17B99B6000F62017 /* pack.h in Headers */,
+				E5EF48E817B99B6000F62017 /* unpack_define.h in Headers */,
+				E5EF48D017B99B6000F62017 /* pack_template.h in Headers */,
+				E5EF48D217B99B6000F62017 /* sbuffer.hpp in Headers */,
+				E5EF48D817B99B6000F62017 /* float.hpp in Headers */,
+				E5EF48E017B99B6000F62017 /* string.hpp in Headers */,
+				E5EF48DE17B99B6000F62017 /* raw.hpp in Headers */,
+				E5EF48EC17B99B6000F62017 /* vrefbuffer.hpp in Headers */,
+				E5EF48D717B99B6000F62017 /* fixint.hpp in Headers */,
+				E5EF48DB17B99B6000F62017 /* map.hpp in Headers */,
+				E5EF48EA17B99B6000F62017 /* version.h in Headers */,
+				E5EF48E717B99B6000F62017 /* unpack.hpp in Headers */,
+				E5EF48DA17B99B6000F62017 /* list.hpp in Headers */,
+				E5EF48DD17B99B6000F62017 /* pair.hpp in Headers */,
+				E5EF48F217B99B6000F62017 /* msgpack.hpp in Headers */,
+				E5EF48D617B99B6000F62017 /* deque.hpp in Headers */,
+				E5EF48EB17B99B6000F62017 /* vrefbuffer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		E5D64521120A0B92009C26A9 /* Xspray OSX */ = {
@@ -457,6 +728,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E536A50317C3518F00D9F341 /* PBXTargetDependency */,
 				E54FADF51781799A00E09874 /* PBXTargetDependency */,
 				E5D64535120A0BA3009C26A9 /* PBXTargetDependency */,
 			);
@@ -464,6 +736,23 @@
 			productName = Tempd;
 			productReference = E5D64530120A0B92009C26A9 /* Xspray.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E5EF488117B99ACA00F62017 /* msgpack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5EF488317B99ACA00F62017 /* Build configuration list for PBXNativeTarget "msgpack" */;
+			buildPhases = (
+				E5EF487E17B99ACA00F62017 /* Sources */,
+				E5EF487F17B99ACA00F62017 /* Frameworks */,
+				E5EF488017B99ACA00F62017 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = msgpack;
+			productName = msgpack;
+			productReference = E5EF488217B99ACA00F62017 /* libmsgpack.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		E5EF6FB811E77DE8000FB337 /* XsprayD OSX */ = {
 			isa = PBXNativeTarget;
@@ -477,6 +766,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E536A50917C351A000D9F341 /* PBXTargetDependency */,
 				E54FADF31781799500E09874 /* PBXTargetDependency */,
 				E5EF6FCC11E77E22000FB337 /* PBXTargetDependency */,
 			);
@@ -517,6 +807,7 @@
 			targets = (
 				E5EF6FB811E77DE8000FB337 /* XsprayD OSX */,
 				E5D64521120A0B92009C26A9 /* Xspray OSX */,
+				E5EF488117B99ACA00F62017 /* msgpack */,
 			);
 		};
 /* End PBXProject section */
@@ -660,6 +951,7 @@
 				E53D0CFD177445E90082B86F /* SourceView.cpp in Sources */,
 				E559C65F178DB0A00055848B /* SymbolTree.cpp in Sources */,
 				E53D0CFF177445E90082B86F /* VariableNode.cpp in Sources */,
+				E54A252D17A7C9DD003EA936 /* BreakpointsView.cpp in Sources */,
 				E53D0D01177445E90082B86F /* Xspray.cpp in Sources */,
 				E53D0D0517750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
 				E51C3C491779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
@@ -668,6 +960,20 @@
 				E5E8E73B17806D43001E6358 /* HomeView.cpp in Sources */,
 				E54FABE417816B5400E09874 /* AppDescription.mm in Sources */,
 				E551CBD7178A4718008FCD2F /* ArrayModel.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5EF487E17B99ACA00F62017 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EF48F517B99B6000F62017 /* unpack.c in Sources */,
+				E5EF48F717B99B6000F62017 /* vrefbuffer.c in Sources */,
+				E5EF48F417B99B6000F62017 /* objectc.c in Sources */,
+				E5EF48F817B99B6000F62017 /* zone.c in Sources */,
+				E5EF48F317B99B6000F62017 /* object.cpp in Sources */,
+				E5EF48F617B99B6000F62017 /* version.c in Sources */,
+				E5EF48C817B99B6000F62017 /* gcc_atomic.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +990,7 @@
 				E53D0CFC177445E90082B86F /* SourceView.cpp in Sources */,
 				E559C65E178DB0A00055848B /* SymbolTree.cpp in Sources */,
 				E53D0CFE177445E90082B86F /* VariableNode.cpp in Sources */,
+				E54A252C17A7C9DD003EA936 /* BreakpointsView.cpp in Sources */,
 				E53D0D00177445E90082B86F /* Xspray.cpp in Sources */,
 				E53D0D0417750CDC0082B86F /* iOSRemoteDebug.cpp in Sources */,
 				E51C3C481779EF5E00FDE1AC /* NativeFileDialog.mm in Sources */,
@@ -698,6 +1005,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E536A50317C3518F00D9F341 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5EF488117B99ACA00F62017 /* msgpack */;
+			targetProxy = E536A50217C3518F00D9F341 /* PBXContainerItemProxy */;
+		};
+		E536A50917C351A000D9F341 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5EF488117B99ACA00F62017 /* msgpack */;
+			targetProxy = E536A50817C351A000D9F341 /* PBXContainerItemProxy */;
+		};
 		E54FADF31781799500E09874 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = libtop;
@@ -736,6 +1053,8 @@
 					../nui3/include,
 					../lldb/llvm/tools/clang/include,
 					deps/top,
+					deps/sqlite3,
+					"deps/msgpack-c/src/",
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
@@ -782,6 +1101,46 @@
 			};
 			name = Default;
 		};
+		E5EF488417B99ACA00F62017 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "deps/msgpack-c/src/";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Default;
+		};
 		E5EF6FC711E77DE8000FB337 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -789,7 +1148,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					"\\\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\\\"",
+					"/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Debug",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -827,6 +1188,14 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5D6452F120A0B92009C26A9 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		E5EF488317B99ACA00F62017 /* Build configuration list for PBXNativeTarget "msgpack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5EF488417B99ACA00F62017 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Default;

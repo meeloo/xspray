@@ -195,6 +195,30 @@ void ShowTypeInfo(SBType type, int level = 0)
 
 }
 
+const char* GetStatusString(lldb::ReturnStatus res)
+{
+  switch (res)
+  {
+    case eReturnStatusInvalid:
+      return "Invalid";
+    case eReturnStatusSuccessFinishNoResult:
+      return "Finish no result";
+    case eReturnStatusSuccessFinishResult:
+      return "Finish result";
+    case eReturnStatusSuccessContinuingNoResult:
+      return "Continuing no result";
+    case eReturnStatusSuccessContinuingResult:
+      return "Continuing result";
+    case eReturnStatusStarted:
+      return "Started";
+    case eReturnStatusFailed:
+      return "Failed";
+    case eReturnStatusQuit:
+      return "Quit";
+  }
+
+  return "WTF?";
+}
 
 ValueArray::ValueArray(SBValue value)
 : mValue(value)
@@ -210,6 +234,18 @@ ValueArray::ValueArray(SBValue value)
     mBasicType = mValue.GetChildAtIndex(0).GetType().GetBasicType();
 
   ShowTypeInfo(mType);
+  if (mType.IsPointerType())
+  {
+    nglString cmd;
+    cmd.CFormat("p (int)malloc_size(%s)", value.GetName());
+    NGL_OUT("Executing command: %s\n", cmd.GetChars());
+    const char* command = cmd.GetChars();
+    lldb::SBCommandReturnObject result;
+    lldb::SBCommandInterpreter interpreter(GetDebuggerContext().mDebugger.GetCommandInterpreter());
+    lldb::ReturnStatus res = interpreter.HandleCommand(command, result, false);
+    NGL_OUT("Command result: %s\nResult: %s\nError: %s\n\n", GetStatusString(res), result.GetOutput(), result.GetError());
+  }
+
   NGL_OUT("# Of Children: %d\n", mValue.GetNumChildren());
   NGL_OUT("\n");
 }
