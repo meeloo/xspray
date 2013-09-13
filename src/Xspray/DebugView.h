@@ -27,6 +27,9 @@ private:
 
   void OnChooseApplication(const nuiEvent& rEvent);
   void OnStart(const nuiEvent& rEvent);
+  void OnStartLOCAL();
+  void OnStartIOS();
+
   void OnPause(const nuiEvent& rEvent);
   void OnContinue(const nuiEvent& rEvent);
   void OnStepIn(const nuiEvent& rEvent);

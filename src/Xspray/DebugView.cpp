@@ -251,17 +251,29 @@ void DebugView::OnChooseApplication(const nuiEvent& rEvent)
   nuiAnimation::RunOnAnimationTick(nuiMakeTask(&GoHome, &nuiSignal0<>::operator()));
 }
 
-#if 0
 void DebugView::OnStart(const nuiEvent& rEvent)
 {
-  //  nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default/YaLiveD.app");
+  DebuggerContext& rContext(GetDebuggerContext());
+  NGL_ASSERT(rContext.mpAppDescription != NULL);
+  if (rContext.mpAppDescription->GetVendor() == "apple")
+  {
+    if (rContext.mpAppDescription->GetTargetOS() == "ios")
+    {
+      OnStartIOS();
+    }
+    if (rContext.mpAppDescription->GetTargetOS() == "darwin" || rContext.mpAppDescription->GetTargetOS() == "macosx")
+    {
+      OnStartLOCAL();
+    }
+  }
+  else
+  {
+    NGL_OUT("Vendor '%s' not suported\n", rContext.mpAppDescription->GetVendor().GetChars());
+  }
+}
 
-  //std::vector<nglString> types;
-  //nglPath chosenpath = ChooseFileDialog(GetNGLWindow(), p.GetParent(), p.GetNodeName(), types, eOpenFile);
-
-  //nglPath p("/Applications/Calculator.app");
-  //nglPath p("/Users/meeloo/work/build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Default-iphoneos/MeAgainstTheMusicD.app");
-
+void DebugView::OnStartLOCAL()
+{
   DebuggerContext& rContext(GetDebuggerContext());
   NGL_ASSERT(rContext.mpAppDescription != NULL);
   nglPath p = rContext.mpAppDescription->GetLocalPath();
@@ -321,12 +333,9 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   NGL_OUT("Start\n");
 
 }
-#else
-void DebugView::OnStart(const nuiEvent& rEvent)
-{
-  //  TestMain2(p.GetChars());
-  //  return;
 
+void DebugView::OnStartIOS()
+{
   DebuggerContext& rContext(GetDebuggerContext());
   NGL_ASSERT(rContext.mpAppDescription != NULL);
   nglPath p = rContext.mpAppDescription->GetLocalPath();
@@ -427,7 +436,6 @@ void DebugView::OnStart(const nuiEvent& rEvent)
   NGL_OUT("Start\n");
 
 }
-#endif
 
 void DebugView::OnPause(const nuiEvent& rEvent)
 {

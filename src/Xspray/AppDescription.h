@@ -23,7 +23,11 @@ public:
   const nglPath& GetRemotePath() const;
 
   const std::vector<nglString>& GetArchitectures() const;
+  const std::vector<nglString>& GetVendors() const;
+  const std::vector<nglString>& GetTargetOSes() const;
   const nglString& GetArchitecture() const;
+  const nglString& GetVendor() const;
+  const nglString& GetTargetOS() const;
   nuiTexture* GetIcon() const;
   const nglString& GetDevice();
 
@@ -48,8 +52,13 @@ protected:
   nglPath mRemotePath;
 
   std::vector<nglString> mArchitectures;
+  std::vector<nglString> mVendors;
+  std::vector<nglString> mTargetOSes;
+
   nglString mDevice;
   nglString mArchitecture;
+  nglString mVendor;
+  nglString mTargetOS;
 
   std::vector<nglString> mArguments;
   std::map<nglString, nglString> mEnvironement;

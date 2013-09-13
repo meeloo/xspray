@@ -82,9 +82,16 @@ AppDescription::AppDescription(const nglPath& rPath)
     triplestr.Tokenize(tokens, '-');
     NGL_OUT("%s -> '%s' '%s' '%s'\n", triple, tokens[0].GetChars(), tokens[1].GetChars(), tokens[2].GetChars());
     mArchitectures.push_back(tokens[0]);
+    mVendors.push_back(tokens[1]);
+    mTargetOSes.push_back(tokens[2]);
   }
+
   if (!mArchitectures.empty())
+  {
     mArchitecture = mArchitectures.front();
+    mVendor = mVendors.front();
+    mTargetOS = mTargetOSes.front();
+  }
 
   LoadBundleIcon(rPath);
 }
@@ -98,6 +105,16 @@ AppDescription::~AppDescription()
 const std::vector<nglString>& AppDescription::GetArchitectures() const
 {
   return mArchitectures;
+}
+
+const std::vector<nglString>& AppDescription::GetVendors() const
+{
+  return mVendors;
+}
+
+const std::vector<nglString>& AppDescription::GetTargetOSes() const
+{
+  return mTargetOSes;
 }
 
 nuiTexture* AppDescription::GetIcon() const
@@ -123,6 +140,16 @@ const nglPath& AppDescription::GetRemotePath() const
 const nglString& AppDescription::GetArchitecture() const
 {
   return mArchitecture;
+}
+
+const nglString& AppDescription::GetVendor() const
+{
+  return mVendor;
+}
+
+const nglString& AppDescription::GetTargetOS() const
+{
+  return mTargetOS;
 }
 
 const nglString& AppDescription::GetDevice()
