@@ -34,6 +34,9 @@ private:
   nuiLabel* mpAppPath;
   nuiEditLine* mpAppCommandLine;
   nuiEditLine* mpAppEnvironment;
+  nuiLabel* mpAppArch;
+  nuiLabel* mpAppOS;
+  nuiLabel* mpAppVendor;
 
   void OnLaunch(const nuiEvent& rEvent);
   void AddApplication(const nuiEvent& rEvent);

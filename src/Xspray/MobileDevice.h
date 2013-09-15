@@ -63,6 +63,72 @@ typedef unsigned int mach_error_t;
 #define AMSVC_SYSLOG_RELAY          CFSTR("com.apple.syslog_relay")
 #define AMSVC_SYSTEM_PROFILER       CFSTR("com.apple.mobile.system_profiler")
 
+  // New (meeloo)
+#define AMSVC_MOBILE_INTERNAL       CFSTR("com.apple.mobile.internal")
+#define AMSVC_XCODE_DEVELOPERDOMAIN CFSTR("com.apple.xcode.developerdomain")
+/*
+  com.apple.DevToolsFoundation
+  com.apple.dt.DVTFoundation
+  com.apple.dt.instruments.DTInstrumentsCP
+  com.apple.dt.instruments.DTMessageQueueing
+  com.apple.dt.instruments.DTXConnectionServices
+  com.apple.dt.instruments.InstrumentsKit
+  com.apple.dt.instruments.InstrumentsPlugIn
+  com.apple.dt.services.capabilities.posix_spawn
+  com.apple.dt.services.capabilities.server.wireless
+  com.apple.DTDeviceKitBase
+  com.apple.DVTiPhoneSimulatorRemoteClient
+  com.apple.icon.doublelabel
+  com.apple.instruments.remoteserver
+  com.apple.instruments.server
+  com.apple.instruments.server.services.deviceinfo
+  com.apple.instruments.server.services.launchdaemon
+  com.apple.instruments.server.services.mobilenotifications
+  com.apple.instruments.server.services.wireless
+  com.apple.itunesstored.application_installed
+  com.apple.mobile.application_installed
+  com.apple.mobile.application_uninstalled
+  com.apple.mobile.internal
+  com.apple.mobile.lockdown.developer_status_changed
+  com.apple.mobile.lockdown.device_name_changed
+  com.apple.mobile.notification_proxy
+  com.apple.mobiledevice
+  com.apple.options.single
+  com.apple.pushbutton
+  com.apple.springboard.deviceWillShutDown
+  com.apple.xcode.developerdomain
+  com.apple.xcode.SDKPath
+  com.apple.xcode.simulatedDeviceFamily
+  com.apple.xray.discovery.mobiledevice
+  com.apple.xray.instrument-type.activity.all
+  com.apple.xray.instrument-type.activity.cpu
+  com.apple.xray.instrument-type.activity.disk
+  com.apple.xray.instrument-type.activity.memory
+  com.apple.xray.instrument-type.activity.network
+  com.apple.xray.instrument-type.activity.process.fs_usage
+  com.apple.xray.instrument-type.coreanimation
+  com.apple.xray.instrument-type.coresamplerpmi
+  com.apple.xray.instrument-type.counters
+  com.apple.xray.instrument-type.embedded.opengl
+  com.apple.xray.instrument-type.homeleaks
+  com.apple.xray.instrument-type.keventsched
+  com.apple.xray.instrument-type.keventsyscall
+  com.apple.xray.instrument-type.keventvm
+  com.apple.xray.instrument-type.oa
+  com.apple.xray.instrument-type.sampler
+  com.apple.xray.instrument-type.signpost
+  com.apple.xray.instrument-type.vmtrack
+  com.apple.xray.power.mobile.bluetooth
+  com.apple.xray.power.mobile.cpu
+  com.apple.xray.power.mobile.display
+  com.apple.xray.power.mobile.energy
+  com.apple.xray.power.mobile.gps
+  com.apple.xray.power.mobile.net
+  com.apple.xray.power.mobile.sleep
+  com.apple.xray.power.mobile.wifi
+ */
+// End New (meeloo)
+
 typedef unsigned int afc_error_t;
 typedef unsigned int usbmux_error_t;
 typedef unsigned int service_conn_t;
@@ -428,7 +494,7 @@ mach_error_t AMDeviceEnterRecovery(struct am_device *device);
 mach_error_t AMDeviceDisconnect(struct am_device *device);
 mach_error_t AMDeviceRetain(struct am_device *device);
 mach_error_t AMDeviceRelease(struct am_device *device);
-CFStringRef AMDeviceCopyValue(struct am_device *device, unsigned int, CFStringRef cfstring);
+CFStringRef AMDeviceCopyValue(struct am_device *device, CFStringRef domain, CFStringRef cfstring);
 CFStringRef AMDeviceCopyDeviceIdentifier(struct am_device *device);
 
 typedef void (*notify_callback)(CFStringRef notification, void *data);

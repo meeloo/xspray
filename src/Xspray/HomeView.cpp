@@ -27,6 +27,10 @@ HomeView::HomeView()
   mpAppPath = NULL;
   mpAppCommandLine = NULL;
   mpAppEnvironment = NULL;
+  mpAppArch = NULL;
+  mpAppOS = NULL;
+  mpAppVendor = NULL;
+
 }
 
 HomeView::~HomeView()
@@ -55,6 +59,15 @@ void HomeView::Built()
 
   pLine = SearchForChild("AppEnvironment");
   mpAppEnvironment = (nuiEditLine*)pLine->SearchForChild("Contents", true);
+
+  pLine = SearchForChild("AppArch");
+  mpAppArch = (nuiLabel*)pLine->SearchForChild("Contents", true);
+
+  pLine = SearchForChild("AppOS");
+  mpAppOS = (nuiLabel*)pLine->SearchForChild("Contents", true);
+
+  pLine = SearchForChild("AppVendor");
+  mpAppVendor = (nuiLabel*)pLine->SearchForChild("Contents", true);
 
   mEventSink.Connect(mpLaunchApplication->Activated, &HomeView::OnLaunch);
   mEventSink.Connect(mpAddApplication->Activated, &HomeView::AddApplication);
@@ -134,6 +147,9 @@ void HomeView::OnApplicationSelected(const nuiEvent& rEVent)
     mpAppPath->SetText(nglString::Empty);
     mpAppEnvironment->SetText(nglString::Empty);
     mpAppCommandLine->SetText(nglString::Empty);
+    mpAppArch->SetText(nglString::Empty);
+    mpAppOS->SetText(nglString::Empty);
+    mpAppVendor->SetText(nglString::Empty);
 
     rContext.mpAppDescription = NULL;
 
@@ -149,6 +165,9 @@ void HomeView::OnApplicationSelected(const nuiEvent& rEVent)
   mpAppPath->SetText(pApp->GetLocalPath().GetPathName());
   mpAppCommandLine->SetText(nglString::Empty);
   mpAppEnvironment->SetText(nglString::Empty);
+  mpAppArch->SetText(pApp->GetArchitecture());
+  mpAppOS->SetText(pApp->GetTargetOS());
+  mpAppVendor->SetText(pApp->GetVendor());
 
   rContext.mpAppDescription = pApp;
 }

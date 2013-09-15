@@ -9,6 +9,14 @@
 {
   Borders : 4;
   +Label Title { Text: LineTitle; }
+  +ContentsType Contents { Text: LineContents; Position: right; }
+  CellExpand[1]: ShrinkAndGrow;
+}
+
++nuiHBox InspectorEntry
+{
+  Borders : 4;
+  +Label Title { Text: LineTitle; }
   +ContentsType Contents { Text: LineContents; }
   CellExpand[1]: ShrinkAndGrow;
 }
@@ -105,8 +113,11 @@
       
       +InspectorLine AppName( LineTitle: "Name:", LineContents: "" );
       +InspectorLine AppPath( LineTitle: "Path:", LineContents: "" );
-      +InspectorLine AppCommandLine( LineTitle: "Command line:", LineContents: "", ContentsType: "nuiEditLine" );
-      +InspectorLine AppEnvironment( LineTitle: "Environment:", LineContents: "", ContentsType: "nuiEditLine" );
+      +InspectorEntry AppCommandLine( LineTitle: "Command line:", LineContents: "", ContentsType: "nuiEditLine" );
+      +InspectorEntry AppEnvironment( LineTitle: "Environment:", LineContents: "", ContentsType: "nuiEditLine" );
+      +InspectorLine AppArch( LineTitle: "Architecture:", LineContents: "" );
+      +InspectorLine AppOS( LineTitle: "Target OS:", LineContents: "" );
+      +InspectorLine AppVendor( LineTitle: "Vendor:", LineContents: "" );
     }
   }
 }

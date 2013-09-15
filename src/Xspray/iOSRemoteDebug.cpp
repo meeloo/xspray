@@ -63,9 +63,6 @@ iOSDevice::iOSDevice(am_device *device)
   const char *product_type = CFStringGetCStringPtr(AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductType")),    encoding);
   const char *ios_version  = CFStringGetCStringPtr(AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductVersion")), encoding);
 
-  (AMDeviceStopSession(mpDevice) == 0);
-  (AMDeviceDisconnect(mpDevice) == 0);
-
   mName = device_name;
   mUDID = udid;
   mTypeName = product_type;
@@ -115,6 +112,177 @@ iOSDevice::iOSDevice(am_device *device)
   mDebugSocketPath.Add(mUDID);
 
   printf("New iOS Device: '%s' (%s)  - UDID: %s - iOS: %s - screen: %s\n", mName.GetChars(), mTypeName.GetChars(), mUDID.GetChars(), mVersionString.GetChars(), mRetina?"retina":"");
+
+
+
+  const char* domains[] = {
+    "com.apple.mobile.internal",
+    "com.apple.xcode.developerdomain",
+    "com.apple.DevToolsFoundation",
+    "com.apple.dt.DVTFoundation",
+    "com.apple.dt.instruments.DTInstrumentsCP",
+    "com.apple.dt.instruments.DTMessageQueueing",
+    "com.apple.dt.instruments.DTXConnectionServices",
+    "com.apple.dt.instruments.InstrumentsKit",
+    "com.apple.dt.instruments.InstrumentsPlugIn",
+    "com.apple.dt.services.capabilities.posix_spawn",
+    "com.apple.dt.services.capabilities.server.wireless",
+    "com.apple.DTDeviceKitBase",
+    "com.apple.DVTiPhoneSimulatorRemoteClient",
+    "com.apple.icon.doublelabel",
+"com.apple.instruments.remoteserver",
+    "com.apple.instruments.server",
+    "com.apple.instruments.server.services.deviceinfo",
+    "com.apple.instruments.server.services.launchdaemon",
+    "com.apple.instruments.server.services.mobilenotifications",
+    "com.apple.instruments.server.services.wireless",
+    "com.apple.itunesstored.application_installed",
+    "com.apple.mobile.application_installed",
+    "com.apple.mobile.application_uninstalled",
+    "com.apple.mobile.internal",
+    "com.apple.mobile.lockdown.developer_status_changed",
+    "com.apple.mobile.lockdown.device_name_changed",
+"com.apple.mobile.notification_proxy",
+    "com.apple.mobiledevice",
+    "com.apple.options.single",
+    "com.apple.pushbutton",
+    "com.apple.springboard.deviceWillShutDown",
+    "com.apple.xcode.developerdomain",
+    "com.apple.xcode.SDKPath",
+    "com.apple.xcode.simulatedDeviceFamily",
+    "com.apple.xray.discovery.mobiledevice",
+    "com.apple.xray.instrument-type.activity.all",
+    "com.apple.xray.instrument-type.activity.cpu",
+    "com.apple.xray.instrument-type.activity.disk",
+    "com.apple.xray.instrument-type.activity.memory",
+    "com.apple.xray.instrument-type.activity.network",
+    "com.apple.xray.instrument-type.activity.process.fs_usage",
+    "com.apple.xray.instrument-type.coreanimation",
+    "com.apple.xray.instrument-type.coresamplerpmi",
+    "com.apple.xray.instrument-type.counters",
+    "com.apple.xray.instrument-type.embedded.opengl",
+    "com.apple.xray.instrument-type.homeleaks",
+    "com.apple.xray.instrument-type.keventsched",
+    "com.apple.xray.instrument-type.keventsyscall",
+    "com.apple.xray.instrument-type.keventvm",
+    "com.apple.xray.instrument-type.oa",
+    "com.apple.xray.instrument-type.sampler",
+    "com.apple.xray.instrument-type.signpost",
+    "com.apple.xray.instrument-type.vmtrack",
+    "com.apple.xray.power.mobile.bluetooth",
+    "com.apple.xray.power.mobile.cpu",
+    "com.apple.xray.power.mobile.display",
+    "com.apple.xray.power.mobile.energy",
+    "com.apple.xray.power.mobile.gps",
+    "com.apple.xray.power.mobile.net",
+    "com.apple.xray.power.mobile.sleep",
+    "com.apple.xray.power.mobile.wifi",
+    NULL
+  };
+
+  const char* values[] =
+  {
+    "ActivationPublicKey",
+    "ActivationState",
+    "ActivationStateAcknowledged",
+    "ActivityURL",
+    "BasebandBootloaderVersion",
+    "BasebandSerialNumber",
+    "BasebandStatus",
+    "BasebandVersion",
+    "BluetoothAddress",
+    "BuildVersion",
+    "CPUArchitecture",
+    "DeviceCertificate",
+    "DeviceClass",
+    "DeviceColor",
+    "DeviceName",
+    "DevicePublicKey",
+    "DieID",
+    "FirmwareVersion",
+    "HardwareModel",
+    "HardwarePlatform",
+    "HostAttached",
+    "IMLockdownEverRegisteredKey",
+    "IntegratedCircuitCardIdentity",
+    "InternationalMobileEquipmentIdentity",
+    "InternationalMobileSubscriberIdentity",
+    "iTunesHasConnected",
+    "MLBSerialNumber",
+    "MobileSubscriberCountryCode",
+    "MobileSubscriberNetworkCode",
+    "ModelNumber",
+    "PartitionType",
+    "PasswordProtected",
+    "PhoneNumber",
+    "ProductionSOC",
+    "ProductType",
+    "ProductVersion",
+    "ProtocolVersion",
+    "ProximitySensorCalibration",
+    "RegionInfo",
+    "SBLockdownEverRegisteredKey",
+    "SerialNumber",
+    "SIMStatus",
+    "SoftwareBehavior",
+    "SoftwareBundleVersion",
+    "SupportedDeviceFamilies",
+    "TelephonyCapability",
+    "TimeIntervalSince1970",
+    "TimeZone",
+    "TimeZoneOffsetFromUTC",
+    "TrustedHostAttached",
+    "UniqueChipID",
+    "UniqueDeviceID",
+    "UseActivityURL",
+    "UseRaptorCerts",
+    "Uses24HourClock",
+    "WeDelivered",
+    "WiFiAddress",
+    NULL
+  };
+
+//  for (int i = 0; domains[i]; i++)
+//  {
+//    CFStringRef domain = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
+//    service_conn_t handle = NULL;
+//    unsigned int unknown = 0;
+//    mach_error_t err = AMDeviceStartService(mpDevice, domain, &handle, &unknown);
+//
+//    printf("%s -> %d %d %d\n", domains[i], err, handle, unknown);
+//  }
+
+  for (int i = 0; domains[i]; i++)
+  {
+    CFStringRef value = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
+    CFStringRef v = AMDeviceCopyValue(mpDevice, value, NULL);
+    //    nglString val = v;
+    //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
+    if (v)
+    {
+      NGL_OUT("iOS device value [%s]\n", domains[i]);
+      CFShow(v);
+    }
+  }
+
+  for (int i = 0; values[i]; i++)
+  {
+    CFStringRef value = CFStringCreateWithCString(NULL, values[i], kCFStringEncodingASCII);
+    CFStringRef v = AMDeviceCopyValue(mpDevice, NULL, value);
+//    nglString val = v;
+    //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
+    if (v)
+    {
+      NGL_OUT("iOS device value [%s]\n", values[i]);
+      CFShow(v);
+    }
+  }
+  NGL_OUT("Done\n");
+
+  (AMDeviceStopSession(mpDevice) == 0);
+  (AMDeviceDisconnect(mpDevice) == 0);
+
+
 }
 
 iOSDevice::~iOSDevice()
