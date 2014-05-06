@@ -16,7 +16,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../nui3/src/WidgetTree/nuiTopLevel.cpp"
@@ -57,8 +57,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "973"
             endingLineNumber = "973"
-            landmarkName = "nuiTopLevel::CallKeyDown (const nglKeyEvent&amp; rEvent)"
-            landmarkType = "5">
+            landmarkName = "DeepSearchPreviousFocussableWidget(nuiWidgetPtr pWidget, bool TryThisNode)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,47 +96,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "400980611.403013"
+            timestampString = "401021744.475647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "iOSDevice::iOSDevice(am_device *device)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Xspray::iOSDevice::iOSDevice(am_device*)"
-                  moduleName = "XsprayD"
-                  urlString = "file:///Users/meeloo/work/xspray/src/Xspray/iOSRemoteDebug.cpp"
-                  timestampString = "400980611.468777"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "268"
-                  endingLineNumber = "268"
-                  offsetFromSymbolStart = "2266">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Xspray::iOSDevice::iOSDevice(am_device*)"
-                  moduleName = "XsprayD"
-                  urlString = "file:///Users/meeloo/work/xspray/src/Xspray/iOSRemoteDebug.cpp"
-                  timestampString = "400980611.468937"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "268"
-                  endingLineNumber = "268"
-                  offsetFromSymbolStart = "2520">
-               </Location>
-            </Locations>
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "DisplayCFValue(const char* domain, CFTypeRef v)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -146,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "400980694.973132"
+            timestampString = "401021811.515205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "iOSDevice::iOSDevice(am_device *device)"
             landmarkType = "5">
          </BreakpointContent>

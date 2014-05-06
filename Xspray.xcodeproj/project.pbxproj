@@ -37,25 +37,29 @@
 		E54FABE417816B5400E09874 /* AppDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = E54FABE117816B5400E09874 /* AppDescription.mm */; };
 		E54FADF6178179A700E09874 /* libtop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADF11781796200E09874 /* libtop.a */; };
 		E54FADF7178179AE00E09874 /* libtop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E54FADF11781796200E09874 /* libtop.a */; };
+		E550BA301917C9BC0016CE60 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E58F7E8117E3987200368507 /* LLDB.framework */; };
+		E550BA321917CD780016CE60 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E550BA311917CD780016CE60 /* libclang.dylib */; };
+		E550BA331917CD780016CE60 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E550BA311917CD780016CE60 /* libclang.dylib */; };
+		E550BA341917CDC00016CE60 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = E550BA311917CD780016CE60 /* libclang.dylib */; };
 		E551CBD6178A4718008FCD2F /* ArrayModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E551CBD5178A4718008FCD2F /* ArrayModel.cpp */; };
 		E551CBD7178A4718008FCD2F /* ArrayModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E551CBD5178A4718008FCD2F /* ArrayModel.cpp */; };
 		E5523F24178A2AF400C499E9 /* GraphView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523F22178A2AF400C499E9 /* GraphView.cpp */; };
 		E5523F25178A2AF400C499E9 /* GraphView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5523F22178A2AF400C499E9 /* GraphView.cpp */; };
 		E559C65E178DB0A00055848B /* SymbolTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E559C65C178DB0A00055848B /* SymbolTree.cpp */; };
 		E559C65F178DB0A00055848B /* SymbolTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E559C65C178DB0A00055848B /* SymbolTree.cpp */; };
-		E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E562BF0A17685B000081AF35 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 		E562BF0B17685C600081AF35 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50FD2FF1752B5BE00C4AA66 /* LLDB.framework */; };
 		E58F7E8217E3987200368507 /* LLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58F7E8117E3987200368507 /* LLDB.framework */; };
 		E58F7E8317E3988900368507 /* LLDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E58F7E8117E3987200368507 /* LLDB.framework */; };
 		E59CD16A11EA0C4000955611 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59CD16911EA0C4000955611 /* Cocoa.framework */; };
+		E5B74FC51913CCEB005E78CA /* libnuiCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D644FB120A01E0009C26A9 /* libnuiCocoa.a */; };
 		E5D64525120A0B92009C26A9 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFEF0B83433800BC506C /* Application.cpp */; };
 		E5D64526120A0B92009C26A9 /* MainWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A9DFF10B83433800BC506C /* MainWindow.cpp */; };
 		E5D64528120A0B92009C26A9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD30B833F1500BC506C /* CoreFoundation.framework */; };
 		E5D64529120A0B92009C26A9 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD40B833F1500BC506C /* CoreServices.framework */; };
 		E5D6452A120A0B92009C26A9 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD60B833F1500BC506C /* OpenGL.framework */; };
 		E5D6452C120A0B92009C26A9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59CD16911EA0C4000955611 /* Cocoa.framework */; };
-		E5D6453D120AA7D8009C26A9 /* libnui3Cocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D644FB120A01E0009C26A9 /* libnui3Cocoa.a */; };
+		E5D6453D120AA7D8009C26A9 /* libnuiCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D644FB120A01E0009C26A9 /* libnuiCocoa.a */; };
 		E5E8E736178060AB001E6358 /* DebugView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E734178060AB001E6358 /* DebugView.cpp */; };
 		E5E8E737178060AB001E6358 /* DebugView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E734178060AB001E6358 /* DebugView.cpp */; };
 		E5E8E73A17806D43001E6358 /* HomeView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5E8E73817806D43001E6358 /* HomeView.cpp */; };
@@ -113,18 +117,12 @@
 		E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD30B833F1500BC506C /* CoreFoundation.framework */; };
 		E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD40B833F1500BC506C /* CoreServices.framework */; };
 		E5EF6FC311E77DE8000FB337 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A9DFD60B833F1500BC506C /* OpenGL.framework */; };
-		E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */; };
+		E5EF8BE317E8F45500AA5914 /* DebugState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EF8BE117E8F45500AA5914 /* DebugState.cpp */; };
+		E5EF8BE417E8F45500AA5914 /* DebugState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5EF8BE117E8F45500AA5914 /* DebugState.cpp */; };
 		E5FD8D0B177BCFD4001646F6 /* libclang.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E04DC25176618750098D9D5 /* libclang.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BCBCB15B0DFD45B6002E8BC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E58172D80C3D103300902DFE;
-			remoteInfo = nui3D;
-		};
 		BCBCB15D0DFD45B6002E8BC3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
@@ -188,26 +186,12 @@
 			remoteGlobalIDString = AFC4EB4C0F15DC9A00670DE6;
 			remoteInfo = libtop;
 		};
-		E56C84F912FD9D2B00231540 /* PBXContainerItemProxy */ = {
+		E5B74FC31913CCE0005E78CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 73F086E612E9BA0700656E84;
-			remoteInfo = nuiPhone_arm7;
-		};
-		E56C84FB12FD9D2B00231540 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 73F09AC312E9D09E00656E84;
-			remoteInfo = thirdparty_ios_arm7;
-		};
-		E5A630D411CA7CCD00446489 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E5A626F311CA240100446489;
-			remoteInfo = nuiPhoneD;
+			proxyType = 1;
+			remoteGlobalIDString = E5D63EBB1209AB9C009C26A9;
+			remoteInfo = nuiCocoa;
 		};
 		E5D4E8E512E4A9000001A86F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -237,20 +221,6 @@
 			remoteGlobalIDString = E5DD341012E09CA800F1EF4E;
 			remoteInfo = thirdparty;
 		};
-		E5EF6FB011E77DE0000FB337 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E5A8D1D311E33A54004E14CE;
-			remoteInfo = nui3CocoaD;
-		};
-		E5EF6FCB11E77E22000FB337 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BCBCB1520DFD45B5002E8BC3 /* nui3.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E5A8CCAE11E33A54004E14CE;
-			remoteInfo = nui3CocoaD;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -260,7 +230,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E562BF0817685AF70081AF35 /* LLDB.framework in CopyFiles */,
+				E550BA301917C9BC0016CE60 /* LLDB.framework in CopyFiles */,
+				E550BA341917CDC00016CE60 /* libclang.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,13 +298,14 @@
 		E54FABE117816B5400E09874 /* AppDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDescription.mm; path = src/Xspray/AppDescription.mm; sourceTree = "<group>"; };
 		E54FABE217816B5400E09874 /* AppDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDescription.h; path = src/Xspray/AppDescription.h; sourceTree = "<group>"; };
 		E54FADE81781796200E09874 /* top.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = top.xcodeproj; path = deps/top/top.xcodeproj; sourceTree = "<group>"; };
+		E550BA311917CD780016CE60 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = "../lldb/llvm-build/Release+Asserts/x86_64/Release+Asserts/lib/libclang.dylib"; sourceTree = "<group>"; };
 		E551CBD5178A4718008FCD2F /* ArrayModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrayModel.cpp; path = src/Xspray/ArrayModel.cpp; sourceTree = "<group>"; };
 		E5523F141789DD2600C499E9 /* ArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayModel.h; path = src/Xspray/ArrayModel.h; sourceTree = "<group>"; };
 		E5523F22178A2AF400C499E9 /* GraphView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GraphView.cpp; path = src/Xspray/GraphView.cpp; sourceTree = "<group>"; };
 		E5523F23178A2AF400C499E9 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = src/Xspray/GraphView.h; sourceTree = "<group>"; };
 		E559C65C178DB0A00055848B /* SymbolTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SymbolTree.cpp; path = src/Xspray/SymbolTree.cpp; sourceTree = "<group>"; };
 		E559C65D178DB0A00055848B /* SymbolTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolTree.h; path = src/Xspray/SymbolTree.h; sourceTree = "<group>"; };
-		E58F7E8117E3987200368507 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = "../build/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/Debug/LLDB.framework"; sourceTree = "<group>"; };
+		E58F7E8117E3987200368507 /* LLDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LLDB.framework; path = "../../Library/Developer/Xcode/DerivedData/Xspray-dtwapawukeyqhfbpilcteskrgncc/Build/Products/debug/LLDB.framework"; sourceTree = "<group>"; };
 		E59CD16911EA0C4000955611 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E59CD30011EA94A000955611 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		E5C5912216722BA500BAEDE4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
@@ -393,6 +365,8 @@
 		E5EF48C617B99B6000F62017 /* vrefbuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vrefbuffer.c; sourceTree = "<group>"; };
 		E5EF48C717B99B6000F62017 /* zone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zone.c; sourceTree = "<group>"; };
 		E5EF6FC811E77DE8000FB337 /* XsprayD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XsprayD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5EF8BE117E8F45500AA5914 /* DebugState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebugState.cpp; path = src/Xspray/DebugState.cpp; sourceTree = "<group>"; };
+		E5EF8BE217E8F45500AA5914 /* DebugState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugState.h; path = src/Xspray/DebugState.h; sourceTree = "<group>"; };
 		E5FD8D1B177C468C001646F6 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -401,6 +375,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E550BA331917CD780016CE60 /* libclang.dylib in Frameworks */,
 				E536A50617C3519800D9F341 /* libmsgpack.a in Frameworks */,
 				E54FADF6178179A700E09874 /* libtop.a in Frameworks */,
 				E514380F1766377900DE52E4 /* libclang.dylib in Frameworks */,
@@ -408,7 +383,7 @@
 				E5D64528120A0B92009C26A9 /* CoreFoundation.framework in Frameworks */,
 				E5D64529120A0B92009C26A9 /* CoreServices.framework in Frameworks */,
 				E5D6452A120A0B92009C26A9 /* OpenGL.framework in Frameworks */,
-				E5D6453D120AA7D8009C26A9 /* libnui3Cocoa.a in Frameworks */,
+				E5D6453D120AA7D8009C26A9 /* libnuiCocoa.a in Frameworks */,
 				E5D6452C120A0B92009C26A9 /* Cocoa.framework in Frameworks */,
 				E53D0D0A1775869A0082B86F /* MobileDevice.framework in Frameworks */,
 			);
@@ -425,6 +400,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E550BA321917CD780016CE60 /* libclang.dylib in Frameworks */,
+				E5B74FC51913CCEB005E78CA /* libnuiCocoa.a in Frameworks */,
 				E58F7E8217E3987200368507 /* LLDB.framework in Frameworks */,
 				E536A50C17C351A600D9F341 /* libmsgpack.a in Frameworks */,
 				E54FADF7178179AE00E09874 /* libtop.a in Frameworks */,
@@ -432,7 +409,6 @@
 				E5EF6FC011E77DE8000FB337 /* CoreFoundation.framework in Frameworks */,
 				E5EF6FC111E77DE8000FB337 /* CoreServices.framework in Frameworks */,
 				E5EF6FC311E77DE8000FB337 /* OpenGL.framework in Frameworks */,
-				E5EF6FE511E77EA7000FB337 /* libnui3CocoaD.a in Frameworks */,
 				E59CD16A11EA0C4000955611 /* Cocoa.framework in Frameworks */,
 				E53D0D09177586790082B86F /* MobileDevice.framework in Frameworks */,
 			);
@@ -444,6 +420,7 @@
 		61A9DE3D0B833C9200BC506C = {
 			isa = PBXGroup;
 			children = (
+				E550BA311917CD780016CE60 /* libclang.dylib */,
 				E58F7E8117E3987200368507 /* LLDB.framework */,
 				E5FD8D1B177C468C001646F6 /* README */,
 				E5CA922316F62CB200B3A81D /* Xspray.entitlements */,
@@ -495,17 +472,12 @@
 		BCBCB1530DFD45B5002E8BC3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BCBCB15C0DFD45B6002E8BC3 /* libnui3D.a */,
-				BCBCB15E0DFD45B6002E8BC3 /* libnui3.a */,
-				E5A630D511CA7CCD00446489 /* libnuiPhoneD.a */,
+				BCBCB15E0DFD45B6002E8BC3 /* libnuiCarbon.a */,
+				E5D644FB120A01E0009C26A9 /* libnuiCocoa.a */,
 				E52420EE11CBCEBC0025CA71 /* libnuiPhone.a */,
-				E56C84FA12FD9D2B00231540 /* libnuiPhone_arm7.a */,
-				E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */,
-				E5D644FB120A01E0009C26A9 /* libnui3Cocoa.a */,
-				E5DD348412E0A30100F1EF4E /* libthirdparty.a */,
-				E5D4E8E612E4A9000001A86F /* libthirdparty_ios.a */,
-				E56C84FC12FD9D2B00231540 /* libthirdparty_ios_arm7.a */,
-				E50C19DC14B7C40D00C6C5B2 /* libminui3D.a */,
+				E5DD348412E0A30100F1EF4E /* libthirdparty_OSX.a */,
+				E5D4E8E612E4A9000001A86F /* libthirdparty_iOS.a */,
+				E50C19DC14B7C40D00C6C5B2 /* libminui.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -544,6 +516,8 @@
 				E53D0CF1177445E90082B86F /* VariableNode.h */,
 				E53D0CF2177445E90082B86F /* Xspray.cpp */,
 				E53D0CF3177445E90082B86F /* Xspray.h */,
+				E5EF8BE117E8F45500AA5914 /* DebugState.cpp */,
+				E5EF8BE217E8F45500AA5914 /* DebugState.h */,
 			);
 			name = Xspray;
 			sourceTree = "<group>";
@@ -766,9 +740,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				E5B74FC41913CCE0005E78CA /* PBXTargetDependency */,
 				E536A50917C351A000D9F341 /* PBXTargetDependency */,
 				E54FADF31781799500E09874 /* PBXTargetDependency */,
-				E5EF6FCC11E77E22000FB337 /* PBXTargetDependency */,
 			);
 			name = "XsprayD OSX";
 			productName = Tempd;
@@ -781,7 +755,7 @@
 		61A9DE3F0B833C9200BC506C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 			};
 			buildConfigurationList = 61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Xspray" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -813,24 +787,17 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		BCBCB15C0DFD45B6002E8BC3 /* libnui3D.a */ = {
+		BCBCB15E0DFD45B6002E8BC3 /* libnuiCarbon.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libnui3D.a;
-			remoteRef = BCBCB15B0DFD45B6002E8BC3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BCBCB15E0DFD45B6002E8BC3 /* libnui3.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libnui3.a;
+			path = libnuiCarbon.a;
 			remoteRef = BCBCB15D0DFD45B6002E8BC3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E50C19DC14B7C40D00C6C5B2 /* libminui3D.a */ = {
+		E50C19DC14B7C40D00C6C5B2 /* libminui.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libminui3D.a;
+			path = libminui.a;
 			remoteRef = E50C19DB14B7C40D00C6C5B2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -855,53 +822,25 @@
 			remoteRef = E54FADF01781796200E09874 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E56C84FA12FD9D2B00231540 /* libnuiPhone_arm7.a */ = {
+		E5D4E8E612E4A9000001A86F /* libthirdparty_iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libnuiPhone_arm7.a;
-			remoteRef = E56C84F912FD9D2B00231540 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E56C84FC12FD9D2B00231540 /* libthirdparty_ios_arm7.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libthirdparty_ios_arm7.a;
-			remoteRef = E56C84FB12FD9D2B00231540 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E5A630D511CA7CCD00446489 /* libnuiPhoneD.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libnuiPhoneD.a;
-			remoteRef = E5A630D411CA7CCD00446489 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E5D4E8E612E4A9000001A86F /* libthirdparty_ios.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libthirdparty_ios.a;
+			path = libthirdparty_iOS.a;
 			remoteRef = E5D4E8E512E4A9000001A86F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E5D644FB120A01E0009C26A9 /* libnui3Cocoa.a */ = {
+		E5D644FB120A01E0009C26A9 /* libnuiCocoa.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libnui3Cocoa.a;
+			path = libnuiCocoa.a;
 			remoteRef = E5D644FA120A01E0009C26A9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E5DD348412E0A30100F1EF4E /* libthirdparty.a */ = {
+		E5DD348412E0A30100F1EF4E /* libthirdparty_OSX.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libthirdparty.a;
+			path = libthirdparty_OSX.a;
 			remoteRef = E5DD348312E0A30100F1EF4E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E5EF6FB111E77DE0000FB337 /* libnui3CocoaD.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libnui3CocoaD.a;
-			remoteRef = E5EF6FB011E77DE0000FB337 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -947,6 +886,7 @@
 				E53D0CF5177445E90082B86F /* Breakpoint.cpp in Sources */,
 				E53D0CF7177445E90082B86F /* DebuggerContext.cpp in Sources */,
 				E53D0CF9177445E90082B86F /* ModuleTree.cpp in Sources */,
+				E5EF8BE417E8F45500AA5914 /* DebugState.cpp in Sources */,
 				E53D0CFB177445E90082B86F /* ProcessTree.cpp in Sources */,
 				E53D0CFD177445E90082B86F /* SourceView.cpp in Sources */,
 				E559C65F178DB0A00055848B /* SymbolTree.cpp in Sources */,
@@ -986,6 +926,7 @@
 				E53D0CF4177445E90082B86F /* Breakpoint.cpp in Sources */,
 				E53D0CF6177445E90082B86F /* DebuggerContext.cpp in Sources */,
 				E53D0CF8177445E90082B86F /* ModuleTree.cpp in Sources */,
+				E5EF8BE317E8F45500AA5914 /* DebugState.cpp in Sources */,
 				E53D0CFA177445E90082B86F /* ProcessTree.cpp in Sources */,
 				E53D0CFC177445E90082B86F /* SourceView.cpp in Sources */,
 				E559C65E178DB0A00055848B /* SymbolTree.cpp in Sources */,
@@ -1025,20 +966,20 @@
 			name = libtop;
 			targetProxy = E54FADF41781799A00E09874 /* PBXContainerItemProxy */;
 		};
+		E5B74FC41913CCE0005E78CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nuiCocoa;
+			targetProxy = E5B74FC31913CCE0005E78CA /* PBXContainerItemProxy */;
+		};
 		E5D64535120A0BA3009C26A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = nui3Cocoa;
 			targetProxy = E5D64534120A0BA3009C26A9 /* PBXContainerItemProxy */;
 		};
-		E5EF6FCC11E77E22000FB337 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = nui3CocoaD;
-			targetProxy = E5EF6FCB11E77E22000FB337 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		61A9DE410B833C9200BC506C /* Default */ = {
+		61A9DE410B833C9200BC506C /* debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -1068,14 +1009,11 @@
 					"-liconv",
 				);
 			};
-			name = Default;
+			name = debug;
 		};
-		E5D6452F120A0B92009C26A9 /* Default */ = {
+		E5D6452F120A0B92009C26A9 /* debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Xspray.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1090,8 +1028,11 @@
 				GCC_PREPROCESSOR_DEFINITIONS = _COCOA_;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/meeloo/work/lldb/llvm-build/Release+Asserts/x86_64/Release+Asserts/lib",
+				);
 				PRODUCT_NAME = Xspray;
-				PROVISIONING_PROFILE = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -1099,9 +1040,9 @@
 				);
 				WRAPPER_EXTENSION = app;
 			};
-			name = Default;
+			name = debug;
 		};
-		E5EF488417B99ACA00F62017 /* Default */ = {
+		E5EF488417B99ACA00F62017 /* debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1139,12 +1080,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
-			name = Default;
+			name = debug;
 		};
-		E5EF6FC711E77DE8000FB337 /* Default */ = {
+		E5EF6FC711E77DE8000FB337 /* debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1163,6 +1103,10 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/meeloo/work/lldb/llvm-build/Release+Asserts/x86_64/Release+Asserts/lib",
+				);
 				PRODUCT_NAME = XsprayD;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1171,7 +1115,7 @@
 				);
 				WRAPPER_EXTENSION = app;
 			};
-			name = Default;
+			name = debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1179,34 +1123,34 @@
 		61A9DE400B833C9200BC506C /* Build configuration list for PBXProject "Xspray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				61A9DE410B833C9200BC506C /* Default */,
+				61A9DE410B833C9200BC506C /* debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = debug;
 		};
 		E5D6452E120A0B92009C26A9 /* Build configuration list for PBXNativeTarget "Xspray OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E5D6452F120A0B92009C26A9 /* Default */,
+				E5D6452F120A0B92009C26A9 /* debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = debug;
 		};
 		E5EF488317B99ACA00F62017 /* Build configuration list for PBXNativeTarget "msgpack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E5EF488417B99ACA00F62017 /* Default */,
+				E5EF488417B99ACA00F62017 /* debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = debug;
 		};
 		E5EF6FC611E77DE8000FB337 /* Build configuration list for PBXNativeTarget "XsprayD OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E5EF6FC711E77DE8000FB337 /* Default */,
+				E5EF6FC711E77DE8000FB337 /* debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Default;
+			defaultConfigurationName = debug;
 		};
 /* End XCConfigurationList section */
 	};

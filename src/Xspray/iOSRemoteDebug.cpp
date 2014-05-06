@@ -46,18 +46,62 @@ extern "C" {
 
 using namespace Xspray;
 
+void DisplayCFValue(const char* domain, CFTypeRef v)
+{
+  if (v)
+  {
+    CFTypeID t = CFGetTypeID(v);
+    if (t == CFStringGetTypeID())
+    {
+      NGL_OUT("Domain [%s] -> %s\n", domain, CFStringGetCStringPtr((CFStringRef)v, kCFStringEncodingUTF8));
+    }
+    else if (t == CFArrayGetTypeID())
+    {
+      NGL_OUT("Domain [%s] -> Array\n", domain);
+    }
+    else if (t == CFDataGetTypeID())
+    {
+      NGL_OUT("Domain [%s] -> Data\n", domain);
+    }
+    else if (t == CFDateGetTypeID())
+    {
+      NGL_OUT("Domain [%s] -> Date\n", domain);
+    }
+    else if (t == CFDictionaryGetTypeID())
+    {
+      NGL_OUT("Domain [%s] -> Dictionary\n", domain);
+    }
+    else if (t == CFBooleanGetTypeID())
+    {
+      NGL_OUT("Domain [%s] -> Boolean\n", domain);
+    }
+    else if (t == CFNumberGetTypeID())
+    {
+      NGL_OUT("Domain [%s] -> Number\n", domain);
+    }
+    else
+    {
+      CFStringRef td = CFCopyTypeIDDescription(t);
+      const char* ts = CFStringGetCStringPtr(td, kCFStringEncodingUTF8);
+      NGL_OUT("Domain [%s] -> %s\n", domain, ts);
+      CFShow(v);
+    }
+
+  }
+}
+
 iOSDevice::iOSDevice(am_device *device)
 : mpDevice(device), mType(Unknown), mRetina(false), mDebuggerFD(0)
 {
-	CFStringEncoding encoding = CFStringGetSystemEncoding();
+	CFStringEncoding encoding = kCFStringEncodingUTF8;
 	const char *udid          = CFStringGetCStringPtr(AMDeviceCopyDeviceIdentifier(mpDevice), encoding);
 
   CFRetain(mpDevice);
 
   AMDeviceConnect(mpDevice);
-  (AMDeviceIsPaired(mpDevice));
-  (AMDeviceValidatePairing(mpDevice) == 0);
-  (AMDeviceStartSession(mpDevice) == 0);
+  AMDeviceIsPaired(mpDevice);
+  AMDeviceValidatePairing(mpDevice);
+  AMDeviceStartSession(mpDevice);
 
   const char *device_name  = CFStringGetCStringPtr(AMDeviceCopyValue(mpDevice, 0, CFSTR("DeviceName")),     encoding);
   const char *product_type = CFStringGetCStringPtr(AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductType")),    encoding);
@@ -242,40 +286,36 @@ iOSDevice::iOSDevice(am_device *device)
     NULL
   };
 
-//  for (int i = 0; domains[i]; i++)
-//  {
-//    CFStringRef domain = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
-//    service_conn_t handle = NULL;
-//    unsigned int unknown = 0;
-//    mach_error_t err = AMDeviceStartService(mpDevice, domain, &handle, &unknown);
-//
-//    printf("%s -> %d %d %d\n", domains[i], err, handle, unknown);
-//  }
+  printf("------------------------------------------------\n");
+  for (int i = 0; domains[i]; i++)
+  {
+    CFStringRef domain = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
+    service_conn_t handle = NULL;
+    unsigned int unknown = 0;
+    mach_error_t err = AMDeviceStartService(mpDevice, domain, &handle, &unknown);
 
+    if (!err)
+      printf("Service %s -> %d %d %d\n", domains[i], err, handle, unknown);
+  }
+
+  printf("------------------------------------------------\n");
   for (int i = 0; domains[i]; i++)
   {
     CFStringRef value = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
     CFStringRef v = AMDeviceCopyValue(mpDevice, value, NULL);
     //    nglString val = v;
     //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
-    if (v)
-    {
-      NGL_OUT("iOS device value [%s]\n", domains[i]);
-      CFShow(v);
-    }
+    DisplayCFValue(domains[i], v);
   }
 
+  printf("------------------------------------------------\n");
   for (int i = 0; values[i]; i++)
   {
     CFStringRef value = CFStringCreateWithCString(NULL, values[i], kCFStringEncodingASCII);
     CFStringRef v = AMDeviceCopyValue(mpDevice, NULL, value);
 //    nglString val = v;
     //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
-    if (v)
-    {
-      NGL_OUT("iOS device value [%s]\n", values[i]);
-      CFShow(v);
-    }
+    DisplayCFValue(values[i], v);
   }
   NGL_OUT("Done\n");
 
@@ -547,7 +587,7 @@ void iOSDevice::InstallCallback(CFDictionaryRef dict, void* arg)
   CFStringRef status = (CFStringRef)CFDictionaryGetValue(dict, CFSTR("Status"));
   CFNumberGetValue((CFNumberRef)CFDictionaryGetValue(dict, CFSTR("PercentComplete")), kCFNumberSInt32Type, &percent);
 
-  printf("[%3d%%] %s\n", (percent / 2) + 50, CFStringGetCStringPtr(status, kCFStringEncodingMacRoman));
+  printf("[%3d%%] %s\n", (percent / 2) + 50, CFStringGetCStringPtr(status, kCFStringEncodingUTF8));
   pDevice->InstallationProgress(percent, CFStringGetCStringPtr(status, kCFStringEncodingUTF8));
 }
 
