@@ -1,4 +1,4 @@
-//
+:wq//
 //  DebugView.cpp
 //  Xspray
 //
@@ -379,6 +379,7 @@ void DebugView::OnStartIOS()
         iOSDevice* pDevice = iOSDevice::GetDevice(0);
 
         nglString APPID = pDevice->GetDiskAppIdentifier(p.GetPathName());
+        printf("AppID: %s\n", APPID.GetChars());
         nglString AppUrl = pDevice->GetDeviceAppURL(APPID);
         printf("AppUrl: %s\n", AppUrl.GetChars());
 

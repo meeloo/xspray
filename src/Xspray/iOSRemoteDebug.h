@@ -98,8 +98,7 @@ private:
   static std::map<am_device*, iOSDevice*> mDevices;
   static struct am_device_notification *mpNotifications;
 
-  bool GetDeviceSupportPath(nglString& rPath) const;
-  bool GetDeveloperDiskImagePath(nglString& rPath) const;
+  bool GetDeviceSupportPath(nglString& rDeviceSupportPath, nglString& rDeveloperDiskImagePath) const;
   bool MountDeveloperImage() const;
   bool StartRemoteDebugServer();
 
