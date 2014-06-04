@@ -303,11 +303,11 @@ void DebugView::OnStartLOCAL()
 
       SBError error;
 #if 1
-      rContext.mProcess = rContext.mTarget.LaunchSimple (NULL, NULL, "~/");
+      rContext.mProcess = rContext.mTarget.LaunchSimple (NULL, NULL, "/");
 #else
       const char **argv = NULL;
       const char **envp = NULL;
-      const char *working_directory = "~/";
+      const char *working_directory = "/";
       char *stdin_path = NULL;
       char *stdout_path = NULL;
       char *stderr_path = NULL;
@@ -379,6 +379,7 @@ void DebugView::OnStartIOS()
         iOSDevice* pDevice = iOSDevice::GetDevice(0);
 
         nglString APPID = pDevice->GetDiskAppIdentifier(p.GetPathName());
+        printf("AppID: %s\n", APPID.GetChars());
         nglString AppUrl = pDevice->GetDeviceAppURL(APPID);
         printf("AppUrl: %s\n", AppUrl.GetChars());
 

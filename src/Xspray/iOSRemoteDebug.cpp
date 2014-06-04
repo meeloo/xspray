@@ -113,9 +113,9 @@ iOSDevice::iOSDevice(am_device *device)
   mVersionString = ios_version;
 
   {
-    char _device_name[15];
-    char _device_gen[2];
-    char _ios_version[2];
+    char _device_name[15] = { 0 };
+    char _device_gen[2] = { 0 };
+    char _ios_version[2] = { 0 };
 
     nglString resolution;
 
@@ -289,7 +289,7 @@ iOSDevice::iOSDevice(am_device *device)
   printf("------------------------------------------------\n");
   for (int i = 0; domains[i]; i++)
   {
-    CFStringRef domain = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
+    CFStringRef domain = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingUTF8);
     service_conn_t handle = NULL;
     unsigned int unknown = 0;
     mach_error_t err = AMDeviceStartService(mpDevice, domain, &handle, &unknown);
@@ -301,20 +301,16 @@ iOSDevice::iOSDevice(am_device *device)
   printf("------------------------------------------------\n");
   for (int i = 0; domains[i]; i++)
   {
-    CFStringRef value = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
+    CFStringRef value = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingUTF8);
     CFStringRef v = AMDeviceCopyValue(mpDevice, value, NULL);
-    //    nglString val = v;
-    //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
     DisplayCFValue(domains[i], v);
   }
 
   printf("------------------------------------------------\n");
   for (int i = 0; values[i]; i++)
   {
-    CFStringRef value = CFStringCreateWithCString(NULL, values[i], kCFStringEncodingASCII);
+    CFStringRef value = CFStringCreateWithCString(NULL, values[i], kCFStringEncodingUTF8);
     CFStringRef v = AMDeviceCopyValue(mpDevice, NULL, value);
-//    nglString val = v;
-    //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
     DisplayCFValue(values[i], v);
   }
   NGL_OUT("Done\n");
@@ -404,85 +400,102 @@ void iOSDevice::DeviceCallback(struct am_device_notification_callback_info *info
 }	 
 
 
-bool iOSDevice::GetDeviceSupportPath(nglString& rPath) const
+bool iOSDevice::GetDeviceSupportPath(nglString& rDeviceSupportPath, nglString& rDeveloperDiskImagePath) const
 {
-  nglString version = AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductVersion"));
-  nglString build = AMDeviceCopyValue(mpDevice, 0, CFSTR("BuildVersion"));
+  bool found1 = false;
+  bool found2 = false;
+  rDeviceSupportPath = nglPath();
+  rDeveloperDiskImagePath = nglPath();
+
+
+  CFStringRef v = AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductVersion"));
+  DisplayCFValue("ProductVersion", v);
+  nglString version = v;
+  nglString smallversion = version.GetLeft(3);
+
+  v = AMDeviceCopyValue(mpDevice, 0, CFSTR("BuildVersion"));
+  DisplayCFValue("BuildVersion", v);
+  nglString build = v;
+
   const char* home = getenv("HOME");
-  nglString path;
-  bool found = false;
-
-  const char* sources[] =
   {
-    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
-    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version} ({build})",
-    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})",
-    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version}",
-    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
-    "/Applications/Xcode5-DP.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
-    "/Applications/Xcode5-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
-    NULL
-  };
-
-  for (int i = 0; sources[i]; i++)
-  {
-    nglString t = sources[i];
-    t.Replace("{version}", version);
-    t.Replace("{build}", build);
-    t.Replace("{home}", home);
-
-    nglPath p = t;
-    if (p.Exists())
+    const char* sources[] =
     {
-      rPath = p;
-      return true;
+      "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{sversion}",
+
+      "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version} ({build})",
+      "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})",
+      "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version}",
+      "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+      "/Applications/Xcode5-DP.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+      "/Applications/Xcode5-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}",
+      NULL
+    };
+
+    for (int i = 0; sources[i] && !found1; i++)
+    {
+      nglString t = sources[i];
+      t.Replace("{version}", version);
+      t.Replace("{sversion}", smallversion);
+      t.Replace("{build}", build);
+      t.Replace("{home}", home);
+
+      nglPath p = t;
+      if (p.Exists())
+      {
+        rDeviceSupportPath = p;
+        found1 = true;
+      }
     }
   }
 
-  rPath = nglPath();
-  return false;
-}
-
-bool iOSDevice::GetDeveloperDiskImagePath(nglString& rPath) const
-{
-  nglString version = AMDeviceCopyValue(mpDevice, 0, CFSTR("ProductVersion"));
-  nglString build = AMDeviceCopyValue(mpDevice, 0, CFSTR("BuildVersion"));
-  nglString home = getenv("HOME");
-  nglString path;
-  bool found = false;
-
-  const char* sources[] =
   {
-    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
-    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
-    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build}/DeveloperDiskImage.dmg)",
-    "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version}/DeveloperDiskImage.dmg",
-    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}/DeveloperDiskImage.dmg",
-    "{home}/Library/Developer/Xcode/iOS DeviceSupport/Latest/DeveloperDiskImage.dmg",
-    "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/Latest/DeveloperDiskImage.dmg",
-    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/6.1 (10B141)/DeveloperDiskImage.dmg",
-    "/Applications/Xcode5-DP.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
-    "/Applications/Xcode5-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
-    NULL
-  };
-
-  for (int i = 0; sources[i]; i++)
-  {
-    nglString t = sources[i];
-    t.Replace("{version}", version);
-    t.Replace("{build}", build);
-    t.Replace("{home}", home);
-
-    nglPath p = t;
-    if (p.Exists())
+    const char* sources[] =
     {
-      rPath = p;
-      return true;
+      // Current Xcode (Xcode 5 as of now)
+      "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{sversion} ({build})/DeveloperDiskImage.dmg",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}/DeveloperDiskImage.dmg",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{sversion}/DeveloperDiskImage.dmg",
+
+      // Last Beta version of Xcode
+      "/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+      "/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{sversion} ({build})/DeveloperDiskImage.dmg",
+      "/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}/DeveloperDiskImage.dmg",
+      "/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{sversion}/DeveloperDiskImage.dmg",
+
+      // Other known paths
+      "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+      "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build}/DeveloperDiskImage.dmg)",
+      "{home}/Library/Developer/Xcode/iOS DeviceSupport/{version}/DeveloperDiskImage.dmg",
+      "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version}/DeveloperDiskImage.dmg",
+      "{home}/Library/Developer/Xcode/iOS DeviceSupport/Latest/DeveloperDiskImage.dmg",
+      "/Developer/Platforms/iPhoneOS.platform/DeviceSupport/Latest/DeveloperDiskImage.dmg",
+      "/Applications/Xcode5-DP.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+      "/Applications/Xcode5-DP2.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/{version} ({build})/DeveloperDiskImage.dmg",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/6.1 (10B141)/DeveloperDiskImage.dmg",
+      NULL
+    };
+
+    for (int i = 0; sources[i] && !found2; i++)
+    {
+      nglString t = sources[i];
+      t.Replace("{version}", version);
+      t.Replace("{sversion}", smallversion);
+      t.Replace("{build}", build);
+      t.Replace("{home}", home);
+
+      nglPath p = t;
+      if (p.Exists())
+      {
+        rDeveloperDiskImagePath = p;
+        found2 = true;
+      }
     }
   }
 
-  rPath = nglPath();
-  return false;
+  return found1 && found2;
 }
 
 
@@ -512,9 +525,8 @@ void iOSDevice::MountCallback(CFDictionaryRef dict, void * arg)
 bool iOSDevice::MountDeveloperImage() const
 {
   nglString ds_path;
-  bool res = GetDeviceSupportPath(ds_path);
   nglString image_path;
-  res = GetDeveloperDiskImagePath(image_path);
+  bool res = GetDeviceSupportPath(ds_path, image_path);
   nglString sig_path = image_path + ".signature";
 
   NGL_OUT("Device support path: %s\n", ds_path.GetChars());
@@ -522,7 +534,7 @@ bool iOSDevice::MountDeveloperImage() const
 
   FILE* sig = fopen(sig_path.GetChars(), "rb");
   void *sig_buf = malloc(128);
-  if (fread(sig_buf, 1, 128, sig) != 128)
+  if (sig && fread(sig_buf, 1, 128, sig) != 128)
   {
     NGL_OUT("Fread error...");
   }
@@ -631,6 +643,7 @@ void iOSDevice::FDVendorCallback(CFSocketRef s, CFSocketCallBackType callbackTyp
 
 nglString iOSDevice::GetDeviceAppURL(const nglString& AppId)
 {
+  AMDeviceConnect(mpDevice);
   CFStringRef identifier = AppId.ToCFString();
   CFDictionaryRef result;
   int res = 0;
@@ -716,7 +729,7 @@ bool iOSDevice::InstallApplication(const nglPath& rPath)
 
   //if (paired && validated && sessionstarted)
   {
-    CFStringRef path = CFStringCreateWithCString(NULL, rPath.GetChars(), kCFStringEncodingASCII);
+    CFStringRef path = CFStringCreateWithCString(NULL, rPath.GetChars(), kCFStringEncodingUTF8);
     CFURLRef relative_url = CFURLCreateWithFileSystemPath(NULL, path, kCFURLPOSIXPathStyle, false);
     CFURLRef url = CFURLCopyAbsoluteURL(relative_url);
 

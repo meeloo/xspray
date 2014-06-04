@@ -11,13 +11,22 @@ Setting up the folders for correct dependencies:
 
 Change to the directory where you want to do development work and checkout LLDB:
 
+> cd WORK
 > svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
-In general, building the LLDB trunk revision requires trunk revisions of both LLVM and Clang but the Xcode project takes care of this directly.
+> git clone git@github.com:meeloo/nui3.git
+> git clone git@github.com:meeloo/Xspray.git
+
+You will also need swig installed. I got it view brew:
+> brew install swig
 
 Note1: Beware! If you have installed Xcode 5 and you are trying to build with Xcode 4, chances are the system svn will be v1.7 while Xcode 4 is still 1.6 and it will prevent the build script from fetching llvm and clang sources. If thats the case, use the svn binary that is inside the Xcode bundle like that:
 > /Applications/Xcode.app/Contents/Developer/usr/bin/svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
 
-Note2: I have found that we don't need to use a special cryptographic certificate as the lldb mentions, using the default Mac Developper cert will work fine on any machine. YAY!
+Note2: I have found that we don't need to use a special cryptographic certificate as the lldb mentions, using the default Mac Developper cert will work fine on any machine. YAY! For that change, select the LLDB project in Xcode, then select the lldb_gdbserver target and look for the code signing section. Change all lldb_codesign to your own Mac OS Developper certificate.
+
+In general, building the LLDB trunk revision requires trunk revisions of both LLVM and Clang but the Xcode project takes care of this directly.
+
+So just change the Active Scheme to LLDB and command+B to build LLDB and all its dependencies (llvm, clang...). It will probably complain about already existing folder but ignore these errors. Sometime I have compilation errors because my LLDB and LLVM/Clang are desynchronized. When this happens I haven't found another solution: I just checkout a fresh LLDB to replace the current broken one.
 
 ------
 Xspray:
