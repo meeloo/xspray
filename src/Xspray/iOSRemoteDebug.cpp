@@ -289,11 +289,7 @@ iOSDevice::iOSDevice(am_device *device)
   printf("------------------------------------------------\n");
   for (int i = 0; domains[i]; i++)
   {
-<<<<<<< HEAD
-    CFStringRef domain = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingASCII);
-=======
     CFStringRef domain = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingUTF8);
->>>>>>> e176c4d9e9df4ceb00fe0b629a5db81f6a8bdebd
     service_conn_t handle = NULL;
     unsigned int unknown = 0;
     mach_error_t err = AMDeviceStartService(mpDevice, domain, &handle, &unknown);
@@ -307,11 +303,6 @@ iOSDevice::iOSDevice(am_device *device)
   {
     CFStringRef value = CFStringCreateWithCString(NULL, domains[i], kCFStringEncodingUTF8);
     CFStringRef v = AMDeviceCopyValue(mpDevice, value, NULL);
-<<<<<<< HEAD
-    //    nglString val = v;
-    //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
-=======
->>>>>>> e176c4d9e9df4ceb00fe0b629a5db81f6a8bdebd
     DisplayCFValue(domains[i], v);
   }
 
@@ -320,11 +311,6 @@ iOSDevice::iOSDevice(am_device *device)
   {
     CFStringRef value = CFStringCreateWithCString(NULL, values[i], kCFStringEncodingUTF8);
     CFStringRef v = AMDeviceCopyValue(mpDevice, NULL, value);
-<<<<<<< HEAD
-//    nglString val = v;
-    //NGL_OUT("iOS device value [%s] -> %s\n", values[i], val.GetChars());
-=======
->>>>>>> e176c4d9e9df4ceb00fe0b629a5db81f6a8bdebd
     DisplayCFValue(values[i], v);
   }
   NGL_OUT("Done\n");

@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423610893.200951"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "761"
-            endingLineNumber = "761"
+            startingLineNumber = "747"
+            endingLineNumber = "747"
             landmarkName = "iOSDevice::InstallApplication(const nglPath&amp; rPath)"
             landmarkType = "5">
          </BreakpointContent>
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423577925.806584"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378">
+            startingLineNumber = "364"
+            endingLineNumber = "364">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -226,11 +226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423577145.491804"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "iOSDevice::iOSDevice(am_device *device)"
             landmarkType = "5">
          </BreakpointContent>
@@ -242,27 +242,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423577925.806584"
+            timestampString = "423611879.088325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "iOSDevice::iOSDevice(am_device *device)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/Xspray/iOSRemoteDebug.cpp"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "309"
             endingLineNumber = "309"
-            landmarkName = "iOSDevice::iOSDevice(am_device *device)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423577925.806584"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
             landmarkName = "iOSDevice::iOSDevice(am_device *device)"
             landmarkType = "5">
          </BreakpointContent>
@@ -290,11 +290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423577925.806584"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386">
+            startingLineNumber = "372"
+            endingLineNumber = "372">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,11 +304,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423577925.806584"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "iOSDevice::Exit()"
             landmarkType = "5">
          </BreakpointContent>
@@ -320,11 +320,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423577925.806584"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "iOSDevice::DeviceCallback(struct am_device_notification_callback_info *info, void *arg)"
             landmarkType = "5">
          </BreakpointContent>
@@ -336,11 +336,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423610893.200951"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "795"
-            endingLineNumber = "795"
+            startingLineNumber = "781"
+            endingLineNumber = "781"
             landmarkName = "iOSDevice::InstallApplication(const nglPath&amp; rPath)"
             landmarkType = "5">
          </BreakpointContent>
@@ -352,11 +352,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423610893.200951"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "725"
-            endingLineNumber = "725"
+            startingLineNumber = "711"
+            endingLineNumber = "711"
             landmarkName = "iOSDevice::StartRemoteDebugServer()"
             landmarkType = "5">
          </BreakpointContent>
@@ -364,15 +364,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423610893.200951"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "699"
-            endingLineNumber = "699"
+            startingLineNumber = "685"
+            endingLineNumber = "685"
             landmarkName = "iOSDevice::GetDiskAppIdentifier(const nglString&amp; AppURL)"
             landmarkType = "5">
          </BreakpointContent>
@@ -384,11 +384,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423609481.590835"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
             landmarkName = "iOSDevice::DeviceCallback(struct am_device_notification_callback_info *info, void *arg)"
             landmarkType = "5">
          </BreakpointContent>
@@ -400,11 +400,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423610374.08704"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "iOSDevice::GetDeviceSupportPath(nglString&amp; rDeviceSupportPath, nglString&amp; rDeveloperDiskImagePath)"
             landmarkType = "5">
          </BreakpointContent>
@@ -416,11 +416,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "423610374.08704"
+            timestampString = "423611879.088325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
             landmarkName = "iOSDevice::GetDeviceSupportPath(nglString&amp; rDeviceSupportPath, nglString&amp; rDeveloperDiskImagePath)"
             landmarkType = "5">
          </BreakpointContent>
