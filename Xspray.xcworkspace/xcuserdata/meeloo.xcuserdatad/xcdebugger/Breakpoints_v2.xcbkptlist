@@ -16,7 +16,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../nui3/src/WidgetTree/nuiTopLevel.cpp"
@@ -36,12 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../nui3/src/WidgetTree/nuiWidget.cpp"
-            timestampString = "398813575.18041"
+            timestampString = "423575629.098776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1956"
-            endingLineNumber = "1956"
-            landmarkName = "nuiWidget::Focus()"
+            startingLineNumber = "1959"
+            endingLineNumber = "1959"
+            landmarkName = "nuiWidget::DispatchMouseMove(const nglMouseInfo&amp; rInfo)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,8 +57,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "973"
             endingLineNumber = "973"
-            landmarkName = "nuiTopLevel::CallKeyDown (const nglKeyEvent&amp; rEvent)"
-            landmarkType = "5">
+            landmarkName = "DeepSearchPreviousFocussableWidget(nuiWidgetPtr pWidget, bool TryThisNode)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,47 +96,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "400980611.403013"
+            timestampString = "401021744.475647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "iOSDevice::iOSDevice(am_device *device)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Xspray::iOSDevice::iOSDevice(am_device*)"
-                  moduleName = "XsprayD"
-                  urlString = "file:///Users/meeloo/work/xspray/src/Xspray/iOSRemoteDebug.cpp"
-                  timestampString = "400980611.468777"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "268"
-                  endingLineNumber = "268"
-                  offsetFromSymbolStart = "2266">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Xspray::iOSDevice::iOSDevice(am_device*)"
-                  moduleName = "XsprayD"
-                  urlString = "file:///Users/meeloo/work/xspray/src/Xspray/iOSRemoteDebug.cpp"
-                  timestampString = "400980611.468937"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "268"
-                  endingLineNumber = "268"
-                  offsetFromSymbolStart = "2520">
-               </Location>
-            </Locations>
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "DisplayCFValue(const char* domain, CFTypeRef v)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -146,12 +116,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "src/Xspray/iOSRemoteDebug.cpp"
-            timestampString = "400980694.973132"
+            timestampString = "401021811.515205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "iOSDevice::iOSDevice(am_device *device)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/Xspray/DebugView.cpp"
+            timestampString = "423530537.430927"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "DebugView::OnStartLOCAL()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/Xspray/DebugView.cpp"
+            timestampString = "423530588.985571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
+            landmarkName = "DebugView::Loop()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/Xspray/DebugView.cpp"
+            timestampString = "423530617.812838"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "486"
+            endingLineNumber = "486"
+            landmarkName = "DebugView::Loop()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/Xspray/DebugView.cpp"
+            timestampString = "423530688.469861"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "DebugView::OnStartLOCAL()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

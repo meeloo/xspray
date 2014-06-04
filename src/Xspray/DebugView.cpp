@@ -303,11 +303,11 @@ void DebugView::OnStartLOCAL()
 
       SBError error;
 #if 1
-      rContext.mProcess = rContext.mTarget.LaunchSimple (NULL, NULL, "~/");
+      rContext.mProcess = rContext.mTarget.LaunchSimple (NULL, NULL, "/");
 #else
       const char **argv = NULL;
       const char **envp = NULL;
-      const char *working_directory = "~/";
+      const char *working_directory = "/";
       char *stdin_path = NULL;
       char *stdout_path = NULL;
       char *stderr_path = NULL;

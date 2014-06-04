@@ -96,6 +96,7 @@
 
       +nuiButton LaunchApplication
       {
+        Debug: 1;
         Position: Left;
         +nuiHBox
         {

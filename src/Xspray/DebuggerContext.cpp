@@ -27,10 +27,10 @@ DebuggerContext::DebuggerContext()
     //     "all", // - turn on all available logging categories\n"
     //"api", // - enable logging of API calls and return values\n"
     "break", // - log breakpoints\n"
-    //     "commands", // - log command argument parsing\n"
-    //     "default", // - enable the default set of logging categories for liblldb\n"
-    //     "dyld", // - log shared library related activities\n"
-    //     "events", // - log broadcaster, listener and event queue activities\n"
+         "commands", // - log command argument parsing\n"
+         "default", // - enable the default set of logging categories for liblldb\n"
+         "dyld", // - log shared library related activities\n"
+         "events", // - log broadcaster, listener and event queue activities\n"
     //     "expr", // - log expressions\n"
     //     "object", // - log object construction/destruction for important objects\n"
     //     "module", // - log module activities such as when modules are created, detroyed, replaced, and more\n"
@@ -43,12 +43,12 @@ DebuggerContext::DebuggerContext()
     "thread", // - log thread events and activities\n"
     //     "types", // - log type system related activities\n"
     //     "unwind", // - log stack unwind activities\n"
-    //     "verbose", // - enable verbose logging\n"
+         "verbose", // - enable verbose logging\n"
     //     "watch", // - log watchpoint related activities\n");
     NULL
   };
-//  mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
-//  mDebugger.EnableLog(channel, categories);
+  mDebugger.SetLoggingCallback(MyLogOutputCallback, NULL);
+  mDebugger.EnableLog(channel, categories);
 }
 
 DebuggerContext& Xspray::GetDebuggerContext()
