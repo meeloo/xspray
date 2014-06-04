@@ -1,3 +1,5 @@
+![Xspray](https://raw.githubusercontent.com/meeloo/xspray/master/XsprayScreen.png?raw=true "Xspray LLDB front end for OSX and iOS")
+
 To build Xspray on OSX you need llvm, clang and lldb.
 
 Setting up the folders for correct dependencies:
@@ -11,16 +13,16 @@ Setting up the folders for correct dependencies:
 
 Change to the directory where you want to do development work and checkout LLDB:
 
-  > cd WORK
-  > svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
-  > git clone git@github.com:meeloo/nui3.git
-  > git clone git@github.com:meeloo/Xspray.git
+    > cd WORK
+    > svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
+    > git clone git@github.com:meeloo/nui3.git
+    > git clone git@github.com:meeloo/Xspray.git
 
 You will also need swig installed. I got it view brew:
-  > brew install swig
+    > brew install swig
 
 Note1: Beware! If you have installed Xcode 5 and you are trying to build with Xcode 4, chances are the system svn will be v1.7 while Xcode 4 is still 1.6 and it will prevent the build script from fetching llvm and clang sources. If thats the case, use the svn binary that is inside the Xcode bundle like that:
-  > /Applications/Xcode.app/Contents/Developer/usr/bin/svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
+    > /Applications/Xcode.app/Contents/Developer/usr/bin/svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
 
 Note2: I have found that we don't need to use a special cryptographic certificate as the lldb mentions, using the default Mac Developper cert will work fine on any machine. YAY! For that change, select the LLDB project in Xcode, then select the lldb_gdbserver target and look for the code signing section. Change all lldb_codesign to your own Mac OS Developper certificate.
 
@@ -39,5 +41,5 @@ Once it is built without error (hopefully) you can select the Xspray project and
 
 Warning: for now, the executable I do my tests on is hardcoded in the MainWindow.cpp. Edit it out to point to an existing debugable executable on your machine.
 
-For any question, ask :D
+Feel free to ask any question :D
 
