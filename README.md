@@ -4,6 +4,50 @@ A front end for lldb on OS X for Mac and iOS targets, with a twist
 
 ![Xspray](https://raw.githubusercontent.com/meeloo/xspray/master/XsprayScreen.png?raw=true "Xspray LLDB front end for OSX and iOS")
 
+The full story:
+---------------
+About one year ago I took some time experimenting with creating a new GUI for lldb. My idea was to build a debugger that permits to deeply inspect data at runtime. As a developer it is often very frustrating to the IDE stop in the code and not be able to really inspect variables that are big containers (beyond a dozen of floats…). When I deal with real time audio, image processing, video, maths, etc., not having access to a more visual representation of my data often makes my life miserable. I also would like to have a complete set of tools to analyse my data: compute the average, the sum, the first derivative of a big vector of float can be life saving.
+So I started to toy with lldb on the Mac and I developed a prototype to see if my idea was feasible. LLDB is an absolutely amazing project (along with LLVM and Clang…) and developing a simple plotter that can inspect std::vector and std::list at runtime was relatively easy on OSX (and the answers I got to my newbie questions on the lldb-dev mailing list have been very helpful too!). Making it work with an iOS target proved much harder as there is very little documentation about how Xcode and iTunes installs application and start the debugger there. After much trial an error I succeeded to have that working too.
+The next idea was to build a complete GUI for LLDB that would work on Android too: native debugging on that plateform is a pure nightmare of horrible scripts and arcane command line instructions. Unfortunately lldb was not at all able to gdb-remote a linux host (even x86 gdb-remote didn’t work at all at the time) and an android debugserver implementation seemed out of question. Which is really a shame as I’m pretty sure game developers (for exemple) would love to have a full blown debugger on that platform. (and one with the features I envisioned would be really very cool…). So I stopped working on it (also I was running out of free time).
+
+Unfortunately, I haven’t had much time to really touch my prototype since september 2013 as after giving the idea some thoughts I haven’t found compelling proof that I could make a living by selling this kind of software (nobody wants to launch a separate debugger from Xcode right?). But I thought it was too bad to have all that code lying there doing nothing and helping nobody. So I have decided to release this small prototype as an open source project on github: http://github.com/meeloo/Xspray.
+
+The features:
+--------------
+- load an iOS or MacOSX application
+- get infos from the iOS devices plugged on the computer
+- see the list of compiles units
+- pause/ step over / step in / step out / continue
+- load C/ObjC/C++ source and display it with syntax colouring (thanks to libclang…).
+- add/remove breakpoints from the source code by clicking in the gutter
+- list the module dependencies (dylibs, frameworks, etc) and object files.
+- launch the program on the Mac or iOS device (will as for permission, etc).
+- stop on breakpoints
+- inspect variables
+- display a crude plot when you select a variable that contains a std::list, std::vector or array of simple types (signed and unsigned integers of 8, 16, and 32 bits, floats, doubles)
+- probably more things that I have forgotten
+- written in C++, mostly portable to linux and windows thanks to NUI (could be done in a couple of weeks I guess).
+- the code is still very messy, particularly on the iOS side.
+
+Some features are not plugged in the UI yet (iOS devices that were already plugged at startup don’t show up in the UI for exemple). And the UI in itself is far from looking like a finished product, it not even alpha grade in my opinion, but it works.
+
+Future:
+-------
+Here is a list of some of the features that I wanted to add one day (and I might do it one day):
+- TimeMachine for debugger: store the value of very variable of every point of the stack trace on each breakpoint stop. The idea is to have a timeline slider that permits to go back in time and still see what happened a couple of loop iteration before the current one, for exemple. (don’t you hate it when you have an error occurring after about 50 iterations of a loop and in your StepOver frenzy you miss the important point and you have to start over again?).
+- With the data collected in the TimeMachine I want to be able to plot the evolution of any variable / class member at a particular breakpoint. I would call that visual watched variables.
+- statistics and vector operations on the data. because in 2014 we can do better than an hexadecimal dump of memory.
+- a memory visualiser that can interpret a chunk of memory as some common data type and visualise it: 8, 16, 24, 32 bit PCM audio, rgb/rgba/grey level pictures, plain text (and variants) with configurable encoding, etc.
+- a plugin system for custom data type visualisation
+
+
+
+Dependencies:
+-------------
+- lldb / llvm / clang of course
+- NUI: my multi-platform UI framework on top of OpenGL. https://github.com/meeloo/nui3
+
+
 Building Xspray
 ---------------
 To build Xspray on OSX you need llvm, clang and lldb.
