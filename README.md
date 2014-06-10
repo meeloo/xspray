@@ -1,5 +1,5 @@
-Xpray
-=====
+Xspray
+======
 A front end for lldb on OS X for Mac and iOS targets, with a twist
 
 ![Xspray](https://raw.githubusercontent.com/meeloo/xspray/master/XsprayScreen.png?raw=true "Xspray LLDB front end for OSX and iOS")
