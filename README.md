@@ -45,7 +45,7 @@ Here is a list of some of the features that I wanted to add one day (and I might
 Dependencies:
 -------------
 - lldb / llvm / clang of course
-- NUI: my multi-platform UI framework on top of OpenGL. https://github.com/meeloo/nui3
+- NUI: my multi-platform UI framework on top of OpenGL. https://github.com/libnui/nui3
 
 
 Building Xspray
@@ -65,7 +65,7 @@ Change to the directory where you want to do development work and checkout LLDB:
 
     > cd WORK
     > svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
-    > git clone git@github.com:meeloo/nui3.git
+    > git clone git@github.com:libnui/nui3.git
     > git clone git@github.com:meeloo/Xspray.git
 
 You will also need swig installed. I got it view brew:
