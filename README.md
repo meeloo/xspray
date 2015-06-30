@@ -68,6 +68,14 @@ Change to the directory where you want to do development work and checkout LLDB:
     > git clone git@github.com:libnui/nui3.git
     > git clone git@github.com:meeloo/Xspray.git
 
+Alternatively if you are not using ssh authentification try:
+
+     > cd WORK
+     > svn co http://llvm.org/svn/llvm-project/lldb/trunk lldb
+     > git clone git://github.com/libnui/nui3.git
+     > git clone git://github.com/meeloo/Xspray.git
+
+
 You will also need swig installed. I got it view brew:
 
     > brew install swig
